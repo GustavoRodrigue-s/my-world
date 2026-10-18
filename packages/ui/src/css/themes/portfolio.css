@@ -1,0 +1,108 @@
+/* GERADO — não editar. Fonte: packages/design-system/src/themes/*.ts */
+/* Para atualizar: cd packages/ui && npm run generate:themes */
+
+/* Applies only while [data-env="portfolio"] is mounted. */
+:root:has([data-env="portfolio"]) {
+  color-scheme: light;
+  --color-primary: #17150F;
+  --color-primary-light: #24211A;
+  --color-primary-dark: #0C0B08;
+  --color-accent: #B5321C;
+  --color-accent-hover: #93260F;
+  --color-on-primary: #EEEAE0;
+  --color-on-primary-muted: rgba(238, 234, 224, 0.64);
+  --color-on-accent: #FBF8F2;
+  --color-support-1: #2E4A7D;
+  --color-surface: #EEEAE0;
+  --color-surface-alt-1: #E6E1D4;
+  --color-surface-alt-2: #F6F3EC;
+  --color-foreground: #17150F;
+  --color-muted: #57524A;
+  --color-subtle: #7E786C;
+  --color-border: rgba(23, 21, 15, 0.14);
+  --color-border-strong: rgba(23, 21, 15, 0.34);
+  --color-shadow: rgba(23, 21, 15, 0.10);
+  --color-accent-pale: #EFD9CC;
+  --color-accent-border: #D49A86;
+  --font-sans: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+:root[data-theme="dark"]:has([data-env="portfolio"]) {
+  color-scheme: dark;
+  --color-primary: #17150F;
+  --color-primary-light: #24211A;
+  --color-primary-dark: #0C0B08;
+  --color-accent: #EE5C3F;
+  --color-accent-hover: #FF7E62;
+  --color-on-primary: #EEEAE0;
+  --color-on-primary-muted: rgba(238, 234, 224, 0.64);
+  --color-on-accent: #14120E;
+  --color-support-1: #8FA6D6;
+  --color-surface: #14120E;
+  --color-surface-alt-1: #1C1914;
+  --color-surface-alt-2: #0E0D0A;
+  --color-foreground: #ECE6D9;
+  --color-muted: #A59E8F;
+  --color-subtle: #6E685C;
+  --color-border: rgba(236, 230, 217, 0.12);
+  --color-border-strong: rgba(236, 230, 217, 0.30);
+  --color-shadow: rgba(0, 0, 0, 0.50);
+  --color-accent-pale: #2B1711;
+  --color-accent-border: #6A2E1F;
+}
+
+/* No explicit choice stored → follow the OS. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):has([data-env="portfolio"]) {
+    color-scheme: dark;
+    --color-primary: #17150F;
+    --color-primary-light: #24211A;
+    --color-primary-dark: #0C0B08;
+    --color-accent: #EE5C3F;
+    --color-accent-hover: #FF7E62;
+    --color-on-primary: #EEEAE0;
+    --color-on-primary-muted: rgba(238, 234, 224, 0.64);
+    --color-on-accent: #14120E;
+    --color-support-1: #8FA6D6;
+    --color-surface: #14120E;
+    --color-surface-alt-1: #1C1914;
+    --color-surface-alt-2: #0E0D0A;
+    --color-foreground: #ECE6D9;
+    --color-muted: #A59E8F;
+    --color-subtle: #6E685C;
+    --color-border: rgba(236, 230, 217, 0.12);
+    --color-border-strong: rgba(236, 230, 217, 0.30);
+    --color-shadow: rgba(0, 0, 0, 0.50);
+    --color-accent-pale: #2B1711;
+    --color-accent-border: #6A2E1F;
+  }
+}
+
+/* Paper is the only mode that prints. Same specificity as the dark rules, declared later. */
+@media print {
+  :root:root:has([data-env="portfolio"]) {
+    color-scheme: light;
+    --color-primary: #17150F;
+    --color-primary-light: #24211A;
+    --color-primary-dark: #0C0B08;
+    --color-accent: #B5321C;
+    --color-accent-hover: #93260F;
+    --color-on-primary: #EEEAE0;
+    --color-on-primary-muted: rgba(238, 234, 224, 0.64);
+    --color-on-accent: #FBF8F2;
+    --color-support-1: #2E4A7D;
+    --color-surface: #EEEAE0;
+    --color-surface-alt-1: #E6E1D4;
+    --color-surface-alt-2: #F6F3EC;
+    --color-foreground: #17150F;
+    --color-muted: #57524A;
+    --color-subtle: #7E786C;
+    --color-border: rgba(23, 21, 15, 0.14);
+    --color-border-strong: rgba(23, 21, 15, 0.34);
+    --color-shadow: rgba(23, 21, 15, 0.10);
+    --color-accent-pale: #EFD9CC;
+    --color-accent-border: #D49A86;
+  }
+}

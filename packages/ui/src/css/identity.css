@@ -1,0 +1,101 @@
+/*
+ * Identity — "Mundo do Gustavo".
+ * Hand-written (not generated): base-token overrides and the few graphic
+ * devices that Tailwind utilities can't express cleanly. Everything here is
+ * scoped to [data-env="portfolio"] so it never leaks into other environments.
+ * Colors always come from the theme vars in themes/portfolio.css.
+ */
+
+[data-env='portfolio'] {
+  /* Wider page, generous rhythm, near-square corners (technical drawing, not app chrome). */
+  --spacing-content-max: 1180px;
+  --spacing-section-x: 1.25rem;
+  --spacing-section-y: 80px;
+  --spacing-nav-h: 64px;
+  --radius-card: 2px;
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 768px) {
+  [data-env='portfolio'] {
+    --spacing-section-x: 2.5rem;
+    --spacing-section-y: 120px;
+  }
+}
+
+[data-env='portfolio'] ::selection {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+[data-env='portfolio'] :focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Hachura — engraving-style hatching, used for shadows and "paper cut" fills. */
+[data-env='portfolio'] .hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    currentColor 0 1px,
+    transparent 1px 6px
+  );
+}
+
+/* Marcas de registro — print registration ticks on the corners of a sheet. */
+[data-env='portfolio'] .registration {
+  position: relative;
+}
+
+[data-env='portfolio'] .registration::before,
+[data-env='portfolio'] .registration::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  border-color: var(--color-foreground);
+  border-style: solid;
+  opacity: 0.55;
+}
+
+[data-env='portfolio'] .registration::before {
+  top: -5px;
+  left: -5px;
+  border-width: 1px 0 0 1px;
+}
+
+[data-env='portfolio'] .registration::after {
+  right: -5px;
+  bottom: -5px;
+  border-width: 0 1px 1px 0;
+}
+
+/* Linha pontilhada de órbita — dotted leader between a label and its value. */
+[data-env='portfolio'] .leader {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 1px dotted var(--color-border-strong);
+  transform: translateY(-0.3em);
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 14mm 16mm;
+  }
+
+  /* Ink on white: the paper tone is for screens, printers shouldn't spend toner on it. */
+  body:has([data-env='portfolio']),
+  [data-env='portfolio'] {
+    background: transparent;
+  }
+
+  [data-env='portfolio'] .registration::before,
+  [data-env='portfolio'] .registration::after {
+    display: none;
+  }
+}

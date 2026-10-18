@@ -1,0 +1,39 @@
+import Image from 'next/image'
+import { MARK_GEOMETRY, markPoint, cx } from '@/components/ui'
+
+const g = MARK_GEOMETRY
+const start = markPoint(g.gapStart)
+const end = markPoint(g.gapEnd)
+const sat = markPoint(g.satelliteAngle)
+// Same orbit as the mark, but the core grows into the portrait and the crossbar shortens to meet it.
+const RING = `M${start.x} ${start.y}A${g.r} ${g.r} 0 1 0 ${end.x} ${end.y}H38.6`
+
+interface PortraitProps {
+  src?: string | null
+  alt: string
+  className?: string
+}
+
+/** The portrait sits where the mark's core is: you at the center of your own world. */
+export function Portrait({ src, alt, className }: PortraitProps) {
+  return (
+    <div className={cx('relative aspect-square w-full', className)}>
+      <div className="absolute inset-[23%] overflow-hidden rounded-full bg-surface-alt-1">
+        {src ? (
+          <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 200px, 40vw" className="object-cover grayscale-[15%]" />
+        ) : (
+          <div role="img" aria-label={alt} className="flex h-full w-full items-center justify-center text-foreground">
+            <span aria-hidden className="hatch absolute inset-0 opacity-[0.18]" />
+            <span aria-hidden className="relative font-serif text-[clamp(40px,7vw,64px)] italic leading-none">
+              GR
+            </span>
+          </div>
+        )}
+      </div>
+      <svg viewBox="0 0 48 48" aria-hidden className="absolute inset-0 h-full w-full text-foreground">
+        <path d={RING} fill="none" stroke="currentColor" strokeWidth="0.55" />
+        <circle cx={sat.x} cy={sat.y} r="1.5" className="fill-accent" />
+      </svg>
+    </div>
+  )
+}

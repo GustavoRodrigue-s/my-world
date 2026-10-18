@@ -1,0 +1,60 @@
+# Local development services
+# Run: docker compose up -d
+# Starts: PostgreSQL, Strapi CMS
+# Meilisearch and Redis added in Phase 2
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: capela-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: minha_capela
+      POSTGRES_USER: capela
+      POSTGRES_PASSWORD: capela_dev_password
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U capela -d minha_capela']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  strapi:
+    build:
+      context: ./apps/cms
+      dockerfile: Dockerfile.dev
+    container_name: capela-strapi
+    restart: unless-stopped
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: minha_capela
+      DATABASE_USERNAME: capela
+      DATABASE_PASSWORD: capela_dev_password
+      DATABASE_SSL: 'false'
+      JWT_SECRET: dev-jwt-secret-change-in-production
+      ADMIN_JWT_SECRET: dev-admin-jwt-secret-change-in-production
+      APP_KEYS: dev-app-key-1,dev-app-key-2
+      API_TOKEN_SALT: dev-api-token-salt
+      TRANSFER_TOKEN_SALT: dev-transfer-token-salt
+      NODE_ENV: development
+      # Webhook to notify Next.js on content changes
+      NEXT_REVALIDATE_URL: http://host.docker.internal:3000/api/revalidate
+      NEXT_REVALIDATE_SECRET: dev-secret-change-in-production
+    ports:
+      - '1337:1337'
+    volumes:
+      - ./apps/cms:/app
+      - /app/node_modules
+      - strapi_uploads:/app/public/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  strapi_uploads:

@@ -1,0 +1,29 @@
+/* GERADO — não editar. Fonte: packages/design-system/src/themes/*.ts */
+/* Para atualizar: cd packages/ui && npm run generate:themes */
+
+/* This environment ships light mode only — no toggle, no dark block, */
+/* no prefers-color-scheme fallback. */
+:root {
+  --color-primary: #12100C;
+  --color-primary-light: #1E1A14;
+  --color-primary-dark: #000000;
+  --color-accent: #B08D57;
+  --color-accent-hover: #C8A96E;
+  --color-on-primary: #F6F1E8;
+  --color-on-primary-muted: rgba(246, 241, 232, 0.62);
+  --color-on-accent: #1F150A;
+  --color-support-1: #4E6651;
+  --color-surface: #FFFFFF;
+  --color-surface-alt-1: #F6F1E8;
+  --color-surface-alt-2: #EDE4D3;
+  --color-foreground: #1A1A1A;
+  --color-muted: #5E5E5E;
+  --color-subtle: #8A8A8A;
+  --color-border: rgba(176, 141, 87, 0.18);
+  --color-border-strong: rgba(176, 141, 87, 0.40);
+  --color-shadow: rgba(18, 16, 12, 0.10);
+  --color-accent-pale: #F3EBD8;
+  --color-accent-border: #D9C594;
+  --font-sans: 'Inter', 'Source Sans Pro', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+}
