@@ -25,7 +25,7 @@ export function SectionServices({ locale }: { locale: Locale }) {
         {process.map((stage, i) => (
           <li
             key={stage.name}
-            className="border-b border-border-strong py-7 sm:px-6 sm:max-lg:odd:pl-0 sm:max-lg:even:border-l lg:border-b-0 lg:border-l lg:first:border-l-0 lg:first:pl-0"
+            className="group plot-rise border-b border-border-strong py-7 sm:px-6 sm:max-lg:odd:pl-0 sm:max-lg:even:border-l lg:border-b-0 lg:border-l lg:first:border-l-0 lg:first:pl-0"
           >
             <div className="flex items-start justify-between">
               <ProcessIcon stage={STAGE_KEYS[i]} />
@@ -45,7 +45,9 @@ export function SectionServices({ locale }: { locale: Locale }) {
 
       <div className="mt-20 grid gap-10 md:grid-cols-3">
         {services.map((s) => (
-          <div key={s.title} className="border-t border-foreground pt-5">
+          <div key={s.title} className="group plot-rise relative border-t border-foreground pt-5">
+            {/* Hover: a red rule is traced over the ink one. */}
+            <span aria-hidden className="absolute inset-x-0 -top-px h-px origin-left scale-x-0 bg-accent transition-transform duration-200 ease-out group-hover:scale-x-100" />
             <Heading as="h3" level="item" className="max-w-[18ch]">
               {s.title}
             </Heading>
@@ -56,7 +58,7 @@ export function SectionServices({ locale }: { locale: Locale }) {
         ))}
       </div>
 
-      <div className="mt-20 border-t border-border-strong pt-6">
+      <div className="plot-rise mt-20 border-t border-border-strong pt-6">
         <Text family="mono" size="sm" color="muted">
           {copy.services.companies}
         </Text>

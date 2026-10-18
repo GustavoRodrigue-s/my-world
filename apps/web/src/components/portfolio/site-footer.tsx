@@ -4,7 +4,7 @@ import { getContent, type Locale } from '@/lib/portfolio-content'
 import { localePath } from '@/lib/portfolio-locale'
 
 const linkClass =
-  'font-sans text-[14px] text-foreground no-underline transition-colors duration-[var(--transition-fast)] hover:text-accent'
+  'ink-link font-sans text-[14px] text-foreground no-underline hover:text-accent'
 
 function Column({ title, children }: { title: string; children: React.ReactNode }) {
   return (

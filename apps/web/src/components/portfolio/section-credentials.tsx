@@ -4,7 +4,7 @@ import { Folio } from './folio'
 
 function Register({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div>
+    <div className="plot-rise">
       <Text family="mono" size="sm" color="muted" className="mb-3">
         {title}
       </Text>

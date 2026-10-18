@@ -170,7 +170,6 @@ export const en: PortfolioCopy = {
     title: { before: 'A piece of', emphasis: 'who I am' },
     paragraphs: [
       'I started programming in 2021, teaching myself, and since 2022 it has been my profession. I’ve worked at companies in the financial sector — EWZ Capital, MundoInvest and Cash2Pay — and today I’m a mid-level full-stack developer at Big4Tech, here in Londrina.',
-      // REVIEW: second sentence.
       'I have more experience on the frontend, but I work full-stack and want to keep growing on both sides. What I enjoy most is building things well — an interface, an API or the architecture that holds them both.',
       'I use AI every day and set projects up so they adapt to AI code generation, keeping the structure in step as the project grows: we gain speed and keep the quality. Claude, Codex, Copilot and MCPs are everyday tools, together with AI engineering and the planning and writing of requirements.',
       // REVIEW
@@ -681,22 +680,12 @@ export const en: PortfolioCopy = {
         'The metaphor lives in the margins — rubrics, captions, labels. Titles and content stay literal: a reader in a hurry understands everything without knowing the world.',
       motionLabel: 'motion',
       motion: [
-        {
-          name: 'Slow orbit',
-          text: 'Ambient motion is linear and slow: 40 to 70 seconds per revolution.',
-        },
-        {
-          name: 'Precision',
-          text: 'The interface responds in 150–200 ms, with no springs or bounces.',
-        },
-        {
-          name: 'One per page',
-          text: 'Only one protagonist animation per page. Everything else stays still.',
-        },
-        {
-          name: 'Always pausable',
-          text: 'A visible pause button, and anyone who asks for less motion gets a still frame.',
-        },
+        { name: 'Slow orbit', text: 'Ambient motion is linear and slow: 40 to 70 seconds per revolution.' },
+        { name: 'One per page', text: 'Only one protagonist animation per page — Fig. 1. Everything else moves only by the reader’s hand.' },
+        { name: 'Plotted on scroll', text: 'As you scroll, the page is plotted: lines are traced, orbits open out and blocks rise, once. Nothing loops.' },
+        { name: 'Precision', text: 'The interface responds in 150–200 ms, with no springs or bounces: an underline being traced, a rule turning red.' },
+        { name: 'Brand gesture', text: 'Only brand objects make a longer gesture, once: the satellite makes one orbit, the seal turns.' },
+        { name: 'Always pausable', text: 'A visible pause button, and anyone who asks for less motion gets the page still and complete.' },
       ],
       vocabularyLabel: 'vocabulary',
       vocabulary: [

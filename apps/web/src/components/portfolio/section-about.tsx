@@ -35,7 +35,7 @@ export function SectionAbout({ locale }: { locale: Locale }) {
             </Text>
             <ol className="mt-4 grid list-none border-t border-border sm:grid-cols-2">
               {about.principles.map((p, i) => (
-                <li key={p.title} className="flex gap-4 border-b border-border py-5 sm:odd:pr-6 sm:even:border-l sm:even:pl-6">
+                <li key={p.title} className="plot-rise flex gap-4 border-b border-border py-5 sm:odd:pr-6 sm:even:border-l sm:even:pl-6">
                   <Text as="span" family="mono" size="md" color="accent" className="w-6 shrink-0">
                     {ROMAN[i]}.
                   </Text>

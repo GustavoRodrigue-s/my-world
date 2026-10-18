@@ -27,7 +27,8 @@ export function SectionTools({ locale }: { locale: Locale }) {
   const { toolOrbits, aiTools, copy } = getContent(locale)
   return (
     <Folio id="tools" index="04" label={copy.tools.label} note={copy.tools.note} title={copy.tools.title} intro={copy.tools.intro}>
-      <div className="relative mx-auto w-full max-w-[640px] lg:aspect-square">
+      {/* --orbit: the chart's own view timeline; rings and tools open out from the core as it scrolls in. */}
+      <div className="relative mx-auto w-full max-w-[640px] [view-timeline-name:--orbit] lg:aspect-square">
         <svg viewBox="0 0 100 100" aria-hidden className="absolute inset-0 hidden h-full w-full lg:block">
           {RADII.map((r, i) => (
             <circle
@@ -36,7 +37,8 @@ export function SectionTools({ locale }: { locale: Locale }) {
               cy="50"
               r={r}
               fill="none"
-              className="stroke-foreground"
+              data-ring={i}
+              className="plot-orbit origin-[50px_50px] stroke-foreground [transform-box:view-box]"
               strokeWidth="0.18"
               strokeDasharray={i === 2 ? '0.6 1.2' : undefined}
               opacity={i === 2 ? 0.6 : 0.4}
@@ -51,7 +53,8 @@ export function SectionTools({ locale }: { locale: Locale }) {
           {toolOrbits.map((orbit, ring) => (
             <div key={orbit.name}>
               <h3
-                className="mb-4 lg:absolute lg:left-1/2 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-2"
+                data-ring={ring}
+                className="plot-orbit mb-4 lg:absolute lg:left-1/2 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-2"
                 style={{ top: `${50 - RADII[ring]}%` }}
               >
                 <Text as="span" family="mono" size="sm" color={ring === 0 ? 'accent' : 'muted'}>
@@ -62,10 +65,11 @@ export function SectionTools({ locale }: { locale: Locale }) {
                 {orbit.tools.map((tool, i) => (
                   <li
                     key={tool}
-                    className="inline-flex items-center gap-2 whitespace-nowrap lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-1.5 lg:py-0.5"
+                    data-ring={ring}
+                    className="plot-orbit group inline-flex items-center gap-2 whitespace-nowrap lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-1.5 lg:py-0.5"
                     style={position(ring, i, orbit.tools.length)}
                   >
-                    <span aria-hidden className={cx('h-[7px] w-[7px] shrink-0 rounded-full', DOT[ring])} />
+                    <span aria-hidden className={cx('h-[7px] w-[7px] shrink-0 rounded-full transition-transform duration-200 motion-safe:group-hover:scale-[1.6]', DOT[ring])} />
                     <Text
                       as="span"
                       size="base"
@@ -83,7 +87,7 @@ export function SectionTools({ locale }: { locale: Locale }) {
       </div>
 
       {/* AI sits outside the chart: half of it is practice, not a tool you can place on an orbit. */}
-      <div className="mt-16 grid gap-x-12 gap-y-6 border-t border-border-strong pt-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
+      <div className="plot-rise mt-16 grid gap-x-12 gap-y-6 border-t border-border-strong pt-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
         <div>
           <Text family="mono" size="sm" color="accent">
             {copy.tools.aiLabel}

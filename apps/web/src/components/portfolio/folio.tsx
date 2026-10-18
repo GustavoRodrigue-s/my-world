@@ -23,6 +23,8 @@ export function Folio({ id, index, label, note, title, intro, bg = 'surface', ch
       <div className="grid gap-y-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-x-16">
         <aside className="self-start lg:sticky lg:top-[calc(var(--spacing-nav-h)+40px)]">
           <Rubric index={index}>{label}</Rubric>
+          {/* The rubric's rule, traced as the section arrives. */}
+          <span aria-hidden className="plot-draw-x mt-3 block h-px w-10 bg-accent" />
           {note && (
             <Text family="mono" size="sm" color="muted" leading="relaxed" className="mt-3 max-w-[22ch]">
               {note}
@@ -31,11 +33,11 @@ export function Folio({ id, index, label, note, title, intro, bg = 'surface', ch
         </aside>
 
         <div className="min-w-0">
-          <Heading as="h2" id={`${id}-title`} level="title" className="max-w-[20ch]">
+          <Heading as="h2" id={`${id}-title`} level="title" className="plot-rise max-w-[20ch]">
             {title}
           </Heading>
           {intro && (
-            <Text size="lg" color="muted" leading="relaxed" className="mt-5 max-w-[58ch]">
+            <Text size="lg" color="muted" leading="relaxed" className="plot-rise mt-5 max-w-[58ch]">
               {intro}
             </Text>
           )}

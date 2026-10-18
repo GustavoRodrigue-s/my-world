@@ -29,7 +29,13 @@ export function ProcessIcon({ stage }: { stage: keyof typeof PATHS }) {
   return (
     <svg viewBox="0 0 32 32" width="36" height="36" aria-hidden className="text-foreground">
       <path d={p.ink} fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
-      <path d={p.red} className="fill-accent stroke-accent" strokeWidth="1.2" strokeLinejoin="round" />
+      {/* The red detail answers a hover on the stage (the parent is a `group`). */}
+      <path
+        d={p.red}
+        className="origin-center fill-accent stroke-accent transition-transform duration-200 ease-out [transform-box:fill-box] motion-safe:group-hover:scale-125 motion-safe:group-hover:rotate-12"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }

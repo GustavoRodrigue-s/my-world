@@ -169,7 +169,6 @@ export const pt: PortfolioCopy = {
     title: { before: 'Um pedaço de', emphasis: 'quem eu sou' },
     paragraphs: [
       'Comecei a programar em 2021, estudando por conta própria, e desde 2022 é a minha profissão. Passei por empresas do mercado financeiro — EWZ Capital, MundoInvest e Cash2Pay — e hoje sou desenvolvedor fullstack pleno na Big4Tech, aqui em Londrina.',
-      // REVIEW: second sentence.
       'Tenho mais experiência no frontend, mas trabalho como fullstack e meu interesse é evoluir nos dois ambientes. O que eu mais gosto é construir coisas bem-feitas — seja uma interface, uma API ou a arquitetura que sustenta as duas.',
       'Uso IA no dia a dia e configuro os projetos para se adaptarem à geração de código por IA, de forma que a estrutura acompanhe o crescimento: ganhamos agilidade e mantemos a qualidade. Claude, Codex, Copilot e MCPs são ferramentas de todo dia, junto com engenharia de IA e o planejamento e a construção de requisitos.',
       // REVIEW
@@ -683,19 +682,12 @@ export const pt: PortfolioCopy = {
         'A metáfora mora nas margens — rubricas, legendas, rótulos. Títulos e conteúdo continuam literais: quem lê com pressa entende tudo sem conhecer o mundo.',
       motionLabel: 'movimento',
       motion: [
-        {
-          name: 'Órbita lenta',
-          text: 'Movimento ambiente é linear e lento: 40 a 70 segundos por volta.',
-        },
-        { name: 'Precisão', text: 'A interface responde em 150–200 ms, sem molas nem quiques.' },
-        {
-          name: 'Uma por página',
-          text: 'Só uma animação protagonista por página. O resto fica parado.',
-        },
-        {
-          name: 'Sempre pausável',
-          text: 'Botão de pausa visível, e quem pede menos movimento recebe um quadro parado.',
-        },
+        { name: 'Órbita lenta', text: 'Movimento ambiente é linear e lento: 40 a 70 segundos por volta.' },
+        { name: 'Uma por página', text: 'Só uma animação protagonista por página — a Fig. 1. O resto só se move pela mão de quem lê.' },
+        { name: 'Traço no scroll', text: 'Ao rolar, a página é plotada: linhas se traçam, órbitas se abrem e blocos sobem, uma vez. Nada fica em loop.' },
+        { name: 'Precisão', text: 'A interface responde em 150–200 ms, sem molas nem quiques: um sublinhado que se traça, uma régua que fica vermelha.' },
+        { name: 'Gesto da marca', text: 'Só objetos da marca fazem um gesto mais longo, uma vez: o satélite dá uma volta, o selo gira.' },
+        { name: 'Sempre pausável', text: 'Botão de pausa visível, e quem pede menos movimento recebe a página parada e inteira.' },
       ],
       vocabularyLabel: 'vocabulário',
       vocabulary: [

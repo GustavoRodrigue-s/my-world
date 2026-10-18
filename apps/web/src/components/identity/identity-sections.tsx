@@ -56,7 +56,7 @@ export function IdentityConcept({ locale }: { locale: Locale }) {
     <Folio id="concept" index="01" label={t.label} note={t.note} title={t.title} intro={t.intro}>
       <ol className="grid list-none gap-x-10 gap-y-10 md:grid-cols-2">
         {t.story.map((s, i) => (
-          <li key={s.title} className="border-t border-border-strong pt-5">
+          <li key={s.title} className="plot-rise border-t border-border-strong pt-5">
             <Text family="mono" size="sm" color="accent">
               {String(i + 1).padStart(2, '0')}
             </Text>
@@ -87,7 +87,7 @@ export function IdentityMark({ locale }: { locale: Locale }) {
   const t = getContent(locale).identity.mark
   return (
     <Folio id="mark" index="02" label={t.label} note={t.note} title={t.title} intro={t.intro} bg="alt-2">
-      <ul className="grid list-none gap-px border border-border-strong bg-border-strong md:grid-cols-3">
+      <ul className="plot-rise grid list-none gap-px border border-border-strong bg-border-strong md:grid-cols-3">
         {VARIANTS.map((variant) => (
           <li key={variant} className="flex flex-col items-center bg-surface-alt-2 px-6 py-10 text-center">
             <Mark variant={variant} size={88} className="text-foreground" />
@@ -101,7 +101,7 @@ export function IdentityMark({ locale }: { locale: Locale }) {
         ))}
       </ul>
 
-      <div className="mt-12 grid gap-10 md:grid-cols-2">
+      <div className="plot-rise mt-12 grid gap-10 md:grid-cols-2">
         <div>
           <Text family="mono" size="sm" color="muted" className="mb-3">
             {t.rulesLabel}
@@ -147,7 +147,9 @@ export function IdentityColor({ locale }: { locale: Locale }) {
   const t = getContent(locale).identity.color
   return (
     <Folio id="color" index="03" label={t.label} note={t.note} title={t.title} intro={t.intro}>
-      <Palette swatches={t.swatches} large={t.large} />
+      <div className="plot-rise">
+        <Palette swatches={t.swatches} large={t.large} />
+      </div>
     </Folio>
   )
 }
@@ -158,7 +160,7 @@ export function IdentityType({ locale }: { locale: Locale }) {
   return (
     <Folio id="type" index="04" label={t.label} note={t.note} title={t.title} bg="alt-2">
       <div className="flex flex-col">
-        <div className="grid gap-6 border-t border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="plot-rise grid gap-6 border-t border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
           <div>
             <Text size="base" weight="semibold" color="foreground">
               {t.sans[0]}
@@ -171,7 +173,7 @@ export function IdentityType({ locale }: { locale: Locale }) {
             {t.sansSample}
           </Heading>
         </div>
-        <div className="grid gap-6 border-t border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="plot-rise grid gap-6 border-t border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
           <div>
             <Text size="base" weight="semibold" color="foreground">
               {t.serif[0]}
@@ -184,7 +186,7 @@ export function IdentityType({ locale }: { locale: Locale }) {
             <Emphasis>{t.serifSample}</Emphasis>
           </Heading>
         </div>
-        <div className="grid gap-6 border-t border-b border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="plot-rise grid gap-6 border-t border-b border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
           <div>
             <Text size="base" weight="semibold" color="foreground">
               {t.mono[0]}
@@ -210,7 +212,7 @@ export function IdentityElements({ locale }: { locale: Locale }) {
   const t = identity.elements
   return (
     <Folio id="elements" index="05" label={t.label} note={t.note} title={t.title} intro={t.intro}>
-      <ul className="grid list-none gap-px border border-border-strong bg-border-strong sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="plot-rise grid list-none gap-px border border-border-strong bg-border-strong sm:grid-cols-2 lg:grid-cols-3">
         <Element item={t.items.rubric}>
           <Rubric index="03">{t.rubricSample}</Rubric>
         </Element>
@@ -268,7 +270,7 @@ export function IdentityVoice({ locale }: { locale: Locale }) {
   const t = getContent(locale).identity.voice
   return (
     <Folio id="voice" index="06" label={t.label} note={t.note} title={t.title} intro={t.intro} bg="alt-1">
-      <div className="grid gap-14 lg:grid-cols-2">
+      <div className="plot-rise grid gap-14 lg:grid-cols-2">
         <div>
           <Text family="mono" size="sm" color="muted" className="mb-3">
             {t.motionLabel}

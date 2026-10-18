@@ -419,6 +419,17 @@ theme colors — never edit those SVGs by hand.
 2. One `<Emphasis>` word per statement. Titles and content stay **literal** — the
    metaphor (órbita, oficina, artefato, prancheta) lives in margins, captions, labels.
 3. One protagonist animation per page, always pausable, reduced-motion = still frame.
+   Everything else moves only by the reader's hand: scroll-driven "plotting"
+   (CSS scroll timelines in `identity.css` — `.plot-rise`, `.plot-draw-x`,
+   `.plot-orbit`, and the journey's "ink follows the reading line" set
+   `.plot-station` / `.plot-ink` / `.plot-inked` / `.plot-ripple` /
+   `.plot-ink-text` / `.plot-arrive`, plus `.plot-progress` under the header;
+   no JS frame loop, nothing loops; ranges kept short — Gustavo asked for
+   snappy motion) and hovers (150–200 ms; `.ink-link` traced underline). Brand objects
+   may make one longer gesture (satellite orbit, seal turn). Unsupported
+   browsers, reduced motion and print get the page fully drawn. Don't apply
+   `.plot-*` to first-frame content (the H1 is the LCP) or to single cells of a
+   `gap-px` grid (the background flashes through) — animate the grid instead.
 4. Tailwind sorts arbitrary values alphabetically, so a `className` that conflicts
    with a primitive's own arbitrary size/tracking does not reliably win — add a
    variant/level instead of overriding.

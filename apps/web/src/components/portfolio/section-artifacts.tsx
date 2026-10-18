@@ -18,10 +18,16 @@ function ArtifactSheet({ artifact, labels, locale }: { artifact: Artifact; label
   return (
     <article
       aria-labelledby={`${artifact.slug}-title`}
-      className="grid gap-x-10 gap-y-7 border-t border-border-strong py-10 md:grid-cols-[200px_minmax(0,1fr)] xl:grid-cols-[200px_minmax(0,1.15fr)_minmax(0,1fr)]"
+      className="group plot-rise grid gap-x-10 gap-y-7 border-t border-border-strong py-10 transition-colors duration-200 hover:border-foreground md:grid-cols-[200px_minmax(0,1fr)] xl:grid-cols-[200px_minmax(0,1.15fr)_minmax(0,1fr)]"
     >
       <div className="flex items-start gap-4 md:flex-col">
-        <Seal seed={artifact.slug} size={56} lit={artifact.status === 'production'} />
+        {/* Hover: the seal turns a few degrees, like a stamp being set. */}
+        <Seal
+          seed={artifact.slug}
+          size={56}
+          lit={artifact.status === 'production'}
+          className="transition-transform duration-300 ease-out motion-safe:group-hover:rotate-[24deg]"
+        />
         <div className="flex flex-col gap-2.5">
           <Text family="mono" size="md" color="accent">
             {artifact.code}
@@ -119,8 +125,8 @@ export function SectionArtifacts({ locale }: { locale: Locale }) {
           </Text>
           <ul className="mt-6 list-none border-t border-border">
             {prototypes.map((p) => (
-              <li key={p.title} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-1 border-b border-border py-3.5">
-                <Text as="span" family="mono" size="md" color="foreground">
+              <li key={p.title} className="group plot-rise grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-1 border-b border-border py-3.5">
+                <Text as="span" family="mono" size="md" color="foreground" className="transition-colors duration-200 group-hover:text-accent">
                   {p.title}
                 </Text>
                 <span className="flex gap-3">
@@ -130,10 +136,10 @@ export function SectionArtifacts({ locale }: { locale: Locale }) {
                       href={l.href}
                       target="_blank"
                       rel="noopener"
-                      className="inline-flex items-center gap-0.5 font-mono text-[12px] text-muted no-underline transition-colors hover:text-accent"
+                      className="group/link inline-flex items-center gap-0.5 font-mono text-[12px] text-muted no-underline transition-colors hover:text-accent"
                     >
                       {l.label}
-                      <ArrowUpRight size={12} strokeWidth={1.5} aria-hidden />
+                      <ArrowUpRight size={12} strokeWidth={1.5} aria-hidden className="transition-transform duration-200 motion-safe:group-hover/link:-translate-y-0.5 motion-safe:group-hover/link:translate-x-0.5" />
                       <span className="sr-only"> — {p.title} {copy.artifacts.labels.onGithub}</span>
                     </a>
                   ))}
@@ -158,7 +164,7 @@ export function SectionArtifacts({ locale }: { locale: Locale }) {
           </Text>
           <ol className="mt-6 list-none">
             {drawingBoard.map((d, i) => (
-              <li key={d.title} className="flex gap-4 border-t border-dashed border-border-strong py-4 first:border-t-0 first:pt-0">
+              <li key={d.title} className="plot-rise flex gap-4 border-t border-dashed border-border-strong py-4 first:border-t-0 first:pt-0">
                 <Text as="span" family="mono" size="md" color="support">
                   {String(i + 1).padStart(2, '0')}
                 </Text>

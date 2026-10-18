@@ -12,7 +12,7 @@ export function SectionContact({ locale }: { locale: Locale }) {
       <div className="grid gap-y-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-x-16">
         <Rubric index="07">{copy.contact.label}</Rubric>
         <div>
-          <Heading as="h2" id="contact-title" level="statement" className="max-w-[16ch]">
+          <Heading as="h2" id="contact-title" level="statement" className="plot-rise max-w-[16ch]">
             {title.before} <Emphasis>{title.emphasis}</Emphasis>
             {title.after}
           </Heading>
