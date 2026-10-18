@@ -81,7 +81,7 @@ export function buildArticleJsonLd(article: Article) {
 
 // schema.org Person structured data for the portfolio
 export function buildPersonJsonLd(locale: Locale) {
-  const { profile, toolOrbits, education } = getContent(locale)
+  const { profile, toolOrbits, aiTools } = getContent(locale)
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -91,9 +91,8 @@ export function buildPersonJsonLd(locale: Locale) {
     url: `${BASE_URL}${localePath(locale, '/portfolio')}`,
     email: `mailto:${profile.email}`,
     worksFor: { '@type': 'Organization', name: profile.company },
-    alumniOf: { '@type': 'CollegeOrUniversity', name: education[0].org },
     address: { '@type': 'PostalAddress', addressLocality: 'Londrina', addressRegion: 'PR', addressCountry: 'BR' },
-    knowsAbout: toolOrbits.slice(0, 2).flatMap((o) => o.tools),
+    knowsAbout: [...toolOrbits.slice(0, 2).flatMap((o) => o.tools), ...aiTools],
     sameAs: [profile.linkedin, profile.github],
   }
 }

@@ -5,7 +5,7 @@ import { localePath } from '@/lib/portfolio-locale'
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <Text as="div" family="mono" size="sm" color="accent" className="mb-3 break-after-avoid border-b border-border-strong pb-2">
+      <Text as="div" family="mono" size="sm" color="accent" className="mb-3 break-after-avoid border-b border-border-strong pb-2 print:mb-2.5">
         ¶ <span className="text-muted">{title}</span>
       </Text>
       {children}
@@ -27,13 +27,13 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
               {profile.name}
             </Heading>
             <Text size="lg" color="foreground" className="mt-2">
-              {profile.role} · {profile.focus}
+              {profile.role}
             </Text>
           </div>
           {/* The mark as the letterhead seal */}
           <Mark size={44} className="mt-1 text-foreground" />
         </div>
-        <Text as="div" family="mono" size="sm" color="muted" className="mt-6 flex flex-wrap gap-x-5 gap-y-1.5">
+        <Text as="div" family="mono" size="sm" color="muted" className="mt-6 flex flex-wrap gap-x-5 gap-y-1.5 print:gap-x-3.5">
           <span>
             {profile.city} · {profile.timezone}
           </span>
@@ -93,7 +93,7 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
 
         </div>
 
-        <aside className="flex flex-col gap-9">
+        <aside className="flex flex-col gap-9 print:gap-6">
           <Block title={resume.blocks.education}>
             {education.map((e) => (
               <div key={e.title}>
@@ -107,7 +107,7 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
             ))}
           </Block>
           <Block title={resume.blocks.skills}>
-            <dl className="flex flex-col gap-3.5">
+            <dl className="flex flex-col gap-3.5 print:gap-2.5">
               {resume.skills.map((s) => (
                 <div key={s.group}>
                   <Text as="dt" size="md" weight="semibold" color="foreground">

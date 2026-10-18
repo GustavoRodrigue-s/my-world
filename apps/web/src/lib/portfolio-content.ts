@@ -100,7 +100,6 @@ interface PageMeta {
 export interface PortfolioCopy {
   profile: {
     role: string
-    focus: string
     city: string
     region: string
     motto: string
@@ -144,7 +143,7 @@ export interface PortfolioCopy {
       drawingBoard: string
       labels: { role: string; decision: string; does: string; stack: string; confidential: string; onGithub: string }
     }
-    tools: Folio & { core: string }
+    tools: Folio & { core: string; aiLabel: string; aiTitle: string; aiText: string }
     credentials: Folio & { education: string; certifications: string; languages: string }
     services: Folio & { line: string; companies: string }
     contact: { label: string; resume: string }
@@ -174,6 +173,8 @@ export interface PortfolioCopy {
   prototypes: Prototype[]
   drawingBoard: Array<{ title: string; text: string }>
   toolOrbits: Array<{ name: string; caption: string; tools: string[] }>
+  /** AI tools and practices in daily use — listed under the orbit chart. */
+  aiTools: string[]
   process: Array<{ name: string; text: string }>
   services: Array<{ title: string; text: string }>
   companies: string[]

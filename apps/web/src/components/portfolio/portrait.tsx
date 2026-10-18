@@ -11,16 +11,20 @@ const RING = `M${start.x} ${start.y}A${g.r} ${g.r} 0 1 0 ${end.x} ${end.y}H38.6`
 interface PortraitProps {
   src?: string | null
   alt: string
+  /** Rendered width of the photo circle (54% of the box), for next/image. */
+  sizes?: string
+  /** Above the fold: load it right away. */
+  priority?: boolean
   className?: string
 }
 
 /** The portrait sits where the mark's core is: you at the center of your own world. */
-export function Portrait({ src, alt, className }: PortraitProps) {
+export function Portrait({ src, alt, sizes = '(min-width: 1024px) 200px, 40vw', priority, className }: PortraitProps) {
   return (
     <div className={cx('relative aspect-square w-full', className)}>
       <div className="absolute inset-[23%] overflow-hidden rounded-full bg-surface-alt-1">
         {src ? (
-          <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 200px, 40vw" className="object-cover grayscale-[15%]" />
+          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover grayscale-[15%]" />
         ) : (
           <div role="img" aria-label={alt} className="flex h-full w-full items-center justify-center text-foreground">
             <span aria-hidden className="hatch absolute inset-0 opacity-[0.18]" />

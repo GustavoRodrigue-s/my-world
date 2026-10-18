@@ -355,9 +355,11 @@ has a **chapel** (the link to Capela de Estudos). Motto: *feito com capricho*.
   added in one file must be added in the other. Lines marked `REVIEW` are drafts
   still to be confirmed by Gustavo (mirrored in both files). In English,
   "capricho" is **care**. A blog / `/dev` notes area is **not** planned for now.
-- **Portrait:** `public/portfolio/portrait.jpg` (`PORTRAIT_SRC`), shown at the core
-  of the mark in About. Square crop toned ink-on-paper; edits to Gustavo's photo
-  are crop / uniform scale / tone only — never reshape the face.
+- **Portrait:** `public/portfolio/portrait.jpg` (`PORTRAIT_SRC`), drawn at the core
+  of the mark (`<Portrait>`): small in the hero byline next to name + role (first
+  frame, `priority`; kept small so the H1 stays the LCP) and larger in About. Size
+  it with a wrapper — `<Portrait>` is `w-full`. Square crop toned ink-on-paper;
+  edits to Gustavo's photo are crop / uniform scale / tone only — never reshape the face.
 - Section components: `components/portfolio/*` (`folio.tsx` is the section shell:
   rubric + gloss in a sticky margin column, content on the right).
   Identity-page sections: `components/identity/*`.
