@@ -1,5 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Case- and accent-insensitive: "oracao" finds "oração"
+function normalize(text: string) {
+  return text.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
+}
+
+// Dev fallback: search mock data when Strapi is not configured or unreachable
+async function searchMockArticles(query: string) {
+  const { MOCK_ARTICLES } = await import('@/lib/mock-data')
+  const q = normalize(query)
+  return MOCK_ARTICLES.filter((a) =>
+    [a.title, a.summary, a.category?.name ?? ''].some((field) => normalize(field).includes(q))
+  ).slice(0, 8)
+}
+
 // Proxy search queries to Strapi — keeps API token server-side only
 // In Phase 2, replace the Strapi call with Meilisearch — no client changes needed
 export async function GET(request: NextRequest) {
@@ -7,20 +21,14 @@ export async function GET(request: NextRequest) {
   const query = searchParams.get('q')
 
   if (!query || query.trim().length < 2) {
-    return NextResponse.json({ data: [] })
+    return NextResponse.json({ results: [] })
   }
 
   const strapiUrl = process.env.STRAPI_URL
   const strapiToken = process.env.STRAPI_API_TOKEN
 
   if (!strapiUrl || !strapiToken) {
-    // Dev fallback: search mock data when Strapi is not configured
-    const { MOCK_ARTICLES } = await import('@/lib/mock-data')
-    const q = query.toLowerCase()
-    const results = MOCK_ARTICLES.filter(
-      (a) => a.title.toLowerCase().includes(q) || a.summary.toLowerCase().includes(q)
-    ).slice(0, 8)
-    return NextResponse.json({ results })
+    return NextResponse.json({ results: await searchMockArticles(query) })
   }
 
   try {
@@ -44,7 +52,7 @@ export async function GET(request: NextRequest) {
     const json = await res.json()
     return NextResponse.json({ results: json.data ?? [] })
   } catch (error) {
-    console.error('[search] Error:', error)
-    return NextResponse.json({ error: 'Search failed' }, { status: 500 })
+    console.error('[search] Strapi unavailable, falling back to mock data:', error)
+    return NextResponse.json({ results: await searchMockArticles(query) })
   }
 }
