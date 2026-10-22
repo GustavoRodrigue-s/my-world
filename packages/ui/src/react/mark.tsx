@@ -60,6 +60,8 @@ interface MarkProps extends Omit<React.SVGProps<SVGSVGElement>, 'children'> {
   size?: number
   /** Satellite in the accent color (default). Turn off for single-ink uses: stamps, embossing, favicons. */
   accent?: boolean
+  /** Which color lights the satellite: the brand accent (default) or the environment's support color. */
+  tone?: 'accent' | 'support'
   /** Accessible name. Omit when the mark sits next to the written name (it is then decorative). */
   title?: string
   /** Classes for the satellite alone; it pivots on the core, so a 360° rotation is one full orbit. */
@@ -70,6 +72,7 @@ export function Mark({
   variant = 'satellite',
   size = 32,
   accent = true,
+  tone = 'accent',
   title,
   satelliteClassName,
   className,
@@ -92,7 +95,7 @@ export function Mark({
         d={markSatellitePath(variant)}
         fill="currentColor"
         className={cx(
-          accent && 'fill-accent',
+          accent && (tone === 'support' ? 'fill-support-1' : 'fill-accent'),
           satelliteClassName && '[transform-box:view-box] origin-[24px_24px]',
           satelliteClassName
         )}

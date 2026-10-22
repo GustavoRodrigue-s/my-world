@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
-import { Text } from '@/components/ui'
+import { PrintButton, Text } from '@/components/ui'
 import { getContent } from '@/lib/portfolio-content'
 import { localePath, type Locale } from '@/lib/portfolio-locale'
-import { PrintButton } from './print-button'
 import { ResumeSheet } from './resume-sheet'
 
 /** /portfolio/resume and /en/portfolio/resume. */

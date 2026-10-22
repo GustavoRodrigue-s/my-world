@@ -1,6 +1,5 @@
-import { Heading, Text } from '@/components/ui'
+import { Folio, Heading, Text } from '@/components/ui'
 import { getContent, type Locale } from '@/lib/portfolio-content'
-import { Folio } from './folio'
 import { ProcessIcon } from './process-icon'
 
 const STAGE_KEYS = ['entrada', 'bancada', 'forja', 'orbita'] as const

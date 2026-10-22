@@ -1,4 +1,5 @@
 import type { Route } from 'next'
+import type { Language } from '@my-world/ui'
 
 // The portfolio environment ships in two languages. Portuguese lives at the
 // bare routes (/portfolio, /portfolio/resume, /identity); English mirrors
@@ -9,22 +10,28 @@ export type Locale = 'pt' | 'en'
 
 export const LOCALES: readonly Locale[] = ['pt', 'en']
 
-export const LOCALE_META: Record<Locale, { htmlLang: string; ogLocale: string; short: string; name: string }> = {
-  pt: { htmlLang: 'pt-BR', ogLocale: 'pt_BR', short: 'PT', name: 'Português' },
-  en: { htmlLang: 'en', ogLocale: 'en_US', short: 'EN', name: 'English' },
+interface LocaleMeta {
+  htmlLang: string
+  ogLocale: string
+  short: string
+  name: string
+  /** Path prefix of the edition. */
+  prefix: '' | '/en'
+  /** Accessible name of the link to this edition, in its own language. */
+  switchTo: string
 }
+
+export const LOCALE_META: Record<Locale, LocaleMeta> = {
+  pt: { htmlLang: 'pt-BR', ogLocale: 'pt_BR', short: 'PT', name: 'Português', prefix: '', switchTo: 'Ler em português' },
+  en: { htmlLang: 'en', ogLocale: 'en_US', short: 'EN', name: 'English', prefix: '/en', switchTo: 'Read in English' },
+}
+
+/** The editions, as the shared <LanguageSwitch> takes them. */
+export const PORTFOLIO_LANGUAGES: Language[] = LOCALES.map((code) => ({ code, ...LOCALE_META[code] }))
 
 export type PortfolioPath = '/portfolio' | '/portfolio/resume' | '/identity'
 
-const EN_PREFIX = '/en'
-
 /** `/portfolio` → `/en/portfolio` for English; unchanged for Portuguese. Accepts a `#hash` suffix. */
 export function localePath(locale: Locale, path: `${PortfolioPath}${'' | `#${string}`}`): Route {
-  return (locale === 'en' ? `${EN_PREFIX}${path}` : path) as Route
-}
-
-/** The same page in the other language, from the current pathname. */
-export function switchLocalePath(pathname: string, to: Locale): Route {
-  const bare = pathname === EN_PREFIX || pathname.startsWith(`${EN_PREFIX}/`) ? pathname.slice(EN_PREFIX.length) || '/portfolio' : pathname
-  return (to === 'en' ? `${EN_PREFIX}${bare}` : bare) as Route
+  return `${LOCALE_META[locale].prefix}${path}` as Route
 }

@@ -1,0 +1,35 @@
+import type { Metadata } from 'next'
+import { CrossPattee, Heading, PageIntro, Text } from '@/components/ui'
+import { PageBody, StudyIndex, studyEntry } from '@/components/chapel'
+import { CHAPEL, chapelPath } from '@/lib/chapel-content'
+import { MOCK_ARTICLES, MOCK_CATEGORIES } from '@/lib/mock-data'
+
+export const metadata: Metadata = {
+  title: 'Estudos',
+  description: CHAPEL.studies.intro,
+  alternates: { canonical: chapelPath('/articles') },
+}
+
+export default function StudiesPage() {
+  const t = CHAPEL.studies
+  return (
+    <>
+      <PageIntro labelledBy="studies-title"
+        ornament={<CrossPattee size={16} />} label={`${t.label} · ${CHAPEL.studyCount(MOCK_ARTICLES.length)}`}>
+        <Heading as="h1" id="studies-title" level="serif-statement" className="max-w-[16ch]">
+          {t.title}
+        </Heading>
+        <Text size="xl" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+          {t.intro}
+        </Text>
+      </PageIntro>
+      <PageBody>
+        <StudyIndex
+          entries={MOCK_ARTICLES.map(studyEntry)}
+          categories={MOCK_CATEGORIES.map(({ slug, name }) => ({ slug, name }))}
+          labels={t}
+        />
+      </PageBody>
+    </>
+  )
+}

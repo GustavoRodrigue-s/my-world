@@ -120,7 +120,7 @@ export interface PortfolioCopy {
     navLabel: string
     nav: Array<{ label: string; id: string }>
     resume: string
-    language: { label: string; switchTo: string }
+    language: { label: string }
     dayNight: { toDay: string; toNight: string }
     footer: {
       world: string

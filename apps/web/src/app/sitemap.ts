@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { MOCK_ARTICLES } from '@/lib/mock-data'
 import { LOCALES, LOCALE_META, localePath, type PortfolioPath } from '@/lib/portfolio-locale'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
@@ -11,10 +12,18 @@ const PORTFOLIO: Array<{ path: PortfolioPath } & Pick<MetadataRoute.Sitemap[numb
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: BASE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: `${BASE_URL}/articles`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${BASE_URL}/categories`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    // Capela de Estudos (Portuguese only)
+    { url: `${BASE_URL}/chapel`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE_URL}/chapel/articles`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    ...MOCK_ARTICLES.map((a) => ({
+      url: `${BASE_URL}/chapel/articles/${a.slug}`,
+      lastModified: a.publishedAt ? new Date(a.publishedAt) : new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    { url: `${BASE_URL}/chapel/categories`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/chapel/saints`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/chapel/about`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 },
     // Portfolio — one entry per edition, each naming its counterpart.
     ...PORTFOLIO.flatMap(({ path, changeFrequency, priority }) =>
       LOCALES.map((locale) => ({

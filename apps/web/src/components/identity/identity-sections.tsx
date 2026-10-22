@@ -1,6 +1,7 @@
 import { Download } from 'lucide-react'
 import {
   Emphasis,
+  Folio,
   Heading,
   Mark,
   Rubric,
@@ -9,8 +10,7 @@ import {
   TitleBlock,
   type MarkVariant,
 } from '@/components/ui'
-import { Folio } from '@/components/portfolio/folio'
-import { StatusTag } from '@/components/portfolio'
+import { ArtifactStatusTag } from '@/components/portfolio'
 import { getContent, type Locale } from '@/lib/portfolio-content'
 import { MarkConstruction } from './mark-construction'
 import { Palette } from './palette'
@@ -231,9 +231,9 @@ export function IdentityElements({ locale }: { locale: Locale }) {
         </Element>
         <Element item={t.items.status}>
           <span className="flex flex-wrap justify-center gap-2">
-            <StatusTag status="production" locale={locale} />
-            <StatusTag status="building" locale={locale} />
-            <StatusTag status="drawing-board" locale={locale} />
+            <ArtifactStatusTag status="production" locale={locale} />
+            <ArtifactStatusTag status="building" locale={locale} />
+            <ArtifactStatusTag status="drawing-board" locale={locale} />
           </span>
         </Element>
         <Element item={t.items.stamp}>

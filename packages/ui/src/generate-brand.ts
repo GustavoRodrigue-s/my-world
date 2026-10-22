@@ -4,7 +4,7 @@
 //
 //   cd packages/ui && npm run generate:brand
 import { mkdirSync, writeFileSync } from 'fs'
-import { catholicTheme, portfolioTheme } from '@my-world/design-system'
+import { chapelTheme, portfolioTheme } from '@my-world/design-system'
 import { MARK_GEOMETRY, MARK_ORBIT_PATH, markSatellitePath, type MarkVariant } from './react/mark'
 
 const outDir = process.argv[2] ?? '../../apps/web/public/brand'
@@ -14,7 +14,9 @@ const ink = portfolioTheme.light.foreground
 const paper = portfolioTheme.light.surface
 const rubric = portfolioTheme.brand.accent
 const ember = portfolioTheme.dark.accent ?? rubric
-const gold = catholicTheme.brand.accent
+// The Capela's star: its ink and the rubric red (black and red, like a missal).
+const chapelInk = chapelTheme.light.foreground
+const chapelRubric = chapelTheme.brand.accent
 
 function svg(body: string, extra = '') {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${g.box} ${g.box}" width="${g.box * 4}" height="${g.box * 4}">${extra}${body}</svg>\n`
@@ -41,7 +43,7 @@ const files: Record<string, string> = {
   'mark.svg': mark(ink, rubric),
   'mark-paper.svg': mark(paper, ember),
   'mark-mono.svg': mark(ink, ink),
-  'mark-star.svg': mark(ink, gold, 'star'),
+  'mark-star.svg': mark(chapelInk, chapelRubric, 'star'),
   'mark-artifact.svg': mark(ink, rubric, 'artifact'),
   'favicon.svg': favicon,
 }

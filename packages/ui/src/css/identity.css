@@ -1,12 +1,13 @@
 /*
- * Identity — "Mundo do Gustavo".
- * Hand-written (not generated): base-token overrides and the few graphic
- * devices that Tailwind utilities can't express cleanly. Everything here is
- * scoped to [data-env="portfolio"] so it never leaks into other environments.
- * Colors always come from the theme vars in themes/portfolio.css.
+ * Identity — "Mundo do Gustavo", the design system every environment wears
+ * (portfolio, Capela de Estudos, whatever comes next). Hand-written (not
+ * generated): base-token overrides and the graphic devices Tailwind utilities
+ * can't express cleanly. Scoped to [data-env] — any environment wrapper — so it
+ * never leaks outside one. Colors always come from the environment's theme vars
+ * (themes/*.css); nothing here names a color.
  */
 
-[data-env='portfolio'] {
+[data-env] {
   /* Wider page, generous rhythm, near-square corners (technical drawing, not app chrome). */
   --spacing-content-max: 1180px;
   --spacing-section-x: 1.25rem;
@@ -20,24 +21,24 @@
 }
 
 @media (min-width: 768px) {
-  [data-env='portfolio'] {
+  [data-env] {
     --spacing-section-x: 2.5rem;
     --spacing-section-y: 120px;
   }
 }
 
-[data-env='portfolio'] ::selection {
+[data-env] ::selection {
   background-color: var(--color-accent);
   color: var(--color-on-accent);
 }
 
-[data-env='portfolio'] :focus-visible {
+[data-env] :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
 /* Hachura — engraving-style hatching, used for shadows and "paper cut" fills. */
-[data-env='portfolio'] .hatch {
+[data-env] .hatch {
   background-image: repeating-linear-gradient(
     -45deg,
     currentColor 0 1px,
@@ -46,12 +47,12 @@
 }
 
 /* Marcas de registro — print registration ticks on the corners of a sheet. */
-[data-env='portfolio'] .registration {
+[data-env] .registration {
   position: relative;
 }
 
-[data-env='portfolio'] .registration::before,
-[data-env='portfolio'] .registration::after {
+[data-env] .registration::before,
+[data-env] .registration::after {
   content: '';
   position: absolute;
   width: 10px;
@@ -62,20 +63,20 @@
   opacity: 0.55;
 }
 
-[data-env='portfolio'] .registration::before {
+[data-env] .registration::before {
   top: -5px;
   left: -5px;
   border-width: 1px 0 0 1px;
 }
 
-[data-env='portfolio'] .registration::after {
+[data-env] .registration::after {
   right: -5px;
   bottom: -5px;
   border-width: 0 1px 1px 0;
 }
 
 /* Linha pontilhada de órbita — dotted leader between a label and its value. */
-[data-env='portfolio'] .leader {
+[data-env] .leader {
   flex: 1;
   min-width: 1.5rem;
   border-bottom: 1px dotted var(--color-border-strong);
@@ -83,7 +84,7 @@
 }
 
 /* Sublinhado a traço — a link's underline is drawn left to right in rubric red. */
-[data-env='portfolio'] .ink-link {
+[data-env] .ink-link {
   background-image: linear-gradient(var(--color-accent), var(--color-accent));
   background-position: 0 100%;
   background-repeat: no-repeat;
@@ -91,8 +92,8 @@
   transition: background-size 200ms ease-out, color var(--transition-fast);
 }
 
-[data-env='portfolio'] .ink-link:hover,
-[data-env='portfolio'] .ink-link[aria-current] {
+[data-env] .ink-link:hover,
+[data-env] .ink-link[aria-current] {
   background-size: 100% 1px;
 }
 
@@ -110,6 +111,8 @@
  *   .plot-progress  reading progress along the header's bottom edge
  *
  * Ranges are short on purpose: things finish moving soon after they appear.
+ * An environment can opt out with <SiteShell motion="still"> (data-motion):
+ * its pages are then always shown fully drawn (the Capela is quiet).
  *
  * Trajetória — red ink follows a reading line (68% down the viewport) along
  * the timeline. Each entry is a .plot-station: its own --station timeline,
@@ -153,6 +156,12 @@
   to { color: var(--color-foreground); }
 }
 
+/* A rotating quote settles in (Capela). Plain time-based: it follows a click or the timer, not the scroll. */
+@keyframes gw-quote {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
 @keyframes gw-ripple {
   0%   { opacity: 0; transform: scale(0.4); }
   25%  { opacity: 1; }
@@ -160,52 +169,52 @@
 }
 
 /* Only exist where they can move. */
-[data-env='portfolio'] .plot-progress,
-[data-env='portfolio'] .plot-ink,
-[data-env='portfolio'] .plot-ripple {
+[data-env] .plot-progress,
+[data-env] .plot-ink,
+[data-env] .plot-ripple {
   display: none;
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
-  html:has([data-env='portfolio']) {
+  html:has([data-env]) {
     scroll-behavior: smooth;
   }
 
   @supports (animation-timeline: view()) {
-    [data-env='portfolio'] .plot-rise {
+    [data-env]:not([data-motion='still']) .plot-rise {
       animation: gw-rise linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 12%;
     }
 
-    [data-env='portfolio'] .plot-draw-x {
+    [data-env]:not([data-motion='still']) .plot-draw-x {
       animation: gw-draw-x linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 15%;
       transform-origin: left center;
     }
 
-    [data-env='portfolio'] .plot-orbit {
+    [data-env]:not([data-motion='still']) .plot-orbit {
       animation: gw-orbit linear both;
       animation-timeline: --orbit;
       animation-range: entry 0% cover 18%;
     }
 
-    [data-env='portfolio'] .plot-orbit[data-ring='1'] {
+    [data-env]:not([data-motion='still']) .plot-orbit[data-ring='1'] {
       animation-range: entry 20% cover 26%;
     }
 
-    [data-env='portfolio'] .plot-orbit[data-ring='2'] {
+    [data-env]:not([data-motion='still']) .plot-orbit[data-ring='2'] {
       animation-range: entry 40% cover 34%;
     }
 
     /* Trajetória */
-    [data-env='portfolio'] .plot-station {
+    [data-env]:not([data-motion='still']) .plot-station {
       view-timeline: --station block;
       view-timeline-inset: 68% 31%;
     }
 
-    [data-env='portfolio'] .plot-ink {
+    [data-env]:not([data-motion='still']) .plot-ink {
       display: block;
       transform-origin: center top;
       animation: gw-draw-y linear both;
@@ -213,32 +222,32 @@
       animation-range: cover 0% cover 100%;
     }
 
-    [data-env='portfolio'] .plot-inked {
+    [data-env]:not([data-motion='still']) .plot-inked {
       animation: gw-inked linear both;
       animation-timeline: --station;
       animation-range: cover 0% cover 4%;
     }
 
-    [data-env='portfolio'] .plot-ink-text {
+    [data-env]:not([data-motion='still']) .plot-ink-text {
       animation: gw-ink-text linear both;
       animation-timeline: --station;
       animation-range: cover 0% cover 4%;
     }
 
-    [data-env='portfolio'] .plot-ripple {
+    [data-env]:not([data-motion='still']) .plot-ripple {
       display: block;
       animation: gw-ripple linear both;
       animation-timeline: --station;
       animation-range: cover 0% cover 10%;
     }
 
-    [data-env='portfolio'] .plot-arrive {
+    [data-env]:not([data-motion='still']) .plot-arrive {
       animation: gw-arrive linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 15%;
     }
 
-    [data-env='portfolio'] .plot-progress {
+    [data-env]:not([data-motion='still']) .plot-progress {
       display: block;
       transform-origin: left center;
       animation: gw-draw-x linear both;
@@ -254,13 +263,13 @@
   }
 
   /* Ink on white: the paper tone is for screens, printers shouldn't spend toner on it. */
-  body:has([data-env='portfolio']),
-  [data-env='portfolio'] {
+  body:has([data-env]),
+  [data-env] {
     background: transparent;
   }
 
-  [data-env='portfolio'] .registration::before,
-  [data-env='portfolio'] .registration::after {
+  [data-env] .registration::before,
+  [data-env] .registration::after {
     display: none;
   }
 }

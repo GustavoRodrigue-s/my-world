@@ -1,4 +1,4 @@
-import { catholicTheme, portfolioTheme } from '@my-world/design-system'
+import { chapelTheme, portfolioTheme } from '@my-world/design-system'
 import { Text } from '@/components/ui'
 import type { PortfolioContent } from '@/lib/portfolio-content'
 
@@ -37,7 +37,7 @@ const SWATCHES: Swatch[] = [
   { key: 'parchment', color: night.foreground, on: night.surface },
   { key: 'ember', color: night.accent, on: night.surface },
   { key: 'cyanotype', color: day.support1, on: day.surface },
-  { key: 'gold', color: catholicTheme.brand.accent, on: catholicTheme.light.surface },
+  { key: 'gold', color: chapelTheme.brand.support1, on: chapelTheme.light.surface },
 ]
 
 interface PaletteProps {

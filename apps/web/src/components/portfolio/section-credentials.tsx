@@ -1,17 +1,5 @@
-import { Heading, Text } from '@/components/ui'
+import { Folio, Heading, Register, Text } from '@/components/ui'
 import { getContent, type Locale } from '@/lib/portfolio-content'
-import { Folio } from './folio'
-
-function Register({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="plot-rise">
-      <Text family="mono" size="sm" color="muted" className="mb-3">
-        {title}
-      </Text>
-      <ul className="list-none border-t border-border-strong">{children}</ul>
-    </div>
-  )
-}
 
 export function SectionCredentials({ locale }: { locale: Locale }) {
   const { education, certifications, languages, copy } = getContent(locale)

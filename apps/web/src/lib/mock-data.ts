@@ -153,3 +153,19 @@ export const MOCK_CITATIONS = [
   { text: 'A santidade não é luxo de poucos, mas dever de todos.', author: 'Santa Teresa de Calcutá', source: '' },
   { text: 'Amar é querer o bem do outro.', author: 'São Tomás de Aquino', source: '' },
 ]
+
+/** A study by slug: the full mock for the one written out, a minimal one (summary as text) for the rest. */
+export function getMockArticle(slug: string): Article | null {
+  if (slug === MOCK_ARTICLE_FULL.slug) return MOCK_ARTICLE_FULL
+  const card = MOCK_ARTICLES.find((a) => a.slug === slug)
+  if (!card) return null
+  return {
+    ...card,
+    content: card.summary,
+    tags: [],
+    references: [],
+    status: 'published',
+    createdAt: card.publishedAt ?? '',
+    updatedAt: card.publishedAt ?? '',
+  }
+}

@@ -56,7 +56,7 @@ export const en: PortfolioCopy = {
       { label: 'Contact', id: 'contact' },
     ],
     resume: 'Résumé',
-    language: { label: 'Language', switchTo: 'Ler em português' },
+    language: { label: 'Language' },
     dayNight: { toDay: 'Switch to day mode', toNight: 'Switch to night mode' },
     footer: {
       world: 'in this world',
@@ -620,7 +620,7 @@ export const en: PortfolioCopy = {
       note: 'paper, ink and one color',
       title: 'Colors',
       intro:
-        'Everything is paper and ink. The only color is red — rubric by day, ember by night, tuned to keep contrast in both. The blue cyanotype appears only on what is still on the drawing board; gold belongs to the Capela.',
+        'Everything is paper and ink. The only color is red — rubric by day, ember by night, tuned to keep contrast in both. The blue cyanotype appears only on what is still on the drawing board; the Capela wears the same red on limewash and stone, with a hidden gold that only shows up close.',
       large: 'AA large',
       swatches: {
         paper: ['Paper', 'day surface'],
@@ -631,7 +631,7 @@ export const en: PortfolioCopy = {
         parchment: ['Parchment', 'night text'],
         ember: ['Ember', 'the accent, by night'],
         cyanotype: ['Cyanotype', 'only what is on the drawing board'],
-        gold: ['Gold', 'the accent of Capela de Estudos'],
+        gold: ['Gold', 'the hidden gold of Capela de Estudos'],
       },
     },
     type: {

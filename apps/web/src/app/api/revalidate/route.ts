@@ -16,16 +16,16 @@ export async function POST(request: NextRequest) {
     if (model === 'article') {
       // Revalidate the specific article page
       if (entry?.slug) {
-        revalidatePath(`/articles/${entry.slug}`)
+        revalidatePath(`/chapel/articles/${entry.slug}`)
       }
       // Revalidate lists
-      revalidatePath('/articles')
-      revalidatePath('/')
+      revalidatePath('/chapel/articles')
+      revalidatePath('/chapel')
       revalidateTag('articles')
     }
 
     if (model === 'category') {
-      revalidatePath('/categories')
+      revalidatePath('/chapel/categories')
       revalidateTag('categories')
     }
 

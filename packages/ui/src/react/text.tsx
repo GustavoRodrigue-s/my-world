@@ -60,7 +60,7 @@ const textVariants = cva('', {
   },
 })
 
-type TextTag = 'p' | 'span' | 'div' | 'li' | 'label' | 'dd' | 'dt' | 'small'
+type TextTag = 'p' | 'span' | 'div' | 'li' | 'label' | 'dd' | 'dt' | 'small' | 'footer' | 'cite' | 'figcaption'
 
 interface TextProps
   extends Omit<React.HTMLAttributes<HTMLElement>, 'color'>,

@@ -24,12 +24,12 @@ export function buildArticleMetadata(article: Article): Metadata {
     title: article.title,
     description: article.summary,
     alternates: {
-      canonical: `${BASE_URL}/articles/${article.slug}`,
+      canonical: `${BASE_URL}/chapel/articles/${article.slug}`,
     },
     openGraph: {
       title: article.title,
       description: article.summary,
-      url: `${BASE_URL}/articles/${article.slug}`,
+      url: `${BASE_URL}/chapel/articles/${article.slug}`,
       siteName: SITE_NAME,
       locale: 'pt_BR',
       type: 'article',
@@ -60,7 +60,7 @@ export function buildArticleJsonLd(article: Article) {
     '@type': 'Article',
     headline: article.title,
     description: article.summary,
-    url: `${BASE_URL}/articles/${article.slug}`,
+    url: `${BASE_URL}/chapel/articles/${article.slug}`,
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     author: {

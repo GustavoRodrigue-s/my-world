@@ -1,7 +1,5 @@
-import { Emphasis, Heading, Text } from '@/components/ui'
+import { Emphasis, Folio, Heading, Portrait, Text } from '@/components/ui'
 import { PORTRAIT_SRC, getContent, type Locale } from '@/lib/portfolio-content'
-import { Folio } from './folio'
-import { Portrait } from './portrait'
 
 const ROMAN = ['i', 'ii', 'iii', 'iv', 'v', 'vi']
 

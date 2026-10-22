@@ -53,7 +53,7 @@ export const pt: PortfolioCopy = {
       { label: 'Contato', id: 'contact' },
     ],
     resume: 'Currículo',
-    language: { label: 'Idioma', switchTo: 'Read in English' },
+    language: { label: 'Idioma' },
     dayNight: { toDay: 'Mudar para o modo dia', toNight: 'Mudar para o modo noite' },
     footer: {
       world: 'neste mundo',
@@ -619,7 +619,7 @@ export const pt: PortfolioCopy = {
       note: 'papel, tinta e uma cor',
       title: 'Cores',
       intro:
-        'Tudo é papel e tinta. A única cor é o vermelho — rubrica de dia, brasa à noite, ajustado para manter contraste nos dois. A cianotipia azul só aparece no que ainda está na prancheta; o ouro pertence à Capela.',
+        'Tudo é papel e tinta. A única cor é o vermelho — rubrica de dia, brasa à noite, ajustado para manter contraste nos dois. A cianotipia azul só aparece no que ainda está na prancheta; a Capela usa o mesmo vermelho sobre cal e pedra, com um ouro escondido que só aparece de perto.',
       large: 'AA grande',
       swatches: {
         paper: ['Papel', 'superfície do dia'],
@@ -630,7 +630,7 @@ export const pt: PortfolioCopy = {
         parchment: ['Pergaminho', 'texto da noite'],
         ember: ['Brasa', 'o acento, à noite'],
         cyanotype: ['Cianotipia', 'só o que está na prancheta'],
-        gold: ['Ouro', 'o acento da Capela de Estudos'],
+        gold: ['Ouro', 'o ouro escondido da Capela de Estudos'],
       },
     },
     type: {
