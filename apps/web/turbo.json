@@ -3,7 +3,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "env": ["STRAPI_URL", "STRAPI_API_TOKEN", "REVALIDATE_SECRET"]
+      "env": ["STRAPI_URL", "STRAPI_API_TOKEN", "STRAPI_HOST", "REVALIDATE_SECRET"]
     }
   }
 }
