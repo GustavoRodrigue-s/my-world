@@ -1,0 +1,9 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "env": ["STRAPI_URL", "STRAPI_API_TOKEN", "REVALIDATE_SECRET"]
+    }
+  }
+}
