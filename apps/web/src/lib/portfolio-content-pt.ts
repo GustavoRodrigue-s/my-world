@@ -556,7 +556,7 @@ export const pt: PortfolioCopy = {
   identity: {
     rubric: 'identidade visual · manual vivo',
     title: { before: 'Um mundo, várias', emphasis: 'paisagens', after: '.' },
-    lead: 'A identidade de Gustavo Rodrigues Fabiano: um pequeno mundo desenhado como lâmina técnica — papel, tinta e uma única cor, o vermelho da rubrica. Vale para o portfólio, para a Capela de Estudos e para tudo o que vier depois.',
+    lead: 'A identidade de Gustavo Rodrigues: um pequeno mundo desenhado como lâmina técnica — papel, tinta e uma única cor, o vermelho da rubrica. Vale para o portfólio, para a Capela de Estudos e para tudo o que vier depois.',
     caption: 'fig. 2 — a marca sobre a própria construção',
     construction: {
       title: 'Construção da marca: órbita de raio 17, abertura entre −40° e 0°, satélite a −20°',

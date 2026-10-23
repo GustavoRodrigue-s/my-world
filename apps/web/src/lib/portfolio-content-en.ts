@@ -33,7 +33,7 @@ export const en: PortfolioCopy = {
     identity: {
       title: 'Visual identity',
       description:
-        'The visual identity of Gustavo Rodrigues Fabiano: the G-orbit mark, colors, typography, graphic elements, motion and voice.',
+        'The visual identity of Gustavo Rodrigues: the G-orbit mark, colors, typography, graphic elements, motion and voice.',
     },
   },
 
