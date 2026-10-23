@@ -133,13 +133,13 @@ export const en: PortfolioCopy = {
 
   hero: {
     rubric: 'plate i · gustavo’s world',
-    kicker: 'Full-stack developer · Big4Tech',
+    kicker: 'Software and AI engineer',
     statement: {
       before: 'Software made with',
       emphasis: 'care',
       after: ', from the interface to the server.',
     },
-    lead: 'I’m Gustavo. At Big4Tech I look after several frontend platforms and deliver requirements end to end with React, Next.js, TypeScript and NestJS — using AI every day without giving up quality.',
+    lead: 'Specialized in user experience and in building systems that are friendly to the end user — from frontend to backend.',
     ctaResume: 'View résumé',
     ctaArtifacts: 'See the work',
     caption: 'fig. 1 — gustavo’s world, orbital view',
@@ -556,7 +556,7 @@ export const en: PortfolioCopy = {
   identity: {
     rubric: 'visual identity · living guide',
     title: { before: 'One world, many', emphasis: 'landscapes', after: '.' },
-    lead: 'The identity of Gustavo Rodrigues Fabiano: a small world drawn as a technical plate — paper, ink and a single color, the red of the rubric. It applies to the portfolio, to Capela de Estudos and to whatever comes next.',
+    lead: 'The identity of Gustavo Rodrigues: a small world drawn as a technical plate — paper, ink and a single color, the red of the rubric. It applies to the portfolio, to Capela de Estudos and to whatever comes next.',
     caption: 'fig. 2 — the mark over its own construction',
     construction: {
       title:
@@ -680,12 +680,30 @@ export const en: PortfolioCopy = {
         'The metaphor lives in the margins — rubrics, captions, labels. Titles and content stay literal: a reader in a hurry understands everything without knowing the world.',
       motionLabel: 'motion',
       motion: [
-        { name: 'Slow orbit', text: 'Ambient motion is linear and slow: 40 to 70 seconds per revolution.' },
-        { name: 'One per page', text: 'Only one protagonist animation per page — Fig. 1. Everything else moves only by the reader’s hand.' },
-        { name: 'Plotted on scroll', text: 'As you scroll, the page is plotted: lines are traced, orbits open out and blocks rise, once. Nothing loops.' },
-        { name: 'Precision', text: 'The interface responds in 150–200 ms, with no springs or bounces: an underline being traced, a rule turning red.' },
-        { name: 'Brand gesture', text: 'Only brand objects make a longer gesture, once: the satellite makes one orbit, the seal turns.' },
-        { name: 'Always pausable', text: 'A visible pause button, and anyone who asks for less motion gets the page still and complete.' },
+        {
+          name: 'Slow orbit',
+          text: 'Ambient motion is linear and slow: 40 to 70 seconds per revolution.',
+        },
+        {
+          name: 'One per page',
+          text: 'Only one protagonist animation per page — Fig. 1. Everything else moves only by the reader’s hand.',
+        },
+        {
+          name: 'Plotted on scroll',
+          text: 'As you scroll, the page is plotted: lines are traced, orbits open out and blocks rise, once. Nothing loops.',
+        },
+        {
+          name: 'Precision',
+          text: 'The interface responds in 150–200 ms, with no springs or bounces: an underline being traced, a rule turning red.',
+        },
+        {
+          name: 'Brand gesture',
+          text: 'Only brand objects make a longer gesture, once: the satellite makes one orbit, the seal turns.',
+        },
+        {
+          name: 'Always pausable',
+          text: 'A visible pause button, and anyone who asks for less motion gets the page still and complete.',
+        },
       ],
       vocabularyLabel: 'vocabulary',
       vocabulary: [

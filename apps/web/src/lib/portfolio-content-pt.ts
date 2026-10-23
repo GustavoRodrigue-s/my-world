@@ -131,14 +131,14 @@ export const pt: PortfolioCopy = {
 
   hero: {
     rubric: 'prancha i · o mundo do gustavo',
-    kicker: 'Desenvolvedor fullstack · Big4Tech',
+    kicker: 'Engenheiro de software e IA',
     // The emphasized word is rendered in the voice face (serif italic, rubric red).
     statement: {
       before: 'Software feito com',
       emphasis: 'capricho',
       after: ', da interface ao servidor.',
     },
-    lead: 'Sou o Gustavo. Na Big4Tech, cuido de várias plataformas frontend e entrego requisitos de ponta a ponta com React, Next.js, TypeScript e NestJS — usando IA no dia a dia sem abrir mão da qualidade.',
+    lead: 'Especializado em experiência do usuário e na construção de sistemas amigáveis ao usuário final — do frontend ao backend.',
     ctaResume: 'Ver currículo',
     ctaArtifacts: 'Conhecer os artefatos',
     caption: 'fig. 1 — o mundo do gustavo, em vista orbital',
@@ -682,12 +682,30 @@ export const pt: PortfolioCopy = {
         'A metáfora mora nas margens — rubricas, legendas, rótulos. Títulos e conteúdo continuam literais: quem lê com pressa entende tudo sem conhecer o mundo.',
       motionLabel: 'movimento',
       motion: [
-        { name: 'Órbita lenta', text: 'Movimento ambiente é linear e lento: 40 a 70 segundos por volta.' },
-        { name: 'Uma por página', text: 'Só uma animação protagonista por página — a Fig. 1. O resto só se move pela mão de quem lê.' },
-        { name: 'Traço no scroll', text: 'Ao rolar, a página é plotada: linhas se traçam, órbitas se abrem e blocos sobem, uma vez. Nada fica em loop.' },
-        { name: 'Precisão', text: 'A interface responde em 150–200 ms, sem molas nem quiques: um sublinhado que se traça, uma régua que fica vermelha.' },
-        { name: 'Gesto da marca', text: 'Só objetos da marca fazem um gesto mais longo, uma vez: o satélite dá uma volta, o selo gira.' },
-        { name: 'Sempre pausável', text: 'Botão de pausa visível, e quem pede menos movimento recebe a página parada e inteira.' },
+        {
+          name: 'Órbita lenta',
+          text: 'Movimento ambiente é linear e lento: 40 a 70 segundos por volta.',
+        },
+        {
+          name: 'Uma por página',
+          text: 'Só uma animação protagonista por página — a Fig. 1. O resto só se move pela mão de quem lê.',
+        },
+        {
+          name: 'Traço no scroll',
+          text: 'Ao rolar, a página é plotada: linhas se traçam, órbitas se abrem e blocos sobem, uma vez. Nada fica em loop.',
+        },
+        {
+          name: 'Precisão',
+          text: 'A interface responde em 150–200 ms, sem molas nem quiques: um sublinhado que se traça, uma régua que fica vermelha.',
+        },
+        {
+          name: 'Gesto da marca',
+          text: 'Só objetos da marca fazem um gesto mais longo, uma vez: o satélite dá uma volta, o selo gira.',
+        },
+        {
+          name: 'Sempre pausável',
+          text: 'Botão de pausa visível, e quem pede menos movimento recebe a página parada e inteira.',
+        },
       ],
       vocabularyLabel: 'vocabulário',
       vocabulary: [
