@@ -1,4 +1,5 @@
 import type { ThemeContract } from '../types'
+import { chapelTheme } from './chapel'
 
 // "Mundo do Gustavo" — the personal identity, worn by the portfolio.
 // Paper, ink and one red: the rubric ink of liturgical manuscripts, which is
@@ -17,6 +18,8 @@ export const portfolioTheme: ThemeContract = {
     onPrimaryMuted: 'rgba(238, 234, 224, 0.64)',
     onAccent:       '#FBF8F2',
     support1:       '#2E4A7D', // cianotipia — blueprint, "na prancheta" only
+    // ouro escondido — the Capela's gold, hidden in the world map (never a fill)
+    support2:       chapelTheme.brand.support1,
   },
   light: {
     surface:        '#EEEAE0',
@@ -48,6 +51,7 @@ export const portfolioTheme: ThemeContract = {
     accentHover:    '#FF7E62',
     onAccent:       '#14120E',
     support1:       '#8FA6D6',
+    support2:       chapelTheme.dark.support1,
   },
   typography: {
     // Real families come from next/font variables set on the portfolio

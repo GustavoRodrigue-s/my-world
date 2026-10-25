@@ -12,6 +12,8 @@ export interface BrandTokens {
   onPrimaryMuted: string
   onAccent: string
   support1: string
+  /** Optional second voice, as narrow as support1 (portfolio: the Capela's hidden gold, used only in the world map). */
+  support2?: string
 }
 
 /**

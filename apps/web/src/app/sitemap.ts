@@ -31,6 +31,8 @@ function chapelEntries(): MetadataRoute.Sitemap {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
+    // The world's home: the map of every place.
+    { url: BASE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
     ...chapelEntries(),
     // Portfolio — one entry per edition, each naming its counterpart.
     ...PORTFOLIO.flatMap(({ path, changeFrequency, priority }) =>

@@ -21,7 +21,8 @@ from Londrina, PR. Two environments, one world:
   spirituality, theology and philosophy. Personal, not a course platform. Not
   selling, not teaching: sharing a journey. Portuguese only.
 
-`/` redirects to `/portfolio` — the site opens on the master brand.
+`/` is the **world's home**: a map of every place ("carta do mundo"), wearing the
+master brand. Portuguese only for now.
 
 ---
 
@@ -44,7 +45,7 @@ memberships, a blog / `/dev` notes area.
 
 | Route | Environment | File |
 |---|---|---|
-| `/` | — | `next.config.ts` → 307 to `/portfolio` |
+| `/` | portfolio theme | `app/(world)/page.tsx` → `<WorldHome>`: statement, the map (`<WorldMap>`), atlas of places, diário de bordo |
 | `/portfolio` · `/en/portfolio` | portfolio | `app/(portfolio)/(pt)/portfolio/page.tsx` · `app/(portfolio)/en/portfolio/page.tsx` → `<PortfolioHome>` |
 | `/portfolio/resume` · `/en/portfolio/resume` | portfolio | `…/portfolio/resume/page.tsx` → `<ResumeView>` (one A4 page, ink on white, no photo) |
 | `/identity` · `/en/identity` | portfolio | `…/identity/page.tsx` → `<IdentityView>` (living brand guide) |
@@ -95,6 +96,7 @@ my-world/
 │       ├── app/
 │       │   ├── layout.tsx          ← root: identity fonts, theme-init script, base metadata
 │       │   ├── not-found.tsx       ← branded 404 (wears the portfolio theme)
+│       │   ├── (world)/            ← the home "/" (the map), its own <WorldShell>
 │       │   ├── (portfolio)/        ← layout.tsx = theme + identity CSS
 │       │   │   ├── (pt)/…          ← Portuguese edition (bare routes)
 │       │   │   └── en/…            ← English edition (/en/…)
@@ -104,12 +106,14 @@ my-world/
 │       │   └── sitemap.ts · robots.ts
 │       ├── components/
 │       │   ├── ui/index.ts         ← re-exports @my-world/ui (import UI from '@/components/ui')
+│       │   ├── world/              ← the home: map, place glyphs, atlas, logbook, shell
 │       │   ├── portfolio/          ← portfolio sections, shell/header/footer wiring, Fig. 1, résumé
 │       │   ├── identity/           ← /identity sections (palette, mark construction…)
 │       │   └── chapel/             ← Capela shell/header/footer wiring, search, quote plate, study body/index
 │       ├── middleware.ts           ← sends closed spaces to their construction page
 │       └── lib/
-│           ├── world.ts            ← the spaces and their status (open / building)
+│           ├── world.ts            ← the spaces and their status (open / building / planned)
+│           ├── world-content.ts · logbook.ts ← the home's copy · the diário de bordo
 │           ├── portfolio-content(.ts|-pt.ts|-en.ts) · portfolio-locale.ts
 │           ├── chapel-content.ts   ← every visible word of the Capela + chapelPath()
 │           ├── mock-data.ts        ← studies, categories, quotes (until Strapi)
@@ -173,6 +177,7 @@ inventing anything visual.
 | foreground | `#17150F` tinta | `#ECE6D9` | `#1C1A17` tinta | `#ECE7DE` |
 | accent (brand) | `#B5321C` rubrica | `#EE5C3F` brasa | `#B5321C` rubrica | `#EE5C3F` brasa |
 | support-1 | `#2E4A7D` cianotipia | `#8FA6D6` | `#7E5F28` ouro velho | `#D4AF6A` |
+| support-2 | ouro (the Capela's gold, read from `chapel.ts`) — only hidden in the world map | | — | |
 
 - The **rubric red is the brand accent everywhere** (rubrics, links, the emphasized
   word, the satellite, the Capela's star). Never a large fill — a button is fine.
@@ -263,6 +268,37 @@ inside the library. Interactive pieces use accessible native elements
 5. Tailwind sorts arbitrary values alphabetically, so a `className` that conflicts
    with a primitive's own arbitrary size/tracking does not reliably win — add a
    variant/level instead. `<Portrait>` is `w-full`: size it with a wrapper.
+
+---
+
+## The world's home — "carta do mundo" (`/`)
+
+One world, one island; each place on it is a space. The home is an old sea
+chart in the identity's engraving hand (`components/world/world-map.tsx`), with
+the atlas below it as the real, accessible navigation (the SVG is aria-hidden,
+its links out of the tab order).
+
+- **Places** (`components/world/place-glyph.tsx`, shared by map and atlas):
+  a Antena → Portfólio, a Oficina → Projetos, a Biblioteca → Estudos, a Capela →
+  Capela. Their state is drawn: ink (open), scaffolding (building), dashed
+  blueprint in `support-1` (planned). Status comes from `lib/world.ts`
+  (`SpaceStatus` = `open` | `building` | `planned`).
+- **Trails** lead from "você está aqui" (the harbor) to each place; hovering a
+  place traces its trail (red if it can be entered).
+- **Faith, hidden — never explained on the page:** the world's prime meridian
+  and equator cross at the Capela; the compass rose marks the East with a cross;
+  the Southern Cross points south with *lux in tenebris lucet* (Jo 1,5) faint under
+  it; the harbor's pier is a cross; hovering the map reveals a gold point
+  (`support-2`) at the crossing. Keep new hints this discreet.
+- **Discreet person:** no bio, no location or coordinates on the home (they stay
+  in the portfolio); the author appears only in the cartouche ("cartógrafo").
+- **Motion:** drawn once on arrival (`identity.css` `.chart-trace` /
+  `.chart-appear` / `.chart-beacon`), nothing loops; reduced motion and print
+  get it already drawn. On phones the chart keeps its width and is dragged
+  sideways (`MapViewport`, opens centered).
+- **Copy:** `lib/world-content.ts` (`WORLD`). **Diário de bordo:**
+  `lib/logbook.ts` — add a dated line with every change worth telling; the home
+  shows the latest six.
 
 ---
 

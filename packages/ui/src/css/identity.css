@@ -256,6 +256,62 @@
   }
 }
 
+/*
+ * Carta do mundo — the home's map is drawn once on arrival, like a cartographer
+ * inking a plate: the coast is traced, the places appear, the "você está aqui"
+ * beacon rings three times. Nothing loops. Longhand properties on purpose, so a
+ * Tailwind `[animation-delay:…]` on the element staggers it. Reduced motion,
+ * print and still environments get the map already drawn.
+ *   .chart-trace   a solid path traced end to end (needs pathLength="1")
+ *   .chart-appear  a place or detail fades in
+ *   .chart-beacon  the ring around "você está aqui"
+ */
+@keyframes gw-trace {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes gw-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gw-beacon {
+  from { opacity: 0.85; transform: scale(1); }
+  to   { opacity: 0; transform: scale(3.2); }
+}
+
+[data-env] .chart-beacon {
+  opacity: 0;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-env]:not([data-motion='still']) .chart-trace {
+    stroke-dasharray: 1;
+    animation-name: gw-trace;
+    animation-duration: 2.4s;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.2, 1);
+    animation-fill-mode: both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-appear {
+    animation-name: gw-appear;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-beacon {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation-name: gw-beacon;
+    animation-duration: 1.8s;
+    animation-timing-function: ease-out;
+    animation-delay: 2.6s;
+    animation-iteration-count: 3;
+  }
+}
+
 @media print {
   @page {
     size: A4;
