@@ -53,6 +53,7 @@ export function WorldShell({ children }: { children: React.ReactNode }) {
           text={footer.text}
           columns={[
             { title: footer.places, links: placeLinks },
+            { title: footer.world, links: [{ label: footer.identity, href: '/identity' }] },
             {
               title: footer.contact,
               links: [

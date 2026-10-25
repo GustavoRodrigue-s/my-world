@@ -290,8 +290,12 @@ its links out of the tab order).
   the Southern Cross points south with *lux in tenebris lucet* (Jo 1,5) faint under
   it; the harbor's pier is a cross; hovering the map reveals a gold point
   (`support-2`) at the crossing. Keep new hints this discreet.
-- **Discreet person:** no bio, no location or coordinates on the home (they stay
-  in the portfolio); the author appears only in the cartouche ("cartógrafo").
+- **Whose world:** the owner's portrait sits in the opening as a medallion (the
+  photo at the core of the mark, `Plate figureSize="narrow"`), with his name and
+  "cartógrafo deste mundo" — like the cartographer's portrait on an atlas
+  frontispiece. Still discreet: no bio, no location or coordinates on the home
+  (they stay in the portfolio). "Identidade visual" belongs to the world, not to
+  a place: it is a footer link, not part of the atlas.
 - **Motion:** drawn once on arrival (`identity.css` `.chart-trace` /
   `.chart-appear` / `.chart-beacon`), nothing loops; reduced motion and print
   get it already drawn. On phones the chart keeps its width and is dragged

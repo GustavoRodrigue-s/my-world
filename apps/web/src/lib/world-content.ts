@@ -39,6 +39,12 @@ export const WORLD = {
     corner: 'rev. 2026.10',
     statement: { before: 'O que eu', emphasis: 'acredito', after: ', aprendo e construo.' },
     lead: 'Coisas boas precisam ser vistas. Este é o mapa delas.',
+    // Old atlases opened with the cartographer's portrait in a medallion.
+    owner: {
+      role: 'cartógrafo deste mundo',
+      alt: 'Retrato de Gustavo Rodrigues Fabiano',
+      more: 'Conhecer',
+    },
   },
 
   map: {
@@ -71,10 +77,7 @@ export const WORLD = {
       verb: 'o que eu faço',
       text: 'Carreira, currículo e serviços. O sinal que este mundo manda para fora.',
       href: '/portfolio',
-      moons: [
-        { label: 'Currículo', href: '/portfolio/resume' },
-        { label: 'Identidade visual', href: '/identity' },
-      ],
+      moons: [{ label: 'Currículo', href: '/portfolio/resume' }],
     },
     projects: {
       place: 'a Oficina',
@@ -116,6 +119,8 @@ export const WORLD = {
   footer: {
     text: 'Um mundo só, com lugares para o trabalho, os projetos, os estudos e o silêncio.',
     places: 'lugares',
+    world: 'este mundo',
+    identity: 'Identidade visual',
     contact: 'contato',
     email: 'E-mail',
     motto: 'feito com capricho',

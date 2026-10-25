@@ -13,6 +13,8 @@ interface PlateProps {
   children: React.ReactNode
   /** The plate's figure (right column on wide screens). */
   figure?: React.ReactNode
+  /** `half` (default): the figure shares the width with the text. `narrow`: a small figure (a portrait medallion) beside a wide statement. */
+  figureSize?: 'half' | 'narrow'
   /** Under the plate: usually a <TitleBlock>. */
   footer?: React.ReactNode
   className?: string
@@ -23,7 +25,7 @@ interface PlateProps {
  * rubric bar, the statement on the left, a figure on the right, a title block
  * at the foot. First-frame content — nothing here is plotted on scroll.
  */
-export function Plate({ labelledBy, rubric, corner, children, figure, footer, className }: PlateProps) {
+export function Plate({ labelledBy, rubric, corner, children, figure, figureSize = 'half', footer, className }: PlateProps) {
   return (
     <section aria-labelledby={labelledBy} className={cx('px-[var(--spacing-section-x)] pt-10 pb-16 md:pt-14 md:pb-20', className)}>
       <div className="section-inner">
@@ -39,7 +41,8 @@ export function Plate({ labelledBy, rubric, corner, children, figure, footer, cl
         <div
           className={cx(
             'grid items-center gap-x-12 gap-y-10 pt-10 md:pt-12',
-            figure ? 'lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]' : undefined
+            !!figure && figureSize === 'half' && 'lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]',
+            !!figure && figureSize === 'narrow' && 'lg:grid-cols-[minmax(0,1fr)_280px]'
           )}
         >
           {/* Text is the page's largest paint; the figure is decoration on top of it. */}
