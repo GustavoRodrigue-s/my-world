@@ -22,7 +22,7 @@ const identityBase =
   '[&_svg]:transition-transform [&_svg]:duration-200 hover:[&_svg]:translate-x-0.5'
 
 const variantMap: Record<Variant, string> = {
-  // Capela de Estudos
+  // Capela
   primary: 'btn btn-primary',
   outline: 'btn btn-outline',
   // Mundo do Gustavo

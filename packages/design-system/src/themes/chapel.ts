@@ -1,6 +1,6 @@
 import type { ThemeContract } from '../types'
 
-// Capela de Estudos — "Cal e pedra": an old whitewashed chapel, flat.
+// Capela — "Cal e pedra": an old whitewashed chapel, flat.
 // Lime-washed walls for the page, stone for the solid blocks that separate its
 // parts, near-black ink and the rubric red, which stays the brand accent (the
 // ink of liturgical books: say the black, do the red). Support-1 is the hidden

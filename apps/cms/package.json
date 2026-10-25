@@ -2,7 +2,7 @@
   "name": "@my-world/cms",
   "private": true,
   "version": "0.1.0",
-  "description": "Strapi CMS for Capela de Estudos",
+  "description": "Strapi CMS for Capela",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",

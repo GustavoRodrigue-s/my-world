@@ -1,4 +1,4 @@
-// Capela de Estudos — every visible word of the environment, in one place
+// Capela — every visible word of the environment, in one place
 // (same rule as the portfolio's content files). Portuguese only for now.
 // Studies, categories and quotes come from lib/mock-data.ts until Strapi is wired.
 
@@ -14,13 +14,13 @@ export function chapelPath(path: ChapelPath, slug?: string): Route {
 }
 
 export const CHAPEL = {
-  name: 'Capela de Estudos',
+  name: 'Capela',
   author: 'Gustavo Rodrigues Fabiano',
   purpose: 'Uma biblioteca digital pessoal de estudos sobre espiritualidade católica, teologia e filosofia.',
   motto: 'Fides quaerens intellectum',
 
   meta: {
-    title: 'Capela de Estudos',
+    title: 'Capela',
     description: 'Uma biblioteca de estudos sobre espiritualidade católica, teologia e filosofia.',
   },
 
@@ -28,7 +28,7 @@ export const CHAPEL = {
   construction: {
     status: 'em construção',
     meta: {
-      title: 'Capela de Estudos — em construção',
+      title: 'Capela — em construção',
       description: 'Um lugar para contemplar a beleza da Igreja e da vida espiritual. Em construção.',
     },
     statement: { before: 'A Capela ainda está sendo', emphasis: 'erguida', after: '.' },

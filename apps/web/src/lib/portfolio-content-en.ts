@@ -557,7 +557,7 @@ export const en: PortfolioCopy = {
   identity: {
     rubric: 'visual identity · living guide',
     title: { before: 'One world, many', emphasis: 'landscapes', after: '.' },
-    lead: 'The identity of Gustavo Rodrigues: a small world drawn as a technical plate — paper, ink and a single color, the red of the rubric. It applies to the portfolio, to Capela de Estudos and to whatever comes next.',
+    lead: 'The identity of Gustavo Rodrigues: a small world drawn as a technical plate — paper, ink and a single color, the red of the rubric. It applies to the portfolio, to Capela and to whatever comes next.',
     caption: 'fig. 2 — the mark over its own construction',
     construction: {
       title:
@@ -597,7 +597,7 @@ export const en: PortfolioCopy = {
         'The open orbit draws the G. The bar points to the core — the world, the person. The satellite sits in the mouth of the G: the work heading out. Each landscape swaps only the satellite.',
       variants: {
         satellite: ['Satellite', 'workshop — portfolio, résumé, project signature'],
-        star: ['Star', 'chapel — Capela de Estudos, writing on faith'],
+        star: ['Star', 'chapel — writing on faith'],
         artifact: ['Artifact', 'lab — studies and experiments, once it exists'],
       },
       rulesLabel: 'rules',
@@ -632,7 +632,7 @@ export const en: PortfolioCopy = {
         parchment: ['Parchment', 'night text'],
         ember: ['Ember', 'the accent, by night'],
         cyanotype: ['Cyanotype', 'only what is on the drawing board'],
-        gold: ['Gold', 'the hidden gold of Capela de Estudos'],
+        gold: ['Gold', 'the hidden gold of Capela'],
       },
     },
     type: {
@@ -710,7 +710,7 @@ export const en: PortfolioCopy = {
       vocabulary: [
         ['artifact', 'a delivered project'],
         ['workshop', 'where things are built — the portfolio'],
-        ['chapel', 'where one studies and prays — Capela de Estudos'],
+        ['chapel', 'where one studies and prays — Capela'],
         ['orbit', 'in production, in use'],
         ['drawing board', 'planned, not started yet'],
         ['care', 'the quality bar — “capricho” in Portuguese'],

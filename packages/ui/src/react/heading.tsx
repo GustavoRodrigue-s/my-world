@@ -7,7 +7,7 @@ import { cx } from './utils'
 const headingVariants = cva('', {
   variants: {
     level: {
-      // Capela de Estudos — serif, light, calm
+      // Capela — serif, light, calm
       display: 'tracking-tight font-serif text-[clamp(32px,5vw,52px)] font-light leading-[1.2]',
       h1:      'tracking-tight font-serif text-[clamp(28px,4vw,44px)] font-light leading-[1.25]',
       h2:      'tracking-tight font-serif text-[28px] font-normal leading-snug tracking-[0.01em]',
@@ -18,7 +18,7 @@ const headingVariants = cva('', {
       title:     'font-sans text-[clamp(32px,4.2vw,54px)] font-semibold leading-[1.02] tracking-[-0.034em]',
       subtitle:  'font-sans text-[clamp(22px,2.2vw,28px)] font-semibold leading-[1.12] tracking-[-0.022em]',
       item:      'font-sans text-[19px] font-semibold leading-[1.25] tracking-[-0.014em]',
-      // Capela de Estudos (flat) — the voice face, upright: same roles, set in Cormorant
+      // Capela (flat) — the voice face, upright: same roles, set in Cormorant
       'serif-statement': 'font-serif text-[clamp(40px,6vw,76px)] font-normal leading-[1.04] tracking-[-0.012em]',
       'serif-title':     'font-serif text-[clamp(32px,3.8vw,50px)] font-medium leading-[1.08] tracking-[-0.01em]',
       'serif-subtitle':  'font-serif text-[clamp(25px,2.4vw,31px)] font-semibold leading-[1.15] tracking-[-0.006em]',

@@ -11,7 +11,7 @@ const PORTFOLIO: Array<{ path: PortfolioPath } & Pick<MetadataRoute.Sitemap[numb
   { path: '/identity', changeFrequency: 'yearly', priority: 0.4 },
 ]
 
-// Capela de Estudos (Portuguese only) — listed only while it is open (lib/world.ts).
+// Capela (Portuguese only) — listed only while it is open (lib/world.ts).
 function chapelEntries(): MetadataRoute.Sitemap {
   if (!canEnter('chapel')) return []
   return [

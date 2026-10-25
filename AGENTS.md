@@ -17,7 +17,7 @@ from Londrina, PR. Two environments, one world:
 
 - **Mundo do Gustavo** (`/portfolio`, `/identity`) — the master brand: portfolio,
   résumé and the living brand guide, in Portuguese and English.
-- **Capela de Estudos** (`/chapel`) — a personal study space on Catholic
+- **Capela** (`/chapel`) — a personal study space on Catholic
   spirituality, theology and philosophy. Personal, not a course platform. Not
   selling, not teaching: sharing a journey. Portuguese only.
 
@@ -141,7 +141,7 @@ The identity is **paper, ink and one red**: a small world drawn as a technical
 plate, with the devices of an illuminated manuscript (¶ rubrics, hatching,
 registration marks, title blocks, seals). Every environment wears it; the palette
 changes per environment, and the Capela speaks its **flat dialect** (see
-"Capela de Estudos" below). The living guide is `/identity` — check it before
+"Capela" below). The living guide is `/identity` — check it before
 inventing anything visual.
 
 ### How theming works
@@ -295,7 +295,7 @@ com capricho* (EN: *made with **care***).
 
 ---
 
-## Capela de Estudos
+## Capela
 
 **Closed for now** (`status: 'building'` in `lib/world.ts`, see "Spaces under
 construction"). Decided 2026-10-25 for when it reopens: the Capela becomes a

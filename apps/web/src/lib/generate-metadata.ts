@@ -4,7 +4,7 @@ import { getContent } from '@/lib/portfolio-content'
 import { LOCALES, LOCALE_META, localePath, type Locale, type PortfolioPath } from '@/lib/portfolio-locale'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Capela de Estudos'
+const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Capela'
 const STRAPI_URL = process.env.STRAPI_URL ?? 'http://localhost:1337'
 
 // Resolves Strapi relative image URLs to absolute

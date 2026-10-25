@@ -1,7 +1,7 @@
 # My World
 
 Gustavo Rodrigues Fabiano's personal world: the portfolio ("Mundo do Gustavo") and
-the Capela de Estudos, a personal library of studies on Catholic spirituality,
+the Capela, a personal library of studies on Catholic spirituality,
 theology and philosophy.
 
 ## Structure
@@ -51,7 +51,7 @@ Strapi admin: http://localhost:1337/admin
 
 | Environment | Routes | Theme source | Surface | Accent |
 |-------------|--------|--------------|---------|--------|
-| Catholic — Capela de Estudos | `/`, `/articles`, `/categories`, `/saints`, `/about` | `themes/catholic.ts` | warm near-black chrome `#12100C` | gold `#B08D57` |
+| Catholic — Capela | `/chapel`, `/chapel/articles`, `/chapel/categories`, `/chapel/saints`, `/chapel/about` | `themes/chapel.ts` | limewash `#F4F1EA` / night `#141311` | rubric `#B5321C` / ember `#EE5C3F` |
 | Portfolio — Mundo do Gustavo | `/portfolio`, `/portfolio/resume`, `/identity` | `themes/portfolio.ts` | paper `#EEEAE0` / night `#14120E` | rubric `#B5321C` / ember `#EE5C3F` |
 
 The portfolio carries the personal identity (mark, palette, type, graphic devices);

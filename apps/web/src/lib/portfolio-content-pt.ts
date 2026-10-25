@@ -557,7 +557,7 @@ export const pt: PortfolioCopy = {
   identity: {
     rubric: 'identidade visual · manual vivo',
     title: { before: 'Um mundo, várias', emphasis: 'paisagens', after: '.' },
-    lead: 'A identidade de Gustavo Rodrigues: um pequeno mundo desenhado como lâmina técnica — papel, tinta e uma única cor, o vermelho da rubrica. Vale para o portfólio, para a Capela de Estudos e para tudo o que vier depois.',
+    lead: 'A identidade de Gustavo Rodrigues: um pequeno mundo desenhado como lâmina técnica — papel, tinta e uma única cor, o vermelho da rubrica. Vale para o portfólio, para a Capela e para tudo o que vier depois.',
     caption: 'fig. 2 — a marca sobre a própria construção',
     construction: {
       title: 'Construção da marca: órbita de raio 17, abertura entre −40° e 0°, satélite a −20°',
@@ -596,7 +596,7 @@ export const pt: PortfolioCopy = {
         'A órbita aberta desenha o G. A barra aponta para o núcleo — o mundo, a pessoa. O satélite ocupa a boca do G: o trabalho saindo. Cada paisagem troca só o satélite.',
       variants: {
         satellite: ['Satélite', 'oficina — portfólio, currículo, assinatura de projetos'],
-        star: ['Estrela', 'capela — Capela de Estudos, textos de fé'],
+        star: ['Estrela', 'capela — textos de fé'],
         artifact: ['Artefato', 'laboratório — estudos e experimentos, quando existir'],
       },
       rulesLabel: 'regras',
@@ -631,7 +631,7 @@ export const pt: PortfolioCopy = {
         parchment: ['Pergaminho', 'texto da noite'],
         ember: ['Brasa', 'o acento, à noite'],
         cyanotype: ['Cianotipia', 'só o que está na prancheta'],
-        gold: ['Ouro', 'o ouro escondido da Capela de Estudos'],
+        gold: ['Ouro', 'o ouro escondido da Capela'],
       },
     },
     type: {
@@ -712,7 +712,7 @@ export const pt: PortfolioCopy = {
       vocabulary: [
         ['artefato', 'um projeto entregue'],
         ['oficina', 'onde se constrói — o portfólio'],
-        ['capela', 'onde se estuda e reza — a Capela de Estudos'],
+        ['capela', 'onde se estuda e reza — a Capela'],
         ['órbita', 'em produção, em uso'],
         ['prancheta', 'planejado, ainda não começou'],
         ['capricho', 'o padrão de qualidade'],

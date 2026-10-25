@@ -1,6 +1,6 @@
 /*
  * Identity — "Mundo do Gustavo", the design system every environment wears
- * (portfolio, Capela de Estudos, whatever comes next). Hand-written (not
+ * (portfolio, Capela, whatever comes next). Hand-written (not
  * generated): base-token overrides and the graphic devices Tailwind utilities
  * can't express cleanly. Scoped to [data-env] — any environment wrapper — so it
  * never leaks outside one. Colors always come from the environment's theme vars

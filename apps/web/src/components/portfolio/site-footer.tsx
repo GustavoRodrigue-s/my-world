@@ -24,7 +24,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           // The Capela is Portuguese-only — and, while it is being built, listed but closed.
           links: [
             {
-              label: 'Capela de Estudos',
+              label: 'Capela',
               href: '/chapel',
               hrefLang: 'pt-BR',
               mark: { variant: 'star' },

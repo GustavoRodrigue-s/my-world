@@ -44,7 +44,7 @@ export type { IndexEntry } from './index-list'
 export { TopicGrid } from './topic-grid'
 export type { Topic } from './topic-grid'
 export { Register } from './register'
-// Flat dialect (Capela de Estudos): fills instead of rules, serif titles, still pages.
+// Flat dialect (Capela): fills instead of rules, serif titles, still pages.
 export { PageIntro } from './page-intro'
 export { SectionIntro } from './section-intro'
 export { EntryList } from './entry-list'

@@ -7,7 +7,7 @@ import { ChapelHeader } from './chapel-header'
 import { ConstructionNotice } from './construction-notice'
 
 /**
- * Capela de Estudos — the shared identity in its flat dialect: limewash and
+ * Capela — the shared identity in its flat dialect: limewash and
  * stone, ink and the rubric red. Still pages: only hovers and the quote plate move.
  */
 export function ChapelShell({ children }: { children: React.ReactNode }) {
