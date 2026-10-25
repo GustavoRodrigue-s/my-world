@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Route } from 'next'
 import { Mark, type MarkVariant } from './mark'
+import { StatusTag, type StatusTone } from './status-tag'
 import { Text } from './text'
 
 const linkClass = 'ink-link font-sans text-[14px] text-foreground no-underline hover:text-accent'
@@ -15,6 +16,10 @@ export interface FooterLink {
   hrefLang?: string
   /** A small mark before the label (e.g. another environment's). */
   mark?: { variant: MarkVariant; tone?: 'accent' | 'support' }
+  /** A status tag after the label (e.g. a space that is still being built). */
+  tag?: { tone: StatusTone; label: string }
+  /** Listed but not followable: the place exists, the door is closed. */
+  disabled?: boolean
 }
 
 interface SiteFooterProps {
@@ -36,6 +41,13 @@ function FooterAnchor({ link }: { link: FooterLink }) {
     </>
   )
   const className = link.mark ? `${linkClass} inline-flex items-center gap-2` : linkClass
+  if (link.disabled) {
+    return (
+      <span className="inline-flex items-center gap-2 font-sans text-[14px] text-muted">
+        {content}
+      </span>
+    )
+  }
   if (link.href.startsWith('mailto:')) {
     return (
       <a href={link.href} className={className}>
@@ -78,8 +90,9 @@ export function SiteFooter({ name, mark, text, columns, notes, verse }: SiteFoot
             </Text>
             <ul className="flex list-none flex-col gap-2.5">
               {column.links.map((link) => (
-                <li key={link.href + link.label}>
+                <li key={link.href + link.label} className={link.tag ? 'flex flex-wrap items-center gap-x-2.5 gap-y-1.5' : undefined}>
                   <FooterAnchor link={link} />
+                  {link.tag && <StatusTag tone={link.tag.tone}>{link.tag.label}</StatusTag>}
                 </li>
               ))}
             </ul>

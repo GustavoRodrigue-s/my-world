@@ -52,11 +52,37 @@ memberships, a blog / `/dev` notes area.
 | `/chapel/articles` · `/chapel/articles/[slug]` | chapel | study index (theme chips) · study page |
 | `/chapel/categories` · `/chapel/categories/[slug]` | chapel | theme grid · one theme's studies |
 | `/chapel/saints` · `/chapel/about` | chapel | saints' studies · about |
-| `/api/search` · `/api/revalidate` | — | search proxy (falls back to mock data) · ISR webhook (revalidates `/chapel/...`) |
+| `/under-construction/chapel` | chapel | the Capela's "em construção" page — served by the middleware at every `/chapel` URL while it is closed |
+| `/api/search` · `/api/revalidate` | — | search proxy (empty while the Capela is closed; falls back to mock data) · ISR webhook (revalidates `/chapel/...`) |
 
 The Capela lived at the root until 2026-10-18; `/articles/*`, `/categories/*`,
 `/saints`, `/about` redirect (307) to their `/chapel` paths. Routes are always
 English.
+
+---
+
+## Spaces under construction
+
+Unfinished parts of the world are never removed: they keep their place, wear the
+badge **"em construção"** and visitors get a construction page instead.
+
+- `lib/world.ts` (`SPACES`) is the single switch: each space's paths and status
+  (`open` | `building`). Today the **Capela is `building`** — closed to the public
+  until Gustavo resumes it.
+- `src/middleware.ts` rewrites every page of a closed space to
+  `/under-construction/<space>` (same URL, `X-Robots-Tag: noindex`); each space
+  has its own page under `app/under-construction/`.
+- Who can enter anyway: `next dev` and Vercel **preview** deployments, never
+  production. `SHOW_UNDER_CONSTRUCTION=true|false` overrides that (declared in
+  `turbo.json` so builds of different kinds never share a cache; static pages
+  read it at build time, the middleware at request time).
+- Everything pointing into a closed space asks `canEnter()` /
+  `isUnderConstruction()`: footer links (`FooterLink.tag` + `disabled` — listed,
+  tagged, not followable), the 404, `/api/search` (empty) and `app/sitemap.ts`
+  (omitted). Inside the space, `ConstructionNotice` reminds the builder that the
+  public can't see it.
+- The badge is `<StatusTag tone="open">` with "em construção" / "under
+  construction" (`CHAPEL.construction.status`, portfolio `shell.footer.building`).
 
 ---
 
@@ -73,6 +99,7 @@ my-world/
 │       │   │   ├── (pt)/…          ← Portuguese edition (bare routes)
 │       │   │   └── en/…            ← English edition (/en/…)
 │       │   ├── chapel/             ← Capela: layout.tsx = theme + identity CSS + <ChapelShell>
+│       │   ├── under-construction/ ← one "em construção" page per closed space (chapel/)
 │       │   ├── api/search · api/revalidate
 │       │   └── sitemap.ts · robots.ts
 │       ├── components/
@@ -80,7 +107,9 @@ my-world/
 │       │   ├── portfolio/          ← portfolio sections, shell/header/footer wiring, Fig. 1, résumé
 │       │   ├── identity/           ← /identity sections (palette, mark construction…)
 │       │   └── chapel/             ← Capela shell/header/footer wiring, search, quote plate, study body/index
+│       ├── middleware.ts           ← sends closed spaces to their construction page
 │       └── lib/
+│           ├── world.ts            ← the spaces and their status (open / building)
 │           ├── portfolio-content(.ts|-pt.ts|-en.ts) · portfolio-locale.ts
 │           ├── chapel-content.ts   ← every visible word of the Capela + chapelPath()
 │           ├── mock-data.ts        ← studies, categories, quotes (until Strapi)
@@ -267,6 +296,12 @@ com capricho* (EN: *made with **care***).
 ---
 
 ## Capela de Estudos
+
+**Closed for now** (`status: 'building'` in `lib/world.ts`, see "Spaces under
+construction"). Decided 2026-10-25 for when it reopens: the Capela becomes a
+place of contemplation (an animated landing with music, candles of intention
+whose text only Gustavo reads, letters); its studies move to a future Estudos
+space. The design below is the current, closed version.
 
 **Flat dialect — an old chapel with hidden gold.** Same fonts, radius, spacing
 and rubric red as the portfolio; everything else is quieter — "cal e pedra":

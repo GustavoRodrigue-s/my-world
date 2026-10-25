@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { Heading, Mark, Text, buttonClasses, cx } from '@/components/ui'
+import { Heading, Mark, StatusTag, Text, buttonClasses, cx } from '@/components/ui'
+import { CHAPEL } from '@/lib/chapel-content'
+import { canEnter } from '@/lib/world'
 import '@my-world/ui/css/themes/portfolio.css'
 import '@my-world/ui/css/identity.css'
 
@@ -22,9 +24,17 @@ export default function NotFound() {
           <Link href="/portfolio" className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-[14px]')}>
             Mundo do Gustavo
           </Link>
-          <Link href="/chapel" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-[14px]')}>
-            Capela de Estudos
-          </Link>
+          {canEnter('chapel') ? (
+            <Link href="/chapel" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-[14px]')}>
+              {CHAPEL.name}
+            </Link>
+          ) : (
+            // Still being built (lib/world.ts): the door is drawn, dashed, and closed.
+            <span className="inline-flex h-11 items-center gap-2.5 rounded-xs border border-dashed border-border-strong px-4 font-sans text-[14px] text-muted">
+              {CHAPEL.name}
+              <StatusTag tone="open">{CHAPEL.construction.status}</StatusTag>
+            </span>
+          )}
         </div>
       </main>
     </div>

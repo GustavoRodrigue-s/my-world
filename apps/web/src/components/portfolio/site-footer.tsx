@@ -1,6 +1,7 @@
 import { SiteFooter as Footer } from '@/components/ui'
 import { getContent, type Locale } from '@/lib/portfolio-content'
 import { localePath } from '@/lib/portfolio-locale'
+import { canEnter, isUnderConstruction } from '@/lib/world'
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const { profile, shell } = getContent(locale)
@@ -20,8 +21,17 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         },
         {
           title: t.landscapes,
-          // The Capela is Portuguese-only.
-          links: [{ label: 'Capela de Estudos', href: '/chapel', hrefLang: 'pt-BR', mark: { variant: 'star' } }],
+          // The Capela is Portuguese-only — and, while it is being built, listed but closed.
+          links: [
+            {
+              label: 'Capela de Estudos',
+              href: '/chapel',
+              hrefLang: 'pt-BR',
+              mark: { variant: 'star' },
+              tag: isUnderConstruction('chapel') ? { tone: 'open', label: t.building } : undefined,
+              disabled: !canEnter('chapel'),
+            },
+          ],
         },
         {
           title: t.contact,

@@ -131,6 +131,8 @@ export interface PortfolioCopy {
       identity: string
       email: string
       inCity: string
+      /** Tag on a link to a space that is still being built (lib/world.ts). */
+      building: string
     }
   }
   copy: {

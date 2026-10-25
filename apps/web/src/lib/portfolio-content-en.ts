@@ -67,6 +67,7 @@ export const en: PortfolioCopy = {
       identity: 'Visual identity',
       email: 'Email',
       inCity: 'in Londrina',
+      building: 'under construction',
     },
   },
 

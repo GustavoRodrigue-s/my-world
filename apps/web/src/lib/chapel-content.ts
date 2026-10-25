@@ -24,6 +24,23 @@ export const CHAPEL = {
     description: 'Uma biblioteca de estudos sobre espiritualidade católica, teologia e filosofia.',
   },
 
+  // What visitors see while the Capela is closed (lib/world.ts → status 'building').
+  construction: {
+    status: 'em construção',
+    meta: {
+      title: 'Capela de Estudos — em construção',
+      description: 'Um lugar para contemplar a beleza da Igreja e da vida espiritual. Em construção.',
+    },
+    statement: { before: 'A Capela ainda está sendo', emphasis: 'erguida', after: '.' },
+    // REVIEW
+    lead: 'Aqui vai nascer um lugar para contemplar a beleza da Igreja e da vida espiritual. Ele está sendo construído com calma e abre quando chegar a hora.',
+    verse: { text: '“Se o Senhor não edificar a casa, em vão trabalham os que a edificam.”', source: 'Sl 127,1' },
+    back: 'Voltar ao Mundo do Gustavo',
+    drawing: 'Desenho de uma pequena capela com a torre ainda tracejada e andaimes ao lado: uma obra em andamento.',
+    // Strip over the Capela when it is opened in development or on a preview deployment.
+    preview: 'só você vê a Capela — no ar, o público vê o aviso de obra',
+  },
+
   shell: {
     skipLink: 'Pular para o conteúdo',
     brandSub: 'estudos · gustavo rodrigues',

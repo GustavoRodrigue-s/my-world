@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { canEnter } from '@/lib/world'
 
 // Case- and accent-insensitive: "oracao" finds "oração"
 function normalize(text: string) {
@@ -20,7 +21,8 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const query = searchParams.get('q')
 
-  if (!query || query.trim().length < 2) {
+  // The search only covers the Capela's studies: nothing leaks while it is closed.
+  if (!query || query.trim().length < 2 || !canEnter('chapel')) {
     return NextResponse.json({ results: [] })
   }
 
