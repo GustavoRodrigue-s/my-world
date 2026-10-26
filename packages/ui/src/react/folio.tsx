@@ -12,7 +12,7 @@ interface FolioProps {
   /** Literal title. */
   title: React.ReactNode
   intro?: React.ReactNode
-  bg?: 'surface' | 'alt-1' | 'alt-2'
+  bg?: 'surface' | 'muted' | 'raised'
   children: React.ReactNode
 }
 
@@ -23,20 +23,20 @@ interface FolioProps {
  */
 export function Folio({ id, index, label, note, title, intro, bg = 'surface', children }: FolioProps) {
   return (
-    <Section id={id} bg={bg} aria-labelledby={`${id}-title`} className="scroll-mt-[var(--spacing-nav-h)] border-t border-border">
+    <Section id={id} bg={bg} aria-labelledby={`${id}-title`} className="scroll-mt-bar border-t border-border">
       <div className="grid gap-y-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-x-16">
-        <aside className="self-start lg:sticky lg:top-[calc(var(--spacing-nav-h)+40px)]">
+        <aside className="self-start lg:sticky lg:top-[calc(var(--size-bar)+var(--space-10))]">
           <Rubric index={index}>{label}</Rubric>
-          <span aria-hidden className="plot-draw-x mt-3 block h-px w-10 bg-accent" />
+          <span aria-hidden className="plot-draw-x mt-3 block h-px w-10 bg-primary" />
           {note && (
-            <Text family="mono" size="sm" color="muted" leading="relaxed" className="mt-3 max-w-[22ch]">
+            <Text family="mono" size="xs" color="muted" leading="relaxed" className="mt-3 max-w-[22ch]">
               {note}
             </Text>
           )}
         </aside>
 
         <div className="min-w-0">
-          <Heading as="h2" id={`${id}-title`} level="title" className="plot-rise max-w-[20ch]">
+          <Heading as="h2" id={`${id}-title`} level="headline" className="plot-rise max-w-[20ch]">
             {title}
           </Heading>
           {intro && (

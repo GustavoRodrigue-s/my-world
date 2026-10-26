@@ -51,8 +51,8 @@ export function DayNightToggle({
       title={label}
       className={cx(
         'inline-flex items-center justify-center w-9 h-9 rounded-xs border text-foreground cursor-pointer',
-        'transition-colors duration-[var(--transition-fast)] hover:border-foreground',
-        variant === 'stone' ? 'border-transparent bg-surface-alt-1' : 'border-border-strong bg-transparent',
+        'transition-colors duration-fast hover:border-foreground',
+        variant === 'stone' ? 'border-transparent bg-surface-muted' : 'border-border-strong bg-transparent',
         className
       )}
     >
@@ -63,7 +63,7 @@ export function DayNightToggle({
         height="18"
         aria-hidden
         className={cx(
-          'transition-transform duration-500 ease-out',
+          'transition-transform duration-slower ease-out',
           mode === 'dark' ? 'rotate-180' : 'rotate-0',
           mode === null && 'opacity-0'
         )}

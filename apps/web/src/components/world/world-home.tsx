@@ -31,13 +31,13 @@ export function WorldHome() {
               />
             </div>
             <figcaption className="-mt-2">
-              <Text size="lg" weight="semibold" color="foreground" leading="snug">
+              <Text size="lg" weight="semibold" color="foreground" leading="normal">
                 {IDENTITY.name}
               </Text>
-              <Text family="mono" size="md" color="muted" className="mt-1">
+              <Text family="mono" size="sm" color="muted" className="mt-1">
                 {opening.owner.role}
               </Text>
-              <Link href="/portfolio" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-4 text-[15px]')}>
+              <Link href="/portfolio" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-4 text-base')}>
                 {opening.owner.more}
                 <ArrowRight size={15} strokeWidth={1.6} aria-hidden />
               </Link>
@@ -53,11 +53,11 @@ export function WorldHome() {
           </figure>
         }
       >
-        <Heading as="h1" id="world-title" level="statement" className="max-w-[20ch]">
+        <Heading as="h1" id="world-title" level="display" className="max-w-[20ch]">
           {opening.statement.before} <Emphasis>{opening.statement.emphasis}</Emphasis>
           {opening.statement.after}
         </Heading>
-        <Text size="xl" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+        <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
           {opening.lead}
         </Text>
       </Plate>

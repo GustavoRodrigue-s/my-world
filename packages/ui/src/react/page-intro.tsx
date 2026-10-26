@@ -37,7 +37,7 @@ interface PageIntroProps extends VariantProps<typeof pageIntroVariants> {
 export function PageIntro({ labelledBy, ornament, label, children, actions, footer, align, className }: PageIntroProps) {
   const centered = align !== 'start'
   return (
-    <section aria-labelledby={labelledBy} className={cx('px-[var(--spacing-section-x)] pt-16 pb-16 md:pt-24 md:pb-24', className)}>
+    <section aria-labelledby={labelledBy} className={cx('px-gutter md:px-gutter-wide pt-16 pb-16 md:pt-24 md:pb-24', className)}>
       <div className={pageIntroVariants({ align })}>
         {ornament && <div className="mb-5">{ornament}</div>}
         {label && (

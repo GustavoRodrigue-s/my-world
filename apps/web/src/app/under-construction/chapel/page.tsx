@@ -39,25 +39,25 @@ export default function ChapelUnderConstruction() {
           }
           label={CHAPEL.name}
           actions={
-            <Link href="/" className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-[15px]')}>
+            <Link href="/" className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-base')}>
               {construction.back}
               <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
             </Link>
           }
           footer={
-            <Text family="serif" size="xl" color="foreground" leading="snug" className="max-w-[34ch] italic">
+            <Text family="serif" size="lead" color="foreground" leading="normal" className="max-w-[34ch] italic">
               {construction.verse.text}{' '}
-              <Text as="span" family="mono" size="sm" color="muted" className="not-italic">
+              <Text as="span" family="mono" size="xs" color="muted" className="not-italic">
                 {construction.verse.source}
               </Text>
             </Text>
           }
         >
-          <Heading as="h1" id="construction-title" level="serif-statement" className="max-w-[18ch]">
+          <Heading as="h1" id="construction-title" level="display-serif" className="max-w-[18ch]">
             {construction.statement.before} <Emphasis fit="serif">{construction.statement.emphasis}</Emphasis>
             {construction.statement.after}
           </Heading>
-          <Text size="xl" color="muted" leading="relaxed" className="mt-7 max-w-[46ch]">
+          <Text size="lead" color="muted" leading="relaxed" className="mt-7 max-w-[46ch]">
             {construction.lead}
           </Text>
         </PageIntro>

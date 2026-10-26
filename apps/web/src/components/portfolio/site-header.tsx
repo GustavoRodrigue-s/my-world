@@ -19,7 +19,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       actions={
         <>
           {/* Recruiter path: the résumé is one click away from every page. */}
-          <Link href={localePath(locale, '/portfolio/resume')} className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-9 px-3.5 text-[13px]')}>
+          <Link href={localePath(locale, '/portfolio/resume')} className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-9 px-3.5 text-sm')}>
             {shell.resume}
           </Link>
           <LanguageSwitch label={shell.language.label} current={locale} languages={PORTFOLIO_LANGUAGES} />

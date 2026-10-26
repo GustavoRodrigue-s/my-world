@@ -108,7 +108,7 @@ function SatelliteShape({ kind }: { kind: (typeof SATELLITES)[number]['kind'] })
         className={cx(
           kind === 'solid' && 'fill-foreground',
           kind === 'hollow' && 'fill-surface stroke-foreground',
-          kind === 'lit' && 'fill-accent'
+          kind === 'lit' && 'fill-primary'
         )}
         strokeWidth="1"
       />
@@ -120,7 +120,7 @@ function Callout({ n, x, y }: { n: string; x: number; y: number }) {
   return (
     <g>
       <circle cx={x} cy={y} r="9" className="fill-surface stroke-foreground" strokeWidth="0.9" />
-      <text x={x} y={y + 3.4} textAnchor="middle" className="fill-foreground font-mono text-[10px]">
+      <text x={x} y={y + 3.4} textAnchor="middle" className="fill-foreground font-mono text-2xs">
         {n}
       </text>
     </g>
@@ -264,7 +264,7 @@ export function WorldFigure({ labels, className }: { labels: WorldFigureLabels; 
         {/* Antenna */}
         <g transform={onSurface(-62)} strokeWidth="1.1" strokeLinejoin="round">
           <path d="M-6 3L0 -28L6 3M-4.4 -6H4.4M-2.7 -15H2.7M-1.2 -22H1.2" fill="none" className="stroke-foreground" />
-          <circle cx="0" cy="-31" r="2.3" className="fill-accent">
+          <circle cx="0" cy="-31" r="2.3" className="fill-primary">
             <animate attributeName="opacity" values="1;0.15;1" dur="2.6s" repeatCount="indefinite" />
           </circle>
         </g>
@@ -276,7 +276,7 @@ export function WorldFigure({ labels, className }: { labels: WorldFigureLabels; 
           <circle cx="-9.5" cy="-12.5" r="3.4" fill="none" className="stroke-foreground" />
           <path d="M-1 3V-9A5 5 0 0 1 9 -9V3" fill="none" className="stroke-foreground" />
           {/* Forge glow — lights up when the spark lands */}
-          <path d="M-1 3V-9A5 5 0 0 1 9 -9V3Z" className="fill-accent" opacity="0">
+          <path d="M-1 3V-9A5 5 0 0 1 9 -9V3Z" className="fill-primary" opacity="0">
             <animate attributeName="opacity" begin="gwFall.end" dur="2.2s" values="0;1;0.75;0" keyTimes="0;0.12;0.6;1" />
           </path>
           {/* Smoke */}
@@ -335,10 +335,10 @@ export function WorldFigure({ labels, className }: { labels: WorldFigureLabels; 
             keySplines="0.45 0 0.85 0.55"
           />
           <animate attributeName="opacity" begin="gwFall.begin" dur="2.2s" values="0;1;1;0" keyTimes="0;0.08;0.9;1" />
-          <path d="M-26 0L-3 -2.2L-3 2.2Z" className="fill-accent" opacity="0.4" />
-          <circle r="3.8" className="fill-accent" />
+          <path d="M-26 0L-3 -2.2L-3 2.2Z" className="fill-primary" opacity="0.4" />
+          <circle r="3.8" className="fill-primary" />
         </g>
-        <circle cx={CHIMNEY.x} cy={CHIMNEY.y} r="0" fill="none" className="stroke-accent" strokeWidth="1.2">
+        <circle cx={CHIMNEY.x} cy={CHIMNEY.y} r="0" fill="none" className="stroke-primary" strokeWidth="1.2">
           <animate attributeName="r" begin="gwFall.end" dur="0.7s" values="1;10" />
           <animate attributeName="opacity" begin="gwFall.end" dur="0.7s" values="1;0" />
         </circle>
@@ -356,14 +356,14 @@ export function WorldFigure({ labels, className }: { labels: WorldFigureLabels; 
             keySplines="0.3 0 0.4 1"
           />
           <animate attributeName="opacity" begin="gwLaunch.begin" dur="2.8s" values="0;1;1;0" keyTimes="0;0.06;0.9;1" />
-          <rect x="-3.5" y="-3.5" width="7" height="7" className="fill-accent" />
+          <rect x="-3.5" y="-3.5" width="7" height="7" className="fill-primary" />
         </g>
-        <circle cx={LAUNCH_TARGET.x} cy={LAUNCH_TARGET.y} r="0" fill="none" className="stroke-accent" strokeWidth="1.2">
+        <circle cx={LAUNCH_TARGET.x} cy={LAUNCH_TARGET.y} r="0" fill="none" className="stroke-primary" strokeWidth="1.2">
           <animate attributeName="r" begin="gwLaunch.end" dur="1.3s" values="3;18" />
           <animate attributeName="opacity" begin="gwLaunch.end" dur="1.3s" values="0.9;0" />
         </circle>
 
-        <text x="588" y="540" textAnchor="end" className="fill-muted font-mono text-[10px]">
+        <text x="588" y="540" textAnchor="end" className="fill-foreground-muted font-mono text-2xs">
           {labels.scale}
         </text>
 
@@ -378,7 +378,7 @@ export function WorldFigure({ labels, className }: { labels: WorldFigureLabels; 
         type="button"
         onClick={() => setChoice(running ? 'pause' : 'run')}
         aria-pressed={!running}
-        className="absolute bottom-1 left-1 inline-flex cursor-pointer items-center gap-2 rounded-xs border border-border-strong bg-surface/90 px-2.5 py-1.5 font-mono text-[11px] text-foreground transition-colors duration-[var(--transition-fast)] hover:border-foreground"
+        className="absolute bottom-1 left-1 inline-flex cursor-pointer items-center gap-2 rounded-xs border border-border-strong bg-surface/90 px-2.5 py-1.5 font-mono text-xs text-foreground transition-colors duration-fast hover:border-foreground"
       >
         <svg viewBox="0 0 10 10" width="9" height="9" aria-hidden className="fill-current">
           {running ? <path d="M1.5 1h2.4v8H1.5zM6.1 1h2.4v8H6.1z" /> : <path d="M2 1l7 4-7 4z" />}

@@ -186,7 +186,7 @@ function House({ x, y, tilt }: { x: number; y: number; tilt: number }) {
     <path
       transform={`rotate(${tilt} ${x} ${y})`}
       d={`M${x - 4} ${y}V${y - 5}H${x + 4}V${y}ZM${x - 5} ${y - 5}L${x} ${y - 9}L${x + 5} ${y - 5}`}
-      className="fill-surface-alt-2 stroke-foreground"
+      className="fill-surface-raised stroke-foreground"
       strokeWidth="0.8"
       strokeLinejoin="round"
     />
@@ -198,7 +198,7 @@ function Mountain({ x, y, s }: { x: number; y: number; s: number }) {
   const h = 20 * s
   return (
     <g>
-      <path d={`M${r1(x - w)} ${y}L${x} ${r1(y - h)}L${r1(x + w)} ${y}`} className="fill-surface-alt-2 stroke-foreground" strokeWidth="1" strokeLinejoin="round" />
+      <path d={`M${r1(x - w)} ${y}L${x} ${r1(y - h)}L${r1(x + w)} ${y}`} className="fill-surface-raised stroke-foreground" strokeWidth="1" strokeLinejoin="round" />
       {/* Engraved shade on the eastern face */}
       <path
         d={[0.3, 0.5, 0.7].map((t) => `M${r1(x + w * t * 0.5)} ${r1(y - h * (1 - t * 0.5))}L${r1(x + w * t)} ${y}`).join('')}
@@ -214,7 +214,7 @@ function Tree({ x, y }: { x: number; y: number }) {
   return (
     <path
       d={`M${x} ${y}V${y - 3}M${x - 4.5} ${y - 3}L${x} ${y - 13}L${x + 4.5} ${y - 3}Z`}
-      className="fill-surface-alt-2 stroke-foreground"
+      className="fill-surface-raised stroke-foreground"
       strokeWidth="0.9"
       strokeLinejoin="round"
     />
@@ -304,7 +304,7 @@ function SouthernCross() {
       {Object.entries(CRUX).map(([name, [x, y, o]]) => (
         <path key={name} d={star(x, y, o)} className="fill-foreground" />
       ))}
-      <text x="886" y="609" textAnchor="middle" className="fill-muted font-serif text-[11.5px] italic" opacity="0.7">
+      <text x="886" y="609" textAnchor="middle" className="fill-foreground-muted font-serif text-[11.5px] italic" opacity="0.7">
         {WORLD.map.inscription}
       </text>
     </g>
@@ -319,10 +319,10 @@ function Cartouche() {
       <text x="148" y="72" textAnchor="middle" className="fill-foreground font-serif text-[25px] italic">
         {WORLD.map.cartouche}
       </text>
-      <text x="148" y="90" textAnchor="middle" className="fill-muted font-mono text-[9.5px]">
+      <text x="148" y="90" textAnchor="middle" className="fill-foreground-muted font-mono text-[9.5px]">
         {WORLD.map.plate}
       </text>
-      <text x="148" y="104" textAnchor="middle" className="fill-muted font-mono text-[9.5px]">
+      <text x="148" y="104" textAnchor="middle" className="fill-foreground-muted font-mono text-[9.5px]">
         {WORLD.map.author}
       </text>
     </g>
@@ -337,14 +337,14 @@ function Legend() {
       label: legend.building,
       icon: <path d="M-4 4V-5M4 4V-5M-6 -2H6M-6 2H6" className="stroke-foreground" strokeWidth="1" fill="none" />,
     },
-    { label: legend.planned, icon: <rect x="-4" y="-4" width="8" height="8" fill="none" className="stroke-support-1" strokeWidth="1" strokeDasharray="2 1.5" /> },
+    { label: legend.planned, icon: <rect x="-4" y="-4" width="8" height="8" fill="none" className="stroke-support" strokeWidth="1" strokeDasharray="2 1.5" /> },
     { label: legend.trail, icon: <path d="M-8 0H8" className="stroke-foreground" strokeWidth="1" strokeDasharray="3 3" /> },
-    { label: legend.here, icon: <circle r="3.5" className="fill-accent" /> },
+    { label: legend.here, icon: <circle r="3.5" className="fill-primary" /> },
   ]
   return (
     <g>
       <rect x="36" y="472" width="168" height="134" className="fill-surface stroke-foreground" strokeWidth="0.8" />
-      <text x="50" y="492" className="fill-muted font-mono text-[9.5px] uppercase tracking-[0.12em]">
+      <text x="50" y="492" className="fill-foreground-muted font-mono text-[9.5px] uppercase tracking-wider">
         {legend.title}
       </text>
       {rows.map((row, i) => (
@@ -362,11 +362,11 @@ function Legend() {
 function Ship({ x, y }: { x: number; y: number }) {
   return (
     <g transform={`translate(${x} ${y})`} className="stroke-foreground" strokeWidth="1" strokeLinejoin="round">
-      <path d="M-16 -1H16L11 6H-11Z" className="fill-surface-alt-2" />
+      <path d="M-16 -1H16L11 6H-11Z" className="fill-surface-raised" />
       <path d="M0 -1V-28" />
-      <path d="M1.5 -26L13 -9H1.5Z" className="fill-surface-alt-2" />
-      <path d="M-1.5 -23L-11 -9H-1.5Z" className="fill-surface-alt-2" />
-      <path d="M0 -28L7 -30L0 -32" className="fill-accent stroke-accent" strokeWidth="0.8" />
+      <path d="M1.5 -26L13 -9H1.5Z" className="fill-surface-raised" />
+      <path d="M-1.5 -23L-11 -9H-1.5Z" className="fill-surface-raised" />
+      <path d="M0 -28L7 -30L0 -32" className="fill-primary stroke-primary" strokeWidth="0.8" />
       <path d="M-20 9q4 -3 8 0t8 0M6 9q4 -3 8 0t8 0" fill="none" strokeWidth="0.7" opacity="0.6" />
     </g>
   )
@@ -429,16 +429,16 @@ export function WorldMap() {
         <text x="968" y="50" textAnchor="end" className="fill-foreground font-serif text-[17px] italic">
           {map.incognita}
         </text>
-        <text x="968" y="65" textAnchor="end" className="fill-muted font-mono text-[9px]">
+        <text x="968" y="65" textAnchor="end" className="fill-foreground-muted font-mono text-[9px]">
           {map.incognitaNote}
         </text>
       </g>
 
       {/* The island and its islets */}
-      <path d={COAST_D} className="fill-surface-alt-2" />
+      <path d={COAST_D} className="fill-surface-raised" />
       <g className="chart-appear [animation-delay:1s]">
         {ISLETS.map(([x, y, r, seed]) => (
-          <path key={`${x}-${y}`} d={islet(x, y, r, seed)} className="fill-surface-alt-2 stroke-foreground" strokeWidth="0.9" />
+          <path key={`${x}-${y}`} d={islet(x, y, r, seed)} className="fill-surface-raised stroke-foreground" strokeWidth="0.9" />
         ))}
       </g>
 
@@ -465,7 +465,7 @@ export function WorldMap() {
         <path d={`M${MERIDIAN} 22V618`} />
         <path d={`M22 ${EQUATOR}H978`} />
       </g>
-      <g className="chart-appear fill-muted font-mono text-[9px] [animation-delay:1.6s]">
+      <g className="chart-appear fill-foreground-muted font-mono text-[9px] [animation-delay:1.6s]">
         <text x={MERIDIAN + 5} y="36">
           0°
         </text>
@@ -486,7 +486,7 @@ export function WorldMap() {
 
       {/* The bridge where the Antena's trail crosses the river */}
       <g className="chart-appear [animation-delay:1.9s]" transform={`translate(${BRIDGE.x} ${BRIDGE.y}) rotate(${BRIDGE.a})`}>
-        <rect x="-8" y="-4.5" width="16" height="9" className="fill-surface-alt-2" />
+        <rect x="-8" y="-4.5" width="16" height="9" className="fill-surface-raised" />
         <path d="M-8 -4.5H8M-8 4.5H8M-8 -4.5L-10.5 -7M8 -4.5L10.5 -7M-8 4.5L-10.5 7M8 4.5L10.5 7" className="stroke-foreground" strokeWidth="0.9" fill="none" />
       </g>
 
@@ -515,8 +515,8 @@ export function WorldMap() {
               fill="none"
               strokeWidth="1.8"
               className={cx(
-                'transition-[stroke-dashoffset] duration-700 ease-out [stroke-dasharray:1] [stroke-dashoffset:1] group-hover:[stroke-dashoffset:0]',
-                open ? 'stroke-accent' : 'stroke-foreground'
+                'transition-[stroke-dashoffset] duration-gesture ease-out [stroke-dasharray:1] [stroke-dashoffset:1] group-hover:[stroke-dashoffset:0]',
+                open ? 'stroke-primary' : 'stroke-foreground'
               )}
               opacity={open ? 1 : 0.55}
             />
@@ -528,14 +528,14 @@ export function WorldMap() {
               y={at.y + 27}
               textAnchor="middle"
               className={cx(
-                'font-serif text-[21px] italic transition-colors duration-200 [paint-order:stroke] stroke-surface-alt-2 [stroke-width:5px] [stroke-linejoin:round]',
-                status === 'planned' ? 'fill-support-1' : 'fill-foreground',
-                open && 'group-hover:fill-accent'
+                'font-serif text-[21px] italic transition-colors duration-normal [paint-order:stroke] stroke-surface-raised [stroke-width:5px] [stroke-linejoin:round]',
+                status === 'planned' ? 'fill-support' : 'fill-foreground',
+                open && 'group-hover:fill-primary'
               )}
             >
               {copy.place}
             </text>
-            <text x={at.x} y={at.y + 42} textAnchor="middle" className={cx('font-mono text-[10px] [paint-order:stroke] stroke-surface-alt-2 [stroke-width:4px] [stroke-linejoin:round]', status === 'planned' ? 'fill-support-1' : 'fill-muted')}>
+            <text x={at.x} y={at.y + 42} textAnchor="middle" className={cx('font-mono text-[10px] [paint-order:stroke] stroke-surface-raised [stroke-width:4px] [stroke-linejoin:round]', status === 'planned' ? 'fill-support' : 'fill-foreground-muted')}>
               {copy.name.toLowerCase()} · {statusLabel(id)}
             </text>
           </>
@@ -554,11 +554,11 @@ export function WorldMap() {
 
       {/* Você está aqui */}
       <g>
-        <circle cx={HARBOR.x} cy={HARBOR.y} r="5.5" className="fill-accent" />
-        <circle cx={HARBOR.x} cy={HARBOR.y} r="10" fill="none" className="stroke-accent" strokeWidth="0.9" />
-        <circle cx={HARBOR.x} cy={HARBOR.y} r="10" fill="none" className="chart-beacon stroke-accent" strokeWidth="1.2" />
-        <path d={`M${HARBOR.x - 8} ${HARBOR.y + 8}L${HARBOR.x - 20} 556`} className="stroke-accent" strokeWidth="0.8" />
-        <text x={HARBOR.x - 22} y="568" textAnchor="end" className="fill-accent font-mono text-[11px]">
+        <circle cx={HARBOR.x} cy={HARBOR.y} r="5.5" className="fill-primary" />
+        <circle cx={HARBOR.x} cy={HARBOR.y} r="10" fill="none" className="stroke-primary" strokeWidth="0.9" />
+        <circle cx={HARBOR.x} cy={HARBOR.y} r="10" fill="none" className="chart-beacon stroke-primary" strokeWidth="1.2" />
+        <path d={`M${HARBOR.x - 8} ${HARBOR.y + 8}L${HARBOR.x - 20} 556`} className="stroke-primary" strokeWidth="0.8" />
+        <text x={HARBOR.x - 22} y="568" textAnchor="end" className="fill-primary font-mono text-[11px]">
           {map.youAreHere}
         </text>
       </g>
@@ -573,16 +573,16 @@ export function WorldMap() {
         <g className="stroke-foreground" strokeWidth="0.8">
           <rect x="296" y="590" width="112" height="5" fill="none" />
           <path d="M296 590h28v5h-28ZM352 590h28v5h-28Z" className="fill-foreground" />
-          <text x="352" y="609" textAnchor="middle" className="fill-muted stroke-none font-mono text-[9.5px]">
+          <text x="352" y="609" textAnchor="middle" className="fill-foreground-muted stroke-none font-mono text-[9.5px]">
             {map.scale}
           </text>
         </g>
       </g>
 
       {/* Hidden: a point of gold where the world's lines cross, for whoever looks closely */}
-      <g className="pointer-events-none opacity-0 transition-opacity duration-700 group-hover/map:opacity-100">
-        <circle cx={MERIDIAN} cy={EQUATOR} r="11" className="fill-support-2" opacity="0.18" />
-        <path d={star(MERIDIAN, EQUATOR, 6)} className="fill-support-2" />
+      <g className="pointer-events-none opacity-0 transition-opacity duration-gesture group-hover/map:opacity-100">
+        <circle cx={MERIDIAN} cy={EQUATOR} r="11" className="fill-hidden" opacity="0.18" />
+        <path d={star(MERIDIAN, EQUATOR, 6)} className="fill-hidden" />
       </g>
     </svg>
   )

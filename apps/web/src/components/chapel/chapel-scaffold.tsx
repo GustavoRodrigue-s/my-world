@@ -18,8 +18,8 @@ export function ChapelScaffold({ title, className }: { title: string; className?
         {/* Scaffolding */}
         <path d="M130 120V36M150 120V36M128 56H152M128 80H152M128 104H152M130 104L150 80M130 80L150 56" strokeWidth="1" />
       </g>
-      <path d="M76 34V14M69 21H83" fill="none" className="stroke-accent" strokeWidth="1.4" />
-      <circle cx="76" cy="52" r="2" className="fill-support-1" />
+      <path d="M76 34V14M69 21H83" fill="none" className="stroke-primary" strokeWidth="1.4" />
+      <circle cx="76" cy="52" r="2" className="fill-support" />
     </svg>
   )
 }

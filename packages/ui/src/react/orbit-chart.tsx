@@ -16,7 +16,7 @@ function position(ring: number, i: number, count: number) {
   return { left: `${50 + r * Math.cos(angle)}%`, top: `${50 + r * Math.sin(angle)}%` }
 }
 
-const DOT = ['bg-accent', 'bg-foreground', 'border border-foreground']
+const DOT = ['bg-primary', 'bg-foreground', 'border border-foreground']
 
 interface OrbitChartProps {
   /** Up to three rings, innermost first. */
@@ -62,7 +62,7 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
               className="plot-orbit mb-4 lg:absolute lg:left-1/2 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-2"
               style={{ top: `${50 - RADII[ring]}%` }}
             >
-              <Text as="span" family="mono" size="sm" color={ring === 0 ? 'accent' : 'muted'}>
+              <Text as="span" family="mono" size="xs" color={ring === 0 ? 'primary' : 'muted'}>
                 {orbit.caption}
               </Text>
             </h3>
@@ -76,9 +76,9 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
                 >
                   <span
                     aria-hidden
-                    className={cx('h-[7px] w-[7px] shrink-0 rounded-full transition-transform duration-200 motion-safe:group-hover:scale-[1.6]', DOT[ring])}
+                    className={cx('h-[7px] w-[7px] shrink-0 rounded-full transition-transform duration-normal motion-safe:group-hover:scale-[1.6]', DOT[ring])}
                   />
-                  <Text as="span" size="base" weight={ring === 0 ? 'semibold' : 'normal'} color={ring === 2 ? 'muted' : 'foreground'}>
+                  <Text as="span" size="base" weight={ring === 0 ? 'semibold' : 'regular'} color={ring === 2 ? 'muted' : 'foreground'}>
                     {item}
                   </Text>
                 </li>

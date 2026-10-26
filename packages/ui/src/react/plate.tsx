@@ -27,12 +27,12 @@ interface PlateProps {
  */
 export function Plate({ labelledBy, rubric, corner, children, figure, figureSize = 'half', footer, className }: PlateProps) {
   return (
-    <section aria-labelledby={labelledBy} className={cx('px-[var(--spacing-section-x)] pt-10 pb-16 md:pt-14 md:pb-20', className)}>
+    <section aria-labelledby={labelledBy} className={cx('px-gutter md:px-gutter-wide pt-10 pb-16 md:pt-14 md:pb-20', className)}>
       <div className="section-inner">
         <div className="flex items-baseline justify-between gap-6 border-b border-border pb-4">
           <Rubric index="00">{rubric}</Rubric>
           {corner && (
-            <Text family="mono" size="sm" color="muted" className="hidden sm:block">
+            <Text family="mono" size="xs" color="muted" className="hidden sm:block">
               {corner}
             </Text>
           )}

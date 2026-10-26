@@ -39,7 +39,7 @@ export function WorldShell({ children }: { children: React.ReactNode }) {
           sub={shell.brandSub}
           actions={
             <>
-              <Link href="/portfolio/resume" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-9 px-3.5 text-[13px]')}>
+              <Link href="/portfolio/resume" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-9 px-3.5 text-sm')}>
                 {shell.resume}
               </Link>
               <DayNightToggle labels={shell.dayNight} />

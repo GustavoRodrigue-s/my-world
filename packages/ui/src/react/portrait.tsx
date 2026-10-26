@@ -45,7 +45,7 @@ export function Portrait({
     <div className={cx('group/portrait relative w-full', arch ? 'aspect-[3/4]' : 'aspect-square', className)}>
       <div
         className={cx(
-          'absolute overflow-hidden bg-surface-alt-1',
+          'absolute overflow-hidden bg-surface-muted',
           ring ? 'inset-[23%] rounded-full' : 'inset-0',
           !ring && (arch ? 'rounded-t-full rounded-b-xs' : 'rounded-full')
         )}
@@ -57,12 +57,12 @@ export function Portrait({
             fill
             sizes={sizes}
             priority={priority}
-            className="object-cover grayscale-[15%] transition-transform duration-500 ease-out motion-safe:group-hover/portrait:scale-[1.06]"
+            className="object-cover grayscale-[15%] transition-transform duration-slower ease-out motion-safe:group-hover/portrait:scale-[1.06]"
           />
         ) : (
           <div role="img" aria-label={alt} className="flex h-full w-full items-center justify-center text-foreground">
             <span aria-hidden className="hatch absolute inset-0 opacity-[0.18]" />
-            <span aria-hidden className="relative font-serif text-[clamp(40px,7vw,64px)] italic leading-none">
+            <span aria-hidden className="relative font-serif text-6xl italic leading-none sm:text-7xl">
               {monogram}
             </span>
           </div>
@@ -75,7 +75,7 @@ export function Portrait({
             cx={sat.x}
             cy={sat.y}
             r="1.5"
-            className="origin-[24px_24px] fill-accent transition-transform duration-[650ms] ease-in-out [transform-box:view-box] motion-safe:group-hover/portrait:-rotate-[360deg]"
+            className="origin-[24px_24px] fill-primary transition-transform duration-gesture ease-in-out [transform-box:view-box] motion-safe:group-hover/portrait:-rotate-[360deg]"
           />
         </svg>
       )}

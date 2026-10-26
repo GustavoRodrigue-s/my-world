@@ -15,7 +15,7 @@ The master brand's own environment: `/portfolio`, `/portfolio/resume`,
   small so the H1 stays the LCP), in About, and in the Capela's author byline.
 - **Résumé**: one A4 page, ink on white, no photo; `PrintButton`.
 - **Statuses** map to `StatusTag` tones in
-  `components/portfolio/artifact-status-tag.tsx`. Blueprint blue (`support-1`)
+  `components/portfolio/artifact-status-tag.tsx`. Blueprint blue (`support`)
   only for work "na prancheta".
 - **Footer**: the world's links (home, portfolio, résumé, identity), the other
   places (closed ones tagged "em construção" and not followable), contact.

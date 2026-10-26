@@ -22,7 +22,7 @@ to the library rather than styling raw HTML. Source: `packages/ui/src/react/`.
 | `Register` | Mono-titled ruled list |
 | `StatusTag` · `Chip` | State tag (`lit` / `open` / `plain` / `draft`) · filter toggle (`variant="line" \| "stone"`) |
 | `Mark` (`variant`, `tone`) · `Rubric` · `Seal` · `TitleBlock` · `Emphasis` (`fit`) · `Eyebrow` | Identity devices (`Eyebrow`: small red tracked label, the flat dialect's rubric) |
-| `Heading` · `Text` · `Button` / `buttonClasses()` (`ink` / `line` / `quiet`; flat: `rubric` solid red, `stone` solid stone) · `Section` · `cx()` | Primitives |
+| `Heading` (`level` = typography role) · `Text` (`size` = type-scale step or `lead`) · `Button` / `buttonClasses()` (`ink` / `line` / `quiet`; flat: `rubric` solid red, `stone` solid stone) · `Section` (`bg="surface" \| "muted" \| "raised"`) · `cx()` | Primitives |
 | `PrintButton` | Print / save as PDF |
 | **Flat dialect** | |
 | `Niche` | Romanesque round-arched frame for a picture: gold fillet, ornament in the tympanum, caption; `veiled` = sepia at rest, true colors on hover (always in color on touch) |

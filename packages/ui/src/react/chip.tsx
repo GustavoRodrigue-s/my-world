@@ -14,11 +14,11 @@ export function Chip({ pressed = false, variant = 'line', className, children, .
       type="button"
       aria-pressed={pressed}
       className={cx(
-        'inline-flex h-8 cursor-pointer items-center whitespace-nowrap rounded-xs border px-3 font-mono text-[12px] transition-colors duration-[var(--transition-fast)]',
+        'inline-flex h-8 cursor-pointer items-center whitespace-nowrap rounded-xs border px-3 font-mono text-sm transition-colors duration-fast',
         pressed
           ? 'border-foreground bg-foreground text-surface'
           : variant === 'stone'
-            ? 'border-transparent bg-surface-alt-1 text-foreground hover:border-foreground'
+            ? 'border-transparent bg-surface-muted text-foreground hover:border-foreground'
             : 'border-border-strong bg-transparent text-foreground hover:border-foreground',
         className
       )}

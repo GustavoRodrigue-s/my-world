@@ -23,12 +23,12 @@ export function EntryList({ items }: { items: IndexEntry[] }) {
               <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1 md:flex-col md:gap-y-2 md:pt-2">
                 {item.kicker && (
                   // The rubric gilds under the reader's hand.
-                  <Eyebrow as="span" className="transition-colors duration-[var(--transition-fast)] group-hover:text-support-1">
+                  <Eyebrow as="span" className="transition-colors duration-fast group-hover:text-support">
                     {item.kicker}
                   </Eyebrow>
                 )}
                 {item.meta?.map((m) => (
-                  <Text key={m} as="span" family="mono" size="sm" color="muted">
+                  <Text key={m} as="span" family="mono" size="xs" color="muted">
                     {m}
                   </Text>
                 ))}
@@ -37,8 +37,8 @@ export function EntryList({ items }: { items: IndexEntry[] }) {
             <span className="min-w-0 md:col-start-2">
               <Heading
                 as="span"
-                level="serif-item"
-                className="block max-w-[44ch] transition-colors duration-[var(--transition-fast)] group-hover:text-accent"
+                level="title-sm-serif"
+                className="block max-w-[44ch] transition-colors duration-fast group-hover:text-primary"
               >
                 {item.title}
               </Heading>

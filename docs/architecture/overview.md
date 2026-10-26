@@ -93,8 +93,11 @@ Decision: [ADR 0011](adr/0011-dtcg-tokens-with-style-dictionary.md). Visual rule
   `base.json` (radius, spacing, fonts, motion, z) and one file per theme
   (`portfolio.json`, `chapel.json`) with full `light` / `dark` color sets.
 - **Build:** `packages/design-system/build.mjs` (Style Dictionary 5) writes
-  `generated/css/tokens.css` (base, on `:root`), `generated/css/<theme>.css` and
-  `generated/tokens.json`. **Generated, never hand-edit**: `pnpm tokens`.
+  `generated/css/tokens.css` (shared, on `:root`), `generated/css/<theme>.css`,
+  `generated/css/tailwind-breakpoints.css` and `generated/tokens.json`. Tokens
+  are px/ms in the JSON; the web build turns type, space, sizes and breakpoints
+  into rem and fluid roles into `clamp()` ([ADR 0012](adr/0012-agnostic-token-taxonomy.md));
+  `<html>` has no fixed font size, so rem follows the reader's browser. **Generated, never hand-edit**: `pnpm tokens`.
   `turbo build` runs it before the web app; the output is committed.
 - **Scoping:** each theme applies on `:root:has([data-env="<env>"])`, so both
   files can be loaded after a client-side navigation without clashing.
@@ -104,12 +107,13 @@ Decision: [ADR 0011](adr/0011-dtcg-tokens-with-style-dictionary.md). Visual rule
 - **Consumers:** `apps/web/src/styles/globals.css` imports `tokens.css`; each
   route group layout imports its theme CSS (`@my-world/design-system/css/<env>.css`).
   `packages/ui/src/css/base.css` registers the vars as Tailwind utilities via
-  `@theme inline` (`bg-surface`, `text-accent`, `rounded-xs`…) and holds no values.
+  `@theme inline` (`bg-surface`, `text-primary`, `text-display`, `px-gutter`…;
+  Tailwind's default scales are reset) and holds no values. Map: [design-system/tokens.md](../design-system/tokens.md).
   Code that needs a literal (the `/identity` palette, `generate:brand`) imports
   `tokens` from `@my-world/design-system`.
 - `packages/ui/src/css/identity.css` (hand-written, scoped to `[data-env]`):
   `.hatch`, `.registration`, `.leader`, `.ink-link`, the scroll "plotting"
-  motion (`.plot-*`), the map's `.chart-*` motion, the 768px rhythm switch, print rules.
+  motion (`.plot-*`), the map's `.chart-*` motion, print rules.
 - Brand SVGs: `cd packages/ui && npm run generate:brand` → `apps/web/public/brand/*.svg`.
 
 Adding an environment: `tokens/<name>.json` (copy a theme), add it to `THEMES`

@@ -59,7 +59,7 @@ export function Seal({ seed, size = 44, lit = false, className, ...props }: Seal
         transform={`rotate(${tilt} ${c} ${c})`}
       />
       <circle cx={c} cy={c} r={3.2} fill="currentColor" />
-      <circle cx={sx} cy={sy} r={2.3} fill="currentColor" className={lit ? 'fill-accent' : undefined} />
+      <circle cx={sx} cy={sy} r={2.3} fill="currentColor" className={lit ? 'fill-primary' : undefined} />
     </svg>
   )
 }

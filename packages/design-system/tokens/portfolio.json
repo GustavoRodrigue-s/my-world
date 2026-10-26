@@ -5,145 +5,147 @@
       "$description": "Day. The only mode that prints.",
       "color": {
         "$type": "color",
-        "primary": {
-          "$description": "tinta — ink",
-          "$value": { "colorSpace": "srgb", "components": [0.0902, 0.0824, 0.0588], "hex": "#17150F" }
-        },
-        "primary-light": {
-          "$value": { "colorSpace": "srgb", "components": [0.1412, 0.1294, 0.102], "hex": "#24211A" }
-        },
-        "primary-dark": {
-          "$value": { "colorSpace": "srgb", "components": [0.0471, 0.0431, 0.0314], "hex": "#0C0B08" }
-        },
-        "accent": {
-          "$description": "rubrica — rubric red, the brand accent everywhere",
-          "$value": { "colorSpace": "srgb", "components": [0.7098, 0.1961, 0.1098], "hex": "#B5321C" }
-        },
-        "accent-hover": {
-          "$value": { "colorSpace": "srgb", "components": [0.5765, 0.149, 0.0588], "hex": "#93260F" }
-        },
-        "on-primary": {
-          "$description": "papel — paper",
-          "$value": { "colorSpace": "srgb", "components": [0.9333, 0.9176, 0.8784], "hex": "#EEEAE0" }
-        },
-        "on-primary-muted": {
-          "$value": { "colorSpace": "srgb", "components": [0.9333, 0.9176, 0.8784], "alpha": 0.64 }
-        },
-        "on-accent": {
-          "$value": { "colorSpace": "srgb", "components": [0.9843, 0.9725, 0.949], "hex": "#FBF8F2" }
-        },
-        "support-1": {
-          "$description": "cianotipia — blueprint blue, only for work \"na prancheta\"",
-          "$value": { "colorSpace": "srgb", "components": [0.1804, 0.2902, 0.4902], "hex": "#2E4A7D" }
-        },
-        "support-2": {
-          "$description": "ouro escondido — the Capela's gold, hidden in the world map (never a fill)",
-          "$value": "{chapel.light.color.support-1}"
-        },
         "surface": {
+          "$description": "The page.",
           "$value": { "colorSpace": "srgb", "components": [0.9333, 0.9176, 0.8784], "hex": "#EEEAE0" }
         },
-        "surface-alt-1": {
+        "surface-muted": {
+          "$description": "Solid blocks and bands set apart from the page.",
           "$value": { "colorSpace": "srgb", "components": [0.902, 0.8824, 0.8314], "hex": "#E6E1D4" }
         },
-        "surface-alt-2": {
+        "surface-raised": {
+          "$description": "Floating panels: menus, dialogs, search.",
           "$value": { "colorSpace": "srgb", "components": [0.9647, 0.9529, 0.9255], "hex": "#F6F3EC" }
         },
         "foreground": {
+          "$description": "Text and ink.",
           "$value": { "colorSpace": "srgb", "components": [0.0902, 0.0824, 0.0588], "hex": "#17150F" }
         },
-        "muted": {
+        "foreground-muted": {
+          "$description": "Secondary text.",
           "$value": { "colorSpace": "srgb", "components": [0.3412, 0.3216, 0.2902], "hex": "#57524A" }
         },
-        "subtle": {
+        "foreground-subtle": {
           "$description": "decoration only — below AA for small text",
           "$value": { "colorSpace": "srgb", "components": [0.4941, 0.4706, 0.4235], "hex": "#7E786C" }
         },
         "border": {
+          "$description": "Hairlines.",
           "$value": { "colorSpace": "srgb", "components": [0.0902, 0.0824, 0.0588], "alpha": 0.14 }
         },
         "border-strong": {
+          "$description": "Rules that must be seen.",
           "$value": { "colorSpace": "srgb", "components": [0.0902, 0.0824, 0.0588], "alpha": 0.34 }
         },
+        "primary": {
+          "$description": "rubrica — rubric red, the brand accent everywhere",
+          "$value": "{palette.color.rubric}"
+        },
+        "primary-hover": {
+          "$value": "{palette.color.rubric-deep}"
+        },
+        "on-primary": {
+          "$description": "Text on primary.",
+          "$value": { "colorSpace": "srgb", "components": [0.9843, 0.9725, 0.949], "hex": "#FBF8F2" }
+        },
+        "support": {
+          "$description": "blueprint — only for work \"na prancheta\" (on the drawing board)",
+          "$value": "{palette.color.blueprint}"
+        },
+        "hidden": {
+          "$description": "ouro escondido — the Capela's gold, hidden in the world map (never a fill)",
+          "$value": "{chapel.light.color.support}"
+        },
         "shadow": {
+          "$description": "Color of the one shadow (floating panels).",
           "$value": { "colorSpace": "srgb", "components": [0.0902, 0.0824, 0.0588], "alpha": 0.1 }
-        },
-        "accent-pale": {
-          "$value": { "colorSpace": "srgb", "components": [0.9373, 0.851, 0.8], "hex": "#EFD9CC" }
-        },
-        "accent-border": {
-          "$value": { "colorSpace": "srgb", "components": [0.8314, 0.6039, 0.5255], "hex": "#D49A86" }
+        }
+      },
+      "shadow": {
+        "$type": "shadow",
+        "floating": {
+          "$description": "The one shadow: a floating panel.",
+          "$value": {
+            "color": "{portfolio.light.color.shadow}",
+            "offsetX": { "value": 0, "unit": "px" },
+            "offsetY": { "value": 4, "unit": "px" },
+            "blur": { "value": 20, "unit": "px" },
+            "spread": { "value": 0, "unit": "px" }
+          }
         }
       }
     },
     "dark": {
-      "$description": "Night. Unset tokens alias the day value.",
+      "$description": "Night.",
       "color": {
         "$type": "color",
-        "primary": {
-          "$value": "{portfolio.light.color.primary}"
-        },
-        "primary-light": {
-          "$value": "{portfolio.light.color.primary-light}"
-        },
-        "primary-dark": {
-          "$value": "{portfolio.light.color.primary-dark}"
-        },
-        "accent": {
-          "$description": "brasa — ember: the rubric red lit up for night",
-          "$value": { "colorSpace": "srgb", "components": [0.9333, 0.3608, 0.2471], "hex": "#EE5C3F" }
-        },
-        "accent-hover": {
-          "$value": { "colorSpace": "srgb", "components": [1, 0.4941, 0.3843], "hex": "#FF7E62" }
-        },
-        "on-primary": {
-          "$value": "{portfolio.light.color.on-primary}"
-        },
-        "on-primary-muted": {
-          "$value": "{portfolio.light.color.on-primary-muted}"
-        },
-        "on-accent": {
-          "$value": { "colorSpace": "srgb", "components": [0.0784, 0.0706, 0.0549], "hex": "#14120E" }
-        },
-        "support-1": {
-          "$value": { "colorSpace": "srgb", "components": [0.5608, 0.651, 0.8392], "hex": "#8FA6D6" }
-        },
-        "support-2": {
-          "$value": "{chapel.dark.color.support-1}"
-        },
         "surface": {
           "$description": "noite — warm night, the forge after hours",
           "$value": { "colorSpace": "srgb", "components": [0.0784, 0.0706, 0.0549], "hex": "#14120E" }
         },
-        "surface-alt-1": {
+        "surface-muted": {
+          "$description": "Solid blocks and bands set apart from the page.",
           "$value": { "colorSpace": "srgb", "components": [0.1098, 0.098, 0.0784], "hex": "#1C1914" }
         },
-        "surface-alt-2": {
+        "surface-raised": {
+          "$description": "Floating panels: menus, dialogs, search.",
           "$value": { "colorSpace": "srgb", "components": [0.0549, 0.051, 0.0392], "hex": "#0E0D0A" }
         },
         "foreground": {
+          "$description": "Text and ink.",
           "$value": { "colorSpace": "srgb", "components": [0.9255, 0.902, 0.851], "hex": "#ECE6D9" }
         },
-        "muted": {
+        "foreground-muted": {
+          "$description": "Secondary text.",
           "$value": { "colorSpace": "srgb", "components": [0.6471, 0.6196, 0.5608], "hex": "#A59E8F" }
         },
-        "subtle": {
+        "foreground-subtle": {
+          "$description": "Decoration only — below AA for small text.",
           "$value": { "colorSpace": "srgb", "components": [0.4314, 0.4078, 0.3608], "hex": "#6E685C" }
         },
         "border": {
+          "$description": "Hairlines.",
           "$value": { "colorSpace": "srgb", "components": [0.9255, 0.902, 0.851], "alpha": 0.12 }
         },
         "border-strong": {
+          "$description": "Rules that must be seen.",
           "$value": { "colorSpace": "srgb", "components": [0.9255, 0.902, 0.851], "alpha": 0.3 }
         },
+        "primary": {
+          "$description": "brasa — ember: the rubric red lit up for night",
+          "$value": "{palette.color.ember}"
+        },
+        "primary-hover": {
+          "$value": "{palette.color.ember-bright}"
+        },
+        "on-primary": {
+          "$description": "Text on primary.",
+          "$value": "{portfolio.dark.color.surface}"
+        },
+        "support": {
+          "$description": "blueprint — only for work \"na prancheta\" (on the drawing board)",
+          "$value": "{palette.color.blueprint-night}"
+        },
+        "hidden": {
+          "$description": "A detail hidden on the page, revealed only up close. Never a fill.",
+          "$value": "{chapel.dark.color.support}"
+        },
         "shadow": {
+          "$description": "Color of the one shadow (floating panels).",
           "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.5 }
-        },
-        "accent-pale": {
-          "$value": { "colorSpace": "srgb", "components": [0.1686, 0.0902, 0.0667], "hex": "#2B1711" }
-        },
-        "accent-border": {
-          "$value": { "colorSpace": "srgb", "components": [0.4157, 0.1804, 0.1216], "hex": "#6A2E1F" }
+        }
+      },
+      "shadow": {
+        "$type": "shadow",
+        "floating": {
+          "$description": "The one shadow: a floating panel.",
+          "$value": {
+            "color": "{portfolio.dark.color.shadow}",
+            "offsetX": { "value": 0, "unit": "px" },
+            "offsetY": { "value": 4, "unit": "px" },
+            "blur": { "value": 20, "unit": "px" },
+            "spread": { "value": 0, "unit": "px" }
+          }
         }
       }
     }

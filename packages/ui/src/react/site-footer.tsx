@@ -4,7 +4,7 @@ import { Mark, type MarkVariant } from './mark'
 import { StatusTag, type StatusTone } from './status-tag'
 import { Text } from './text'
 
-const linkClass = 'ink-link font-sans text-[14px] text-foreground no-underline hover:text-accent'
+const linkClass = 'ink-link font-sans text-md text-foreground no-underline hover:text-primary'
 
 export interface FooterLink {
   label: string
@@ -43,7 +43,7 @@ function FooterAnchor({ link }: { link: FooterLink }) {
   const className = link.mark ? `${linkClass} inline-flex items-center gap-2` : linkClass
   if (link.disabled) {
     return (
-      <span className="inline-flex items-center gap-2 font-sans text-[14px] text-muted">
+      <span className="inline-flex items-center gap-2 font-sans text-md text-foreground-muted">
         {content}
       </span>
     )
@@ -72,20 +72,20 @@ function FooterAnchor({ link }: { link: FooterLink }) {
 export function SiteFooter({ name, mark, text, columns, notes, verse }: SiteFooterProps) {
   return (
     <footer className="border-t border-border bg-surface print:hidden">
-      <div className="section-inner grid gap-12 px-[var(--spacing-section-x)] py-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+      <div className="section-inner grid gap-12 px-gutter md:px-gutter-wide py-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
         <div className="max-w-[340px]">
           <div className="flex items-center gap-3 text-foreground">
             <Mark size={34} variant={mark?.variant} tone={mark?.tone} />
-            <span className="font-sans text-[17px] font-semibold tracking-[-0.02em]">{name}</span>
+            <span className="font-sans text-lg font-semibold tracking-tight">{name}</span>
           </div>
-          <Text size="md" color="muted" leading="relaxed" className="mt-5">
+          <Text size="sm" color="muted" leading="relaxed" className="mt-5">
             {text}
           </Text>
         </div>
 
         {columns.map((column) => (
           <div key={column.title}>
-            <Text family="mono" size="sm" color="muted" className="mb-4">
+            <Text family="mono" size="xs" color="muted" className="mb-4">
               {column.title}
             </Text>
             <ul className="flex list-none flex-col gap-2.5">
@@ -101,9 +101,9 @@ export function SiteFooter({ name, mark, text, columns, notes, verse }: SiteFoot
       </div>
 
       <div className="border-t border-border">
-        <div className="section-inner flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 px-[var(--spacing-section-x)] py-5">
+        <div className="section-inner flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 px-gutter md:px-gutter-wide py-5">
           {notes.map((note) => (
-            <Text key={note} family="mono" size="sm" color="muted">
+            <Text key={note} family="mono" size="xs" color="muted">
               {note}
             </Text>
           ))}

@@ -60,7 +60,7 @@ computed values, `hover:` variants, responsive prefixes, no `<style>` tags,
 `docs/design-system/styling.md`.
 
 **Identity** (details in `docs/design-system/identity.md`):
-1. One chromatic color, the rubric red; `support-1` only in its narrow role
+1. One chromatic color, the rubric red (`primary`); `support` only in its narrow role
    (portfolio: blueprint blue for "na prancheta"; Capela: hidden gold).
 2. One `<Emphasis>` word per statement; titles literal, metaphor in the margins.
 3. One protagonist animation per page, pausable; everything else moves only by

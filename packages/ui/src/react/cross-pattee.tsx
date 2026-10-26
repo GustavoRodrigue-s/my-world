@@ -11,7 +11,7 @@ interface CrossPatteeProps extends Omit<React.SVGProps<SVGSVGElement>, 'children
 /** A small cross pattée in the hidden gold (support-1). Decorative. */
 export function CrossPattee({ size = 14, className, ...props }: CrossPatteeProps) {
   return (
-    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden className={cx('shrink-0 fill-support-1', className)} {...props}>
+    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden className={cx('shrink-0 fill-support', className)} {...props}>
       <path d={PATH} />
     </svg>
   )

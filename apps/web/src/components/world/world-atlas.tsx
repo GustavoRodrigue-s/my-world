@@ -24,20 +24,20 @@ export function WorldAtlas() {
               <svg viewBox="-40 -80 80 86" width="64" height="69" aria-hidden className="mb-5">
                 <PlaceGlyph space={id} status={status} strokeWidth={1.5} />
               </svg>
-              <Text family="mono" size="sm" color={status === 'planned' ? 'support' : 'accent'}>
+              <Text family="mono" size="xs" color={status === 'planned' ? 'support' : 'primary'}>
                 {copy.verb}
               </Text>
-              <Heading as="h3" level="subtitle" className="mt-1.5">
+              <Heading as="h3" level="title" className="mt-1.5">
                 {copy.name}
               </Heading>
-              <Text size="md" color="muted" leading="relaxed" className="mt-3">
+              <Text size="sm" color="muted" leading="relaxed" className="mt-3">
                 {copy.text}
               </Text>
               {'moons' in copy && copy.moons && enter && (
                 <ul className="mt-4 flex list-none flex-wrap gap-x-4 gap-y-1">
                   {copy.moons.map((m) => (
                     <li key={m.href}>
-                      <Link href={m.href as Route} className="ink-link font-sans text-[14px] text-foreground no-underline hover:text-accent">
+                      <Link href={m.href as Route} className="ink-link font-sans text-md text-foreground no-underline hover:text-primary">
                         {m.label}
                       </Link>
                     </li>
@@ -47,7 +47,7 @@ export function WorldAtlas() {
               <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-6">
                 <StatusTag tone={TONE[status]}>{atlas.states[status]}</StatusTag>
                 {enter && (
-                  <Link href={href as Route} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-[15px]')}>
+                  <Link href={href as Route} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-base')}>
                     {atlas.enter}
                     <ArrowRight size={15} strokeWidth={1.6} aria-hidden />
                     <span className="sr-only"> — {copy.name}</span>

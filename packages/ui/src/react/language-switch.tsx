@@ -31,16 +31,16 @@ export function LanguageSwitch({ label, current, languages }: { label: string; c
   const from = languages.find((l) => l.code === current) ?? languages[0]
 
   return (
-    <nav aria-label={label} className="flex h-9 items-center gap-1.5 font-mono text-[12px]">
+    <nav aria-label={label} className="flex h-9 items-center gap-1.5 font-mono text-sm">
       {languages.map((l, i) => (
         <span key={l.code} className="flex items-center gap-1.5">
           {i > 0 && (
-            <span aria-hidden className="text-subtle">
+            <span aria-hidden className="text-foreground-subtle">
               /
             </span>
           )}
           {l.code === current ? (
-            <span aria-current="true" className="text-foreground underline decoration-accent underline-offset-4">
+            <span aria-current="true" className="text-foreground underline decoration-primary underline-offset-4">
               {l.short}
             </span>
           ) : (
@@ -50,7 +50,7 @@ export function LanguageSwitch({ label, current, languages }: { label: string; c
               lang={l.htmlLang}
               aria-label={l.switchTo}
               title={l.switchTo}
-              className="text-muted no-underline transition-colors duration-[var(--transition-fast)] hover:text-foreground"
+              className="text-foreground-muted no-underline transition-colors duration-fast hover:text-foreground"
             >
               {l.short}
             </Link>

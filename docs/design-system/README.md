@@ -7,6 +7,7 @@ The living guide is the `/identity` page: check it before inventing anything vis
 | Doc | Covers |
 |---|---|
 | [identity.md](identity.md) | the concept, palettes, typography and the rules that must never be broken |
+| [tokens.md](tokens.md) | how the design tokens are organized, named and used as utilities |
 | [components.md](components.md) | `@my-world/ui`: which component for what, how to add one |
 | [styling.md](styling.md) | Tailwind and code rules for UI |
 | [portfolio.md](portfolio.md) | the portfolio: Fig. 1, editions, portrait |

@@ -1,19 +1,12 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cx } from './utils'
 
-const sectionVariants = cva('px-[var(--spacing-section-x)] py-[var(--spacing-section-y)]', {
+const sectionVariants = cva('px-gutter md:px-gutter-wide py-block md:py-block-wide', {
   variants: {
     bg: {
-      surface:  'bg-surface',
-      'alt-1':  'bg-surface-alt-1',
-      'alt-2':  'bg-surface-alt-2',
-      brand:    'bg-primary',
-      // Legacy aliases kept for backward compatibility
-      white:    'bg-surface',
-      cream:    'bg-surface-alt-1',
-      tan:      'bg-surface-alt-2',
-      navy:     'bg-primary',
-      alt:      'bg-surface-alt-1',
+      surface: 'bg-surface',
+      muted:   'bg-surface-muted',
+      raised:  'bg-surface-raised',
     },
   },
   defaultVariants: { bg: 'surface' },

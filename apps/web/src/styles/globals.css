@@ -1,6 +1,6 @@
 @import '@my-world/design-system/css/tokens.css';
 @import '@my-world/ui/css/base.css';
-@import '@my-world/ui/css/shadcn.css';
+@import '@my-world/design-system/css/tailwind-breakpoints.css';
 
 /* Garante que Tailwind v4 escaneia os componentes do pacote ui (excluídos por padrão por estarem em node_modules) */
 @source "../../../../packages/ui/src/react/**/*.{ts,tsx}";
@@ -14,9 +14,10 @@
     padding: 0;
   }
 
+  /* No font-size on <html>: 1rem stays the reader's browser setting, so every
+     rem-based token (type, space, sizes) follows it. */
   html {
-    font-family: var(--font-sans);
-    font-size: 15px;
+    font-family: var(--font-family-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
@@ -25,7 +26,8 @@
   body {
     background-color: var(--color-surface);
     color: var(--color-foreground);
-    line-height: 1.6;
+    font-size: var(--font-size-base);
+    line-height: var(--font-line-height-relaxed);
     min-height: 100dvh;
   }
 
@@ -42,130 +44,12 @@
 
 @layer utilities {
   .section-inner {
-    max-width: var(--spacing-content-max);
+    max-width: var(--size-container);
     margin-inline: auto;
   }
 
   .article-inner {
-    max-width: var(--spacing-article-max);
+    max-width: var(--size-measure);
     margin-inline: auto;
   }
-
-  .eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 700;
-    padding: 12px 26px;
-    border-radius: var(--radius-pill);
-    border: none;
-    cursor: pointer;
-    transition: opacity var(--transition-fast);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-  }
-
-  .btn-primary {
-    background-color: var(--color-accent);
-    color: var(--color-on-accent);
-  }
-
-  .btn-primary:hover {
-    background-color: var(--color-accent-hover);
-    opacity: 1;
-  }
-
-  .btn-outline {
-    background-color: transparent;
-    color: var(--color-accent-hover);
-    border: 1px solid var(--color-accent);
-  }
-
-  .btn-outline:hover {
-    opacity: 1;
-    background-color: var(--color-accent);
-    color: var(--color-on-accent);
-  }
-
-  .card-base {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-  }
-
-  .card-base:hover {
-    border-color: var(--color-border-strong);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px var(--color-shadow);
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 16px;
-    margin-bottom: 32px;
-  }
-
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--color-foreground);
-    letter-spacing: 0.01em;
-  }
-
-  .link-underline {
-    position: relative;
-    text-decoration: none;
-    color: var(--color-accent);
-    transition: color var(--transition-fast);
-  }
-
-  .link-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: currentColor;
-    transition: width 0.25s ease;
-  }
-
-  .link-underline:hover::after {
-    width: 100%;
-  }
-
-  .animate-fade-up {
-    animation: fadeUp 0.5s ease both;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .delay-100 { animation-delay: 0.1s; }
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-300 { animation-delay: 0.3s; }
 }

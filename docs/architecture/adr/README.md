@@ -23,3 +23,4 @@ ADRs 0001–0009 were recorded retroactively on 2026-10-26 from earlier sessions
 | [0009](0009-projects-and-studies.md) | Projetos owns projects; Estudos keeps articles and notes together | accepted (not implemented) |
 | [0010](0010-docs-in-the-repo.md) | Documentation lives in the repo | accepted |
 | [0011](0011-dtcg-tokens-with-style-dictionary.md) | Design tokens in DTCG JSON, built with Style Dictionary | accepted |
+| [0012](0012-agnostic-token-taxonomy.md) | Agnostic token taxonomy; the web converts to responsive units | accepted |

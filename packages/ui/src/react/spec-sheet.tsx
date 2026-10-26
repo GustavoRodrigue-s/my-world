@@ -7,7 +7,7 @@ import { cx } from './utils'
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <Text family="mono" size="sm" color="muted" className="mb-2.5">
+    <Text family="mono" size="xs" color="muted" className="mb-2.5">
       {children}
     </Text>
   )
@@ -48,7 +48,7 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
     <article
       aria-labelledby={`${id}-title`}
       className={cx(
-        'group plot-rise grid gap-x-10 gap-y-7 border-t border-border-strong py-10 transition-colors duration-200 hover:border-foreground md:grid-cols-[200px_minmax(0,1fr)]',
+        'group plot-rise grid gap-x-10 gap-y-7 border-t border-border-strong py-10 transition-colors duration-normal hover:border-foreground md:grid-cols-[200px_minmax(0,1fr)]',
         side && 'xl:grid-cols-[200px_minmax(0,1.15fr)_minmax(0,1fr)]'
       )}
     >
@@ -57,14 +57,14 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
           seed={seal ?? id}
           size={56}
           lit={lit}
-          className="transition-transform duration-300 ease-out motion-safe:group-hover:rotate-[24deg]"
+          className="transition-transform duration-slow ease-out motion-safe:group-hover:rotate-[24deg]"
         />
         <div className="flex flex-col gap-2.5">
-          <Text family="mono" size="md" color="accent">
+          <Text family="mono" size="sm" color="primary">
             {code}
           </Text>
           {tag && <div className="self-start">{tag}</div>}
-          <Text family="mono" size="sm" color="muted" leading="relaxed">
+          <Text family="mono" size="xs" color="muted" leading="relaxed">
             {meta.map((line, i) => (
               <span key={line} className="block">
                 {line}
@@ -76,9 +76,9 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
       </div>
 
       <div>
-        <Heading as="h3" id={`${id}-title`} level="subtitle">
+        <Heading as="h3" id={`${id}-title`} level="title">
           {href ? (
-            <Link href={href as Route} className="ink-link text-foreground no-underline hover:text-accent">
+            <Link href={href as Route} className="ink-link text-foreground no-underline hover:text-primary">
               {title}
             </Link>
           ) : (
@@ -89,7 +89,7 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
           {lead}
         </Text>
         {details?.map((d) => (
-          <div key={d.label} className={cx('mt-6', d.marked && 'border-l-2 border-accent pl-4')}>
+          <div key={d.label} className={cx('mt-6', d.marked && 'border-l-2 border-primary pl-4')}>
             <Label>{d.label}</Label>
             <Text size="base" color="muted" leading="relaxed" className="max-w-[52ch]">
               {d.text}
@@ -97,7 +97,7 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
           </div>
         ))}
         {footnote && (
-          <Text family="mono" size="sm" color="muted" className="mt-6">
+          <Text family="mono" size="xs" color="muted" className="mt-6">
             {footnote}
           </Text>
         )}
@@ -113,7 +113,7 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
                 {features.items.map((item) => (
                   <li key={item} className="flex gap-3 border-b border-border py-2.5">
                     <span aria-hidden className="mt-[9px] h-[5px] w-[5px] shrink-0 bg-foreground" />
-                    <Text as="span" size="base" color="foreground" leading="snug">
+                    <Text as="span" size="base" color="foreground" leading="normal">
                       {item}
                     </Text>
                   </li>
@@ -124,7 +124,7 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
           {stack && (
             <div className={cx(features && 'mt-6')}>
               <Label>{stack.label}</Label>
-              <Text family="mono" size="md" color="foreground" leading="relaxed">
+              <Text family="mono" size="sm" color="foreground" leading="relaxed">
                 {stack.items.join(' / ')}
               </Text>
             </div>

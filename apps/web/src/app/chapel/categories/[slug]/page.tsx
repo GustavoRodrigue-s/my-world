@@ -33,11 +33,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     <>
       <PageIntro labelledBy="category-title"
         ornament={<CrossPattee size={16} />} label={`${t.labelOne} · ${CHAPEL.studyCount(studies.length)}`}>
-        <Heading as="h1" id="category-title" level="serif-statement" className="max-w-[16ch]">
+        <Heading as="h1" id="category-title" level="display-serif" className="max-w-[16ch]">
           {category.name}
         </Heading>
         {category.description && (
-          <Text size="xl" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+          <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
             {category.description}
           </Text>
         )}
@@ -50,7 +50,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             {t.empty}
           </Text>
         )}
-        <Link href={chapelPath('/categories')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-12 text-[15px]')}>
+        <Link href={chapelPath('/categories')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-12 text-base')}>
           <ArrowLeft size={15} strokeWidth={1.6} aria-hidden />
           {t.back}
         </Link>

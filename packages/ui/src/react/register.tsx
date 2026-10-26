@@ -4,7 +4,7 @@ import { Text } from './text'
 export function Register({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="plot-rise">
-      <Text family="mono" size="sm" color="muted" className="mb-3">
+      <Text family="mono" size="xs" color="muted" className="mb-3">
         {title}
       </Text>
       <ul className="list-none border-t border-border-strong">{children}</ul>

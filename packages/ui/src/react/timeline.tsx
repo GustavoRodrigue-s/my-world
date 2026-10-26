@@ -28,8 +28,8 @@ function Node({ entry }: { entry: TimelineEntry }) {
   if (entry.state === 'current') {
     return (
       <span className="relative flex h-4 w-4 items-center justify-center">
-        <span className="absolute inset-0 rounded-full border border-accent" />
-        <span className="h-2 w-2 rounded-full bg-accent" />
+        <span className="absolute inset-0 rounded-full border border-primary" />
+        <span className="h-2 w-2 rounded-full bg-primary" />
       </span>
     )
   }
@@ -58,8 +58,8 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
           >
             <Text
               family="mono"
-              size="md"
-              color={current ? 'accent' : 'muted'}
+              size="sm"
+              color={current ? 'primary' : 'muted'}
               className={cx('hidden pt-[3px] md:block', past && 'plot-ink-text')}
             >
               {entry.period}
@@ -76,14 +76,14 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                 />
               )}
               {!last && past && !towardNext && (
-                <span aria-hidden className="plot-ink absolute top-5 bottom-0 left-1/2 w-[2px] -translate-x-1/2 bg-accent" />
+                <span aria-hidden className="plot-ink absolute top-5 bottom-0 left-1/2 w-[2px] -translate-x-1/2 bg-primary" />
               )}
-              <span className="relative z-[1] mt-[5px] flex h-4 items-center transition-transform duration-200 motion-safe:group-hover:scale-125">
+              <span className="relative z-[1] mt-[5px] flex h-4 items-center transition-transform duration-normal motion-safe:group-hover:scale-125">
                 <Node entry={entry} />
                 {past && (
                   <span
                     aria-hidden
-                    className="plot-ripple absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent"
+                    className="plot-ripple absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary"
                   />
                 )}
               </span>
@@ -92,17 +92,17 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
             <div className={cx('plot-arrive pb-12', last && 'pb-0')}>
               <Text
                 family="mono"
-                size="sm"
-                color={current ? 'accent' : 'muted'}
+                size="xs"
+                color={current ? 'primary' : 'muted'}
                 className={cx('mb-2 md:hidden', past && 'plot-ink-text')}
               >
                 {entry.period}
               </Text>
-              <Heading as="h3" level="subtitle">
+              <Heading as="h3" level="title">
                 {entry.title}
               </Heading>
               {entry.meta && (
-                <Text size="md" color="foreground" className="mt-1.5">
+                <Text size="sm" color="foreground" className="mt-1.5">
                   {entry.meta}
                 </Text>
               )}

@@ -14,10 +14,10 @@ export function SectionServices({ locale }: { locale: Locale }) {
       note={copy.services.note}
       title={copy.services.title}
       intro={copy.services.intro}
-      bg="alt-1"
+      bg="muted"
     >
       {/* Da ideia à órbita — the workshop line, which is also how I work */}
-      <Text family="mono" size="sm" color="muted" className="mb-4">
+      <Text family="mono" size="xs" color="muted" className="mb-4">
         {copy.services.line}
       </Text>
       <ol className="grid list-none border-t border-border-strong sm:grid-cols-2 lg:grid-cols-4">
@@ -28,14 +28,14 @@ export function SectionServices({ locale }: { locale: Locale }) {
           >
             <div className="flex items-start justify-between">
               <ProcessIcon stage={STAGE_KEYS[i]} />
-              <Text as="span" family="mono" size="sm" color="accent">
+              <Text as="span" family="mono" size="xs" color="primary">
                 {String(i + 1).padStart(2, '0')}
               </Text>
             </div>
-            <Heading as="h3" level="item" className="mt-5">
+            <Heading as="h3" level="title-sm" className="mt-5">
               {stage.name}
             </Heading>
-            <Text size="md" color="muted" leading="relaxed" className="mt-2">
+            <Text size="sm" color="muted" leading="relaxed" className="mt-2">
               {stage.text}
             </Text>
           </li>
@@ -46,8 +46,8 @@ export function SectionServices({ locale }: { locale: Locale }) {
         {services.map((s) => (
           <div key={s.title} className="group plot-rise relative border-t border-foreground pt-5">
             {/* Hover: a red rule is traced over the ink one. */}
-            <span aria-hidden className="absolute inset-x-0 -top-px h-px origin-left scale-x-0 bg-accent transition-transform duration-200 ease-out group-hover:scale-x-100" />
-            <Heading as="h3" level="item" className="max-w-[18ch]">
+            <span aria-hidden className="absolute inset-x-0 -top-px h-px origin-left scale-x-0 bg-primary transition-transform duration-normal ease-out group-hover:scale-x-100" />
+            <Heading as="h3" level="title-sm" className="max-w-[18ch]">
               {s.title}
             </Heading>
             <Text size="base" color="muted" leading="relaxed" className="mt-3">
@@ -58,17 +58,17 @@ export function SectionServices({ locale }: { locale: Locale }) {
       </div>
 
       <div className="plot-rise mt-20 border-t border-border-strong pt-6">
-        <Text family="mono" size="sm" color="muted">
+        <Text family="mono" size="xs" color="muted">
           {copy.services.companies}
         </Text>
         <ul className="mt-4 flex list-none flex-wrap items-baseline gap-x-3 gap-y-2">
           {companies.map((c, i) => (
             <li key={c} className="flex items-baseline gap-3">
-              <Heading as="span" level="subtitle">
+              <Heading as="span" level="title">
                 {c}
               </Heading>
               {i < companies.length - 1 && (
-                <span aria-hidden className="font-serif text-[24px] italic text-subtle">
+                <span aria-hidden className="font-serif text-3xl italic text-foreground-subtle">
                   /
                 </span>
               )}

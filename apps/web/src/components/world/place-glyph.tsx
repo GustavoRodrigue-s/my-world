@@ -32,7 +32,7 @@ const DRAWING: Record<SpaceId, { width: number; ink: string; extra?: (planned: b
           fill="none"
           opacity="0.7"
         />
-        <circle cy="-58" r="3" className={planned ? 'fill-none' : 'fill-accent stroke-none'} />
+        <circle cy="-58" r="3" className={planned ? 'fill-none' : 'fill-primary stroke-none'} />
       </>
     ),
   },
@@ -55,8 +55,8 @@ const DRAWING: Record<SpaceId, { width: number; ink: string; extra?: (planned: b
     extra: (planned) => (
       <>
         <circle cy="-30" r="4.2" fill="none" />
-        {!planned && <circle cy="-30" r="1.5" className="fill-support-2 stroke-none" />}
-        <path d="M0 -40V-55M-5 -49.5H5" className={planned ? undefined : 'stroke-accent'} strokeWidth="1.5" />
+        {!planned && <circle cy="-30" r="1.5" className="fill-hidden stroke-none" />}
+        <path d="M0 -40V-55M-5 -49.5H5" className={planned ? undefined : 'stroke-primary'} strokeWidth="1.5" />
       </>
     ),
   },
@@ -89,7 +89,7 @@ export function PlaceGlyph({ space, status, strokeWidth = 1.3, className }: Plac
       strokeLinejoin="round"
       strokeLinecap="round"
       strokeDasharray={planned ? '4.5 2.5' : undefined}
-      className={cx(planned ? 'stroke-support-1' : 'stroke-foreground', className)}
+      className={cx(planned ? 'stroke-support' : 'stroke-foreground', className)}
     >
       <path d={d.ink} fill="none" />
       {d.extra?.(planned)}

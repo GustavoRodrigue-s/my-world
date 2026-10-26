@@ -61,7 +61,7 @@ export function CitationPlate({ quotes, labels }: CitationPlateProps) {
 
   const quote = quotes[index]
   const control =
-    'inline-flex cursor-pointer items-center gap-2 rounded-xs px-2.5 py-1.5 font-mono text-[11px] text-muted transition-colors duration-[var(--transition-fast)] hover:text-accent'
+    'inline-flex cursor-pointer items-center gap-2 rounded-xs px-2.5 py-1.5 font-mono text-xs text-foreground-muted transition-colors duration-fast hover:text-primary'
 
   return (
     <figure
@@ -84,7 +84,7 @@ export function CitationPlate({ quotes, labels }: CitationPlateProps) {
       <div className="mt-6 flex items-center gap-4">
         <span aria-hidden className="flex gap-1.5">
           {quotes.map((q, i) => (
-            <span key={q.text} className={cx('h-[5px] w-[5px] rounded-full', i === index ? 'bg-accent' : 'bg-border-strong')} />
+            <span key={q.text} className={cx('h-[5px] w-[5px] rounded-full', i === index ? 'bg-primary' : 'bg-border-strong')} />
           ))}
         </span>
         {!reduced && (

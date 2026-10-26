@@ -8,15 +8,15 @@ const quoteVariants = cva('', {
       // On its own band: large, centered.
       display: 'text-center',
       // Inside running text: the rubric rule at the left — the manuscript's way to cite.
-      body: 'border-l-2 border-accent py-1 pl-6',
+      body: 'border-l-2 border-primary py-1 pl-6',
     },
   },
   defaultVariants: { size: 'body' },
 })
 
 const TEXT = {
-  display: 'text-[clamp(28px,3.4vw,46px)] leading-[1.16] text-balance',
-  body: 'text-[clamp(22px,2.2vw,27px)] leading-[1.3]',
+  display: 'text-quote text-balance',
+  body: 'text-quote-sm',
 } as const
 
 interface QuoteProps extends VariantProps<typeof quoteVariants> {
@@ -33,7 +33,7 @@ export function Quote({ text, source, size, className }: QuoteProps) {
     <blockquote className={cx(quoteVariants({ size }), className)}>
       <p className={cx('font-serif text-foreground italic', TEXT[s])}>{text}</p>
       {source && (
-        <Text as="footer" family="mono" size="sm" color="muted" className={s === 'display' ? 'mt-6' : 'mt-3'}>
+        <Text as="footer" family="mono" size="xs" color="muted" className={s === 'display' ? 'mt-6' : 'mt-3'}>
           — {source}
         </Text>
       )}

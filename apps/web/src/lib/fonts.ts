@@ -8,7 +8,7 @@ import { Bricolage_Grotesque, Cormorant_Garamond, IBM_Plex_Mono } from 'next/fon
 export const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-sans',
+  variable: '--font-family-sans',
   axes: ['opsz'],
 })
 
@@ -16,7 +16,7 @@ export const bricolage = Bricolage_Grotesque({
 export const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-serif',
+  variable: '--font-family-serif',
   weight: ['300', '400', '500', '600'],
   style: ['normal', 'italic'],
 })
@@ -25,7 +25,7 @@ export const cormorant = Cormorant_Garamond({
 export const plexMono = IBM_Plex_Mono({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-mono',
+  variable: '--font-family-mono',
   weight: ['400', '500'],
 })
 

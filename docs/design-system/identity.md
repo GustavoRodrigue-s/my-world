@@ -19,16 +19,16 @@ values below are a copy for reading; if they differ, the JSON wins.
 | Token | Portfolio day | Portfolio night | Capela day (cal) | Capela night (completas) |
 |---|---|---|---|---|
 | surface | `#EEEAE0` papel | `#14120E` | `#F4F1EA` cal | `#141311` |
-| surface-alt-1 | — | — | `#E7E2D8` pedra (the flat blocks) | `#1F1D19` |
+| surface-muted | — | — | `#E7E2D8` pedra (the flat blocks) | `#1F1D19` |
 | foreground | `#17150F` tinta | `#ECE6D9` | `#1C1A17` tinta | `#ECE7DE` |
-| accent (brand) | `#B5321C` rubrica | `#EE5C3F` brasa | `#B5321C` rubrica | `#EE5C3F` brasa |
-| support-1 | `#2E4A7D` cianotipia | `#8FA6D6` | `#7E5F28` ouro velho | `#D4AF6A` |
-| support-2 | ouro (the Capela's gold, aliased from `chapel.json`) — only hidden in the world map | | — | |
+| primary (the brand) | `#B5321C` rubrica | `#EE5C3F` brasa | `#B5321C` rubrica | `#EE5C3F` brasa |
+| support | `#2E4A7D` cianotipia | `#8FA6D6` | `#7E5F28` ouro velho | `#D4AF6A` |
+| hidden | ouro (the Capela's gold) — only hidden in the world map | | — | |
 
-- The **rubric red is the brand accent everywhere** (rubrics, links, the
+- The **rubric red is the one primary color, everywhere** (rubrics, links, the
   emphasized word, the satellite, the Capela's star). Never a large fill — a
   button is fine.
-- `support-1` is the environment's second voice, used sparingly: in the
+- `support` is the environment's second voice, used sparingly: in the
   portfolio, blueprint blue **only** for work "na prancheta"; in the Capela, the
   **hidden gold** — fixed only in small details (illuminated initial, heart of the
   rose window, cross pattée), otherwise revealed by the reader's hand (fillets
@@ -41,14 +41,16 @@ values below are a copy for reading; if they differ, the JSON wins.
 - **Cormorant Garamond italic** (`--font-serif`) — the voice: *the one word that
   matters* per statement via `<Emphasis>`, quotes and citations, closing verses.
 - **IBM Plex Mono** (`--font-mono`) — annotations: rubrics, captions, specs, dates.
-- `Heading` levels: `statement` (page H1), `title`, `subtitle`, `item`; the
-  Capela uses the serif twins `serif-statement`, `serif-title`, `serif-subtitle`,
-  `serif-item` (Cormorant upright) with `<Emphasis fit="serif">`.
-- `Text`: `family="sans" | "mono" | "serif"`, `size`, `color`, `leading`.
+- `Heading` levels are the typography roles ([tokens.md](tokens.md)): `display`
+  (page H1), `headline`, `title`, `title-sm`; the Capela uses the serif twins
+  `display-serif`, `headline-serif`, `title-serif`, `title-sm-serif`
+  (Cormorant upright) with `<Emphasis fit="serif">`.
+- `Text`: `family="sans" | "mono" | "serif"`, `size` (a step of the type scale,
+  or `lead`), `color`, `leading`, `weight`.
 
 ## Rules that must never be broken
 
-1. **One chromatic color** (rubric/ember). `support-1` only in its
+1. **One chromatic color** (rubric/ember). `support` only in its
    environment's narrow role (above).
 2. **One `<Emphasis>` word per statement.** Titles and content stay **literal**;
    the metaphor (órbita, oficina, artefato, prancheta, lição) lives in margins,
@@ -69,7 +71,7 @@ values below are a copy for reading; if they differ, the JSON wins.
    cells of a `gap-px` grid (animate the grid). **The Capela is still**
    (`motion="still"`): no plotting, no progress line.
 4. **Near-square corners** (`rounded-xs`), hairline rules, no shadows except a
-   floating panel (`shadow-card`). In the Capela, not even that: solid fills
-   separate the parts, floating panels are flat (`surface-alt-2` + a hairline).
+   floating panel (`shadow-floating`). In the Capela, not even that: solid fills
+   separate the parts, floating panels are flat (`surface-raised` + a hairline).
 5. **Never hardcode a hex** in a component; brand SVGs come from
    `npm run generate:brand` (`apps/web/public/brand/*.svg`).

@@ -17,10 +17,10 @@ export default function SaintsPage() {
     <>
       <PageIntro labelledBy="saints-title"
         ornament={<CrossPattee size={16} />} label={`${t.label} · ${CHAPEL.studyCount(studies.length)}`}>
-        <Heading as="h1" id="saints-title" level="serif-statement" className="max-w-[16ch]">
+        <Heading as="h1" id="saints-title" level="display-serif" className="max-w-[16ch]">
           {t.title}
         </Heading>
-        <Text size="xl" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+        <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
           {t.intro}
         </Text>
       </PageIntro>

@@ -35,7 +35,7 @@ export function RoseWindow({ size = 64, className }: RoseWindowProps) {
       height={size}
       aria-hidden
       className={cx(
-        'shrink-0 text-subtle transition-colors duration-500 ease-out group-hover:text-support-1 group-hover/niche:text-support-1',
+        'shrink-0 text-foreground-subtle transition-colors duration-slower ease-out group-hover:text-support group-hover/niche:text-support',
         className
       )}
     >
@@ -48,7 +48,7 @@ export function RoseWindow({ size = 64, className }: RoseWindowProps) {
           <circle key={`${x}-${y}`} cx={x} cy={y} r="4.4" />
         ))}
       </g>
-      <circle cx="32" cy="32" r="3.2" className="fill-support-1" />
+      <circle cx="32" cy="32" r="3.2" className="fill-support" />
     </svg>
   )
 }

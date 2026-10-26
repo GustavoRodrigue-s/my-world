@@ -32,13 +32,13 @@ interface Swatch {
 const SWATCHES: Swatch[] = [
   { key: 'paper', color: day.surface },
   { key: 'ink', color: day.foreground, on: day.surface },
-  { key: 'rubric', color: day.accent, on: day.surface },
-  { key: 'graphite', color: day.muted, on: day.surface },
+  { key: 'rubric', color: day.primary, on: day.surface },
+  { key: 'graphite', color: day['foreground-muted'], on: day.surface },
   { key: 'night', color: night.surface },
   { key: 'parchment', color: night.foreground, on: night.surface },
-  { key: 'ember', color: night.accent, on: night.surface },
-  { key: 'cyanotype', color: day['support-1'], on: day.surface },
-  { key: 'gold', color: chapel['support-1'], on: chapel.surface },
+  { key: 'ember', color: night.primary, on: night.surface },
+  { key: 'cyanotype', color: day.support, on: day.surface },
+  { key: 'gold', color: chapel.support, on: chapel.surface },
 ]
 
 interface PaletteProps {
@@ -63,16 +63,16 @@ export function Palette({ swatches, large }: PaletteProps) {
                 <Text size="base" weight="semibold" color="foreground">
                   {name}
                 </Text>
-                <Text size="md" color="muted" className="mt-0.5">
+                <Text size="sm" color="muted" className="mt-0.5">
                   {role}
                 </Text>
               </div>
               <div className="text-right">
-                <Text family="mono" size="sm" color="foreground">
+                <Text family="mono" size="xs" color="foreground">
                   {s.color.toUpperCase()}
                 </Text>
                 {ratio && (
-                  <Text family="mono" size="sm" color="muted" className="mt-0.5">
+                  <Text family="mono" size="xs" color="muted" className="mt-0.5">
                     {ratio.toFixed(1)}:1 {ratio >= 4.5 ? 'AA' : ratio >= 3 ? large : ''}
                   </Text>
                 )}

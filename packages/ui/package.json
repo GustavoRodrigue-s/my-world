@@ -7,7 +7,6 @@
   "exports": {
     ".": "./src/index.ts",
     "./css/base.css": "./src/css/base.css",
-    "./css/shadcn.css": "./src/css/shadcn.css",
     "./css/identity.css": "./src/css/identity.css"
   },
   "scripts": {

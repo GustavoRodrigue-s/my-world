@@ -101,7 +101,7 @@ export function Mark({
         d={markSatellitePath(variant)}
         fill="currentColor"
         className={cx(
-          accent && (tone === 'support' ? 'fill-support-1' : 'fill-accent'),
+          accent && (tone === 'support' ? 'fill-support' : 'fill-primary'),
           satelliteClassName && '[transform-box:view-box] origin-[24px_24px]',
           satelliteClassName
         )}

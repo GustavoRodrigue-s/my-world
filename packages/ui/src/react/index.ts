@@ -1,9 +1,7 @@
 export { Button, buttonClasses } from './button'
-export { Badge } from './badge'
 export { Heading } from './heading'
 export { Text } from './text'
 export { Eyebrow } from './eyebrow'
-export { Card, CardBody } from './card'
 export { Section, SectionHeader } from './section'
 export { cx } from './utils'
 

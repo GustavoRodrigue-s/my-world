@@ -28,20 +28,20 @@ export function SectionAbout({ locale }: { locale: Locale }) {
           </div>
 
           <div className="mt-14">
-            <Text family="mono" size="sm" color="muted">
+            <Text family="mono" size="xs" color="muted">
               {about.principlesLabel}
             </Text>
             <ol className="mt-4 grid list-none border-t border-border sm:grid-cols-2">
               {about.principles.map((p, i) => (
                 <li key={p.title} className="plot-rise flex gap-4 border-b border-border py-5 sm:odd:pr-6 sm:even:border-l sm:even:pl-6">
-                  <Text as="span" family="mono" size="md" color="accent" className="w-6 shrink-0">
+                  <Text as="span" family="mono" size="sm" color="primary" className="w-6 shrink-0">
                     {ROMAN[i]}.
                   </Text>
                   <div>
-                    <Heading as="h3" level="item">
+                    <Heading as="h3" level="title-sm">
                       {p.title}
                     </Heading>
-                    <Text size="md" color="muted" leading="relaxed" className="mt-1.5">
+                    <Text size="sm" color="muted" leading="relaxed" className="mt-1.5">
                       {p.text}
                     </Text>
                   </div>
@@ -56,10 +56,10 @@ export function SectionAbout({ locale }: { locale: Locale }) {
           <dl className="mt-8 border-t border-border">
             {about.facts.map((f) => (
               <div key={f.label} className="flex items-baseline gap-3 border-b border-border py-3">
-                <Text as="dt" family="mono" size="sm" color="muted" className="w-20 shrink-0">
+                <Text as="dt" family="mono" size="xs" color="muted" className="w-20 shrink-0">
                   {f.label}
                 </Text>
-                <Text as="dd" size="md" color="foreground">
+                <Text as="dd" size="sm" color="foreground">
                   {f.value}
                 </Text>
               </div>

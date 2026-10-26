@@ -32,7 +32,7 @@ export function ProcessIcon({ stage }: { stage: keyof typeof PATHS }) {
       {/* The red detail answers a hover on the stage (the parent is a `group`). */}
       <path
         d={p.red}
-        className="origin-center fill-accent stroke-accent transition-transform duration-200 ease-out [transform-box:fill-box] motion-safe:group-hover:scale-125 motion-safe:group-hover:rotate-12"
+        className="origin-center fill-primary stroke-primary transition-transform duration-normal ease-out [transform-box:fill-box] motion-safe:group-hover:scale-125 motion-safe:group-hover:rotate-12"
         strokeWidth="1.2"
         strokeLinejoin="round"
       />

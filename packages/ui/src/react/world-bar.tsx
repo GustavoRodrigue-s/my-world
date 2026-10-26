@@ -42,17 +42,17 @@ export function WorldBar({ label, home, crumbs, variant = 'line' }: WorldBarProp
       aria-label={label}
       className={cx(
         'border-b border-border print:hidden',
-        variant === 'stone' ? 'bg-surface-alt-1' : 'bg-surface-alt-2'
+        variant === 'stone' ? 'bg-surface-muted' : 'bg-surface-raised'
       )}
     >
-      <ol className="section-inner flex h-8 list-none px-[var(--spacing-section-x)] items-center gap-2 overflow-x-auto font-mono text-[11px] whitespace-nowrap text-muted">
+      <ol className="section-inner flex h-8 list-none px-gutter md:px-gutter-wide items-center gap-2 overflow-x-auto font-mono text-xs whitespace-nowrap text-foreground-muted">
         <li>
           <Link
             href={home.href as Route}
             hrefLang={home.hrefLang}
-            className="ink-link group inline-flex items-center gap-1.5 text-foreground no-underline hover:text-accent"
+            className="ink-link group inline-flex items-center gap-1.5 text-foreground no-underline hover:text-primary"
           >
-            <Mark size={14} satelliteClassName="transition-transform duration-[650ms] ease-in-out group-hover:-rotate-[360deg]" />
+            <Mark size={14} satelliteClassName="transition-transform duration-gesture ease-in-out group-hover:-rotate-[360deg]" />
             {home.label}
           </Link>
         </li>
@@ -60,7 +60,7 @@ export function WorldBar({ label, home, crumbs, variant = 'line' }: WorldBarProp
           const last = i === shown.length - 1
           return (
             <li key={c.href} className="inline-flex items-center gap-2">
-              <span aria-hidden className="text-subtle">
+              <span aria-hidden className="text-foreground-subtle">
                 /
               </span>
               {last ? (
@@ -68,7 +68,7 @@ export function WorldBar({ label, home, crumbs, variant = 'line' }: WorldBarProp
                   {c.label}
                 </span>
               ) : (
-                <Link href={c.href as Route} className="ink-link text-muted no-underline hover:text-foreground">
+                <Link href={c.href as Route} className="ink-link text-foreground-muted no-underline hover:text-foreground">
                   {c.label}
                 </Link>
               )}

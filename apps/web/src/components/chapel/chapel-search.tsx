@@ -77,20 +77,20 @@ export function ChapelSearch({ labels, studyHref }: ChapelSearchProps) {
 
   return (
     <>
-      <button type="button" onClick={open} className={cx(buttonClasses({ variant: 'stone', size: 'none' }), 'group h-9 px-3 text-[13px]')}>
+      <button type="button" onClick={open} className={cx(buttonClasses({ variant: 'stone', size: 'none' }), 'group h-9 px-3 text-sm')}>
         <Search size={14} strokeWidth={1.6} aria-hidden />
         <span className="hidden sm:inline">{labels.open}</span>
-        <kbd className="hidden font-mono text-[10px] text-muted group-hover:text-surface lg:inline">⌘K</kbd>
+        <kbd className="hidden font-mono text-2xs text-foreground-muted group-hover:text-surface lg:inline">⌘K</kbd>
       </button>
 
       <dialog
         ref={dialogRef}
         aria-label={labels.dialogLabel}
         onClick={(e) => e.target === dialogRef.current && close()}
-        className="mx-auto mt-[12vh] w-[calc(100%-2rem)] max-w-[620px] rounded-xs border border-border bg-surface-alt-2 p-0 text-foreground backdrop:bg-[rgb(0_0_0/0.45)]"
+        className="mx-auto mt-[12vh] w-[calc(100%-2rem)] max-w-[620px] rounded-xs border border-border bg-surface-raised p-0 text-foreground backdrop:bg-[rgb(0_0_0/0.45)]"
       >
         <div className="flex items-center gap-3 border-b border-border px-5 py-4">
-          <Search size={18} strokeWidth={1.5} aria-hidden className="shrink-0 text-muted" />
+          <Search size={18} strokeWidth={1.5} aria-hidden className="shrink-0 text-foreground-muted" />
           <input
             ref={inputRef}
             type="search"
@@ -98,16 +98,16 @@ export function ChapelSearch({ labels, studyHref }: ChapelSearchProps) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder={labels.placeholder}
             aria-label={labels.dialogLabel}
-            className="min-w-0 flex-1 border-0 bg-transparent font-sans text-[18px] text-foreground outline-none placeholder:text-subtle"
+            className="min-w-0 flex-1 border-0 bg-transparent font-sans text-xl text-foreground outline-none placeholder:text-foreground-subtle"
           />
-          <button type="button" onClick={close} className={cx(buttonClasses({ variant: 'stone', size: 'none' }), 'h-8 px-3 text-[12px]')}>
+          <button type="button" onClick={close} className={cx(buttonClasses({ variant: 'stone', size: 'none' }), 'h-8 px-3 text-sm')}>
             {labels.close}
           </button>
         </div>
 
         <div aria-live="polite">
           {status ? (
-            <Text family="mono" size="sm" color="muted" className="px-5 py-5">
+            <Text family="mono" size="xs" color="muted" className="px-5 py-5">
               {status}
             </Text>
           ) : (
@@ -117,14 +117,14 @@ export function ChapelSearch({ labels, studyHref }: ChapelSearchProps) {
                   <Link
                     href={`${studyHref}/${r.slug}` as Route}
                     onClick={close}
-                    className="group block px-5 py-4 text-foreground no-underline transition-colors duration-200 hover:bg-surface-alt-1"
+                    className="group block px-5 py-4 text-foreground no-underline transition-colors duration-normal hover:bg-surface-muted"
                   >
                     {r.category && (
                       <Eyebrow as="span" className="block">
                         {r.category.name}
                       </Eyebrow>
                     )}
-                    <Heading as="span" level="serif-item" className="mt-1.5 block transition-colors duration-[var(--transition-fast)] group-hover:text-accent">
+                    <Heading as="span" level="title-sm-serif" className="mt-1.5 block transition-colors duration-fast group-hover:text-primary">
                       {r.title}
                     </Heading>
                   </Link>

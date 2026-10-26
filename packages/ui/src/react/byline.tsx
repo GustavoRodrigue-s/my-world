@@ -35,10 +35,10 @@ export function Byline({ name, role, portrait, plain, frame = 'circle', centered
             </div>
           ))}
         <div className="min-w-0">
-          <Text size="lg" weight="semibold" color="foreground" leading="snug">
+          <Text size="lg" weight="semibold" color="foreground" leading="normal">
             {name}
           </Text>
-          <Text family="mono" size="md" color="muted" className="mt-1">
+          <Text family="mono" size="sm" color="muted" className="mt-1">
             {role}
           </Text>
         </div>

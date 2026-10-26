@@ -13,11 +13,11 @@ const g = MARK_GEOMETRY
 const { light: day, dark: night } = tokens.portfolio
 const ink = day.color.foreground
 const paper = day.color.surface
-const rubric = day.color.accent
-const ember = night.color.accent
+const rubric = day.color.primary
+const ember = night.color.primary
 // The Capela's star: its ink and the rubric red (black and red, like a missal).
 const chapelInk = tokens.chapel.light.color.foreground
-const chapelRubric = tokens.chapel.light.color.accent
+const chapelRubric = tokens.chapel.light.color.primary
 
 function svg(body: string, extra = '') {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${g.box} ${g.box}" width="${g.box * 4}" height="${g.box * 4}">${extra}${body}</svg>\n`

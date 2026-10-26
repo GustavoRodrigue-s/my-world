@@ -10,14 +10,14 @@ Copy: `lib/world-content.ts`; logbook: `lib/logbook.ts`.
 - **Places** (`components/world/place-glyph.tsx`, shared by map and atlas): a
   Antena → Portfólio, a Oficina → Projetos, a Biblioteca → Estudos, a Capela →
   Capela. Their state is drawn: ink (open), scaffolding (building), dashed
-  blueprint in `support-1` (planned). Status comes from `lib/world.ts`.
+  blueprint in `support` (planned). Status comes from `lib/world.ts`.
 - **Trails** lead from "você está aqui" (the harbor) to each place; hovering a
   place traces its trail (red if it can be entered).
 - **Faith, hidden — never explained on the page:** the world's prime meridian
   and equator cross at the Capela; the compass rose marks the East with a cross;
   the Southern Cross points south with *lux in tenebris lucet* (Jo 1,5) faint
   under it; the harbor's pier is a cross; hovering the map reveals a gold point
-  (`support-2`) at the crossing. Keep new hints this discreet.
+  (`hidden`) at the crossing. Keep new hints this discreet.
 - **Whose world:** the owner's portrait as a medallion in the opening (`Plate
   figureSize="narrow"`, `Portrait`), with his name and "cartógrafo deste mundo".
   No bio, no location or coordinates.

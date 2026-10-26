@@ -6,8 +6,8 @@ what it becomes). Why it looks like this: [ADR 0004](../architecture/adr/0004-ch
 
 **An old chapel with hidden gold.** Same fonts, radius, spacing and rubric red
 as the portfolio; everything else is quieter — "cal e pedra": limewash page,
-solid stone bands (plain `bg="alt-1"` fills — **no wall drawing**), ink and the
-red (say the black, do the red), and the **ouro escondido** (`support-1`) that
+solid stone bands (plain `bg="muted"` fills — **no wall drawing**), ink and the
+red (say the black, do the red), and the **ouro escondido** (`support`) that
 shows only up close.
 
 - Old-church details: Romanesque arches (`Niche`, the `shape="niche"` featured

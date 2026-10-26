@@ -44,22 +44,22 @@ export default function ChapelHome() {
         label={home.label}
         actions={
           <>
-            <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-[15px]')}>
+            <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-base')}>
               {home.ctaStudies}
               <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
             </Link>
-            <Link href="#themes" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-[15px]')}>
+            <Link href="#themes" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-base')}>
               {home.ctaThemes}
               <ArrowDown size={15} strokeWidth={1.6} aria-hidden />
             </Link>
           </>
         }
       >
-        <Heading as="h1" id="chapel-title" level="serif-statement" className="max-w-[15ch]">
+        <Heading as="h1" id="chapel-title" level="display-serif" className="max-w-[15ch]">
           {home.statement.before} <Emphasis fit="serif">{home.statement.emphasis}</Emphasis>
           {home.statement.after}
         </Heading>
-        <Text size="xl" color="muted" leading="relaxed" className="mt-7 max-w-[48ch]">
+        <Text size="lead" color="muted" leading="relaxed" className="mt-7 max-w-[48ch]">
           {home.lead}
         </Text>
       </PageIntro>
@@ -70,13 +70,13 @@ export default function ChapelHome() {
           ornament={<RoseWindow size={56} />}
           caption={
             <>
-              <Text family="serif" size="xl" color="foreground" leading="snug" className="italic">
+              <Text family="serif" size="lead" color="foreground" leading="normal" className="italic">
                 {home.supper.verse}{' '}
-                <Text as="span" family="mono" size="sm" color="muted" className="not-italic">
+                <Text as="span" family="mono" size="xs" color="muted" className="not-italic">
                   {home.supper.verseSource}
                 </Text>
               </Text>
-              <Text family="mono" size="sm" color="muted" className="mt-2">
+              <Text family="mono" size="xs" color="muted" className="mt-2">
                 {home.supper.credit}
               </Text>
             </>
@@ -93,7 +93,7 @@ export default function ChapelHome() {
         </Niche>
       </Section>
 
-      <Section bg="alt-1" aria-label={home.citations.label}>
+      <Section bg="muted" aria-label={home.citations.label}>
         <CitationPlate quotes={MOCK_CITATIONS} labels={home.citations} />
       </Section>
 
@@ -103,7 +103,7 @@ export default function ChapelHome() {
           title={home.latest.title}
           note={home.latest.note}
           action={
-            <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-[15px]')}>
+            <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-base')}>
               {home.latest.all}
               <ArrowRight size={15} strokeWidth={1.6} aria-hidden />
             </Link>
@@ -124,7 +124,7 @@ export default function ChapelHome() {
           action={
             <Link
               href={chapelPath('/articles', featured.slug)}
-              className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-11 px-4 text-[14px]')}
+              className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-11 px-4 text-md')}
             >
               {home.latest.read}
               <ArrowRight size={15} strokeWidth={1.5} aria-hidden />
@@ -136,7 +136,7 @@ export default function ChapelHome() {
         </div>
       </Section>
 
-      <Section id="themes" aria-labelledby="themes-title" className="scroll-mt-[var(--spacing-nav-h)] pt-0 md:pt-0">
+      <Section id="themes" aria-labelledby="themes-title" className="scroll-mt-bar pt-0 md:pt-0">
         <OrnamentRule className="-mt-6 mb-16 md:-mt-12 md:mb-24" />
         <SectionIntro id="themes" title={home.themes.title} note={home.themes.note} />
         <TileGrid
@@ -150,7 +150,7 @@ export default function ChapelHome() {
         />
       </Section>
 
-      <Section id="author" bg="alt-1" aria-labelledby="author-title">
+      <Section id="author" bg="muted" aria-labelledby="author-title">
         <div className="flex flex-col items-center text-center">
           <SectionIntro id="author" title={home.author.title} note={home.author.note} align="center" />
           <Byline
@@ -165,11 +165,11 @@ export default function ChapelHome() {
             {home.author.text}
           </Text>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-            <Link href={chapelPath('/about')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-[14px]')}>
+            <Link href={chapelPath('/about')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-md')}>
               {home.author.more}
               <ArrowRight size={15} strokeWidth={1.5} aria-hidden />
             </Link>
-            <Link href="/portfolio" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-[14px]')}>
+            <Link href="/portfolio" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-md')}>
               {home.author.portfolio}
               <ArrowRight size={14} strokeWidth={1.5} aria-hidden />
             </Link>

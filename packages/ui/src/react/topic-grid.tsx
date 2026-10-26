@@ -22,23 +22,23 @@ export function TopicGrid({ topics }: { topics: Topic[] }) {
         <li key={t.href} className="bg-surface">
           <Link
             href={t.href as Route}
-            className="group flex h-full flex-col gap-2 p-6 text-foreground no-underline transition-colors duration-200 hover:bg-surface-alt-1"
+            className="group flex h-full flex-col gap-2 p-6 text-foreground no-underline transition-colors duration-normal hover:bg-surface-muted"
           >
             <span className="flex items-baseline justify-between gap-4">
-              <Text as="span" family="mono" size="sm" color="accent">
+              <Text as="span" family="mono" size="xs" color="primary">
                 {String(i + 1).padStart(2, '0')}
               </Text>
               {t.count && (
-                <Text as="span" family="mono" size="sm" color="muted">
+                <Text as="span" family="mono" size="xs" color="muted">
                   {t.count}
                 </Text>
               )}
             </span>
-            <Heading as="span" level="item">
+            <Heading as="span" level="title-sm">
               <span className="ink-link pb-0.5">{t.name}</span>
             </Heading>
             {t.description && (
-              <Text as="span" size="md" color="muted" leading="relaxed">
+              <Text as="span" size="sm" color="muted" leading="relaxed">
                 {t.description}
               </Text>
             )}

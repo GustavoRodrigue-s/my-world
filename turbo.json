@@ -6,7 +6,7 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "env": ["SHOW_UNDER_CONSTRUCTION", "VERCEL_ENV"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "generated/**"]
     },
     "dev": {
       "cache": false,

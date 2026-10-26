@@ -16,10 +16,10 @@ export default function StudiesPage() {
     <>
       <PageIntro labelledBy="studies-title"
         ornament={<CrossPattee size={16} />} label={`${t.label} · ${CHAPEL.studyCount(MOCK_ARTICLES.length)}`}>
-        <Heading as="h1" id="studies-title" level="serif-statement" className="max-w-[16ch]">
+        <Heading as="h1" id="studies-title" level="display-serif" className="max-w-[16ch]">
           {t.title}
         </Heading>
-        <Text size="xl" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+        <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
           {t.intro}
         </Text>
       </PageIntro>

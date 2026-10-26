@@ -11,21 +11,13 @@
   text-rendering: optimizeLegibility;
 }
 
-/* The page's rhythm opens up from 768px (values in design-system tokens/base.json). */
-@media (min-width: 768px) {
-  [data-env] {
-    --spacing-section-x: var(--spacing-section-x-md);
-    --spacing-section-y: var(--spacing-section-y-md);
-  }
-}
-
 [data-env] ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-on-accent);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 [data-env] :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
 
@@ -77,11 +69,11 @@
 
 /* Sublinhado a traço — a link's underline is drawn left to right in rubric red. */
 [data-env] .ink-link {
-  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-image: linear-gradient(var(--color-primary), var(--color-primary));
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0% 1px;
-  transition: background-size 200ms ease-out, color var(--transition-fast);
+  transition: background-size 200ms ease-out, color var(--duration-fast) var(--easing-standard);
 }
 
 [data-env] .ink-link:hover,
@@ -141,7 +133,7 @@
 }
 
 @keyframes gw-inked {
-  to { border-color: var(--color-accent); }
+  to { border-color: var(--color-primary); }
 }
 
 @keyframes gw-ink-text {
