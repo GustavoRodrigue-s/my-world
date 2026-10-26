@@ -1,29 +1,21 @@
 /*
  * Identity — "Mundo do Gustavo", the design system every environment wears
  * (portfolio, Capela, whatever comes next). Hand-written (not
- * generated): base-token overrides and the graphic devices Tailwind utilities
- * can't express cleanly. Scoped to [data-env] — any environment wrapper — so it
- * never leaks outside one. Colors always come from the environment's theme vars
- * (themes/*.css); nothing here names a color.
+ * generated): the graphic devices Tailwind utilities can't express cleanly.
+ * Scoped to [data-env] — any environment wrapper — so it never leaks outside
+ * one. Every value comes from the design tokens (@my-world/design-system);
+ * nothing here names a color.
  */
 
 [data-env] {
-  /* Wider page, generous rhythm, near-square corners (technical drawing, not app chrome). */
-  --spacing-content-max: 1180px;
-  --spacing-section-x: 1.25rem;
-  --spacing-section-y: 80px;
-  --spacing-nav-h: 64px;
-  --radius-card: 2px;
-  --radius-xs: 2px;
-  --radius-sm: 3px;
-
   text-rendering: optimizeLegibility;
 }
 
+/* The page's rhythm opens up from 768px (values in design-system tokens/base.json). */
 @media (min-width: 768px) {
   [data-env] {
-    --spacing-section-x: 2.5rem;
-    --spacing-section-y: 120px;
+    --spacing-section-x: var(--spacing-section-x-md);
+    --spacing-section-y: var(--spacing-section-y-md);
   }
 }
 

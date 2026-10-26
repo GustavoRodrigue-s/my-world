@@ -1,6 +1,6 @@
 # 0003 — Themes are typed sources that generate scoped CSS
 
-- **Status:** accepted
+- **Status:** superseded by [0011](0011-dtcg-tokens-with-style-dictionary.md)
 - **Date:** 2026-10-18 (recorded 2026-10-26)
 - **Supersedes:** —
 

@@ -20,7 +20,7 @@ are **not** sources: if a decision only exists there, it doesn't exist yet.
 Other sources of truth that are **code**, not prose — docs point to them instead
 of copying values:
 
-- Theme tokens: `packages/design-system/src/themes/{portfolio,chapel}.ts`
+- Design tokens: `packages/design-system/tokens/*.json` (DTCG, built by Style Dictionary)
 - Spaces and their status: `apps/web/src/lib/world.ts`
 - Visible copy: `apps/web/src/lib/*-content*.ts`
 - Public changelog (diário de bordo): `apps/web/src/lib/logbook.ts`

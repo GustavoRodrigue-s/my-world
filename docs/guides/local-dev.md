@@ -19,7 +19,7 @@ pnpm dev                 # http://localhost:3000
 | `pnpm type-check` | `tsc --noEmit` in every package |
 | `pnpm lint` | lint |
 | `pnpm format` | prettier |
-| `cd packages/ui && npm run generate:themes` | regenerate `css/themes/*.css` after changing a theme |
+| `pnpm tokens` | rebuild the design tokens (`packages/design-system/generated/`) after editing `tokens/*.json` |
 | `cd packages/ui && npm run generate:brand` | regenerate `apps/web/public/brand/*.svg` |
 
 ## `.env.local`

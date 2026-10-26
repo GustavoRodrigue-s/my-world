@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { ArrowRight } from 'lucide-react'
-import '@my-world/ui/css/themes/chapel.css'
+import '@my-world/design-system/css/chapel.css'
 import '@my-world/ui/css/identity.css'
 import { Emphasis, Heading, PageIntro, SiteShell, StatusTag, Text, buttonClasses, cx } from '@/components/ui'
 import { ChapelScaffold } from '@/components/chapel'

@@ -16,7 +16,10 @@ into `docs/` ([ADR 0010](../architecture/adr/0010-docs-in-the-repo.md)).
   identity link in the footer, Gmail contact, Estudos `seed` mark, `WorldBar` on
   every environment. Builds and type-checks pass. **Not merged into `master`** —
   waiting for Gustavo's validation of the preview.
-- `docs/` created on this branch (not committed yet at the time of writing).
+- `docs/` created on this branch (committed, pushed).
+- Design tokens moved to DTCG JSON + Style Dictionary ([ADR 0011](../architecture/adr/0011-dtcg-tokens-with-style-dictionary.md)):
+  build, type-check and a browser check (home, Capela, `/identity` palette)
+  pass; generated CSS matches the old values. Not committed yet.
 - `master` is at the "Capela" rename; the Capela is closed in production.
 
 ## Decisions already persisted

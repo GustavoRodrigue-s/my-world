@@ -23,7 +23,7 @@ transcripts or AI memory when a doc exists.
 | Portfolio · Capela · home map specifics | `docs/design-system/{portfolio,chapel,home-map}.md` |
 | Run, deploy | `docs/guides/` |
 
-Sources that are code: themes `packages/design-system/src/themes/*.ts`; space
+Sources that are code: design tokens `packages/design-system/tokens/*.json` (DTCG); space
 status `apps/web/src/lib/world.ts`; copy `apps/web/src/lib/*-content*.ts`;
 diário de bordo `apps/web/src/lib/logbook.ts`; living brand guide `/identity`.
 
@@ -43,7 +43,7 @@ diário de bordo `apps/web/src/lib/logbook.ts`; living brand guide `/identity`.
 pnpm install
 pnpm dev                                      # http://localhost:3000
 pnpm build && pnpm type-check                 # must pass before calling work done
-cd packages/ui && npm run generate:themes     # after changing a theme (never hand-edit css/themes/*)
+pnpm tokens                                   # after editing design-system/tokens/*.json (never hand-edit generated/)
 cd packages/ui && npm run generate:brand      # brand SVGs
 ```
 

@@ -1,5 +1,8 @@
-export type { ThemeContract, BrandTokens, ContentTokens, ModeTokens } from './types'
-export { baseTokens } from './base'
-export type { BaseTokens } from './base'
-export { chapelTheme } from './themes/chapel'
-export { portfolioTheme } from './themes/portfolio'
+// The design tokens, resolved: every value Style Dictionary built from
+// tokens/*.json. For code that needs a literal (swatches, brand SVGs); styling
+// uses the CSS vars in generated/css/ instead.
+import tokens from '../generated/tokens.json'
+
+export { tokens }
+export type Tokens = typeof tokens
+export type ThemeName = 'portfolio' | 'chapel'

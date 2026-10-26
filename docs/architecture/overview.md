@@ -38,7 +38,7 @@ my-world/
 │       └── lib/                   ← world.ts, content modules, fonts, metadata, strapi-client, utils
 ├── apps/cms/                      ← Strapi 5 (legacy)
 └── packages/
-    ├── design-system/             ← ThemeContract + themes/portfolio.ts, themes/chapel.ts
+    ├── design-system/             ← tokens/*.json (DTCG) → Style Dictionary → generated/ (CSS + JSON)
     ├── ui/                        ← @my-world/ui: react/* components, css/* (base, identity, generated themes)
     └── types/                     ← @my-world/types
 ```
@@ -87,28 +87,36 @@ Decision: [ADR 0005](adr/0005-spaces-under-construction.md).
 
 ## Theming pipeline
 
-Decision: [ADR 0003](adr/0003-themes-as-typed-sources.md). Visual rules: [design-system/](../design-system/).
+Decision: [ADR 0011](adr/0011-dtcg-tokens-with-style-dictionary.md). Visual rules: [design-system/](../design-system/).
 
-- Theme sources are TS objects (`ThemeContract`) in
-  `packages/design-system/src/themes/{portfolio,chapel}.ts`: `brand` tokens plus
-  `light` / `dark` mode tokens; a mode may re-tune brand tokens.
-- `packages/ui/src/generate-themes.ts` writes `packages/ui/src/css/themes/<env>.css`
-  — **generated, never hand-edit**: `cd packages/ui && npm run generate:themes`.
-  Each theme is **scoped** to `:root:has([data-env="<env>"])`, so both files can
-  be loaded after a client-side navigation without clashing.
-- Day/night: `<html data-theme>`, set before paint by the inline script in
+- **Source:** DTCG 2025.10 JSON in `packages/design-system/tokens/` —
+  `base.json` (radius, spacing, fonts, motion, z) and one file per theme
+  (`portfolio.json`, `chapel.json`) with full `light` / `dark` color sets.
+- **Build:** `packages/design-system/build.mjs` (Style Dictionary 5) writes
+  `generated/css/tokens.css` (base, on `:root`), `generated/css/<theme>.css` and
+  `generated/tokens.json`. **Generated, never hand-edit**: `pnpm tokens`.
+  `turbo build` runs it before the web app; the output is committed.
+- **Scoping:** each theme applies on `:root:has([data-env="<env>"])`, so both
+  files can be loaded after a client-side navigation without clashing.
+- **Day/night:** `<html data-theme>`, set before paint by the inline script in
   `app/layout.tsx` (key `gustavo:theme`, shared by every environment); absent =
   follow the OS. Print always uses the day palette.
-- `packages/ui/src/css/base.css` exposes the tokens to Tailwind via `@theme inline`
-  (`bg-surface`, `text-accent`, `border-border-strong`, `bg-support-1`…).
+- **Consumers:** `apps/web/src/styles/globals.css` imports `tokens.css`; each
+  route group layout imports its theme CSS (`@my-world/design-system/css/<env>.css`).
+  `packages/ui/src/css/base.css` registers the vars as Tailwind utilities via
+  `@theme inline` (`bg-surface`, `text-accent`, `rounded-xs`…) and holds no values.
+  Code that needs a literal (the `/identity` palette, `generate:brand`) imports
+  `tokens` from `@my-world/design-system`.
 - `packages/ui/src/css/identity.css` (hand-written, scoped to `[data-env]`):
-  spacing/radius overrides, `.hatch`, `.registration`, `.leader`, `.ink-link`,
-  the scroll "plotting" motion (`.plot-*`), the map's `.chart-*` motion, print rules.
-- Brand SVGs: `npm run generate:brand` → `apps/web/public/brand/*.svg`.
+  `.hatch`, `.registration`, `.leader`, `.ink-link`, the scroll "plotting"
+  motion (`.plot-*`), the map's `.chart-*` motion, the 768px rhythm switch, print rules.
+- Brand SVGs: `cd packages/ui && npm run generate:brand` → `apps/web/public/brand/*.svg`.
 
-Adding an environment: a theme in `packages/design-system/src/themes/<name>.ts`,
-register it in `generate-themes.ts` (with `scope`), regenerate, and a route
-group layout with `data-env="<name>"` that imports the generated CSS.
+Adding an environment: `tokens/<name>.json` (copy a theme), add it to `THEMES`
+in `build.mjs`, `pnpm tokens`, and a route group layout with `data-env="<name>"`
+that imports `@my-world/design-system/css/<name>.css`. Adding a token: put it in
+every theme (both modes), and register it in `base.css` `@theme inline` if it
+should become a Tailwind utility.
 
 ## Data
 

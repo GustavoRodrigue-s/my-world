@@ -13,7 +13,8 @@ satellite (variants include `star` for the Capela and `seed` for Estudos).
 
 ## Palettes
 
-Source of truth: `packages/design-system/src/themes/{portfolio,chapel}.ts`.
+Source of truth: `packages/design-system/tokens/{portfolio,chapel}.json` — the
+values below are a copy for reading; if they differ, the JSON wins.
 
 | Token | Portfolio day | Portfolio night | Capela day (cal) | Capela night (completas) |
 |---|---|---|---|---|
@@ -22,7 +23,7 @@ Source of truth: `packages/design-system/src/themes/{portfolio,chapel}.ts`.
 | foreground | `#17150F` tinta | `#ECE6D9` | `#1C1A17` tinta | `#ECE7DE` |
 | accent (brand) | `#B5321C` rubrica | `#EE5C3F` brasa | `#B5321C` rubrica | `#EE5C3F` brasa |
 | support-1 | `#2E4A7D` cianotipia | `#8FA6D6` | `#7E5F28` ouro velho | `#D4AF6A` |
-| support-2 | ouro (the Capela's gold, read from `chapel.ts`) — only hidden in the world map | | — | |
+| support-2 | ouro (the Capela's gold, aliased from `chapel.json`) — only hidden in the world map | | — | |
 
 - The **rubric red is the brand accent everywhere** (rubrics, links, the
   emphasized word, the satellite, the Capela's star). Never a large fill — a

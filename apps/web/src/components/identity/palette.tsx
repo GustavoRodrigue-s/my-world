@@ -1,9 +1,10 @@
-import { chapelTheme, portfolioTheme } from '@my-world/design-system'
+import { tokens } from '@my-world/design-system'
 import { Text } from '@/components/ui'
 import type { PortfolioContent } from '@/lib/portfolio-content'
 
-const day = { ...portfolioTheme.brand, ...portfolioTheme.light }
-const night = { ...portfolioTheme.brand, ...portfolioTheme.dark }
+const day = tokens.portfolio.light.color
+const night = tokens.portfolio.dark.color
+const chapel = tokens.chapel.light.color
 
 // WCAG relative luminance / contrast, so every swatch states its own legibility.
 function luminance(hex: string) {
@@ -36,8 +37,8 @@ const SWATCHES: Swatch[] = [
   { key: 'night', color: night.surface },
   { key: 'parchment', color: night.foreground, on: night.surface },
   { key: 'ember', color: night.accent, on: night.surface },
-  { key: 'cyanotype', color: day.support1, on: day.surface },
-  { key: 'gold', color: chapelTheme.brand.support1, on: chapelTheme.light.surface },
+  { key: 'cyanotype', color: day['support-1'], on: day.surface },
+  { key: 'gold', color: chapel['support-1'], on: chapel.surface },
 ]
 
 interface PaletteProps {
@@ -55,7 +56,7 @@ export function Palette({ swatches, large }: PaletteProps) {
         const [name, role] = swatches[s.key]
         return (
           <li key={s.key} className="bg-surface">
-            {/* Swatch color is read from the theme source, not retyped. */}
+            {/* Swatch color is read from the design tokens, not retyped. */}
             <div className="h-24 border-b border-border-strong" style={{ backgroundColor: s.color }} />
             <div className="flex items-start justify-between gap-3 p-4">
               <div>

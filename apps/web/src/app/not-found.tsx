@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Heading, Mark, StatusTag, Text, buttonClasses, cx } from '@/components/ui'
 import { CHAPEL } from '@/lib/chapel-content'
 import { canEnter } from '@/lib/world'
-import '@my-world/ui/css/themes/portfolio.css'
+import '@my-world/design-system/css/portfolio.css'
 import '@my-world/ui/css/identity.css'
 
 // Outside every environment, so it wears the master brand.

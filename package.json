@@ -11,7 +11,8 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
-    "format": "prettier --write \"**/*.{ts,tsx,css,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,css,md}\"",
+    "tokens": "pnpm --filter @my-world/design-system build"
   },
   "devDependencies": {
     "prettier": "^3.4.2",

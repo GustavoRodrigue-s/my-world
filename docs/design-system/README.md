@@ -14,4 +14,5 @@ The living guide is the `/identity` page: check it before inventing anything vis
 | [home-map.md](home-map.md) | the home's sea chart and its hidden details |
 
 Token **values** are not repeated here beyond the overview table in
-identity.md: the source is `packages/design-system/src/themes/*.ts`.
+identity.md: the source is `packages/design-system/tokens/*.json` (DTCG,
+built by Style Dictionary — [ADR 0011](../architecture/adr/0011-dtcg-tokens-with-style-dictionary.md)).

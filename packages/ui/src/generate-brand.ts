@@ -1,22 +1,23 @@
 // Writes the mark as standalone SVG files (favicon, downloads, slides, social
 // avatars), built from the same geometry as the <Mark> component so the two
-// can never drift. Colors come from the theme sources, never retyped here.
+// can never drift. Colors come from the design tokens, never retyped here.
 //
 //   cd packages/ui && npm run generate:brand
 import { mkdirSync, writeFileSync } from 'fs'
-import { chapelTheme, portfolioTheme } from '@my-world/design-system'
+import { tokens } from '@my-world/design-system'
 import { MARK_GEOMETRY, MARK_ORBIT_PATH, markSatellitePath, type MarkVariant } from './react/mark'
 
 const outDir = process.argv[2] ?? '../../apps/web/public/brand'
 const g = MARK_GEOMETRY
 
-const ink = portfolioTheme.light.foreground
-const paper = portfolioTheme.light.surface
-const rubric = portfolioTheme.brand.accent
-const ember = portfolioTheme.dark.accent ?? rubric
+const { light: day, dark: night } = tokens.portfolio
+const ink = day.color.foreground
+const paper = day.color.surface
+const rubric = day.color.accent
+const ember = night.color.accent
 // The Capela's star: its ink and the rubric red (black and red, like a missal).
-const chapelInk = chapelTheme.light.foreground
-const chapelRubric = chapelTheme.brand.accent
+const chapelInk = tokens.chapel.light.color.foreground
+const chapelRubric = tokens.chapel.light.color.accent
 
 function svg(body: string, extra = '') {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${g.box} ${g.box}" width="${g.box * 4}" height="${g.box * 4}">${extra}${body}</svg>\n`

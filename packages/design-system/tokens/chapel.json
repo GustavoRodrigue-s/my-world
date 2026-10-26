@@ -1,0 +1,148 @@
+{
+  "chapel": {
+    "$description": "Capela — \"cal e pedra\": limewash, stone, ink, the rubric red and a hidden gold.",
+    "light": {
+      "$description": "Day. The only mode that prints.",
+      "color": {
+        "$type": "color",
+        "primary": {
+          "$description": "tinta — ink",
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "hex": "#1C1A17" }
+        },
+        "primary-light": {
+          "$value": { "colorSpace": "srgb", "components": [0.1647, 0.1529, 0.1373], "hex": "#2A2723" }
+        },
+        "primary-dark": {
+          "$value": { "colorSpace": "srgb", "components": [0.0627, 0.0588, 0.051], "hex": "#100F0D" }
+        },
+        "accent": {
+          "$description": "rubrica — rubric red (the brand)",
+          "$value": { "colorSpace": "srgb", "components": [0.7098, 0.1961, 0.1098], "hex": "#B5321C" }
+        },
+        "accent-hover": {
+          "$value": { "colorSpace": "srgb", "components": [0.5765, 0.149, 0.0588], "hex": "#93260F" }
+        },
+        "on-primary": {
+          "$description": "cal — limewash",
+          "$value": { "colorSpace": "srgb", "components": [0.9569, 0.9451, 0.9176], "hex": "#F4F1EA" }
+        },
+        "on-primary-muted": {
+          "$value": { "colorSpace": "srgb", "components": [0.9569, 0.9451, 0.9176], "alpha": 0.64 }
+        },
+        "on-accent": {
+          "$value": { "colorSpace": "srgb", "components": [0.9843, 0.9765, 0.9608], "hex": "#FBF9F5" }
+        },
+        "support-1": {
+          "$description": "ouro velho — the hidden gold: small fixed details and fillets lit by the reader's hand; never a fill",
+          "$value": { "colorSpace": "srgb", "components": [0.4941, 0.3725, 0.1569], "hex": "#7E5F28" }
+        },
+        "surface": {
+          "$description": "cal — limewash",
+          "$value": { "colorSpace": "srgb", "components": [0.9569, 0.9451, 0.9176], "hex": "#F4F1EA" }
+        },
+        "surface-alt-1": {
+          "$description": "pedra — stone, the flat blocks",
+          "$value": { "colorSpace": "srgb", "components": [0.9059, 0.8863, 0.8471], "hex": "#E7E2D8" }
+        },
+        "surface-alt-2": {
+          "$description": "panels: search, menu",
+          "$value": { "colorSpace": "srgb", "components": [0.9804, 0.9725, 0.9569], "hex": "#FAF8F4" }
+        },
+        "foreground": {
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "hex": "#1C1A17" }
+        },
+        "muted": {
+          "$value": { "colorSpace": "srgb", "components": [0.3686, 0.349, 0.3137], "hex": "#5E5950" }
+        },
+        "subtle": {
+          "$description": "decoration only — below AA for small text",
+          "$value": { "colorSpace": "srgb", "components": [0.5569, 0.5333, 0.4902], "hex": "#8E887D" }
+        },
+        "border": {
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "alpha": 0.12 }
+        },
+        "border-strong": {
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "alpha": 0.28 }
+        },
+        "shadow": {
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "alpha": 0.1 }
+        },
+        "accent-pale": {
+          "$value": { "colorSpace": "srgb", "components": [0.9451, 0.8667, 0.8275], "hex": "#F1DDD3" }
+        },
+        "accent-border": {
+          "$value": { "colorSpace": "srgb", "components": [0.851, 0.6431, 0.5686], "hex": "#D9A491" }
+        }
+      }
+    },
+    "dark": {
+      "$description": "Night. Unset tokens alias the day value.",
+      "color": {
+        "$type": "color",
+        "primary": {
+          "$value": "{chapel.light.color.primary}"
+        },
+        "primary-light": {
+          "$value": "{chapel.light.color.primary-light}"
+        },
+        "primary-dark": {
+          "$value": "{chapel.light.color.primary-dark}"
+        },
+        "accent": {
+          "$description": "brasa — the rubric lit up for night",
+          "$value": { "colorSpace": "srgb", "components": [0.9333, 0.3608, 0.2471], "hex": "#EE5C3F" }
+        },
+        "accent-hover": {
+          "$value": { "colorSpace": "srgb", "components": [1, 0.4941, 0.3843], "hex": "#FF7E62" }
+        },
+        "on-primary": {
+          "$value": "{chapel.light.color.on-primary}"
+        },
+        "on-primary-muted": {
+          "$value": "{chapel.light.color.on-primary-muted}"
+        },
+        "on-accent": {
+          "$value": { "colorSpace": "srgb", "components": [0.0784, 0.0745, 0.0667], "hex": "#141311" }
+        },
+        "support-1": {
+          "$description": "gold by candlelight",
+          "$value": { "colorSpace": "srgb", "components": [0.8314, 0.6863, 0.4157], "hex": "#D4AF6A" }
+        },
+        "surface": {
+          "$description": "completas — night prayer",
+          "$value": { "colorSpace": "srgb", "components": [0.0784, 0.0745, 0.0667], "hex": "#141311" }
+        },
+        "surface-alt-1": {
+          "$value": { "colorSpace": "srgb", "components": [0.1216, 0.1137, 0.098], "hex": "#1F1D19" }
+        },
+        "surface-alt-2": {
+          "$value": { "colorSpace": "srgb", "components": [0.0549, 0.051, 0.0431], "hex": "#0E0D0B" }
+        },
+        "foreground": {
+          "$value": { "colorSpace": "srgb", "components": [0.9255, 0.9059, 0.8706], "hex": "#ECE7DE" }
+        },
+        "muted": {
+          "$value": { "colorSpace": "srgb", "components": [0.6392, 0.6157, 0.5725], "hex": "#A39D92" }
+        },
+        "subtle": {
+          "$value": { "colorSpace": "srgb", "components": [0.4314, 0.4118, 0.3725], "hex": "#6E695F" }
+        },
+        "border": {
+          "$value": { "colorSpace": "srgb", "components": [0.9255, 0.9059, 0.8706], "alpha": 0.11 }
+        },
+        "border-strong": {
+          "$value": { "colorSpace": "srgb", "components": [0.9255, 0.9059, 0.8706], "alpha": 0.26 }
+        },
+        "shadow": {
+          "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.5 }
+        },
+        "accent-pale": {
+          "$value": { "colorSpace": "srgb", "components": [0.1647, 0.0902, 0.0706], "hex": "#2A1712" }
+        },
+        "accent-border": {
+          "$value": { "colorSpace": "srgb", "components": [0.4157, 0.1804, 0.1216], "hex": "#6A2E1F" }
+        }
+      }
+    }
+  }
+}

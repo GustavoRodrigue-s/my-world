@@ -8,12 +8,9 @@
     ".": "./src/index.ts",
     "./css/base.css": "./src/css/base.css",
     "./css/shadcn.css": "./src/css/shadcn.css",
-    "./css/themes/chapel.css": "./src/css/themes/chapel.css",
-    "./css/themes/portfolio.css": "./src/css/themes/portfolio.css",
     "./css/identity.css": "./src/css/identity.css"
   },
   "scripts": {
-    "generate:themes": "tsx src/generate-themes.ts",
     "generate:brand": "tsx src/generate-brand.ts"
   },
   "dependencies": {

@@ -4,34 +4,8 @@
 /* Inclui os componentes React do pacote no scanning do Tailwind v4 */
 @source "../react/**/*.{ts,tsx}";
 
-/* ─── Base tokens (invariantes entre temas) ──────────────────── */
-@layer base {
-  :root {
-    /* Radius scale — inspired by Framer's marketing site (via `npx getdesign add framer`) */
-    --radius-xs:   4px;
-    --radius-sm:   6px;
-    --radius-md:   10px;
-    --radius-lg:   15px;
-    --radius-xl:   20px;
-    --radius-2xl:  30px;
-    --radius-pill: 9999px;
-    --radius-card: 20px;  /* alias of xl — the default card radius used across the app */
-
-    --spacing-section-y:   72px;
-    --spacing-section-x:   2rem;
-    --spacing-content-max: 1100px;
-    --spacing-article-max: 720px;
-    --spacing-nav-h:       64px;
-
-    --transition-fast:   150ms ease;
-    --transition-normal: 200ms ease;
-    --transition-slow:   300ms ease;
-
-    --z-nav:   100;
-    --z-modal: 200;
-    --z-toast: 300;
-  }
-}
+/* Token values come from @my-world/design-system (generated/css/tokens.css + one
+   theme per environment); this file only registers them as Tailwind utilities. */
 
 /* ─── @theme inline: registra utilities sem valores hardcoded ─── */
 @theme inline {
