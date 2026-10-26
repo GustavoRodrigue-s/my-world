@@ -21,6 +21,7 @@ export { Chip } from './chip'
 // Frame
 export { SiteShell } from './site-shell'
 export { SiteHeader } from './site-header'
+export { WorldBar } from './world-bar'
 export { SiteFooter } from './site-footer'
 export type { FooterLink } from './site-footer'
 export { SectionNav } from './section-nav'

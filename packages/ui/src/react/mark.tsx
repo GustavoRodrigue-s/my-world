@@ -4,7 +4,7 @@ import { cx } from './utils'
  * The G-orbit monogram. An open orbit draws the G; the crossbar points to the
  * core (the world, the self); a satellite rides in the G's mouth — the work
  * leaving the world. Each landscape swaps only the satellite:
- *   satellite → the workshop (portfolio), star → the chapel, artifact → the lab.
+ *   satellite → the portfolio, star → the chapel, artifact → the projects, seed → the studies.
  *
  * Geometry is exported so construction drawings (identity page, favicons,
  * OG images) are built from the same numbers instead of being re-traced.
@@ -38,7 +38,7 @@ const sat = markPoint(g.satelliteAngle)
 
 export const MARK_ORBIT_PATH = `M${start.x} ${start.y} A${g.r} ${g.r} 0 1 0 ${end.x} ${end.y} H${g.barEnd}`
 
-export type MarkVariant = 'satellite' | 'star' | 'artifact'
+export type MarkVariant = 'satellite' | 'star' | 'artifact' | 'seed'
 
 export function markSatellitePath(variant: MarkVariant): string {
   const { x, y } = sat
@@ -46,6 +46,12 @@ export function markSatellitePath(variant: MarkVariant): string {
     const o = 4.4
     const i = 1.15
     return `M${x} ${round(y - o)}L${round(x + i)} ${round(y - i)}L${round(x + o)} ${y}L${round(x + i)} ${round(y + i)}L${x} ${round(y + o)}L${round(x - i)} ${round(y + i)}L${round(x - o)} ${y}L${round(x - i)} ${round(y - i)}Z`
+  }
+  if (variant === 'seed') {
+    // An almond (the vesica of old sacred art): what one plants by studying.
+    const o = 4.6
+    const r = 5.6
+    return `M${x} ${round(y - o)}A${r} ${r} 0 0 1 ${x} ${round(y + o)}A${r} ${r} 0 0 1 ${x} ${round(y - o)}Z`
   }
   if (variant === 'artifact') {
     const h = 2.5

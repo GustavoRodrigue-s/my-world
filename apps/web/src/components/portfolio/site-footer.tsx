@@ -14,6 +14,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         {
           title: t.world,
           links: [
+            { label: t.home, href: '/', hrefLang: locale === 'pt' ? undefined : 'pt-BR', mark: { variant: 'satellite' } },
             { label: t.portfolio, href: localePath(locale, '/portfolio') },
             { label: t.resume, href: localePath(locale, '/portfolio/resume') },
             { label: t.identity, href: localePath(locale, '/identity') },

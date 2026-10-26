@@ -5,7 +5,7 @@ import { IDENTITY } from '@/lib/portfolio-content'
 import { SPACES, canEnter } from '@/lib/world'
 import { PLACE_ORDER, WORLD } from '@/lib/world-content'
 
-const MARK = { portfolio: 'satellite', projects: 'artifact', studies: undefined, chapel: 'star' } as const
+const MARK = { portfolio: 'satellite', projects: 'artifact', studies: 'seed', chapel: 'star' } as const
 
 /**
  * The world's own frame: the master brand, no location, no personal line.
@@ -20,7 +20,7 @@ export function WorldShell({ children }: { children: React.ReactNode }) {
     return {
       label: copy.name,
       href: 'href' in copy && copy.href ? copy.href : '/',
-      mark: MARK[id] ? { variant: MARK[id] } : undefined,
+      mark: { variant: MARK[id] },
       tag: status === 'open' ? undefined : { tone: status === 'building' ? 'open' : 'draft', label: atlas.states[status] },
       disabled: !canEnter(id),
     }

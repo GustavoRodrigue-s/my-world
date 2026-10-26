@@ -58,7 +58,9 @@ export const en: PortfolioCopy = {
     resume: 'Résumé',
     language: { label: 'Language' },
     dayNight: { toDay: 'Switch to day mode', toNight: 'Switch to night mode' },
+    worldBar: { label: 'You are in', home: 'Mundo do Gustavo' },
     footer: {
+      home: 'Map of the world',
       world: 'in this world',
       landscapes: 'other landscapes',
       contact: 'contact',
@@ -598,7 +600,8 @@ export const en: PortfolioCopy = {
       variants: {
         satellite: ['Satellite', 'workshop — portfolio, résumé, project signature'],
         star: ['Star', 'chapel — writing on faith'],
-        artifact: ['Artifact', 'lab — studies and experiments, once it exists'],
+        artifact: ['Artifact', 'workshop — tech, robotics and social projects'],
+        seed: ['Seed', 'library — studies, articles and notes'],
       },
       rulesLabel: 'rules',
       rules: [

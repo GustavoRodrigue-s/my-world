@@ -209,6 +209,7 @@ Build every screen from these; add to the library rather than styling raw HTML.
 | Component | Use |
 |---|---|
 | `SiteShell` | An environment's frame: `data-env`, `lang`, fonts, skip link, header, footer; `motion="still"` turns plotting off |
+| `WorldBar` | The thread back to the world: a thin strip over each environment's header — *Mundo do Gustavo / Portfólio / Currículo* (crumbs shown by path; `variant="stone"` = Capela). Every environment wears it; the home doesn't |
 | `SiteHeader` | Mark + name (home link), `nav` slot, `actions` slot, reading-progress line; `surface="glass" \| "solid"`; `mark.reveal` = satellite turns support-colored as it orbits |
 | `SectionNav` / `PageNav` | Header links to sections of one page (scroll-spy) / between pages (current page marked, phone menu via `<details>`; `variant="stone"` = flat) |
 | `LanguageSwitch` · `DayNightToggle` | PT/EN by path prefix · day/night (client; `variant="line" \| "stone"`) |

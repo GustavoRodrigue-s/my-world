@@ -54,6 +54,7 @@ export const CHAPEL = {
       { label: 'Sobre', path: '/about' as ChapelPath },
     ],
     dayNight: { toDay: 'Mudar para o modo dia', toNight: 'Mudar para o modo noite' },
+    worldBar: { label: 'Você está em', home: 'Mundo do Gustavo' },
     search: {
       open: 'Buscar',
       dialogLabel: 'Buscar estudos',
@@ -68,6 +69,7 @@ export const CHAPEL = {
       themes: 'temas',
       landscapes: 'outras paisagens',
       world: 'Mundo do Gustavo',
+      portfolio: 'Portfólio',
       notes: ['feito com capricho em Londrina'],
     },
   },

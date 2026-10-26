@@ -12,7 +12,13 @@ export function ChapelFooter() {
       columns={[
         { title: shell.footer.chapel, links: shell.nav.map((n) => ({ label: n.label, href: chapelPath(n.path) })) },
         { title: shell.footer.themes, links: MOCK_CATEGORIES.map((c) => ({ label: c.name, href: chapelPath('/categories', c.slug) })) },
-        { title: shell.footer.landscapes, links: [{ label: shell.footer.world, href: '/portfolio', mark: { variant: 'satellite' } }] },
+        {
+          title: shell.footer.landscapes,
+          links: [
+            { label: shell.footer.world, href: '/', mark: { variant: 'satellite' } },
+            { label: shell.footer.portfolio, href: '/portfolio' },
+          ],
+        },
       ]}
       notes={[`© ${new Date().getFullYear()} ${CHAPEL.author}`, ...shell.footer.notes]}
       verse={CHAPEL.motto}

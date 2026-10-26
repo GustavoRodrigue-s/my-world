@@ -73,7 +73,7 @@ export function IdentityConcept({ locale }: { locale: Locale }) {
   )
 }
 
-const VARIANTS: MarkVariant[] = ['satellite', 'star', 'artifact']
+const VARIANTS: MarkVariant[] = ['satellite', 'artifact', 'seed', 'star']
 
 const FILES = [
   { file: 'mark.svg', key: 'mark' },

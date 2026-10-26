@@ -21,8 +21,11 @@ export default function NotFound() {
           Page not found.
         </Text>
         <div className="mt-10 flex flex-wrap gap-3">
-          <Link href="/portfolio" className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-[14px]')}>
+          <Link href="/" className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-[14px]')}>
             Mundo do Gustavo
+          </Link>
+          <Link href="/portfolio" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-[14px]')}>
+            Portfólio
           </Link>
           {canEnter('chapel') ? (
             <Link href="/chapel" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-[14px]')}>

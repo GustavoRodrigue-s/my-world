@@ -39,7 +39,7 @@ export default function ChapelUnderConstruction() {
           }
           label={CHAPEL.name}
           actions={
-            <Link href="/portfolio" className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-[15px]')}>
+            <Link href="/" className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-[15px]')}>
               {construction.back}
               <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
             </Link>

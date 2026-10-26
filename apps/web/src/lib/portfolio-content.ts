@@ -22,8 +22,7 @@ export const IDENTITY = {
   company: 'Big4Tech',
   coordinates: '23°18′S 51°09′W',
   timezone: 'UTC−3',
-  // REVIEW: personal e-mail from the LinkedIn export — swap for the address you want public.
-  email: 'gustavo.fabiano.2010@hotmail.com',
+  email: 'gustavo.fabiano.2010@gmail.com',
   linkedin: 'https://www.linkedin.com/in/gustavo-rodrigues-fabiano-768589208',
   github: 'https://github.com/GustavoRodrigue-s',
   revision: '2026.10',
@@ -122,7 +121,11 @@ export interface PortfolioCopy {
     resume: string
     language: { label: string }
     dayNight: { toDay: string; toNight: string }
+    /** The strip back to the world's home (<WorldBar>). */
+    worldBar: { label: string; home: string }
     footer: {
+      /** Link to the world's home (the map). */
+      home: string
       world: string
       landscapes: string
       contact: string
@@ -201,7 +204,7 @@ export interface PortfolioCopy {
     construction: { title: string; core: string; grid: string }
     concept: Folio & { story: Array<{ title: string; text: string }> }
     mark: Folio & {
-      variants: { satellite: [string, string]; star: [string, string]; artifact: [string, string] }
+      variants: { satellite: [string, string]; star: [string, string]; artifact: [string, string]; seed: [string, string] }
       rulesLabel: string
       rules: string[]
       filesLabel: string
