@@ -28,15 +28,15 @@ export function IdentityHero({ locale }: { locale: Locale }) {
         </div>
         <div className="grid items-center gap-12 pt-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
           <div>
-            <Heading as="h1" id="identity-title" level="display" className="max-w-[12ch]">
+            <Heading as="h1" id="identity-title" level="display" className="max-w-4xl">
               {t.title.before} <Emphasis>{t.title.emphasis}</Emphasis>
               {t.title.after}
             </Heading>
-            <Text size="lead" color="muted" leading="relaxed" className="mt-8 max-w-[48ch]">
+            <Text size="lead" color="muted" leading="relaxed" className="mt-8 max-w-4xl">
               {t.lead}
             </Text>
           </div>
-          <figure className="mx-auto w-full max-w-[460px]">
+          <figure className="mx-auto w-full max-w-lg">
             <MarkConstruction labels={t.construction} />
             <figcaption className="mt-3">
               <Text family="mono" size="xs" color="muted">
@@ -63,7 +63,7 @@ export function IdentityConcept({ locale }: { locale: Locale }) {
             <Heading as="h3" level="title" className="mt-2">
               {s.title}
             </Heading>
-            <Text size="base" color="muted" leading="relaxed" className="mt-3 max-w-[48ch]">
+            <Text size="base" color="muted" leading="relaxed" className="mt-3 max-w-lg">
               {s.text}
             </Text>
           </li>
@@ -94,7 +94,7 @@ export function IdentityMark({ locale }: { locale: Locale }) {
             <Heading as="h3" level="title-sm" className="mt-6">
               {t.variants[variant][0]}
             </Heading>
-            <Text size="sm" color="muted" className="mt-1 max-w-[26ch]">
+            <Text size="sm" color="muted" className="mt-1 max-w-xs">
               {t.variants[variant][1]}
             </Text>
           </li>
@@ -109,7 +109,7 @@ export function IdentityMark({ locale }: { locale: Locale }) {
           <ul className="list-none border-t border-border">
             {t.rules.map((rule) => (
               <li key={rule} className="border-b border-border py-3">
-                <Text size="base" color="foreground" leading="normal">
+                <Text size="base" color="foreground" leading="snug">
                   {rule}
                 </Text>
               </li>
@@ -129,7 +129,7 @@ export function IdentityMark({ locale }: { locale: Locale }) {
                   className="flex items-center justify-between gap-4 py-3 text-foreground no-underline transition-colors hover:text-primary"
                 >
                   <span className="font-mono text-sm">{d.file}</span>
-                  <span className="flex items-center gap-2 font-sans text-md text-foreground-muted">
+                  <span className="flex items-center gap-2 font-sans text-sm text-foreground-muted">
                     {t.files[d.key]}
                     <Download size={14} strokeWidth={1.5} aria-hidden />
                   </span>
@@ -160,7 +160,7 @@ export function IdentityType({ locale }: { locale: Locale }) {
   return (
     <Folio id="type" index="04" label={t.label} note={t.note} title={t.title} bg="raised">
       <div className="flex flex-col">
-        <div className="plot-rise grid gap-6 border-t border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="plot-rise grid gap-6 border-t border-border-strong py-10 md:grid-cols-[var(--size-width-xs)_minmax(0,1fr)]">
           <div>
             <Text size="base" weight="semibold" color="foreground">
               {t.sans[0]}
@@ -173,7 +173,7 @@ export function IdentityType({ locale }: { locale: Locale }) {
             {t.sansSample}
           </Heading>
         </div>
-        <div className="plot-rise grid gap-6 border-t border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="plot-rise grid gap-6 border-t border-border-strong py-10 md:grid-cols-[var(--size-width-xs)_minmax(0,1fr)]">
           <div>
             <Text size="base" weight="semibold" color="foreground">
               {t.serif[0]}
@@ -186,7 +186,7 @@ export function IdentityType({ locale }: { locale: Locale }) {
             <Emphasis>{t.serifSample}</Emphasis>
           </Heading>
         </div>
-        <div className="plot-rise grid gap-6 border-t border-b border-border-strong py-10 md:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="plot-rise grid gap-6 border-t border-b border-border-strong py-10 md:grid-cols-[var(--size-width-xs)_minmax(0,1fr)]">
           <div>
             <Text size="base" weight="semibold" color="foreground">
               {t.mono[0]}
@@ -238,7 +238,7 @@ export function IdentityElements({ locale }: { locale: Locale }) {
         </Element>
         <Element item={t.items.stamp}>
           <TitleBlock
-            className="w-full max-w-[260px]"
+            className="w-full max-w-sm"
             items={[
               { label: t.stamp.author, value: 'G. R. Fabiano' },
               { label: t.stamp.revision, value: profile.revision },

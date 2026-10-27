@@ -61,8 +61,8 @@ export function Portrait({
           />
         ) : (
           <div role="img" aria-label={alt} className="flex h-full w-full items-center justify-center text-foreground">
-            <span aria-hidden className="hatch absolute inset-0 opacity-[0.18]" />
-            <span aria-hidden className="relative font-serif text-6xl italic leading-none sm:text-7xl">
+            <span aria-hidden className="hatch absolute inset-0 opacity-faint" />
+            <span aria-hidden className="relative font-serif text-monogram italic">
               {monogram}
             </span>
           </div>
@@ -75,7 +75,7 @@ export function Portrait({
             cx={sat.x}
             cy={sat.y}
             r="1.5"
-            className="origin-[24px_24px] fill-primary transition-transform duration-gesture ease-in-out [transform-box:view-box] motion-safe:group-hover/portrait:-rotate-[360deg]"
+            className="origin-center fill-primary transition-transform duration-gesture ease-in-out [transform-box:view-box] motion-safe:group-hover/portrait:-rotate-[360deg]"
           />
         </svg>
       )}

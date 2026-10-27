@@ -39,10 +39,10 @@
         },
         "primary": {
           "$description": "rubrica — rubric red, the brand accent everywhere",
-          "$value": "{palette.color.rubric}"
+          "$value": "{color.rubric}"
         },
         "primary-hover": {
-          "$value": "{palette.color.rubric-deep}"
+          "$value": "{color.rubric-deep}"
         },
         "on-primary": {
           "$description": "Text on primary.",
@@ -50,7 +50,7 @@
         },
         "support": {
           "$description": "blueprint — only for work \"na prancheta\" (on the drawing board)",
-          "$value": "{palette.color.blueprint}"
+          "$value": "{color.blueprint}"
         },
         "hidden": {
           "$description": "ouro escondido — the Capela's gold, hidden in the world map (never a fill)",
@@ -59,6 +59,10 @@
         "shadow": {
           "$description": "Color of the one shadow (floating panels).",
           "$value": { "colorSpace": "srgb", "components": [0.0902, 0.0824, 0.0588], "alpha": 0.1 }
+        },
+        "overlay": {
+          "$description": "Dims the page behind a dialog.",
+          "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.45 }
         }
       },
       "shadow": {
@@ -113,10 +117,10 @@
         },
         "primary": {
           "$description": "brasa — ember: the rubric red lit up for night",
-          "$value": "{palette.color.ember}"
+          "$value": "{color.ember}"
         },
         "primary-hover": {
-          "$value": "{palette.color.ember-bright}"
+          "$value": "{color.ember-bright}"
         },
         "on-primary": {
           "$description": "Text on primary.",
@@ -124,7 +128,7 @@
         },
         "support": {
           "$description": "blueprint — only for work \"na prancheta\" (on the drawing board)",
-          "$value": "{palette.color.blueprint-night}"
+          "$value": "{color.blueprint-night}"
         },
         "hidden": {
           "$description": "A detail hidden on the page, revealed only up close. Never a fill.",
@@ -133,6 +137,10 @@
         "shadow": {
           "$description": "Color of the one shadow (floating panels).",
           "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.5 }
+        },
+        "overlay": {
+          "$description": "Dims the page behind a dialog.",
+          "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.45 }
         }
       },
       "shadow": {

@@ -4,7 +4,7 @@ import { Mark, type MarkVariant } from './mark'
 import { StatusTag, type StatusTone } from './status-tag'
 import { Text } from './text'
 
-const linkClass = 'ink-link font-sans text-md text-foreground no-underline hover:text-primary'
+const linkClass = 'ink-link font-sans text-sm text-foreground no-underline hover:text-primary'
 
 export interface FooterLink {
   label: string
@@ -43,7 +43,7 @@ function FooterAnchor({ link }: { link: FooterLink }) {
   const className = link.mark ? `${linkClass} inline-flex items-center gap-2` : linkClass
   if (link.disabled) {
     return (
-      <span className="inline-flex items-center gap-2 font-sans text-md text-foreground-muted">
+      <span className="inline-flex items-center gap-2 font-sans text-sm text-foreground-muted">
         {content}
       </span>
     )
@@ -73,7 +73,7 @@ export function SiteFooter({ name, mark, text, columns, notes, verse }: SiteFoot
   return (
     <footer className="border-t border-border bg-surface print:hidden">
       <div className="section-inner grid gap-12 px-gutter md:px-gutter-wide py-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-        <div className="max-w-[340px]">
+        <div className="max-w-md">
           <div className="flex items-center gap-3 text-foreground">
             <Mark size={34} variant={mark?.variant} tone={mark?.tone} />
             <span className="font-sans text-lg font-semibold tracking-tight">{name}</span>

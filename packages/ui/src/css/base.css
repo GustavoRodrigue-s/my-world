@@ -24,6 +24,7 @@
   --color-on-primary:        var(--color-on-primary);
   --color-support:           var(--color-support);
   --color-hidden:            var(--color-hidden);
+  --color-overlay:           var(--color-overlay);
   --color-transparent:       transparent;
   --color-current:           currentColor;
 
@@ -42,84 +43,92 @@
   /* text-<size>: the scale. text-<role>: a typography role (size, line height,
      tracking and weight together; the family is set with font-*). */
   --text-*: initial;
-  --text-2xs:  var(--font-size-2xs);
-  --text-xs:   var(--font-size-xs);
-  --text-sm:   var(--font-size-sm);
-  --text-md:   var(--font-size-md);
+  --text-xs: var(--font-size-xs);
+  --text-sm: var(--font-size-sm);
   --text-base: var(--font-size-base);
-  --text-lg:   var(--font-size-lg);
-  --text-xl:   var(--font-size-xl);
-  --text-2xl:  var(--font-size-2xl);
-  --text-3xl:  var(--font-size-3xl);
-  --text-4xl:  var(--font-size-4xl);
-  --text-5xl:  var(--font-size-5xl);
-  --text-6xl:  var(--font-size-6xl);
-  --text-7xl:  var(--font-size-7xl);
-  --text-8xl:  var(--font-size-8xl);
-  --text-9xl:  var(--font-size-9xl);
-  --text-display:                       var(--typography-display-font-size);
-  --text-display--line-height:          var(--typography-display-line-height);
-  --text-display--letter-spacing:       var(--typography-display-letter-spacing);
-  --text-display--font-weight:          var(--typography-display-font-weight);
-  --text-headline:                      var(--typography-headline-font-size);
-  --text-headline--line-height:         var(--typography-headline-line-height);
-  --text-headline--letter-spacing:      var(--typography-headline-letter-spacing);
-  --text-headline--font-weight:         var(--typography-headline-font-weight);
-  --text-title:                         var(--typography-title-font-size);
-  --text-title--line-height:            var(--typography-title-line-height);
-  --text-title--letter-spacing:         var(--typography-title-letter-spacing);
-  --text-title--font-weight:            var(--typography-title-font-weight);
-  --text-title-sm:                      var(--typography-title-sm-font-size);
-  --text-title-sm--line-height:         var(--typography-title-sm-line-height);
-  --text-title-sm--letter-spacing:      var(--typography-title-sm-letter-spacing);
-  --text-title-sm--font-weight:         var(--typography-title-sm-font-weight);
-  --text-display-serif:                 var(--typography-display-serif-font-size);
-  --text-display-serif--line-height:    var(--typography-display-serif-line-height);
+  --text-lg: var(--font-size-lg);
+  --text-xl: var(--font-size-xl);
+  --text-2xl: var(--font-size-2xl);
+  --text-3xl: var(--font-size-3xl);
+  --text-4xl: var(--font-size-4xl);
+  --text-5xl: var(--font-size-5xl);
+  --text-6xl: var(--font-size-6xl);
+  --text-7xl: var(--font-size-7xl);
+  --text-8xl: var(--font-size-8xl);
+  --text-display: var(--typography-display-font-size);
+  --text-display--line-height: var(--typography-display-line-height);
+  --text-display--letter-spacing: var(--typography-display-letter-spacing);
+  --text-display--font-weight: var(--typography-display-font-weight);
+  --text-headline: var(--typography-headline-font-size);
+  --text-headline--line-height: var(--typography-headline-line-height);
+  --text-headline--letter-spacing: var(--typography-headline-letter-spacing);
+  --text-headline--font-weight: var(--typography-headline-font-weight);
+  --text-title: var(--typography-title-font-size);
+  --text-title--line-height: var(--typography-title-line-height);
+  --text-title--letter-spacing: var(--typography-title-letter-spacing);
+  --text-title--font-weight: var(--typography-title-font-weight);
+  --text-title-sm: var(--typography-title-sm-font-size);
+  --text-title-sm--line-height: var(--typography-title-sm-line-height);
+  --text-title-sm--letter-spacing: var(--typography-title-sm-letter-spacing);
+  --text-title-sm--font-weight: var(--typography-title-sm-font-weight);
+  --text-display-serif: var(--typography-display-serif-font-size);
+  --text-display-serif--line-height: var(--typography-display-serif-line-height);
   --text-display-serif--letter-spacing: var(--typography-display-serif-letter-spacing);
-  --text-display-serif--font-weight:    var(--typography-display-serif-font-weight);
-  --text-headline-serif:                 var(--typography-headline-serif-font-size);
-  --text-headline-serif--line-height:    var(--typography-headline-serif-line-height);
+  --text-display-serif--font-weight: var(--typography-display-serif-font-weight);
+  --text-headline-serif: var(--typography-headline-serif-font-size);
+  --text-headline-serif--line-height: var(--typography-headline-serif-line-height);
   --text-headline-serif--letter-spacing: var(--typography-headline-serif-letter-spacing);
-  --text-headline-serif--font-weight:    var(--typography-headline-serif-font-weight);
-  --text-title-serif:                   var(--typography-title-serif-font-size);
-  --text-title-serif--line-height:      var(--typography-title-serif-line-height);
-  --text-title-serif--letter-spacing:   var(--typography-title-serif-letter-spacing);
-  --text-title-serif--font-weight:      var(--typography-title-serif-font-weight);
-  --text-title-sm-serif:                 var(--typography-title-sm-serif-font-size);
-  --text-title-sm-serif--line-height:    var(--typography-title-sm-serif-line-height);
+  --text-headline-serif--font-weight: var(--typography-headline-serif-font-weight);
+  --text-title-serif: var(--typography-title-serif-font-size);
+  --text-title-serif--line-height: var(--typography-title-serif-line-height);
+  --text-title-serif--letter-spacing: var(--typography-title-serif-letter-spacing);
+  --text-title-serif--font-weight: var(--typography-title-serif-font-weight);
+  --text-title-sm-serif: var(--typography-title-sm-serif-font-size);
+  --text-title-sm-serif--line-height: var(--typography-title-sm-serif-line-height);
   --text-title-sm-serif--letter-spacing: var(--typography-title-sm-serif-letter-spacing);
-  --text-title-sm-serif--font-weight:    var(--typography-title-sm-serif-font-weight);
-  --text-quote:                         var(--typography-quote-font-size);
-  --text-quote--line-height:            var(--typography-quote-line-height);
-  --text-quote--letter-spacing:         var(--typography-quote-letter-spacing);
-  --text-quote--font-weight:            var(--typography-quote-font-weight);
-  --text-quote-sm:                      var(--typography-quote-sm-font-size);
-  --text-quote-sm--line-height:         var(--typography-quote-sm-line-height);
-  --text-quote-sm--letter-spacing:      var(--typography-quote-sm-letter-spacing);
-  --text-quote-sm--font-weight:         var(--typography-quote-sm-font-weight);
-  --text-lead:                          var(--typography-lead-font-size);
-  --text-lead--line-height:             var(--typography-lead-line-height);
-  --text-lead--letter-spacing:          var(--typography-lead-letter-spacing);
-  --text-lead--font-weight:             var(--typography-lead-font-weight);
+  --text-title-sm-serif--font-weight: var(--typography-title-sm-serif-font-weight);
+  --text-quote: var(--typography-quote-font-size);
+  --text-quote--line-height: var(--typography-quote-line-height);
+  --text-quote--letter-spacing: var(--typography-quote-letter-spacing);
+  --text-quote--font-weight: var(--typography-quote-font-weight);
+  --text-quote-sm: var(--typography-quote-sm-font-size);
+  --text-quote-sm--line-height: var(--typography-quote-sm-line-height);
+  --text-quote-sm--letter-spacing: var(--typography-quote-sm-letter-spacing);
+  --text-quote-sm--font-weight: var(--typography-quote-sm-font-weight);
+  --text-lead: var(--typography-lead-font-size);
+  --text-lead--line-height: var(--typography-lead-line-height);
+  --text-lead--letter-spacing: var(--typography-lead-letter-spacing);
+  --text-lead--font-weight: var(--typography-lead-font-weight);
+  --text-callout: var(--typography-callout-font-size);
+  --text-callout--line-height: var(--typography-callout-line-height);
+  --text-callout--letter-spacing: var(--typography-callout-letter-spacing);
+  --text-callout--font-weight: var(--typography-callout-font-weight);
+  --text-monogram: var(--typography-monogram-font-size);
+  --text-monogram--line-height: var(--typography-monogram-line-height);
+  --text-monogram--letter-spacing: var(--typography-monogram-letter-spacing);
+  --text-monogram--font-weight: var(--typography-monogram-font-weight);
 
   --leading-*: initial;
-  --leading-compact: var(--font-line-height-compact);
-  --leading-none:    var(--font-line-height-none);
-  --leading-tight:   var(--font-line-height-tight);
-  --leading-snug:    var(--font-line-height-snug);
-  --leading-normal:  var(--font-line-height-normal);
+  --leading-flush: var(--font-line-height-flush);
+  --leading-none: var(--font-line-height-none);
+  --leading-tight: var(--font-line-height-tight);
+  --leading-snug: var(--font-line-height-snug);
+  --leading-normal: var(--font-line-height-normal);
   --leading-relaxed: var(--font-line-height-relaxed);
-  --leading-loose:   var(--font-line-height-loose);
+  --leading-loose: var(--font-line-height-loose);
+
+  /* Relative to the surrounding text: the emphasized word, the drop capital. */
+  --text-emphasis: var(--font-scale-emphasis);
+  --text-initial: var(--font-scale-initial);
+  --text-initial--line-height: var(--font-line-height-flush);
 
   --tracking-*: initial;
-  --tracking-tightest: var(--font-letter-spacing-tightest);
-  --tracking-tighter:  var(--font-letter-spacing-tighter);
-  --tracking-tight:    var(--font-letter-spacing-tight);
-  --tracking-snug:     var(--font-letter-spacing-snug);
-  --tracking-normal:   var(--font-letter-spacing-normal);
-  --tracking-wide:     var(--font-letter-spacing-wide);
-  --tracking-wider:    var(--font-letter-spacing-wider);
-  --tracking-widest:   var(--font-letter-spacing-widest);
+  --tracking-tighter: var(--font-letter-spacing-tighter);
+  --tracking-tight: var(--font-letter-spacing-tight);
+  --tracking-normal: var(--font-letter-spacing-normal);
+  --tracking-wide: var(--font-letter-spacing-wide);
+  --tracking-wider: var(--font-letter-spacing-wider);
+  --tracking-widest: var(--font-letter-spacing-widest);
 
   /* p-4, gap-2…: N × space.1 (4px). */
   --spacing: var(--space-1);
@@ -128,6 +137,24 @@
   --spacing-block:       var(--space-block);
   --spacing-block-wide:  var(--space-block-wide);
   --spacing-bar:         var(--size-bar);
+  --spacing-initial-offset: var(--font-scale-initial-offset);
+
+  /* max-w-<step>: the width scale (size.width.*). */
+  --container-*: initial;
+  --container-4xs: var(--size-width-4xs);
+  --container-3xs: var(--size-width-3xs);
+  --container-2xs: var(--size-width-2xs);
+  --container-xs: var(--size-width-xs);
+  --container-sm: var(--size-width-sm);
+  --container-md: var(--size-width-md);
+  --container-lg: var(--size-width-lg);
+  --container-xl: var(--size-width-xl);
+  --container-2xl: var(--size-width-2xl);
+  --container-3xl: var(--size-width-3xl);
+  --container-4xl: var(--size-width-4xl);
+  --container-5xl: var(--size-width-5xl);
+  --container-6xl: var(--size-width-6xl);
+  --container-7xl: var(--size-width-7xl);
   --container-measure:   var(--size-measure);
   --container-page:      var(--size-container);
 
@@ -136,11 +163,14 @@
   --radius-*: initial;
   --radius-xs:   var(--radius-xs);
   --radius-pill: var(--radius-pill);
+  --radius-arch: var(--radius-arch);
+  --radius-arch-inner: var(--radius-arch-inner);
 
   --shadow-*: initial;
   --shadow-floating: var(--shadow-floating);
 
   --opacity-faint: var(--opacity-faint);
+  --opacity-dim:   var(--opacity-dim);
   --opacity-half:  var(--opacity-half);
 
   --ease-*: initial;
@@ -148,8 +178,12 @@
   --ease-out:      var(--easing-out);
   --ease-in-out:   var(--easing-in-out);
   --default-transition-duration:        var(--duration-fast);
-  --default-transition-timing-function: var(--easing-standard);
+  --default-transition-timing-function: var(--easing-in-out);
 
+  /* A quotation arriving (keyframes in identity.css). */
+  --animate-quote-in: gw-quote var(--duration-slower) var(--easing-out) both;
+
+  --z-index-raised:  var(--layer-raised);
   --z-index-sticky:  var(--layer-sticky);
   --z-index-overlay: var(--layer-overlay);
   --z-index-top:     var(--layer-top);
@@ -162,3 +196,4 @@
 @utility duration-slow    { transition-duration: var(--duration-slow); }
 @utility duration-slower  { transition-duration: var(--duration-slower); }
 @utility duration-gesture { transition-duration: var(--duration-gesture); }
+@utility duration-slowest { transition-duration: var(--duration-slowest); }

@@ -6,9 +6,10 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "env": ["SHOW_UNDER_CONSTRUCTION", "VERCEL_ENV"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**", "generated/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "generated/**", "public/brand/**"]
     },
     "dev": {
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },
@@ -16,7 +17,7 @@
       "dependsOn": ["^lint"]
     },
     "type-check": {
-      "dependsOn": ["^type-check"]
+      "dependsOn": ["^build", "^type-check"]
     }
   }
 }

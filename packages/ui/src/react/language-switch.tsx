@@ -31,7 +31,7 @@ export function LanguageSwitch({ label, current, languages }: { label: string; c
   const from = languages.find((l) => l.code === current) ?? languages[0]
 
   return (
-    <nav aria-label={label} className="flex h-9 items-center gap-1.5 font-mono text-sm">
+    <nav aria-label={label} className="flex h-9 items-center gap-1.5 font-mono text-xs">
       {languages.map((l, i) => (
         <span key={l.code} className="flex items-center gap-1.5">
           {i > 0 && (

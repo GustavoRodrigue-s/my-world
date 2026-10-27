@@ -80,14 +80,14 @@ export function ChapelSearch({ labels, studyHref }: ChapelSearchProps) {
       <button type="button" onClick={open} className={cx(buttonClasses({ variant: 'stone', size: 'none' }), 'group h-9 px-3 text-sm')}>
         <Search size={14} strokeWidth={1.6} aria-hidden />
         <span className="hidden sm:inline">{labels.open}</span>
-        <kbd className="hidden font-mono text-2xs text-foreground-muted group-hover:text-surface lg:inline">⌘K</kbd>
+        <kbd className="hidden font-mono text-xs text-foreground-muted group-hover:text-surface lg:inline">⌘K</kbd>
       </button>
 
       <dialog
         ref={dialogRef}
         aria-label={labels.dialogLabel}
         onClick={(e) => e.target === dialogRef.current && close()}
-        className="mx-auto mt-[12vh] w-[calc(100%-2rem)] max-w-[620px] rounded-xs border border-border bg-surface-raised p-0 text-foreground backdrop:bg-[rgb(0_0_0/0.45)]"
+        className="mx-4 mt-24 w-auto max-w-4xl sm:mx-auto rounded-xs border border-border bg-surface-raised p-0 text-foreground backdrop:bg-overlay"
       >
         <div className="flex items-center gap-3 border-b border-border px-5 py-4">
           <Search size={18} strokeWidth={1.5} aria-hidden className="shrink-0 text-foreground-muted" />
@@ -98,9 +98,9 @@ export function ChapelSearch({ labels, studyHref }: ChapelSearchProps) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder={labels.placeholder}
             aria-label={labels.dialogLabel}
-            className="min-w-0 flex-1 border-0 bg-transparent font-sans text-xl text-foreground outline-none placeholder:text-foreground-subtle"
+            className="min-w-0 flex-1 border-0 bg-transparent font-sans text-lg text-foreground outline-none placeholder:text-foreground-subtle"
           />
-          <button type="button" onClick={close} className={cx(buttonClasses({ variant: 'stone', size: 'none' }), 'h-8 px-3 text-sm')}>
+          <button type="button" onClick={close} className={cx(buttonClasses({ variant: 'stone', size: 'none' }), 'h-8 px-3 text-xs')}>
             {labels.close}
           </button>
         </div>
@@ -111,7 +111,7 @@ export function ChapelSearch({ labels, studyHref }: ChapelSearchProps) {
               {status}
             </Text>
           ) : (
-            <ul className="max-h-[50vh] list-none overflow-y-auto">
+            <ul className="max-h-96 list-none overflow-y-auto">
               {results.map((r) => (
                 <li key={r.slug} className="border-b border-border last:border-b-0">
                   <Link

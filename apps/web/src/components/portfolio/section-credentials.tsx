@@ -25,10 +25,10 @@ export function SectionCredentials({ locale }: { locale: Locale }) {
         <Register title={copy.credentials.certifications}>
           {certifications.map((c, i) => (
             <li key={c} className="flex gap-4 border-b border-border py-3">
-              <Text as="span" family="mono" size="xs" color="primary" className="pt-[3px]">
+              <Text as="span" family="mono" size="xs" color="primary" className="pt-1">
                 {String(i + 1).padStart(2, '0')}
               </Text>
-              <Text as="span" size="base" color="foreground" leading="normal">
+              <Text as="span" size="base" color="foreground" leading="snug">
                 {c}
               </Text>
             </li>

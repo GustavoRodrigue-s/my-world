@@ -1,11 +1,11 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cx } from './utils'
 
-const emphasisVariants = cva('font-serif italic font-regular text-primary leading-[0] tracking-snug', {
+const emphasisVariants = cva('font-serif italic font-regular text-primary leading-0 tracking-normal', {
   variants: {
     fit: {
-      // Cormorant's x-height is small next to a grotesk; 1.08em evens the optical size.
-      grotesk: 'text-[1.08em]',
+      // Cormorant's x-height is small next to a grotesk; font.scale.emphasis evens the optical size.
+      grotesk: 'text-emphasis',
       // Inside a serif heading the faces already match.
       serif: '',
     },

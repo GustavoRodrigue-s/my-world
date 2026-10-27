@@ -19,7 +19,7 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
   const site = (process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(/^https?:\/\//, '')
 
   return (
-    <article className="registration mx-auto w-full max-w-[860px] border border-border bg-surface-raised p-7 shadow-floating sm:p-10 md:p-14 print:max-w-none print:border-0 print:bg-transparent print:p-0 print:shadow-none print:[zoom:0.79]">
+    <article className="registration mx-auto w-full max-w-6xl border border-border bg-surface-raised p-7 shadow-floating sm:p-10 md:p-14 print:max-w-none print:border-0 print:bg-transparent print:p-0 print:shadow-none print:[zoom:0.79]">
       <header className="border-b border-foreground pb-7">
         <div className="flex items-start justify-between gap-6">
           <div>
@@ -49,11 +49,11 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
         </Text>
       </header>
 
-      <Text size="base" color="foreground" leading="relaxed" className="mt-8 max-w-[70ch]">
+      <Text size="base" color="foreground" leading="relaxed" className="mt-8 max-w-4xl">
         {resume.summary}
       </Text>
 
-      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1fr)_220px] print:mt-8 print:grid-cols-[minmax(0,1fr)_190px]">
+      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1fr)_var(--size-width-xs)] print:mt-8 print:grid-cols-[minmax(0,1fr)_var(--size-width-2xs)]">
         <div className="flex flex-col gap-10">
           <Block title={resume.blocks.experience}>
             <ol className="flex list-none flex-col gap-7">
@@ -78,8 +78,8 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
                     <ul className="mt-3 flex list-none flex-col gap-1.5">
                       {job.highlights.map((h) => (
                         <li key={h} className="flex gap-2.5">
-                          <span aria-hidden className="mt-[8px] h-[4px] w-[4px] shrink-0 bg-primary" />
-                          <Text as="span" size="sm" color="muted" leading="normal">
+                          <span aria-hidden className="mt-2 h-1 w-1 shrink-0 bg-primary" />
+                          <Text as="span" size="sm" color="muted" leading="snug">
                             {h}
                           </Text>
                         </li>
@@ -97,10 +97,10 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
           <Block title={resume.blocks.education}>
             {education.map((e) => (
               <div key={e.title}>
-                <Text size="sm" weight="semibold" color="foreground" leading="normal">
+                <Text size="sm" weight="semibold" color="foreground" leading="snug">
                   {e.title}
                 </Text>
-                <Text size="sm" color="muted" leading="normal" className="mt-1">
+                <Text size="sm" color="muted" leading="snug" className="mt-1">
                   {e.org}, {e.period}
                 </Text>
               </div>
@@ -113,7 +113,7 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
                   <Text as="dt" size="sm" weight="semibold" color="foreground">
                     {s.group}
                   </Text>
-                  <Text as="dd" size="sm" color="muted" leading="normal" className="mt-0.5">
+                  <Text as="dd" size="sm" color="muted" leading="snug" className="mt-0.5">
                     {s.items.join(', ')}
                   </Text>
                 </div>
@@ -128,7 +128,7 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
                   <Text as="span" size="sm" weight="semibold" color="foreground">
                     {l.name}
                   </Text>
-                  <Text size="sm" color="muted" leading="normal">
+                  <Text size="sm" color="muted" leading="snug">
                     {l.level}
                   </Text>
                 </li>
@@ -140,7 +140,7 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
             <ul className="flex list-none flex-col gap-2">
               {certifications.map((c) => (
                 <li key={c}>
-                  <Text size="sm" color="muted" leading="normal">
+                  <Text size="sm" color="muted" leading="snug">
                     {c}
                   </Text>
                 </li>

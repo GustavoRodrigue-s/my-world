@@ -14,12 +14,12 @@ export function WorldLogbook() {
         {entries.map((entry) => (
           <li
             key={`${entry.date}-${entry.text}`}
-            className="plot-rise grid gap-x-8 gap-y-1 border-b border-border py-4 sm:grid-cols-[120px_minmax(0,1fr)_auto] sm:items-baseline"
+            className="plot-rise grid gap-x-8 gap-y-1 border-b border-border py-4 sm:grid-cols-[var(--size-width-4xs)_minmax(0,1fr)_auto] sm:items-baseline"
           >
             <Text as="span" family="mono" size="sm" color="primary">
               <time dateTime={entry.date}>{logDate(entry.date)}</time>
             </Text>
-            <Text as="span" size="base" color="foreground" leading="normal">
+            <Text as="span" size="base" color="foreground" leading="snug">
               {entry.text}
             </Text>
             <Text as="span" family="mono" size="xs" color="muted">

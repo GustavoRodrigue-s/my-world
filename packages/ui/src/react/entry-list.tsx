@@ -17,7 +17,7 @@ export function EntryList({ items }: { items: IndexEntry[] }) {
         <li key={item.href}>
           <Link
             href={item.href as Route}
-            className="group grid gap-x-10 gap-y-3 py-8 text-foreground no-underline md:grid-cols-[180px_minmax(0,1fr)]"
+            className="group grid gap-x-10 gap-y-3 py-8 text-foreground no-underline md:grid-cols-[var(--size-width-2xs)_minmax(0,1fr)]"
           >
             {(item.kicker || item.meta) && (
               <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1 md:flex-col md:gap-y-2 md:pt-2">
@@ -38,12 +38,12 @@ export function EntryList({ items }: { items: IndexEntry[] }) {
               <Heading
                 as="span"
                 level="title-sm-serif"
-                className="block max-w-[44ch] transition-colors duration-fast group-hover:text-primary"
+                className="block max-w-xl transition-colors duration-fast group-hover:text-primary"
               >
                 {item.title}
               </Heading>
               {item.summary && (
-                <Text as="span" size="base" color="muted" leading="relaxed" className="mt-2 block max-w-[62ch]">
+                <Text as="span" size="base" color="muted" leading="relaxed" className="mt-2 block max-w-2xl">
                   {item.summary}
                 </Text>
               )}

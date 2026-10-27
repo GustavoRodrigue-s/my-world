@@ -120,7 +120,7 @@ function Callout({ n, x, y }: { n: string; x: number; y: number }) {
   return (
     <g>
       <circle cx={x} cy={y} r="9" className="fill-surface stroke-foreground" strokeWidth="0.9" />
-      <text x={x} y={y + 3.4} textAnchor="middle" className="fill-foreground font-mono text-2xs">
+      <text x={x} y={y + 3.4} textAnchor="middle" className="fill-foreground font-mono text-xs">
         {n}
       </text>
     </g>
@@ -363,7 +363,7 @@ export function WorldFigure({ labels, className }: { labels: WorldFigureLabels; 
           <animate attributeName="opacity" begin="gwLaunch.end" dur="1.3s" values="0.9;0" />
         </circle>
 
-        <text x="588" y="540" textAnchor="end" className="fill-foreground-muted font-mono text-2xs">
+        <text x="588" y="540" textAnchor="end" className="fill-foreground-muted font-mono text-xs">
           {labels.scale}
         </text>
 

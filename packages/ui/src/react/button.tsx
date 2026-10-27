@@ -10,8 +10,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const sizeMap: Record<Size, string> = {
   sm: 'px-4 py-2 text-xs',
-  md: 'px-[26px] py-3 text-sm',
-  lg: 'px-8 py-[14px] text-base',
+  md: 'px-6 py-3 text-sm',
+  lg: 'px-8 py-4 text-base',
   none: '',
 }
 
@@ -25,7 +25,7 @@ const variantMap: Record<Variant, string> = {
   // Mundo do Gustavo
   ink:   `${identityBase} rounded-xs bg-foreground text-surface border border-foreground hover:bg-primary hover:border-primary hover:text-on-primary`,
   line:  `${identityBase} rounded-xs bg-transparent text-foreground border border-border-strong hover:border-foreground`,
-  quiet: `${identityBase} bg-transparent text-foreground border-0 underline decoration-border-strong decoration-1 underline-offset-[6px] hover:decoration-primary hover:text-primary`,
+  quiet: `${identityBase} bg-transparent text-foreground border-0 underline decoration-border-strong decoration-1 underline-offset-(--space-2) hover:decoration-primary hover:text-primary`,
   // Flat (Capela): solid fills, no borders. The red one is the page's main action — small, never a large field.
   rubric: `${identityBase} rounded-xs bg-primary text-on-primary border-0 hover:bg-primary-hover`,
   stone:  `${identityBase} rounded-xs bg-surface-muted text-foreground border-0 hover:bg-foreground hover:text-surface`,

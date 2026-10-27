@@ -22,5 +22,6 @@ ADRs 0001–0009 were recorded retroactively on 2026-10-26 from earlier sessions
 | [0008](0008-chapel-becomes-contemplation.md) | The Capela becomes a place of contemplation | accepted (not implemented) |
 | [0009](0009-projects-and-studies.md) | Projetos owns projects; Estudos keeps articles and notes together | accepted (not implemented) |
 | [0010](0010-docs-in-the-repo.md) | Documentation lives in the repo | accepted |
-| [0011](0011-dtcg-tokens-with-style-dictionary.md) | Design tokens in DTCG JSON, built with Style Dictionary | accepted |
-| [0012](0012-agnostic-token-taxonomy.md) | Agnostic token taxonomy; the web converts to responsive units | accepted |
+| [0011](0011-dtcg-tokens-with-style-dictionary.md) | Design tokens in DTCG JSON, built with Style Dictionary | accepted (output no longer committed: 0013) |
+| [0012](0012-agnostic-token-taxonomy.md) | Agnostic token taxonomy; the web converts to responsive units | accepted (values and rem base superseded by 0013) |
+| [0013](0013-tokens-match-production-built-at-build-time.md) | Recommended token values on a 16px base; everything generated is built at build time | accepted |

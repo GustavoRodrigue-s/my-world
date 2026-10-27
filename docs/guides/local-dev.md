@@ -20,7 +20,7 @@ pnpm dev                 # http://localhost:3000
 | `pnpm lint` | lint |
 | `pnpm format` | prettier |
 | `pnpm tokens` | rebuild the design tokens (`packages/design-system/generated/`) after editing `tokens/*.json` |
-| `cd packages/ui && npm run generate:brand` | regenerate `apps/web/public/brand/*.svg` |
+| `pnpm tokens` | rebuild the design system's output (CSS, `tokens.json`, brand SVGs) by hand; `dev` and `build` already do it |
 
 ## `.env.local`
 

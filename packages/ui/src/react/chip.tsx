@@ -14,7 +14,7 @@ export function Chip({ pressed = false, variant = 'line', className, children, .
       type="button"
       aria-pressed={pressed}
       className={cx(
-        'inline-flex h-8 cursor-pointer items-center whitespace-nowrap rounded-xs border px-3 font-mono text-sm transition-colors duration-fast',
+        'inline-flex h-8 cursor-pointer items-center whitespace-nowrap rounded-xs border px-3 font-mono text-xs transition-colors duration-fast',
         pressed
           ? 'border-foreground bg-foreground text-surface'
           : variant === 'stone'

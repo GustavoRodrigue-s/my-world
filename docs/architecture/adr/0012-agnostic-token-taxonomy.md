@@ -1,6 +1,6 @@
 # 0012 — Agnostic token taxonomy; the web converts to responsive units
 
-- **Status:** accepted
+- **Status:** accepted — scale values and the 16px rem base superseded by [0013](0013-tokens-match-production-built-at-build-time.md)
 - **Date:** 2026-10-26
 
 ## Context

@@ -270,7 +270,7 @@ function CompassRose({ x, y }: { x: number; y: number }) {
         </g>
       ))}
       <circle cx={x} cy={y} r="3" className="fill-surface" strokeWidth="1" />
-      <text x={x} y={y - R - 12} textAnchor="middle" className="fill-foreground stroke-none font-serif text-[19px] italic">
+      <text x={x} y={y - R - 12} textAnchor="middle" className="fill-foreground stroke-none font-serif text-xl italic">
         {WORLD.map.north}
       </text>
       {/* The East, marked with a cross — the orient. */}
@@ -304,7 +304,7 @@ function SouthernCross() {
       {Object.entries(CRUX).map(([name, [x, y, o]]) => (
         <path key={name} d={star(x, y, o)} className="fill-foreground" />
       ))}
-      <text x="886" y="609" textAnchor="middle" className="fill-foreground-muted font-serif text-[11.5px] italic" opacity="0.7">
+      <text x="886" y="609" textAnchor="middle" className="fill-foreground-muted font-serif text-xs italic" opacity="0.7">
         {WORLD.map.inscription}
       </text>
     </g>
@@ -316,13 +316,13 @@ function Cartouche() {
     <g>
       <rect x="36" y="36" width="224" height="82" className="fill-surface stroke-foreground" strokeWidth="1" />
       <rect x="40" y="40" width="216" height="74" fill="none" className="stroke-foreground" strokeWidth="0.5" />
-      <text x="148" y="72" textAnchor="middle" className="fill-foreground font-serif text-[25px] italic">
+      <text x="148" y="72" textAnchor="middle" className="fill-foreground font-serif text-2xl italic">
         {WORLD.map.cartouche}
       </text>
-      <text x="148" y="90" textAnchor="middle" className="fill-foreground-muted font-mono text-[9.5px]">
+      <text x="148" y="90" textAnchor="middle" className="fill-foreground-muted font-mono text-xs">
         {WORLD.map.plate}
       </text>
-      <text x="148" y="104" textAnchor="middle" className="fill-foreground-muted font-mono text-[9.5px]">
+      <text x="148" y="104" textAnchor="middle" className="fill-foreground-muted font-mono text-xs">
         {WORLD.map.author}
       </text>
     </g>
@@ -344,13 +344,13 @@ function Legend() {
   return (
     <g>
       <rect x="36" y="472" width="168" height="134" className="fill-surface stroke-foreground" strokeWidth="0.8" />
-      <text x="50" y="492" className="fill-foreground-muted font-mono text-[9.5px] uppercase tracking-wider">
+      <text x="50" y="492" className="fill-foreground-muted font-mono text-xs uppercase tracking-[0.12em]">
         {legend.title}
       </text>
       {rows.map((row, i) => (
         <g key={row.label} transform={`translate(58 ${512 + i * 20})`}>
           {row.icon}
-          <text x="16" y="3.5" className="fill-foreground font-mono text-[10.5px]">
+          <text x="16" y="3.5" className="fill-foreground font-mono text-xs">
             {row.label}
           </text>
         </g>
@@ -381,7 +381,7 @@ export function WorldMap() {
       viewBox="0 0 1000 640"
       aria-hidden
       focusable="false"
-      className="group/map block h-auto w-full min-w-[760px] select-none md:min-w-0"
+      className="group/map block h-auto w-full min-w-5xl select-none md:min-w-0"
     >
       <defs>
         <clipPath id="chart-inner">
@@ -426,10 +426,10 @@ export function WorldMap() {
       {/* Terra incognita: the edge of a land not drawn yet */}
       <g className="chart-appear [animation-delay:1.4s]">
         <path d="M978 132C950 124 930 100 902 100S850 78 838 50S826 28 822 22" fill="none" className="stroke-foreground" strokeWidth="0.9" strokeDasharray="4 4" />
-        <text x="968" y="50" textAnchor="end" className="fill-foreground font-serif text-[17px] italic">
+        <text x="968" y="50" textAnchor="end" className="fill-foreground font-serif text-lg italic">
           {map.incognita}
         </text>
-        <text x="968" y="65" textAnchor="end" className="fill-foreground-muted font-mono text-[9px]">
+        <text x="968" y="65" textAnchor="end" className="fill-foreground-muted font-mono text-xs">
           {map.incognitaNote}
         </text>
       </g>
@@ -465,7 +465,7 @@ export function WorldMap() {
         <path d={`M${MERIDIAN} 22V618`} />
         <path d={`M22 ${EQUATOR}H978`} />
       </g>
-      <g className="chart-appear fill-foreground-muted font-mono text-[9px] [animation-delay:1.6s]">
+      <g className="chart-appear fill-foreground-muted font-mono text-xs [animation-delay:1.6s]">
         <text x={MERIDIAN + 5} y="36">
           0°
         </text>
@@ -515,7 +515,7 @@ export function WorldMap() {
               fill="none"
               strokeWidth="1.8"
               className={cx(
-                'transition-[stroke-dashoffset] duration-gesture ease-out [stroke-dasharray:1] [stroke-dashoffset:1] group-hover:[stroke-dashoffset:0]',
+                'transition-[stroke-dashoffset] duration-slowest ease-out [stroke-dasharray:1] [stroke-dashoffset:1] group-hover:[stroke-dashoffset:0]',
                 open ? 'stroke-primary' : 'stroke-foreground'
               )}
               opacity={open ? 1 : 0.55}
@@ -528,14 +528,14 @@ export function WorldMap() {
               y={at.y + 27}
               textAnchor="middle"
               className={cx(
-                'font-serif text-[21px] italic transition-colors duration-normal [paint-order:stroke] stroke-surface-raised [stroke-width:5px] [stroke-linejoin:round]',
+                'font-serif text-2xl italic transition-colors duration-normal [paint-order:stroke] stroke-surface-raised [stroke-width:5px] [stroke-linejoin:round]',
                 status === 'planned' ? 'fill-support' : 'fill-foreground',
                 open && 'group-hover:fill-primary'
               )}
             >
               {copy.place}
             </text>
-            <text x={at.x} y={at.y + 42} textAnchor="middle" className={cx('font-mono text-[10px] [paint-order:stroke] stroke-surface-raised [stroke-width:4px] [stroke-linejoin:round]', status === 'planned' ? 'fill-support' : 'fill-foreground-muted')}>
+            <text x={at.x} y={at.y + 42} textAnchor="middle" className={cx('font-mono text-xs [paint-order:stroke] stroke-surface-raised [stroke-width:4px] [stroke-linejoin:round]', status === 'planned' ? 'fill-support' : 'fill-foreground-muted')}>
               {copy.name.toLowerCase()} · {statusLabel(id)}
             </text>
           </>
@@ -558,7 +558,7 @@ export function WorldMap() {
         <circle cx={HARBOR.x} cy={HARBOR.y} r="10" fill="none" className="stroke-primary" strokeWidth="0.9" />
         <circle cx={HARBOR.x} cy={HARBOR.y} r="10" fill="none" className="chart-beacon stroke-primary" strokeWidth="1.2" />
         <path d={`M${HARBOR.x - 8} ${HARBOR.y + 8}L${HARBOR.x - 20} 556`} className="stroke-primary" strokeWidth="0.8" />
-        <text x={HARBOR.x - 22} y="568" textAnchor="end" className="fill-primary font-mono text-[11px]">
+        <text x={HARBOR.x - 22} y="568" textAnchor="end" className="fill-primary font-mono text-xs">
           {map.youAreHere}
         </text>
       </g>
@@ -573,14 +573,14 @@ export function WorldMap() {
         <g className="stroke-foreground" strokeWidth="0.8">
           <rect x="296" y="590" width="112" height="5" fill="none" />
           <path d="M296 590h28v5h-28ZM352 590h28v5h-28Z" className="fill-foreground" />
-          <text x="352" y="609" textAnchor="middle" className="fill-foreground-muted stroke-none font-mono text-[9.5px]">
+          <text x="352" y="609" textAnchor="middle" className="fill-foreground-muted stroke-none font-mono text-xs">
             {map.scale}
           </text>
         </g>
       </g>
 
       {/* Hidden: a point of gold where the world's lines cross, for whoever looks closely */}
-      <g className="pointer-events-none opacity-0 transition-opacity duration-gesture group-hover/map:opacity-100">
+      <g className="pointer-events-none opacity-0 transition-opacity duration-slowest group-hover/map:opacity-100">
         <circle cx={MERIDIAN} cy={EQUATOR} r="11" className="fill-hidden" opacity="0.18" />
         <path d={star(MERIDIAN, EQUATOR, 6)} className="fill-hidden" />
       </g>

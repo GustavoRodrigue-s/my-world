@@ -1,6 +1,6 @@
 # 0011 — Design tokens in DTCG JSON, built with Style Dictionary
 
-- **Status:** accepted
+- **Status:** accepted — generated output no longer committed since [0013](0013-tokens-match-production-built-at-build-time.md)
 - **Date:** 2026-10-26
 - **Supersedes:** [0003](0003-themes-as-typed-sources.md)
 

@@ -55,11 +55,11 @@ export default function ChapelHome() {
           </>
         }
       >
-        <Heading as="h1" id="chapel-title" level="display-serif" className="max-w-[15ch]">
+        <Heading as="h1" id="chapel-title" level="display-serif" className="max-w-2xl">
           {home.statement.before} <Emphasis fit="serif">{home.statement.emphasis}</Emphasis>
           {home.statement.after}
         </Heading>
-        <Text size="lead" color="muted" leading="relaxed" className="mt-7 max-w-[48ch]">
+        <Text size="lead" color="muted" leading="relaxed" className="mt-7 max-w-4xl">
           {home.lead}
         </Text>
       </PageIntro>
@@ -70,7 +70,7 @@ export default function ChapelHome() {
           ornament={<RoseWindow size={56} />}
           caption={
             <>
-              <Text family="serif" size="lead" color="foreground" leading="normal" className="italic">
+              <Text family="serif" size="lead" color="foreground" leading="snug" className="italic">
                 {home.supper.verse}{' '}
                 <Text as="span" family="mono" size="xs" color="muted" className="not-italic">
                   {home.supper.verseSource}
@@ -124,7 +124,7 @@ export default function ChapelHome() {
           action={
             <Link
               href={chapelPath('/articles', featured.slug)}
-              className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-11 px-4 text-md')}
+              className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-11 px-4 text-sm')}
             >
               {home.latest.read}
               <ArrowRight size={15} strokeWidth={1.5} aria-hidden />
@@ -161,15 +161,15 @@ export default function ChapelHome() {
             role={home.author.role}
             portrait={PORTRAIT_SRC ? { src: PORTRAIT_SRC, alt: `Retrato de ${CHAPEL.author}` } : undefined}
           />
-          <Text size="lg" color="foreground" leading="relaxed" className="mt-8 max-w-[58ch]">
+          <Text size="lg" color="foreground" leading="relaxed" className="mt-8 max-w-3xl">
             {home.author.text}
           </Text>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-            <Link href={chapelPath('/about')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-md')}>
+            <Link href={chapelPath('/about')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-sm')}>
               {home.author.more}
               <ArrowRight size={15} strokeWidth={1.5} aria-hidden />
             </Link>
-            <Link href="/portfolio" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-md')}>
+            <Link href="/portfolio" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-sm')}>
               {home.author.portfolio}
               <ArrowRight size={14} strokeWidth={1.5} aria-hidden />
             </Link>

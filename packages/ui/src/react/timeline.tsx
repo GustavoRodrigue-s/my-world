@@ -54,13 +54,13 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
         return (
           <li
             key={entry.key}
-            className="plot-station group grid grid-cols-[24px_minmax(0,1fr)] gap-x-5 md:grid-cols-[150px_24px_minmax(0,1fr)] md:gap-x-6"
+            className="plot-station group grid grid-cols-[var(--space-6)_minmax(0,1fr)] gap-x-5 md:grid-cols-[var(--size-width-3xs)_var(--space-6)_minmax(0,1fr)] md:gap-x-6"
           >
             <Text
               family="mono"
               size="sm"
               color={current ? 'primary' : 'muted'}
-              className={cx('hidden pt-[3px] md:block', past && 'plot-ink-text')}
+              className={cx('hidden pt-1 md:block', past && 'plot-ink-text')}
             >
               {entry.period}
             </Text>
@@ -76,9 +76,9 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                 />
               )}
               {!last && past && !towardNext && (
-                <span aria-hidden className="plot-ink absolute top-5 bottom-0 left-1/2 w-[2px] -translate-x-1/2 bg-primary" />
+                <span aria-hidden className="plot-ink absolute top-5 bottom-0 left-1/2 w-0.5 -translate-x-1/2 bg-primary" />
               )}
-              <span className="relative z-[1] mt-[5px] flex h-4 items-center transition-transform duration-normal motion-safe:group-hover:scale-125">
+              <span className="relative z-raised mt-1 flex h-4 items-center transition-transform duration-normal motion-safe:group-hover:scale-125">
                 <Node entry={entry} />
                 {past && (
                   <span
@@ -106,7 +106,7 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                   {entry.meta}
                 </Text>
               )}
-              <Text size="base" color="muted" leading="relaxed" className="mt-3 max-w-[60ch]">
+              <Text size="base" color="muted" leading="relaxed" className="mt-3 max-w-2xl">
                 {entry.text}
               </Text>
             </div>

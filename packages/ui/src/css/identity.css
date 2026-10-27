@@ -17,16 +17,16 @@
 }
 
 [data-env] :focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
+  outline: var(--border-width-strong) solid var(--color-primary);
+  outline-offset: var(--space-1);
 }
 
 /* Hachura — engraving-style hatching, used for shadows and "paper cut" fills. */
 [data-env] .hatch {
   background-image: repeating-linear-gradient(
     -45deg,
-    currentColor 0 1px,
-    transparent 1px 6px
+    currentColor 0 var(--border-width-hairline),
+    transparent var(--border-width-hairline) var(--space-2)
   );
 }
 
@@ -39,32 +39,32 @@
 [data-env] .registration::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: var(--space-2);
+  height: var(--space-2);
   pointer-events: none;
   border-color: var(--color-foreground);
   border-style: solid;
-  opacity: 0.55;
+  opacity: var(--opacity-half);
 }
 
 [data-env] .registration::before {
-  top: -5px;
-  left: -5px;
-  border-width: 1px 0 0 1px;
+  top: calc(-1 * var(--space-1));
+  left: calc(-1 * var(--space-1));
+  border-width: var(--border-width-hairline) 0 0 var(--border-width-hairline);
 }
 
 [data-env] .registration::after {
-  right: -5px;
-  bottom: -5px;
-  border-width: 0 1px 1px 0;
+  right: calc(-1 * var(--space-1));
+  bottom: calc(-1 * var(--space-1));
+  border-width: 0 var(--border-width-hairline) var(--border-width-hairline) 0;
 }
 
 /* Linha pontilhada de órbita — dotted leader between a label and its value. */
 [data-env] .leader {
   flex: 1;
-  min-width: 1.5rem;
-  border-bottom: 1px dotted var(--color-border-strong);
-  transform: translateY(-0.3em);
+  min-width: var(--space-6);
+  border-bottom: var(--border-width-hairline) dotted var(--color-border-strong);
+  transform: translateY(calc(-1 * var(--font-scale-baseline-shift)));
 }
 
 /* Sublinhado a traço — a link's underline is drawn left to right in rubric red. */
@@ -72,13 +72,13 @@
   background-image: linear-gradient(var(--color-primary), var(--color-primary));
   background-position: 0 100%;
   background-repeat: no-repeat;
-  background-size: 0% 1px;
-  transition: background-size 200ms ease-out, color var(--duration-fast) var(--easing-standard);
+  background-size: 0% var(--border-width-hairline);
+  transition: background-size var(--duration-normal) var(--easing-out), color var(--duration-fast) var(--easing-standard);
 }
 
 [data-env] .ink-link:hover,
 [data-env] .ink-link[aria-current] {
-  background-size: 100% 1px;
+  background-size: 100% var(--border-width-hairline);
 }
 
 /*
@@ -108,7 +108,7 @@
  *   .plot-arrive    the entry slides in from the side to meet the line
  */
 @keyframes gw-rise {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(var(--space-4)); }
   to   { opacity: 1; transform: none; }
 }
 
@@ -128,7 +128,7 @@
 }
 
 @keyframes gw-arrive {
-  from { opacity: 0; transform: translateX(24px); }
+  from { opacity: 0; transform: translateX(var(--space-6)); }
   to   { opacity: 1; transform: none; }
 }
 
@@ -142,7 +142,7 @@
 
 /* A rotating quote settles in (Capela). Plain time-based: it follows a click or the timer, not the scroll. */
 @keyframes gw-quote {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(var(--space-2)); }
   to   { opacity: 1; transform: none; }
 }
 
@@ -273,15 +273,15 @@
   [data-env]:not([data-motion='still']) .chart-trace {
     stroke-dasharray: 1;
     animation-name: gw-trace;
-    animation-duration: 2.4s;
-    animation-timing-function: cubic-bezier(0.45, 0, 0.2, 1);
+    animation-duration: var(--duration-draw);
+    animation-timing-function: var(--easing-draw);
     animation-fill-mode: both;
   }
 
   [data-env]:not([data-motion='still']) .chart-appear {
     animation-name: gw-appear;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-out;
+    animation-duration: var(--duration-arrive);
+    animation-timing-function: var(--easing-out);
     animation-fill-mode: both;
   }
 
@@ -289,9 +289,10 @@
     transform-box: fill-box;
     transform-origin: center;
     animation-name: gw-beacon;
-    animation-duration: 1.8s;
-    animation-timing-function: ease-out;
-    animation-delay: 2.6s;
+    animation-duration: var(--duration-pulse);
+    animation-timing-function: var(--easing-out);
+    /* Once the trails are drawn. */
+    animation-delay: calc(var(--duration-draw) + var(--duration-normal));
     animation-iteration-count: 3;
   }
 }

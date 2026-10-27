@@ -62,7 +62,7 @@ export function SectionArtifacts({ locale }: { locale: Locale }) {
                       href={l.href}
                       target="_blank"
                       rel="noopener"
-                      className="group/link inline-flex items-center gap-0.5 font-mono text-sm text-foreground-muted no-underline transition-colors hover:text-primary"
+                      className="group/link inline-flex items-center gap-0.5 font-mono text-xs text-foreground-muted no-underline transition-colors hover:text-primary"
                     >
                       {l.label}
                       <ArrowUpRight size={12} strokeWidth={1.5} aria-hidden className="transition-transform duration-normal motion-safe:group-hover/link:-translate-y-0.5 motion-safe:group-hover/link:translate-x-0.5" />

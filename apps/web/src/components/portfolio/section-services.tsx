@@ -47,7 +47,7 @@ export function SectionServices({ locale }: { locale: Locale }) {
           <div key={s.title} className="group plot-rise relative border-t border-foreground pt-5">
             {/* Hover: a red rule is traced over the ink one. */}
             <span aria-hidden className="absolute inset-x-0 -top-px h-px origin-left scale-x-0 bg-primary transition-transform duration-normal ease-out group-hover:scale-x-100" />
-            <Heading as="h3" level="title-sm" className="max-w-[18ch]">
+            <Heading as="h3" level="title-sm" className="max-w-xs">
               {s.title}
             </Heading>
             <Text size="base" color="muted" leading="relaxed" className="mt-3">
@@ -68,7 +68,7 @@ export function SectionServices({ locale }: { locale: Locale }) {
                 {c}
               </Heading>
               {i < companies.length - 1 && (
-                <span aria-hidden className="font-serif text-3xl italic text-foreground-subtle">
+                <span aria-hidden className="font-serif text-2xl italic text-foreground-subtle">
                   /
                 </span>
               )}

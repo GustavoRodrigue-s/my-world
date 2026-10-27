@@ -42,7 +42,7 @@ export function Plate({ labelledBy, rubric, corner, children, figure, figureSize
           className={cx(
             'grid items-center gap-x-12 gap-y-10 pt-10 md:pt-12',
             !!figure && figureSize === 'half' && 'lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]',
-            !!figure && figureSize === 'narrow' && 'lg:grid-cols-[minmax(0,1fr)_280px]'
+            !!figure && figureSize === 'narrow' && 'lg:grid-cols-[minmax(0,1fr)_var(--size-width-sm)]'
           )}
         >
           {/* Text is the page's largest paint; the figure is decoration on top of it. */}

@@ -24,7 +24,7 @@ shows only up close.
 
 ## Wiring
 
-`app/chapel/layout.tsx` loads `themes/chapel.css` + `identity.css` and renders
+`app/chapel/layout.tsx` loads `@my-world/design-system/css/chapel.css` + `identity.css` and renders
 `<ChapelShell>` (`components/chapel/*`, `motion="still"`): `WorldBar
 variant="stone"`, the `ConstructionNotice` while closed, a solid header with the
 red-star mark (gilds as it orbits on hover), `PageNav variant="stone"`, search

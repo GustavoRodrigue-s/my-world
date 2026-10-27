@@ -14,26 +14,26 @@ export default function NotFound() {
         <Text family="mono" size="xs" color="primary" className="mt-8">
           ¶ 404 — fora de órbita
         </Text>
-        <Heading as="h1" level="headline" className="mt-4 max-w-[18ch]">
+        <Heading as="h1" level="headline" className="mt-4 max-w-3xl">
           Esta página não existe.
         </Heading>
         <Text size="lg" color="muted" className="mt-5">
           Page not found.
         </Text>
         <div className="mt-10 flex flex-wrap gap-3">
-          <Link href="/" className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-md')}>
+          <Link href="/" className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-sm')}>
             Mundo do Gustavo
           </Link>
-          <Link href="/portfolio" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-md')}>
+          <Link href="/portfolio" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-sm')}>
             Portfólio
           </Link>
           {canEnter('chapel') ? (
-            <Link href="/chapel" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-md')}>
+            <Link href="/chapel" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-sm')}>
               {CHAPEL.name}
             </Link>
           ) : (
             // Still being built (lib/world.ts): the door is drawn, dashed, and closed.
-            <span className="inline-flex h-11 items-center gap-2.5 rounded-xs border border-dashed border-border-strong px-4 font-sans text-md text-foreground-muted">
+            <span className="inline-flex h-11 items-center gap-2.5 rounded-xs border border-dashed border-border-strong px-4 font-sans text-sm text-foreground-muted">
               {CHAPEL.name}
               <StatusTag tone="open">{CHAPEL.construction.status}</StatusTag>
             </span>

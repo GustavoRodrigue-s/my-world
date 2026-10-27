@@ -6,3 +6,5 @@ import tokens from '../generated/tokens.json'
 export { tokens }
 export type Tokens = typeof tokens
 export type ThemeName = 'portfolio' | 'chapel'
+
+export * from './mark'

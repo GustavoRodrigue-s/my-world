@@ -17,14 +17,14 @@ export function SectionTools({ locale }: { locale: Locale }) {
           <Heading as="h3" level="title-sm" className="mt-2">
             {copy.tools.aiTitle}
           </Heading>
-          <Text size="sm" color="muted" leading="relaxed" className="mt-2 max-w-[40ch]">
+          <Text size="sm" color="muted" leading="relaxed" className="mt-2 max-w-md">
             {copy.tools.aiText}
           </Text>
         </div>
         <ul className="flex list-none flex-wrap content-start gap-x-5 gap-y-2.5 md:pt-6">
           {aiTools.map((tool) => (
             <li key={tool} className="inline-flex items-center gap-2">
-              <span aria-hidden className="h-[7px] w-[7px] shrink-0 rounded-full bg-primary" />
+              <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-primary" />
               <Text as="span" size="base" color="foreground">
                 {tool}
               </Text>

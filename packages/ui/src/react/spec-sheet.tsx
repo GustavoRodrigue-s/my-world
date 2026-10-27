@@ -48,8 +48,8 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
     <article
       aria-labelledby={`${id}-title`}
       className={cx(
-        'group plot-rise grid gap-x-10 gap-y-7 border-t border-border-strong py-10 transition-colors duration-normal hover:border-foreground md:grid-cols-[200px_minmax(0,1fr)]',
-        side && 'xl:grid-cols-[200px_minmax(0,1.15fr)_minmax(0,1fr)]'
+        'group plot-rise grid gap-x-10 gap-y-7 border-t border-border-strong py-10 transition-colors duration-normal hover:border-foreground md:grid-cols-[var(--size-width-xs)_minmax(0,1fr)]',
+        side && 'xl:grid-cols-[var(--size-width-xs)_minmax(0,1.15fr)_minmax(0,1fr)]'
       )}
     >
       <div className="flex items-start gap-4 md:flex-col">
@@ -85,13 +85,13 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
             title
           )}
         </Heading>
-        <Text size="lg" color="foreground" leading="relaxed" className="mt-3 max-w-[52ch]">
+        <Text size="lg" color="foreground" leading="relaxed" className="mt-3 max-w-2xl">
           {lead}
         </Text>
         {details?.map((d) => (
           <div key={d.label} className={cx('mt-6', d.marked && 'border-l-2 border-primary pl-4')}>
             <Label>{d.label}</Label>
-            <Text size="base" color="muted" leading="relaxed" className="max-w-[52ch]">
+            <Text size="base" color="muted" leading="relaxed" className="max-w-lg">
               {d.text}
             </Text>
           </div>
@@ -112,8 +112,8 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
               <ul className="list-none border-t border-border">
                 {features.items.map((item) => (
                   <li key={item} className="flex gap-3 border-b border-border py-2.5">
-                    <span aria-hidden className="mt-[9px] h-[5px] w-[5px] shrink-0 bg-foreground" />
-                    <Text as="span" size="base" color="foreground" leading="normal">
+                    <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 bg-foreground" />
+                    <Text as="span" size="base" color="foreground" leading="snug">
                       {item}
                     </Text>
                   </li>

@@ -9,9 +9,6 @@
     "./css/base.css": "./src/css/base.css",
     "./css/identity.css": "./src/css/identity.css"
   },
-  "scripts": {
-    "generate:brand": "tsx src/generate-brand.ts"
-  },
   "dependencies": {
     "@my-world/design-system": "workspace:*",
     "class-variance-authority": "^0.7.1"

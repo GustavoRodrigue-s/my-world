@@ -45,7 +45,7 @@ export default function ChapelUnderConstruction() {
             </Link>
           }
           footer={
-            <Text family="serif" size="lead" color="foreground" leading="normal" className="max-w-[34ch] italic">
+            <Text family="serif" size="lead" color="foreground" leading="snug" className="max-w-md italic">
               {construction.verse.text}{' '}
               <Text as="span" family="mono" size="xs" color="muted" className="not-italic">
                 {construction.verse.source}
@@ -53,11 +53,11 @@ export default function ChapelUnderConstruction() {
             </Text>
           }
         >
-          <Heading as="h1" id="construction-title" level="display-serif" className="max-w-[18ch]">
+          <Heading as="h1" id="construction-title" level="display-serif" className="max-w-4xl">
             {construction.statement.before} <Emphasis fit="serif">{construction.statement.emphasis}</Emphasis>
             {construction.statement.after}
           </Heading>
-          <Text size="lead" color="muted" leading="relaxed" className="mt-7 max-w-[46ch]">
+          <Text size="lead" color="muted" leading="relaxed" className="mt-7 max-w-3xl">
             {construction.lead}
           </Text>
         </PageIntro>

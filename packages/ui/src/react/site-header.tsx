@@ -30,7 +30,7 @@ export function SiteHeader({ homeHref, name, sub, mark, nav, actions, surface = 
         surface === 'glass' ? 'bg-surface/85 backdrop-blur-md' : 'bg-surface'
       )}
     >
-      <span aria-hidden className="plot-progress absolute inset-x-0 -bottom-px h-[2px] bg-primary" />
+      <span aria-hidden className="plot-progress absolute inset-x-0 -bottom-px h-0.5 bg-primary" />
       <div className="section-inner flex h-full items-center justify-between gap-6 px-gutter md:px-gutter-wide">
         <Link href={homeHref as Route} className="group flex items-center gap-3 text-foreground no-underline">
           {/* Hover: the satellite makes one full orbit. */}
@@ -45,8 +45,8 @@ export function SiteHeader({ homeHref, name, sub, mark, nav, actions, surface = 
           />
           {/* Phones keep just the mark: the actions need the room. */}
           <span className="sr-only flex-col leading-none sm:not-sr-only sm:flex">
-            <span className="font-sans text-lg font-semibold tracking-tight">{name}</span>
-            <span className="mt-1 font-mono text-2xs text-foreground-muted">{sub}</span>
+            <span className="font-sans text-base font-semibold tracking-tight">{name}</span>
+            <span className="mt-1 font-mono text-xs text-foreground-muted">{sub}</span>
           </span>
         </Link>
 

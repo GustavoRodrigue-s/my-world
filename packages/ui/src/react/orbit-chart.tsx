@@ -33,7 +33,7 @@ interface OrbitChartProps {
  */
 export function OrbitChart({ rings, core }: OrbitChartProps) {
   return (
-    <div className="relative mx-auto w-full max-w-[640px] [view-timeline-name:--orbit] lg:aspect-square">
+    <div className="relative mx-auto w-full max-w-4xl [view-timeline-name:--orbit] lg:aspect-square">
       <svg viewBox="0 0 100 100" aria-hidden className="absolute inset-0 hidden h-full w-full lg:block">
         {RADII.slice(0, rings.length).map((r, i) => (
           <circle
@@ -43,7 +43,7 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
             r={r}
             fill="none"
             data-ring={i}
-            className="plot-orbit origin-[50px_50px] stroke-foreground [transform-box:view-box]"
+            className="plot-orbit origin-center stroke-foreground [transform-box:view-box]"
             strokeWidth="0.18"
             strokeDasharray={i === 2 ? '0.6 1.2' : undefined}
             opacity={i === 2 ? 0.6 : 0.4}
@@ -76,7 +76,7 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
                 >
                   <span
                     aria-hidden
-                    className={cx('h-[7px] w-[7px] shrink-0 rounded-full transition-transform duration-normal motion-safe:group-hover:scale-[1.6]', DOT[ring])}
+                    className={cx('h-2 w-2 shrink-0 rounded-full transition-transform duration-normal motion-safe:group-hover:scale-[1.6]', DOT[ring])}
                   />
                   <Text as="span" size="base" weight={ring === 0 ? 'semibold' : 'regular'} color={ring === 2 ? 'muted' : 'foreground'}>
                     {item}

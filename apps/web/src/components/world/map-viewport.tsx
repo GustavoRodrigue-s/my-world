@@ -17,7 +17,7 @@ export function MapViewport({ hint, children }: { hint: string; children: React.
 
   return (
     <div>
-      <div ref={ref} className="-mx-gutter md:-mx-gutter-wide overflow-x-auto px-gutter md:px-gutter-wide md:mx-0 md:overflow-visible md:px-0">
+      <div ref={ref} className="-mx-gutter overflow-x-auto px-gutter md:mx-0 md:overflow-visible md:px-0">
         {children}
       </div>
       <Text family="mono" size="xs" color="muted" className="mt-3 md:hidden">

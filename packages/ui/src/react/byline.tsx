@@ -30,12 +30,12 @@ export function Byline({ name, role, portrait, plain, frame = 'circle', centered
             </div>
           ) : (
             // The box carries the orbit ring's margin; pull it in so the ring lines up with the text edge.
-            <div className="-my-3 -ml-3.5 w-24 shrink-0 md:-my-4 md:-ml-[18px] md:w-32">
+            <div className="-my-3 -ml-3.5 w-24 shrink-0 md:-my-4 md:-ml-4 md:w-32">
               <Portrait src={portrait.src} alt={portrait.alt} sizes="(min-width: 768px) 70px, 52px" priority={portrait.priority} />
             </div>
           ))}
         <div className="min-w-0">
-          <Text size="lg" weight="semibold" color="foreground" leading="normal">
+          <Text size="lg" weight="semibold" color="foreground" leading="snug">
             {name}
           </Text>
           <Text family="mono" size="sm" color="muted" className="mt-1">

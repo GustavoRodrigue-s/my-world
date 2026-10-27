@@ -14,8 +14,8 @@
     padding: 0;
   }
 
-  /* No font-size on <html>: 1rem stays the reader's browser setting, so every
-     rem-based token (type, space, sizes) follows it. */
+  /* No font-size on <html>: 1rem is the reader's browser setting (16px by
+     default), so every rem-based token follows it. Body text is set below. */
   html {
     font-family: var(--font-family-sans);
     -webkit-font-smoothing: antialiased;

@@ -94,11 +94,15 @@ Decision: [ADR 0011](adr/0011-dtcg-tokens-with-style-dictionary.md). Visual rule
   (`portfolio.json`, `chapel.json`) with full `light` / `dark` color sets.
 - **Build:** `packages/design-system/build.mjs` (Style Dictionary 5) writes
   `generated/css/tokens.css` (shared, on `:root`), `generated/css/<theme>.css`,
-  `generated/css/tailwind-breakpoints.css` and `generated/tokens.json`. Tokens
-  are px/ms in the JSON; the web build turns type, space, sizes and breakpoints
-  into rem and fluid roles into `clamp()` ([ADR 0012](adr/0012-agnostic-token-taxonomy.md));
-  `<html>` has no fixed font size, so rem follows the reader's browser. **Generated, never hand-edit**: `pnpm tokens`.
-  `turbo build` runs it before the web app; the output is committed.
+  `generated/css/tailwind-breakpoints.css`, `generated/tokens.json` and
+  `generated/brand/*.svg` (the mark, from `src/mark.ts`). Tokens are px/ms in
+  the JSON; the web build turns type, space, sizes and breakpoints into rem
+  (1rem = the browser's 16px; `<html>` sets no font size)
+  and fluid roles into `clamp()` ([ADR 0012](adr/0012-agnostic-token-taxonomy.md),
+  [ADR 0013](adr/0013-tokens-match-production-built-at-build-time.md)). **Generated, never hand-edit**: `pnpm tokens`.
+  Built at build time, never committed: turbo runs it before the web app's
+  `dev`, `build` and `type-check`; the web app copies the SVGs into
+  `public/brand` (`apps/web/scripts/copy-brand.mjs`).
 - **Scoping:** each theme applies on `:root:has([data-env="<env>"])`, so both
   files can be loaded after a client-side navigation without clashing.
 - **Day/night:** `<html data-theme>`, set before paint by the inline script in
@@ -109,12 +113,12 @@ Decision: [ADR 0011](adr/0011-dtcg-tokens-with-style-dictionary.md). Visual rule
   `packages/ui/src/css/base.css` registers the vars as Tailwind utilities via
   `@theme inline` (`bg-surface`, `text-primary`, `text-display`, `px-gutter`…;
   Tailwind's default scales are reset) and holds no values. Map: [design-system/tokens.md](../design-system/tokens.md).
-  Code that needs a literal (the `/identity` palette, `generate:brand`) imports
+  Code that needs a literal (the `/identity` palette) imports
   `tokens` from `@my-world/design-system`.
 - `packages/ui/src/css/identity.css` (hand-written, scoped to `[data-env]`):
   `.hatch`, `.registration`, `.leader`, `.ink-link`, the scroll "plotting"
   motion (`.plot-*`), the map's `.chart-*` motion, print rules.
-- Brand SVGs: `cd packages/ui && npm run generate:brand` → `apps/web/public/brand/*.svg`.
+- Brand SVGs: built by the design system (`generated/brand/`), served from `/brand/*.svg`.
 
 Adding an environment: `tokens/<name>.json` (copy a theme), add it to `THEMES`
 in `build.mjs`, `pnpm tokens`, and a route group layout with `data-env="<name>"`

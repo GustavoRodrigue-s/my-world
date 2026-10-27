@@ -45,7 +45,7 @@ values below are a copy for reading; if they differ, the JSON wins.
   (page H1), `headline`, `title`, `title-sm`; the Capela uses the serif twins
   `display-serif`, `headline-serif`, `title-serif`, `title-sm-serif`
   (Cormorant upright) with `<Emphasis fit="serif">`.
-- `Text`: `family="sans" | "mono" | "serif"`, `size` (a step of the type scale,
+- `Text`: `family="sans" | "mono" | "serif"`, `size` (`xs`–`2xl` of the type scale,
   or `lead`), `color`, `leading`, `weight`.
 
 ## Rules that must never be broken
@@ -74,4 +74,4 @@ values below are a copy for reading; if they differ, the JSON wins.
    floating panel (`shadow-floating`). In the Capela, not even that: solid fills
    separate the parts, floating panels are flat (`surface-raised` + a hairline).
 5. **Never hardcode a hex** in a component; brand SVGs come from
-   `npm run generate:brand` (`apps/web/public/brand/*.svg`).
+   the design system's build (`packages/design-system/generated/brand/*.svg`).

@@ -19,7 +19,7 @@ export function SectionAbout({ locale }: { locale: Locale }) {
     >
       <div className="grid gap-14 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-16">
         <div>
-          <div className="flex max-w-[62ch] flex-col gap-5">
+          <div className="flex max-w-3xl flex-col gap-5">
             {about.paragraphs.map((p, i) => (
               <Text key={i} size="lg" color={i === 0 ? 'foreground' : 'muted'} leading="relaxed">
                 {p}
@@ -52,7 +52,7 @@ export function SectionAbout({ locale }: { locale: Locale }) {
         </div>
 
         <div className="lg:pt-2">
-          <Portrait src={PORTRAIT_SRC} alt={about.portraitAlt} className="mx-auto max-w-[340px]" />
+          <Portrait src={PORTRAIT_SRC} alt={about.portraitAlt} className="mx-auto max-w-md" />
           <dl className="mt-8 border-t border-border">
             {about.facts.map((f) => (
               <div key={f.label} className="flex items-baseline gap-3 border-b border-border py-3">

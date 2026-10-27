@@ -48,7 +48,7 @@ export function PageNav({ label, menuLabel = 'Menu', items, variant = 'line' }: 
         <ul className="flex list-none items-center gap-7">
           {items.map((item) => (
             <li key={item.href}>
-              {link(item, 'ink-link pb-1 font-sans text-md text-foreground-muted no-underline hover:text-foreground aria-[current]:text-foreground')}
+              {link(item, 'ink-link pb-1 font-sans text-sm text-foreground-muted no-underline hover:text-foreground aria-[current]:text-foreground')}
             </li>
           ))}
         </ul>

@@ -43,8 +43,7 @@ diário de bordo `apps/web/src/lib/logbook.ts`; living brand guide `/identity`.
 pnpm install
 pnpm dev                                      # http://localhost:3000
 pnpm build && pnpm type-check                 # must pass before calling work done
-pnpm tokens                                   # after editing design-system/tokens/*.json (never hand-edit generated/)
-cd packages/ui && npm run generate:brand      # brand SVGs
+pnpm tokens                                   # rebuild design-system/generated/ (CSS, tokens.json, brand SVGs); dev/build do it too
 ```
 
 ## Rules
@@ -52,6 +51,14 @@ cd packages/ui && npm run generate:brand      # brand SVGs
 **Naming.** Files `kebab-case`; routes always English; code, comments and docs in
 English; everything a reader sees in Portuguese (plus the portfolio's English
 edition), and it lives in the content modules, never in components.
+
+**Design tokens — always.** Every interface, in every project of the world,
+takes its values from the design system's tokens (`packages/design-system/tokens`):
+colors, type, spacing, sizes, radius, borders, shadows, opacity, motion,
+layers, breakpoints — through the Tailwind utilities that `@my-world/ui`
+registers from them. No hex, no `text-[14px]`, `mt-[9px]`, `max-w-[460px]`,
+`z-[1]`. A value that has no token gets a token first (in the JSON), then is
+used. Map: `docs/design-system/tokens.md`.
 
 **UI.** Build from `@my-world/ui` (import from `@/components/ui`); extend the
 library instead of styling raw HTML. Tailwind first: no inline `style` except
@@ -85,7 +92,7 @@ the face. Don't remove `REVIEW` markers without his confirmation.
 
 ## Definition of done
 
-- Build and type-check pass; the change was seen in the browser when it's visual.
+- Build and type-check pass; every value in the code you touched comes from the tokens; the change was seen in the browser when it's visual.
 - A decision was made → new ADR (or one superseding an old one).
 - A rule or how something works changed → its doc in `docs/` updated in the same change.
 - A component was added → `docs/design-system/components.md`.

@@ -21,7 +21,7 @@ export function WorldHome() {
         figure={
           // Whose world this is: the owner's portrait at the core of the mark, like the
           // cartographer's medallion on an atlas frontispiece. Small: the H1 stays the largest paint.
-          <figure className="mx-auto flex w-full max-w-[280px] flex-col items-center text-center lg:mr-0">
+          <figure className="mx-auto flex w-full max-w-sm flex-col items-center text-center lg:mr-0">
             <div className="w-full">
               <Portrait
                 src={PORTRAIT_SRC}
@@ -31,7 +31,7 @@ export function WorldHome() {
               />
             </div>
             <figcaption className="-mt-2">
-              <Text size="lg" weight="semibold" color="foreground" leading="normal">
+              <Text size="lg" weight="semibold" color="foreground" leading="snug">
                 {IDENTITY.name}
               </Text>
               <Text family="mono" size="sm" color="muted" className="mt-1">
@@ -53,11 +53,11 @@ export function WorldHome() {
           </figure>
         }
       >
-        <Heading as="h1" id="world-title" level="display" className="max-w-[20ch]">
+        <Heading as="h1" id="world-title" level="display" className="max-w-7xl">
           {opening.statement.before} <Emphasis>{opening.statement.emphasis}</Emphasis>
           {opening.statement.after}
         </Heading>
-        <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+        <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-3xl">
           {opening.lead}
         </Text>
       </Plate>

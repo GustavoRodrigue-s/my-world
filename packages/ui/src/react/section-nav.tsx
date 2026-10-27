@@ -51,7 +51,7 @@ export function SectionNav({ label, items }: SectionNavProps) {
             <Link
               href={s.href as Route}
               aria-current={active === s.id ? 'location' : undefined}
-              className="ink-link pb-1 font-sans text-md text-foreground-muted no-underline hover:text-foreground aria-[current]:text-foreground"
+              className="ink-link pb-1 font-sans text-sm text-foreground-muted no-underline hover:text-foreground aria-[current]:text-foreground"
             >
               {s.label}
             </Link>

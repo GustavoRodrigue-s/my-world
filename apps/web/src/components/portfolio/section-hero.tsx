@@ -15,7 +15,7 @@ export function SectionHero({ locale }: { locale: Locale }) {
       rubric={hero.rubric}
       corner={profile.coordinates}
       figure={
-        <figure className="mx-auto w-full max-w-[560px]">
+        <figure className="mx-auto w-full max-w-2xl">
           <WorldFigure labels={hero.figure} />
           <figcaption className="mt-5 border-t border-border pt-4">
             <Text family="mono" size="xs" color="muted">
@@ -27,7 +27,7 @@ export function SectionHero({ locale }: { locale: Locale }) {
                   <Text as="span" family="mono" size="sm" color="primary">
                     {item.n}
                   </Text>
-                  <Text as="span" size="sm" color="muted" leading="normal">
+                  <Text as="span" size="sm" color="muted" leading="snug">
                     <span className="text-foreground">{item.name}</span> — {item.text}
                   </Text>
                 </li>
@@ -55,11 +55,11 @@ export function SectionHero({ locale }: { locale: Locale }) {
         role={hero.kicker}
         portrait={PORTRAIT_SRC ? { src: PORTRAIT_SRC, alt: about.portraitAlt, priority: true } : undefined}
       />
-      <Heading as="h1" id="hero-title" level="display" className="mt-7 max-w-[13ch]">
+      <Heading as="h1" id="hero-title" level="display" className="mt-7 max-w-5xl">
         {statement.before} <Emphasis>{statement.emphasis}</Emphasis>
         {statement.after}
       </Heading>
-      <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+      <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-3xl">
         {hero.lead}
       </Text>
       <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">

@@ -37,7 +37,7 @@ export function WorldAtlas() {
                 <ul className="mt-4 flex list-none flex-wrap gap-x-4 gap-y-1">
                   {copy.moons.map((m) => (
                     <li key={m.href}>
-                      <Link href={m.href as Route} className="ink-link font-sans text-md text-foreground no-underline hover:text-primary">
+                      <Link href={m.href as Route} className="ink-link font-sans text-sm text-foreground no-underline hover:text-primary">
                         {m.label}
                       </Link>
                     </li>

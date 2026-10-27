@@ -47,10 +47,10 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
           </Text>
         }
       >
-        <Heading as="h1" id="study-title" level="headline-serif" className="max-w-[22ch]">
+        <Heading as="h1" id="study-title" level="headline-serif" className="max-w-xl">
           {study.title}
         </Heading>
-        <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-[54ch]">
+        <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-5xl">
           {study.summary}
         </Text>
       </PageIntro>
@@ -74,10 +74,10 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
             <Register title={t.references}>
               {study.references.map((ref, i) => (
                 <li key={ref} className="flex gap-4 border-b border-border py-3">
-                  <Text as="span" family="mono" size="xs" color="primary" className="pt-[3px]">
+                  <Text as="span" family="mono" size="xs" color="primary" className="pt-1">
                     {String(i + 1).padStart(2, '0')}
                   </Text>
-                  <Text as="span" size="base" color="foreground" leading="normal">
+                  <Text as="span" size="base" color="foreground" leading="snug">
                     {ref}
                   </Text>
                 </li>

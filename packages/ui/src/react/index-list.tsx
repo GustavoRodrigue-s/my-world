@@ -25,7 +25,7 @@ export function IndexList({ items, start = 1 }: { items: IndexEntry[]; start?: n
         <li key={item.href} className="plot-rise border-b border-border">
           <Link
             href={item.href as Route}
-            className="group grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 gap-y-3 py-6 text-foreground no-underline transition-colors duration-normal hover:bg-surface-muted md:grid-cols-[3.5rem_minmax(0,1fr)_200px] md:gap-x-8 md:px-3"
+            className="group grid grid-cols-[var(--space-10)_minmax(0,1fr)] gap-x-4 gap-y-3 py-6 text-foreground no-underline transition-colors duration-normal hover:bg-surface-muted md:grid-cols-[var(--space-14)_minmax(0,1fr)_var(--size-width-xs)] md:gap-x-8 md:px-3"
           >
             <Text as="span" family="mono" size="sm" color="primary" className="pt-1">
               {String(start + i).padStart(2, '0')}
@@ -41,7 +41,7 @@ export function IndexList({ items, start = 1 }: { items: IndexEntry[]; start?: n
                 />
               </Heading>
               {item.summary && (
-                <Text as="span" size="sm" color="muted" leading="relaxed" className="mt-2 block max-w-[62ch]">
+                <Text as="span" size="sm" color="muted" leading="relaxed" className="mt-2 block max-w-xl">
                   {item.summary}
                 </Text>
               )}

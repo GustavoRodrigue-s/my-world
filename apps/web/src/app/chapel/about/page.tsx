@@ -31,7 +31,7 @@ export default function AboutPage() {
           />
         }
       >
-        <Heading as="h1" id="about-title" level="display-serif" className="max-w-[14ch]">
+        <Heading as="h1" id="about-title" level="display-serif" className="max-w-xl">
           {t.statement.before} <Emphasis fit="serif">{t.statement.emphasis}</Emphasis>
           {t.statement.after}
         </Heading>
@@ -47,15 +47,15 @@ export default function AboutPage() {
                 </Heading>
               )}
               {section.paragraphs.map((p) => (
-                <Text key={p} size="lg" color="foreground" leading="relaxed" className="max-w-[68ch]">
+                <Text key={p} size="lg" color="foreground" leading="relaxed" className="max-w-5xl">
                   {p}
                 </Text>
               ))}
             </div>
           ))}
           <OrnamentRule className="my-8" />
-          <Text size="lg" color="foreground" leading="relaxed" className="max-w-[68ch]">
-            {t.thread.before} <em className="font-serif text-[1.15em] text-primary italic">{t.thread.motto}</em> {t.thread.after}
+          <Text size="lg" color="foreground" leading="relaxed" className="max-w-5xl">
+            {t.thread.before} <Emphasis>{t.thread.motto}</Emphasis> {t.thread.after}
           </Text>
         </div>
       </PageBody>

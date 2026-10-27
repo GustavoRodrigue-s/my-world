@@ -33,11 +33,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     <>
       <PageIntro labelledBy="category-title"
         ornament={<CrossPattee size={16} />} label={`${t.labelOne} · ${CHAPEL.studyCount(studies.length)}`}>
-        <Heading as="h1" id="category-title" level="display-serif" className="max-w-[16ch]">
+        <Heading as="h1" id="category-title" level="display-serif" className="max-w-2xl">
           {category.name}
         </Heading>
         {category.description && (
-          <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+          <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-3xl">
             {category.description}
           </Text>
         )}

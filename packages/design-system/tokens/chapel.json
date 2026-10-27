@@ -39,10 +39,10 @@
         },
         "primary": {
           "$description": "rubrica — rubric red (the brand)",
-          "$value": "{palette.color.rubric}"
+          "$value": "{color.rubric}"
         },
         "primary-hover": {
-          "$value": "{palette.color.rubric-deep}"
+          "$value": "{color.rubric-deep}"
         },
         "on-primary": {
           "$description": "Text on primary.",
@@ -50,11 +50,15 @@
         },
         "support": {
           "$description": "the hidden gold: small fixed details and fillets lit by the reader's hand; never a fill",
-          "$value": "{palette.color.gold}"
+          "$value": "{color.gold}"
         },
         "shadow": {
           "$description": "Color of the one shadow (floating panels).",
           "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "alpha": 0.1 }
+        },
+        "overlay": {
+          "$description": "Dims the page behind a dialog.",
+          "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.45 }
         }
       },
       "shadow": {
@@ -109,10 +113,10 @@
         },
         "primary": {
           "$description": "brasa — the rubric lit up for night",
-          "$value": "{palette.color.ember}"
+          "$value": "{color.ember}"
         },
         "primary-hover": {
-          "$value": "{palette.color.ember-bright}"
+          "$value": "{color.ember-bright}"
         },
         "on-primary": {
           "$description": "Text on primary.",
@@ -120,11 +124,15 @@
         },
         "support": {
           "$description": "the hidden gold: small fixed details and fillets lit by the reader's hand; never a fill",
-          "$value": "{palette.color.gold-candle}"
+          "$value": "{color.gold-candle}"
         },
         "shadow": {
           "$description": "Color of the one shadow (floating panels).",
           "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.5 }
+        },
+        "overlay": {
+          "$description": "Dims the page behind a dialog.",
+          "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.45 }
         }
       },
       "shadow": {

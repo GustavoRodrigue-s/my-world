@@ -10,10 +10,10 @@ export function ResumeView({ locale }: { locale: Locale }) {
   const { resume } = getContent(locale)
   return (
     <div className="px-gutter md:px-gutter-wide py-10 md:py-16 print:p-0">
-      <div className="mx-auto mb-8 flex max-w-[860px] flex-wrap items-center justify-between gap-4 print:hidden">
+      <div className="mx-auto mb-8 flex max-w-6xl flex-wrap items-center justify-between gap-4 print:hidden">
         <Link
           href={localePath(locale, '/portfolio')}
-          className="inline-flex items-center gap-2 font-sans text-md text-foreground-muted no-underline transition-colors hover:text-foreground"
+          className="inline-flex items-center gap-2 font-sans text-sm text-foreground-muted no-underline transition-colors hover:text-foreground"
         >
           <ArrowLeft size={15} strokeWidth={1.5} aria-hidden />
           {resume.back}

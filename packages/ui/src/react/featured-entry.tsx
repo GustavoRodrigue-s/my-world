@@ -28,14 +28,14 @@ export function FeaturedEntry({ id, label, title, href, lead, meta, action, shap
     <article
       aria-labelledby={`${id}-title`}
       className={cx(
-        'group relative grid gap-x-10 gap-y-6 rounded-xs bg-surface-muted p-7 md:grid-cols-[180px_minmax(0,1fr)] md:p-12',
-        niche && 'rounded-t-[50%_3rem] pt-14 md:pt-20'
+        'group relative grid gap-x-10 gap-y-6 rounded-xs bg-surface-muted p-7 md:grid-cols-[var(--size-width-2xs)_minmax(0,1fr)] md:p-12',
+        niche && 'rounded-t-[50%_var(--radius-arch)] pt-14 md:pt-20'
       )}
     >
       {niche && (
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-2 rounded-xs rounded-t-[50%_2.6rem] border border-support opacity-faint transition-opacity duration-slow group-hover:opacity-100 group-focus-within:opacity-100"
+          className="pointer-events-none absolute inset-2 rounded-xs rounded-t-[50%_var(--radius-arch-inner)] border border-support opacity-faint transition-opacity duration-slow group-hover:opacity-100 group-focus-within:opacity-100"
         />
       )}
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2 md:flex-col md:pt-2">
@@ -47,7 +47,7 @@ export function FeaturedEntry({ id, label, title, href, lead, meta, action, shap
         ))}
       </div>
       <div>
-        <Heading as="h3" id={`${id}-title`} level="title-serif" className="max-w-[34ch]">
+        <Heading as="h3" id={`${id}-title`} level="title-serif" className="max-w-xl">
           <Link
             href={href as Route}
             className="text-foreground no-underline transition-colors duration-fast hover:text-primary"
@@ -56,7 +56,7 @@ export function FeaturedEntry({ id, label, title, href, lead, meta, action, shap
           </Link>
         </Heading>
         {lead && (
-          <Text size="lg" color="foreground" leading="relaxed" className="mt-4 max-w-[58ch]">
+          <Text size="lg" color="foreground" leading="relaxed" className="mt-4 max-w-3xl">
             {lead}
           </Text>
         )}

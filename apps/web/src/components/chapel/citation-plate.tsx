@@ -72,11 +72,11 @@ export function CitationPlate({ quotes, labels }: CitationPlateProps) {
       onMouseLeave={() => setHeld(false)}
       onFocus={() => setHeld(true)}
       onBlur={() => setHeld(false)}
-      className="mx-auto flex w-full max-w-[880px] flex-col items-center"
+      className="mx-auto flex w-full max-w-6xl flex-col items-center"
     >
       {/* Announce only when the reader changes it, never on the timer. */}
-      <div aria-live={running ? 'off' : 'polite'} className="flex min-h-[13rem] w-full items-center justify-center md:min-h-[15rem]">
-        <div key={index} className="animate-[gw-quote_420ms_ease-out_both]">
+      <div aria-live={running ? 'off' : 'polite'} className="flex min-h-52 w-full items-center justify-center md:min-h-60">
+        <div key={index} className="animate-quote-in">
           <Quote size="display" text={`“${quote.text}”`} source={[quote.author, quote.source].filter(Boolean).join(' · ')} />
         </div>
       </div>
@@ -84,7 +84,7 @@ export function CitationPlate({ quotes, labels }: CitationPlateProps) {
       <div className="mt-6 flex items-center gap-4">
         <span aria-hidden className="flex gap-1.5">
           {quotes.map((q, i) => (
-            <span key={q.text} className={cx('h-[5px] w-[5px] rounded-full', i === index ? 'bg-primary' : 'bg-border-strong')} />
+            <span key={q.text} className={cx('h-1.5 w-1.5 rounded-full', i === index ? 'bg-primary' : 'bg-border-strong')} />
           ))}
         </span>
         {!reduced && (
