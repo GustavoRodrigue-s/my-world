@@ -13,56 +13,84 @@ function resolveImageUrl(url: string): string {
   return `${STRAPI_URL}${url}`
 }
 
-export function buildArticleMetadata(article: Article): Metadata {
-  const ogImage = article.coverImage
-    ? resolveImageUrl(article.coverImage.url)
-    : `${BASE_URL}/og-default.png`
+/** What an article page tells search engines and link previews, wherever it lives. */
+export interface ArticleSeo {
+  /** The page's path, e.g. `/studies/vida-interior`. */
+  path: string
+  title: string
+  summary: string
+  siteName: string
+  publishedAt?: string | null
+  updatedAt?: string | null
+  tags?: string[]
+  /** The section it belongs to (a category, a theme). */
+  section?: string
+  image?: { url: string; width?: number; height?: number; alt?: string }
+}
 
-  const publishedTime = article.publishedAt ?? undefined
+/** A Capela article (Strapi shape) as `ArticleSeo`. */
+export function chapelArticleSeo(article: Article): ArticleSeo {
+  return {
+    path: `/chapel/articles/${article.slug}`,
+    title: article.title,
+    summary: article.summary,
+    siteName: SITE_NAME,
+    publishedAt: article.publishedAt,
+    updatedAt: article.updatedAt,
+    tags: article.tags?.map((t) => t.name),
+    section: article.category?.name,
+    image: article.coverImage
+      ? {
+          url: resolveImageUrl(article.coverImage.url),
+          width: article.coverImage.width,
+          height: article.coverImage.height,
+          alt: article.coverImage.alternativeText ?? article.title,
+        }
+      : undefined,
+  }
+}
+
+export function buildArticleMetadata(article: ArticleSeo): Metadata {
+  const url = `${BASE_URL}${article.path}`
+  const images = article.image
+    ? [{ url: article.image.url, width: article.image.width, height: article.image.height, alt: article.image.alt ?? article.title }]
+    : undefined
 
   return {
     title: article.title,
     description: article.summary,
-    alternates: {
-      canonical: `${BASE_URL}/chapel/articles/${article.slug}`,
-    },
+    alternates: { canonical: url },
     openGraph: {
       title: article.title,
       description: article.summary,
-      url: `${BASE_URL}/chapel/articles/${article.slug}`,
-      siteName: SITE_NAME,
+      url,
+      siteName: article.siteName,
       locale: 'pt_BR',
       type: 'article',
-      publishedTime,
-      images: [
-        {
-          url: ogImage,
-          width: article.coverImage?.width ?? 1200,
-          height: article.coverImage?.height ?? 630,
-          alt: article.coverImage?.alternativeText ?? article.title,
-        },
-      ],
-      tags: article.tags?.map((t) => t.name),
+      publishedTime: article.publishedAt ?? undefined,
+      modifiedTime: article.updatedAt ?? undefined,
+      images,
+      tags: article.tags,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: images ? 'summary_large_image' : 'summary',
       title: article.title,
       description: article.summary,
-      images: [ogImage],
+      images: images?.map((i) => i.url),
     },
   }
 }
 
 // schema.org Article structured data — injected as JSON-LD in the page
-export function buildArticleJsonLd(article: Article) {
+export function buildArticleJsonLd(article: ArticleSeo) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: article.title,
     description: article.summary,
-    url: `${BASE_URL}/chapel/articles/${article.slug}`,
-    datePublished: article.publishedAt,
-    dateModified: article.updatedAt,
+    url: `${BASE_URL}${article.path}`,
+    datePublished: article.publishedAt ?? undefined,
+    dateModified: article.updatedAt ?? article.publishedAt ?? undefined,
     author: {
       '@type': 'Person',
       name: 'Gustavo Rodrigues Fabiano',
@@ -70,12 +98,12 @@ export function buildArticleJsonLd(article: Article) {
     },
     publisher: {
       '@type': 'Organization',
-      name: SITE_NAME,
+      name: article.siteName,
       url: BASE_URL,
     },
-    image: article.coverImage ? resolveImageUrl(article.coverImage.url) : undefined,
-    articleSection: article.category?.name,
-    keywords: article.tags?.map((t) => t.name).join(', '),
+    image: article.image?.url,
+    articleSection: article.section,
+    keywords: article.tags?.join(', ') || undefined,
   }
 }
 
@@ -91,7 +119,7 @@ export function buildPersonJsonLd(locale: Locale) {
     url: `${BASE_URL}${localePath(locale, '/portfolio')}`,
     email: `mailto:${profile.email}`,
     worksFor: { '@type': 'Organization', name: profile.company },
-    address: { '@type': 'PostalAddress', addressLocality: 'Londrina', addressRegion: 'PR', addressCountry: 'BR' },
+    address: { '@type': 'PostalAddress', addressRegion: 'PR', addressCountry: 'BR' },
     knowsAbout: [...toolOrbits.slice(0, 2).flatMap((o) => o.tools), ...aiTools],
     sameAs: [profile.linkedin, profile.github],
   }

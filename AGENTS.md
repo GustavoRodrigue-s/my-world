@@ -20,7 +20,7 @@ transcripts or AI memory when a doc exists.
 | Why things are the way they are | `docs/architecture/adr/` |
 | Visual identity and its rules | `docs/design-system/identity.md` |
 | Which UI component to use | `docs/design-system/components.md` |
-| Portfolio · Capela · home map specifics | `docs/design-system/{portfolio,chapel,home-map}.md` |
+| Portfolio · Capela · Estudos · home map specifics | `docs/design-system/{portfolio,chapel,studies,home-map}.md` |
 | Run, deploy | `docs/guides/` |
 
 Sources that are code: design tokens `packages/design-system/tokens/*.json` (DTCG); space
@@ -32,8 +32,9 @@ diário de bordo `apps/web/src/lib/logbook.ts`; living brand guide `/identity`.
 - `apps/web/src/app/` — `(world)/` home · `(portfolio)/(pt)` + `en/` · `chapel/` ·
   `under-construction/` · `api/`
 - `apps/web/src/components/` — `ui/` (re-exports `@my-world/ui`), `world/`,
-  `portfolio/`, `identity/`, `chapel/`
-- `apps/web/src/lib/` — `world.ts`, content modules, `mock-data.ts`, metadata
+  `portfolio/`, `identity/`, `chapel/`, `studies/`
+- `apps/web/src/lib/` — `world.ts`, content modules, `studies.ts` (MDX loader), `mock-data.ts`, metadata
+- `apps/web/content/studies/` — Estudos' MDX, one file per study
 - `packages/ui` (components + CSS), `packages/design-system` (themes),
   `packages/types`; `apps/cms` is legacy Strapi (not wired)
 
@@ -84,9 +85,14 @@ dialog → `/api/search`). New content goes to MDX (ADR 0007), not Strapi.
 
 **SEO.** Every page has `metadata` / `generateMetadata` with a canonical.
 
-**Privacy.** Nothing about Gustavo's personal life on the site or in the docs;
-no location on the home. Photos of him: crop, scale, tone only — never reshape
-the face. Don't remove `REVIEW` markers without his confirmation.
+**Privacy.** Identity yes, biography no: the site may state facts (work, faith
+in the portfolio's Sobre) but never tells Gustavo's life (family, feelings,
+routines, his faith story). No location on the home, nothing finer than the city
+anywhere, no biography or city in the Capela and Estudos. Run the publishing
+checklist in `docs/product/content.md` for every text, image, metadata and
+JSON-LD change — closed spaces too (previews open them). Photos of him: crop,
+scale, tone only — never reshape the face. Don't remove `REVIEW` markers without
+his confirmation.
 
 **Git.** Commit, push or merge only when Gustavo asks.
 

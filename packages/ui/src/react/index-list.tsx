@@ -12,6 +12,8 @@ export interface IndexEntry {
   summary?: string
   /** Mono lines under the kicker (reading time, date…). */
   meta?: string[]
+  /** A small glyph before the first meta line (Estudos' <StrokeMark>). EntryList only. */
+  mark?: React.ReactNode
 }
 
 /**

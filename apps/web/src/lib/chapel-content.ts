@@ -70,7 +70,7 @@ export const CHAPEL = {
       landscapes: 'outras paisagens',
       world: 'Mundo do Gustavo',
       portfolio: 'Portfólio',
-      notes: ['feito com capricho em Londrina'],
+      notes: ['feito com capricho'],
     },
   },
 
@@ -108,8 +108,9 @@ export const CHAPEL = {
     author: {
       title: 'Quem escreve',
       note: 'um estudante, não um mestre',
-      text: 'Sou Gustavo Rodrigues Fabiano — desenvolvedor de software e católico praticante. Não sou teólogo. Não sou filósofo. Sou um estudante. Tudo aqui é uma tentativa honesta de compreender — não um pronunciamento de autoridade.',
-      role: 'desenvolvedor e estudante · Londrina, PR',
+      // REVIEW: rewritten without biography (docs/product/content.md → Privacy).
+      text: 'Estes estudos são de Gustavo Rodrigues Fabiano. Não sou teólogo. Não sou filósofo. Sou um estudante. Tudo aqui é uma tentativa honesta de compreender — não um pronunciamento de autoridade.',
+      role: 'estudante, não mestre',
       more: 'Sobre a Capela',
       portfolio: 'Conhecer o portfólio',
     },
@@ -153,9 +154,10 @@ export const CHAPEL = {
     statement: { before: 'Uma busca por', emphasis: 'profundidade', after: ', não por superfície.' },
     sections: [
       {
+        // REVIEW: rewritten without biography (docs/product/content.md → Privacy).
         paragraphs: [
-          'Sou Gustavo Rodrigues Fabiano — desenvolvedor de software e católico praticante. Há alguns anos comecei a sentir que a fé que recebi na infância precisava ser aprofundada. Não era insatisfação. Era fome.',
-          'Comecei a ler: Santo Agostinho, São Tomás de Aquino, Santa Teresa de Ávila, São João da Cruz. Descobri que quanto mais estudava, mais a fé se tornava viva, inteligente, enraizada — e mais eu queria partilhá-la.',
+          'A Capela é uma biblioteca de estudos sobre a fé católica, escritos por Gustavo Rodrigues Fabiano.',
+          'Os mestres da tradição — Santo Agostinho, São Tomás de Aquino, Santa Teresa de Ávila, São João da Cruz — mostram que, quanto mais se estuda, mais a fé se torna viva, inteligente, enraizada. É dessa convicção que nascem estes estudos.',
         ],
       },
       {

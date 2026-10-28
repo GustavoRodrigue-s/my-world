@@ -1,6 +1,7 @@
 import { SiteFooter as Footer } from '@/components/ui'
 import { getContent, type Locale } from '@/lib/portfolio-content'
 import { localePath } from '@/lib/portfolio-locale'
+import { STUDIES, studiesPath } from '@/lib/studies-content'
 import { canEnter, isUnderConstruction } from '@/lib/world'
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -22,8 +23,16 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         },
         {
           title: t.landscapes,
-          // The Capela is Portuguese-only — and, while it is being built, listed but closed.
+          // Estudos and the Capela are Portuguese-only — and, while they are being built, listed but closed.
           links: [
+            {
+              label: STUDIES.name,
+              href: studiesPath(),
+              hrefLang: 'pt-BR',
+              mark: { variant: 'seed' },
+              tag: isUnderConstruction('studies') ? { tone: 'open', label: t.building } : undefined,
+              disabled: !canEnter('studies'),
+            },
             {
               label: 'Capela',
               href: '/chapel',

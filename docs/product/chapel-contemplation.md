@@ -19,6 +19,8 @@ mysteries of the rosary.
 
 At the end, a letter from Gustavo about this love, inviting the reader to make
 the blood that was shed worth it. It is the first of the **letters** area.
+Decided: the letter is an **invitation** addressed to the reader, not a
+testimony of Gustavo's life ([content.md → Privacy](content.md#privacy--what-may-go-on-the-site-and-in-these-docs)).
 
 ## Candles of intention
 
@@ -38,6 +40,8 @@ The Angelus at 6h, 12h and 18h; a guided rosary; a minute of silence.
 - Music: Gregorian chant, Palestrina, Allegri are public domain, but the
   **recordings** must be free too.
 - Intentions talk about faith and health — **sensitive data under the LGPD**.
+  Decided: anonymous by default; no field required (no name, no e-mail); a
+  short LGPD notice before sending; the text is deleted when the candle goes out.
 - Spam protection for the candles.
 
 ## Visual references

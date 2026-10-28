@@ -12,6 +12,7 @@ The living guide is the `/identity` page: check it before inventing anything vis
 | [styling.md](styling.md) | Tailwind and code rules for UI |
 | [portfolio.md](portfolio.md) | the portfolio: Fig. 1, editions, portrait |
 | [chapel.md](chapel.md) | the Capela's flat dialect |
+| [studies.md](studies.md) | Estudos: ink and pencil |
 | [home-map.md](home-map.md) | the home's sea chart and its hidden details |
 
 Token **values** are not repeated here beyond the overview table in

@@ -20,7 +20,7 @@ export const IDENTITY = {
   name: 'Gustavo Rodrigues Fabiano',
   shortName: 'Gustavo Rodrigues',
   company: 'Big4Tech',
-  coordinates: '23°18′S 51°09′W',
+  coordinates: '23°S 51°W',
   timezone: 'UTC−3',
   email: 'gustavo.fabiano.2010@gmail.com',
   linkedin: 'https://www.linkedin.com/in/gustavo-rodrigues-fabiano-768589208',
@@ -208,12 +208,12 @@ export interface PortfolioCopy {
       rulesLabel: string
       rules: string[]
       filesLabel: string
-      files: Record<'mark' | 'paper' | 'mono' | 'star' | 'favicon', string>
+      files: Record<'mark' | 'paper' | 'mono' | 'star' | 'seed' | 'favicon', string>
     }
     color: Folio & {
       large: string
       swatches: Record<
-        'paper' | 'ink' | 'rubric' | 'graphite' | 'night' | 'parchment' | 'ember' | 'cyanotype' | 'gold',
+        'paper' | 'ink' | 'rubric' | 'graphite' | 'night' | 'parchment' | 'ember' | 'cyanotype' | 'gold' | 'leaf' | 'lamp' | 'pencil',
         [name: string, role: string]
       >
     }

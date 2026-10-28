@@ -89,7 +89,12 @@ export const WORLD = {
       place: 'a Biblioteca',
       name: 'Estudos',
       verb: 'o que eu aprendo',
-      text: 'Artigos e anotações sobre tecnologia, economia, vida espiritual e o que mais estiver sobre a mesa.',
+      text: 'Artigos e anotações sobre tecnologia, economia, vida espiritual e filosofia.',
+      href: '/studies',
+      moons: [
+        { label: 'Artigos', href: '/studies?format=article' },
+        { label: 'Anotações', href: '/studies?format=note' },
+      ],
     },
     chapel: {
       place: 'a Capela',

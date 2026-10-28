@@ -8,7 +8,7 @@ The status of each space is code: `SPACES` in `apps/web/src/lib/world.ts`
 | **Home** — carta do mundo | — | the map of every place, the atlas, the diário de bordo | `/` | open (on `feat/world-home`, not merged yet) |
 | **Portfólio** | present | career, résumé, services, contact; only **highlights** of projects; PT + EN | `/portfolio`, `/identity` | open |
 | **Projetos** | make | tech, robotics and social projects in depth: video, images, links | `/projects` (planned) | planned |
-| **Estudos** | think | articles and notes on technology, economy, spiritual life… | `/studies` (planned) | planned |
+| **Estudos** | think | articles and notes on technology, economy, spiritual life and philosophy | `/studies` | building (closed to the public; on `feat/studies`) |
 | **Capela** | contemplate, pray | a place of contemplation: candles of intention, letters | `/chapel` | building (closed to the public) |
 
 ## Decisions that shape the spaces
@@ -36,12 +36,25 @@ Candidate content: the "Road to Frontend Pleno" projects still in Notion (Loja
 Composable, Painel Kanban, Catálogo, Angular Kanban) — move them when this
 space is built.
 
-## Estudos (planned)
+## Estudos (building — on `feat/studies`)
 
 Never called "blog". Articles and notes live **together**: what separates them is
 finish, not subject; a note can mature into an article. The index filters by
-theme and by format (Tudo · Artigos · Anotações). Portuguese only for now. The
-Capela's current studies (`lib/mock-data.ts`) move here.
+theme and by format (Tudo · Artigos · Anotações). Portuguese only for now.
+
+- Routes: `/studies` (filters in the URL: `?theme=economia&format=note`) and
+  `/studies/[slug]` for both formats.
+- Themes, few and broad: Tecnologia · Economia · Vida espiritual · Filosofia;
+  narrower subjects are tags. Content is MDX in `apps/web/content/studies`
+  ([ADR 0014](../architecture/adr/0014-studies-mdx-setup-and-content-model.md)).
+- Its own palette, **ink and pencil**: articles are ink, notes are pencil
+  (graphite) ([ADR 0015](../architecture/adr/0015-studies-ink-and-pencil.md)).
+- Every study ends with a comments area, shown and closed until it has a
+  backend ([ADR 0016](../architecture/adr/0016-studies-comments-shown-closed.md)).
+- Search: the world's one `SearchDialog`, scoped to the space
+  ([ADR 0017](../architecture/adr/0017-one-search-dialog.md)).
+- The Capela's written-out mock study is copied as a `draft` to build the
+  screens; the others stay with the closed Capela.
 
 ## Capela (building)
 
@@ -66,4 +79,4 @@ The world's front door: an old sea chart with every place on it. Details:
 
 - Whether the home closes with a short verse; a values/manifesto section later.
 - The Capela script (scenes, music, the letter) and when it resumes.
-- When Projetos and Estudos start, and their route names.
+- When Projetos starts, and its route name; when Estudos opens to the public.

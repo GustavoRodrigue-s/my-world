@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { MOCK_ARTICLES } from '@/lib/mock-data'
+import { getStudies } from '@/lib/studies'
+import { studiesPath } from '@/lib/studies-content'
 import { LOCALES, LOCALE_META, localePath, type PortfolioPath } from '@/lib/portfolio-locale'
 import { canEnter } from '@/lib/world'
 
@@ -29,10 +31,26 @@ function chapelEntries(): MetadataRoute.Sitemap {
   ]
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Estudos (Portuguese only) — listed only while it is open; drafts never are.
+async function studiesEntries(): Promise<MetadataRoute.Sitemap> {
+  if (!canEnter('studies')) return []
+  const studies = (await getStudies()).filter((s) => s.status === 'published')
+  return [
+    { url: `${BASE_URL}${studiesPath()}`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    ...studies.map((s) => ({
+      url: `${BASE_URL}${studiesPath(s.slug)}`,
+      lastModified: new Date(s.updatedAt ?? s.publishedAt),
+      changeFrequency: 'monthly' as const,
+      priority: s.format === 'article' ? 0.7 : 0.5,
+    })),
+  ]
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     // The world's home: the map of every place.
     { url: BASE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
+    ...(await studiesEntries()),
     ...chapelEntries(),
     // Portfolio — one entry per edition, each naming its counterpart.
     ...PORTFOLIO.flatMap(({ path, changeFrequency, priority }) =>

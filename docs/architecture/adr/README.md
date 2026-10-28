@@ -25,3 +25,8 @@ ADRs 0001–0009 were recorded retroactively on 2026-10-26 from earlier sessions
 | [0011](0011-dtcg-tokens-with-style-dictionary.md) | Design tokens in DTCG JSON, built with Style Dictionary | accepted (output no longer committed: 0013) |
 | [0012](0012-agnostic-token-taxonomy.md) | Agnostic token taxonomy; the web converts to responsive units | accepted (values and rem base superseded by 0013) |
 | [0013](0013-tokens-match-production-built-at-build-time.md) | Recommended token values on a 16px base; everything generated is built at build time | accepted |
+| [0014](0014-studies-mdx-setup-and-content-model.md) | Estudos: MDX with next-mdx-remote, one collection, four themes | accepted |
+| [0015](0015-studies-ink-and-pencil.md) | Estudos wears its own palette: ink and pencil | accepted |
+| [0016](0016-studies-comments-shown-closed.md) | Estudos will have comments; the area is shown now, closed | accepted |
+| [0017](0017-one-search-dialog.md) | One search dialog for the world, scoped per space | accepted |
+| [0018](0018-personal-exposure-rules.md) | Identity yes, biography no: rules for personal exposure | accepted |

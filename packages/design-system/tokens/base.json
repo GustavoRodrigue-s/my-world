@@ -31,6 +31,13 @@
       "$description": "gold by candlelight",
       "$value": { "colorSpace": "srgb", "components": [0.8314, 0.6863, 0.4157], "hex": "#D4AF6A" }
     },
+    "graphite": {
+      "$description": "grafite — pencil lead: achromatic, a cool sheen that sets it apart from warm muted ink",
+      "$value": { "colorSpace": "srgb", "components": [0.3608, 0.3804, 0.4078], "hex": "#5C6168" }
+    },
+    "graphite-night": {
+      "$value": { "colorSpace": "srgb", "components": [0.6392, 0.6588, 0.6863], "hex": "#A3A8AF" }
+    },
     "$description": "The brand's chromatic colors, shared by every theme: themes extend base by pointing their roles at these (e.g. primary → {color.rubric}). Neutrals (paper, limewash, ink, night) belong to each theme's material and live there. Not emitted as CSS: components use the themes' roles."
   },
   "font": {

@@ -80,6 +80,7 @@ const FILES = [
   { file: 'mark-paper.svg', key: 'paper' },
   { file: 'mark-mono.svg', key: 'mono' },
   { file: 'mark-star.svg', key: 'star' },
+  { file: 'mark-seed.svg', key: 'seed' },
   { file: 'favicon.svg', key: 'favicon' },
 ] as const
 

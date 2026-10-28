@@ -20,7 +20,8 @@ personal life ([content.md](content.md)).
 
 ## Out of scope
 
-Auth, payments, comments, favorites, courses, memberships, a "blog". Video only
+Auth, payments, favorites, courses, memberships, a "blog". Comments only in
+Estudos, later ([ADR 0016](../architecture/adr/0016-studies-comments-shown-closed.md)). Video only
 inside Projetos (embedded), when it exists.
 
 ## Original vision (2025), for the record

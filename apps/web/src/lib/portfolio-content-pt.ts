@@ -174,7 +174,6 @@ export const pt: PortfolioCopy = {
       'Comecei a programar em 2021, estudando por conta própria, e desde 2022 é a minha profissão. Passei por empresas do mercado financeiro — EWZ Capital, MundoInvest e Cash2Pay — e hoje sou desenvolvedor fullstack pleno na Big4Tech, aqui em Londrina.',
       'Tenho mais experiência no frontend, mas trabalho como fullstack e meu interesse é evoluir nos dois ambientes. O que eu mais gosto é construir coisas bem-feitas — seja uma interface, uma API ou a arquitetura que sustenta as duas.',
       'Uso IA no dia a dia e configuro os projetos para se adaptarem à geração de código por IA, de forma que a estrutura acompanhe o crescimento: ganhamos agilidade e mantemos a qualidade. Claude, Codex, Copilot e MCPs são ferramentas de todo dia, junto com engenharia de IA e o planejamento e a construção de requisitos.',
-      // REVIEW
       'Também sou católico, e isso atravessa o meu jeito de trabalhar: fazer bem-feito é uma forma de respeito com quem vai usar. É daí que vem o capricho — e é por isso que este mundo também tem uma capela.',
     ],
     facts: [
@@ -214,7 +213,7 @@ export const pt: PortfolioCopy = {
       text: 'Comecei minha jornada estudando programação de forma autodidata e montei os primeiros protótipos: um app de anotações com documentação própria, autenticação com front e back separados e uma loja virtual.',
     },
     {
-      period: 'set 2022 — dez 2024',
+      period: 'set 2022 — dez 2023',
       title: 'EWZ Capital',
       role: 'Frontend Developer Júnior',
       place: 'São Paulo',
@@ -528,7 +527,7 @@ export const pt: PortfolioCopy = {
       {
         company: 'EWZ Capital',
         role: 'Frontend Developer Júnior',
-        period: 'set 2022 — dez 2024',
+        period: 'set 2022 — dez 2023',
         place: 'São Paulo, SP',
         text: 'Primeira experiência no mercado de tecnologia, com foco em frontend e várias pessoas me ajudando e ensinando no processo. Aprendi a rotina de um desenvolvedor e tive os primeiros contatos com metodologias ágeis.',
         highlights: [],
@@ -615,6 +614,7 @@ export const pt: PortfolioCopy = {
         paper: 'papel + brasa',
         mono: 'uma cor',
         star: 'capela',
+        seed: 'estudos',
         favicon: 'favicon adaptativo',
       },
     },
@@ -623,7 +623,7 @@ export const pt: PortfolioCopy = {
       note: 'papel, tinta e uma cor',
       title: 'Cores',
       intro:
-        'Tudo é papel e tinta. A única cor é o vermelho — rubrica de dia, brasa à noite, ajustado para manter contraste nos dois. A cianotipia azul só aparece no que ainda está na prancheta; a Capela usa o mesmo vermelho sobre cal e pedra, com um ouro escondido que só aparece de perto.',
+        'Tudo é papel e tinta. A única cor é o vermelho — rubrica de dia, brasa à noite, ajustado para manter contraste nos dois. A cianotipia azul só aparece no que ainda está na prancheta; a Capela usa o mesmo vermelho sobre cal e pedra, com um ouro escondido que só aparece de perto; os Estudos escrevem numa folha de livro, a tinta o que está acabado e a lápis o que ainda está em andamento.',
       large: 'AA grande',
       swatches: {
         paper: ['Papel', 'superfície do dia'],
@@ -635,6 +635,9 @@ export const pt: PortfolioCopy = {
         ember: ['Brasa', 'o acento, à noite'],
         cyanotype: ['Cianotipia', 'só o que está na prancheta'],
         gold: ['Ouro', 'o ouro escondido da Capela'],
+        leaf: ['Folha', 'a página dos Estudos, de dia'],
+        lamp: ['Lamparina', 'a página dos Estudos, à noite'],
+        pencil: ['Lápis', 'nos Estudos, o que ainda está em andamento'],
       },
     },
     type: {
@@ -716,6 +719,7 @@ export const pt: PortfolioCopy = {
         ['artefato', 'um projeto entregue'],
         ['oficina', 'onde se constrói — o portfólio'],
         ['capela', 'onde se estuda e reza — a Capela'],
+        ['tinta e lápis', 'acabado e em andamento — os Estudos'],
         ['órbita', 'em produção, em uso'],
         ['prancheta', 'planejado, ainda não começou'],
         ['capricho', 'o padrão de qualidade'],

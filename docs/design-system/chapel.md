@@ -28,8 +28,8 @@ shows only up close.
 `<ChapelShell>` (`components/chapel/*`, `motion="still"`): `WorldBar
 variant="stone"`, the `ConstructionNotice` while closed, a solid header with the
 red-star mark (gilds as it orbits on hover), `PageNav variant="stone"`, search
-(`chapel-search.tsx`: native `<dialog>`, ⌘K, debounced `/api/search`, flat
-panel) and day/night; footer with the themes and a link back to the world.
+(`<SearchDialog variant="stone">` on `/api/search?space=chapel`, ADR 0017: flat
+panel, serif titles) and day/night; footer with the themes and a link back to the world.
 
 ## Pages
 

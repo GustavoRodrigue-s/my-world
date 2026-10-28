@@ -14,6 +14,8 @@ export interface LogEntry {
 }
 
 export const LOGBOOK: LogEntry[] = [
+  // REVIEW
+  { date: '2026-10-27', space: 'studies', text: 'Os Estudos entram em obra: artigos a tinta, anotações a lápis.' },
   { date: '2026-10-25', text: 'Todos os lugares ganham um caminho de volta ao mapa.' },
   { date: '2026-10-25', text: 'Nasce a carta do mundo: esta página, com o mapa de todos os lugares.' },
   { date: '2026-10-25', space: 'chapel', text: '“Capela de Estudos” passa a se chamar só Capela.' },

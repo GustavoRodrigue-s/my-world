@@ -1,6 +1,5 @@
-import { DayNightToggle, PageNav, SiteHeader } from '@/components/ui'
+import { DayNightToggle, PageNav, SearchDialog, SiteHeader } from '@/components/ui'
 import { CHAPEL, chapelPath } from '@/lib/chapel-content'
-import { ChapelSearch } from './chapel-search'
 
 export function ChapelHeader() {
   const { shell } = CHAPEL
@@ -22,7 +21,7 @@ export function ChapelHeader() {
       }
       actions={
         <>
-          <ChapelSearch labels={shell.search} studyHref={chapelPath('/articles')} />
+          <SearchDialog labels={shell.search} endpoint="/api/search?space=chapel" variant="stone" />
           <DayNightToggle labels={shell.dayNight} variant="stone" />
         </>
       }

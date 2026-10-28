@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react'
 import { Byline, CrossPattee, Eyebrow, Heading, OrnamentRule, PageIntro, Register, Text, buttonClasses, cx } from '@/components/ui'
 import { PageBody, StudyBody } from '@/components/chapel'
 import { CHAPEL, chapelPath } from '@/lib/chapel-content'
-import { buildArticleJsonLd, buildArticleMetadata } from '@/lib/generate-metadata'
+import { buildArticleJsonLd, buildArticleMetadata, chapelArticleSeo } from '@/lib/generate-metadata'
 import { MOCK_ARTICLES, getMockArticle } from '@/lib/mock-data'
 import { PORTRAIT_SRC } from '@/lib/portfolio-content'
 import { formatDate, formatReadingTime } from '@/lib/utils'
@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const study = getMockArticle(slug)
-  return study ? buildArticleMetadata(study) : { title: CHAPEL.study.notFound }
+  return study ? buildArticleMetadata(chapelArticleSeo(study)) : { title: CHAPEL.study.notFound }
 }
 
 export default async function StudyPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -28,7 +28,7 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
 
   return (
     <article>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd(study)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd(chapelArticleSeo(study))) }} />
       <PageIntro
         labelledBy="study-title"
         ornament={<CrossPattee size={16} />}

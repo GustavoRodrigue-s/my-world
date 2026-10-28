@@ -43,6 +43,17 @@ export type { IndexEntry } from './index-list'
 export { TopicGrid } from './topic-grid'
 export type { Topic } from './topic-grid'
 export { Register } from './register'
+// Running text written in Markdown/MDX (Estudos)
+export { ProseLink, ProseList, ProseQuote, ProseCode, ProseRule } from './prose'
+// Forms and readers' comments (Estudos, ADR 0016)
+export { TextField, TextArea } from './field'
+export { CommentList } from './comment-list'
+export type { CommentEntry } from './comment-list'
+export { CommentForm } from './comment-form'
+export { StrokeMark } from './stroke-mark'
+// The world's one search (ADR 0017)
+export { SearchDialog } from './search-dialog'
+export type { SearchResult } from './search-dialog'
 // Flat dialect (Capela): fills instead of rules, serif titles, still pages.
 export { PageIntro } from './page-intro'
 export { SectionIntro } from './section-intro'

@@ -175,7 +175,6 @@ export const en: PortfolioCopy = {
       'I started programming in 2021, teaching myself, and since 2022 it has been my profession. I’ve worked at companies in the financial sector — EWZ Capital, MundoInvest and Cash2Pay — and today I’m a mid-level full-stack developer at Big4Tech, here in Londrina.',
       'I have more experience on the frontend, but I work full-stack and want to keep growing on both sides. What I enjoy most is building things well — an interface, an API or the architecture that holds them both.',
       'I use AI every day and set projects up so they adapt to AI code generation, keeping the structure in step as the project grows: we gain speed and keep the quality. Claude, Codex, Copilot and MCPs are everyday tools, together with AI engineering and the planning and writing of requirements.',
-      // REVIEW
       'I’m also Catholic, and that runs through the way I work: doing things well is a form of respect for whoever will use them. That’s where the care comes from — and that’s why this world also has a chapel.',
     ],
     facts: [
@@ -214,7 +213,7 @@ export const en: PortfolioCopy = {
       text: 'I started my journey teaching myself programming and built my first prototypes: a note-taking app with its own documentation, authentication with a separate frontend and backend, and an online store.',
     },
     {
-      period: 'Sep 2022 — Dec 2024',
+      period: 'Sep 2022 — Dec 2023',
       title: 'EWZ Capital',
       role: 'Junior Frontend Developer',
       place: 'São Paulo',
@@ -528,7 +527,7 @@ export const en: PortfolioCopy = {
       {
         company: 'EWZ Capital',
         role: 'Junior Frontend Developer',
-        period: 'Sep 2022 — Dec 2024',
+        period: 'Sep 2022 — Dec 2023',
         place: 'São Paulo, Brazil',
         text: 'First role in the tech industry, focused on frontend, with many people helping and teaching me along the way. Learned a developer’s routine and had my first contact with agile methodologies.',
         highlights: [],
@@ -616,6 +615,7 @@ export const en: PortfolioCopy = {
         paper: 'paper + ember',
         mono: 'one color',
         star: 'chapel',
+        seed: 'studies',
         favicon: 'adaptive favicon',
       },
     },
@@ -624,7 +624,7 @@ export const en: PortfolioCopy = {
       note: 'paper, ink and one color',
       title: 'Colors',
       intro:
-        'Everything is paper and ink. The only color is red — rubric by day, ember by night, tuned to keep contrast in both. The blue cyanotype appears only on what is still on the drawing board; the Capela wears the same red on limewash and stone, with a hidden gold that only shows up close.',
+        'Everything is paper and ink. The only color is red — rubric by day, ember by night, tuned to keep contrast in both. The blue cyanotype appears only on what is still on the drawing board; the Capela wears the same red on limewash and stone, with a hidden gold that only shows up close; Estudos writes on the page of a book, in ink what is finished and in pencil what is still in progress.',
       large: 'AA large',
       swatches: {
         paper: ['Paper', 'day surface'],
@@ -636,6 +636,9 @@ export const en: PortfolioCopy = {
         ember: ['Ember', 'the accent, by night'],
         cyanotype: ['Cyanotype', 'only what is on the drawing board'],
         gold: ['Gold', 'the hidden gold of Capela'],
+        leaf: ['Leaf', 'the page of Estudos, by day'],
+        lamp: ['Lamplight', 'the page of Estudos, by night'],
+        pencil: ['Pencil', 'in Estudos, what is still in progress'],
       },
     },
     type: {
@@ -714,6 +717,7 @@ export const en: PortfolioCopy = {
         ['artifact', 'a delivered project'],
         ['workshop', 'where things are built — the portfolio'],
         ['chapel', 'where one studies and prays — Capela'],
+        ['ink and pencil', 'finished and in progress — Estudos'],
         ['orbit', 'in production, in use'],
         ['drawing board', 'planned, not started yet'],
         ['care', 'the quality bar — “capricho” in Portuguese'],

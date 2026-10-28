@@ -1,6 +1,8 @@
 import { SiteFooter } from '@/components/ui'
 import { CHAPEL, chapelPath } from '@/lib/chapel-content'
 import { MOCK_CATEGORIES } from '@/lib/mock-data'
+import { STUDIES, studiesPath } from '@/lib/studies-content'
+import { canEnter, isUnderConstruction } from '@/lib/world'
 
 export function ChapelFooter() {
   const { shell } = CHAPEL
@@ -17,6 +19,13 @@ export function ChapelFooter() {
           links: [
             { label: shell.footer.world, href: '/', mark: { variant: 'satellite' } },
             { label: shell.footer.portfolio, href: '/portfolio' },
+            {
+              label: STUDIES.name,
+              href: studiesPath(),
+              mark: { variant: 'seed' },
+              tag: isUnderConstruction('studies') ? { tone: 'open', label: STUDIES.construction.status } : undefined,
+              disabled: !canEnter('studies'),
+            },
           ],
         },
       ]}

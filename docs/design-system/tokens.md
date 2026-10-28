@@ -10,7 +10,7 @@ this page says how the tokens are organized and how to use them. Decisions:
 
 | File | Holds |
 |---|---|
-| `base.json` | everything shared, which the themes extend: the brand's chromatic colors (`color.rubric`, `ember`, `blueprint`, `gold`…), type scales and roles, space, sizes, breakpoints, radius, border, opacity, motion, layers |
+| `base.json` | everything shared, which the themes extend: the brand's chromatic colors (`color.rubric`, `ember`, `blueprint`, `gold`, `graphite`…), type scales and roles, space, sizes, breakpoints, radius, border, opacity, motion, layers |
 | `<theme>.json` | one environment: its semantic colors (pointing at base colors, e.g. `primary` → `{color.rubric}`, plus its own neutrals) and shadow, `light` and `dark` |
 
 The base colors are not emitted as CSS: components use the themes' roles

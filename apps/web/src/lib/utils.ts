@@ -1,6 +1,8 @@
 // Format a date string to Portuguese locale
 export function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('pt-BR', {
+  // A bare YYYY-MM-DD is read at noon, so no time zone moves it to the day before.
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(dateString) ? new Date(`${dateString}T12:00:00`) : new Date(dateString)
+  return date.toLocaleDateString('pt-BR', {
     day: 'numeric',
     month: 'short',
     year: 'numeric',

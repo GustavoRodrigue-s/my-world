@@ -20,16 +20,21 @@ to the library rather than styling raw HTML. Source: `packages/ui/src/react/`.
 | `IndexList` | Numbered register of linked entries (title, summary, kicker, meta) |
 | `TopicGrid` | Ruled grid of linked topics (name, description, count) |
 | `Register` | Mono-titled ruled list |
+| `ProseLink` · `ProseList` (`ordered`) · `ProseQuote` · `ProseCode` · `ProseRule` | Running text written in MDX (Estudos): link with the ink hairline, lists, a `>` quotation in the voice face, inline code, a hairline break. Mapped in `components/studies/mdx-components.tsx` |
+| `TextField` · `TextArea` | Form fields with a mono label above (and an optional `hint`, linked by `aria-describedby`). Near-square hairline that inks on hover; disabled = dashed `support` outline |
+| `StrokeMark` | One short hand stroke for a piece of writing's finish: `finish="ink"` (solid, ink) or `"pencil"` (dashed, `support`). Decorative, always beside the format's name — Estudos' format mark (`components/studies/format-mark.tsx`) |
+| `SearchDialog` | The world's one search (ADR 0017): header button + native `<dialog>`, ⌘K, debounced call to `endpoint` (`/api/search?space=…`, answers `SearchResult[]`: href, title, kicker). `variant="line"` (Estudos: sans titles, floating shadow) or `"stone"` (Capela: flat, serif titles) |
+| `CommentList` · `CommentForm` | Readers' comments (`CommentEntry`: author, date, body), with an `empty` line · name / e-mail (`emailHint`) / comment form; `disabled` + `reasonId` closes it in a `<fieldset disabled>` that names why (Estudos, ADR 0016) |
 | `StatusTag` · `Chip` | State tag (`lit` / `open` / `plain` / `draft`) · filter toggle (`variant="line" \| "stone"`) |
 | `Mark` (`variant`, `tone`) · `Rubric` · `Seal` · `TitleBlock` · `Emphasis` (`fit`) · `Eyebrow` | Identity devices (`Eyebrow`: small red tracked label, the flat dialect's rubric) |
-| `Heading` (`level` = typography role) · `Text` (`size` = type-scale step or `lead`) · `Button` / `buttonClasses()` (`ink` / `line` / `quiet`; flat: `rubric` solid red, `stone` solid stone) · `Section` (`bg="surface" \| "muted" \| "raised"`) · `cx()` | Primitives |
+| `Heading` (`level` = typography role) · `Text` (`size` = type-scale step or `lead`) · `Button` / `buttonClasses()` (`ink` / `line` / `quiet`; flat: `rubric` solid red, `stone` solid stone; disabled = dashed outline in `support`, "still in pencil") · `Section` (`bg="surface" \| "muted" \| "raised"`) · `cx()` | Primitives |
 | `PrintButton` | Print / save as PDF |
 | **Flat dialect** | |
 | `Niche` | Romanesque round-arched frame for a picture: gold fillet, ornament in the tympanum, caption; `veiled` = sepia at rest, true colors on hover (always in color on touch) |
 | `RoseWindow` · `CrossPattee` · `OrnamentRule` | Hairline rose window (12 lobes, gold heart, gilds inside a hovered group) · small gold cross · divider with the cross |
 | `PageIntro` | Flat page opening: ornament, label, H1 + lead (children), actions, footer; `align="center" \| "start"` |
 | `SectionIntro` | Serif section title, gloss (`note`), optional `action`; goes inside `<Section>` |
-| `EntryList` | Flat list of `IndexEntry` (kicker + dates aside, serif title, summary; hairlines between rows) |
+| `EntryList` | Flat list of `IndexEntry` (kicker + dates aside, serif title, summary; hairlines between rows). The kicker gilds on hover: `gild="support"` (Capela, default) or `"hidden"` (Estudos, whose `support` is graphite). An entry's `mark` (a `<StrokeMark>`) sits before its first meta line |
 | `FeaturedEntry` | One entry on a stone panel: label, meta, serif title link, lead, action; `shape="niche"` = low arch + gold fillet |
 | `TileGrid` | Flat stone tiles of `Topic`s (`on="stone"` when the band is already stone); `gilded` = a gold fillet lights up on hover |
 | `Quote` | Quotation in the voice face: `size="display"` (centered, on a band) or `"body"` (rubric rule) |

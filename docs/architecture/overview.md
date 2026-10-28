@@ -9,7 +9,7 @@ How the system works today. Why it is this way: [adr/](adr/).
 | Frontend | Next.js 15 (App Router, `typedRoutes`) + TypeScript strict |
 | Styling | Tailwind CSS v4 (config-less) + CSS custom properties (design tokens) |
 | UI | `@my-world/ui` — the shared identity library (React; peer deps `next`, `react`, `lucide-react`) |
-| Content | content modules + `lib/mock-data.ts` today; MDX in the repo decided ([ADR 0007](adr/0007-content-in-mdx.md)) |
+| Content | content modules; Estudos in MDX (`apps/web/content/studies`, `next-mdx-remote`, [ADR 0014](adr/0014-studies-mdx-setup-and-content-model.md)); the closed Capela still reads `lib/mock-data.ts` |
 | CMS | Strapi 5 in `apps/cms` — legacy, **not wired** ([guides/strapi.md](../guides/strapi.md)) |
 | Monorepo | Turborepo + pnpm workspaces |
 | Hosting | Vercel (production + preview deployments) |
@@ -36,6 +36,7 @@ my-world/
 │       │   ├── world/ · portfolio/ · identity/ · chapel/
 │       ├── middleware.ts          ← sends closed spaces to their construction page
 │       └── lib/                   ← world.ts, content modules, fonts, metadata, strapi-client, utils
+│   └── content/studies/           ← Estudos' MDX (one file per study)
 ├── apps/cms/                      ← Strapi 5 (legacy)
 └── packages/
     ├── design-system/             ← tokens/*.json (DTCG) → Style Dictionary → generated/ (CSS + JSON)
@@ -57,8 +58,11 @@ Routes are always English.
 | `/chapel/articles` · `/chapel/articles/[slug]` | chapel | study index (theme chips) · study page |
 | `/chapel/categories` · `/chapel/categories/[slug]` | chapel | theme grid · one theme's studies |
 | `/chapel/saints` · `/chapel/about` | chapel | saints' studies · about |
+| `/studies` | studies | `app/studies/page.tsx` → `<StudyIndex>`: articles and notes, format and theme chips synced to `?format=&theme=` (static page; the list is filtered in the browser) |
+| `/studies/[slug]` | studies | `app/studies/[slug]/page.tsx`: one article or note — the margin (format gloss, subjects), the MDX text, references, the "virou artigo" / "começou a lápis" links between a note and its article (`maturedInto`), byline, `<StudyComments>` (closed, ADR 0016). Static per visible study |
 | `/under-construction/chapel` | chapel | served by the middleware at every `/chapel` URL while it is closed |
-| `/api/search` | — | search proxy (empty while the Capela is closed; falls back to mock data) |
+| `/under-construction/studies` | studies | served by the middleware at every `/studies` URL while it is closed |
+| `/api/search` | — | `?space=studies\|chapel&q=…` → `{ results: SearchResult[] }`; answers only for a space the viewer can enter. Estudos: the MDX index (title, summary, theme, tags); Capela: Strapi, falling back to mock data |
 | `/api/revalidate` | — | ISR webhook (revalidates `/chapel/...`) |
 
 The Capela lived at the root until 2026-10-18; `/articles/*`, `/categories/*`,
@@ -91,7 +95,7 @@ Decision: [ADR 0011](adr/0011-dtcg-tokens-with-style-dictionary.md). Visual rule
 
 - **Source:** DTCG 2025.10 JSON in `packages/design-system/tokens/` —
   `base.json` (radius, spacing, fonts, motion, z) and one file per theme
-  (`portfolio.json`, `chapel.json`) with full `light` / `dark` color sets.
+  (`portfolio.json`, `chapel.json`, `studies.json`) with full `light` / `dark` color sets.
 - **Build:** `packages/design-system/build.mjs` (Style Dictionary 5) writes
   `generated/css/tokens.css` (shared, on `:root`), `generated/css/<theme>.css`,
   `generated/css/tailwind-breakpoints.css`, `generated/tokens.json` and
@@ -135,6 +139,15 @@ but is not wired. Its functions (`getLatestArticles`, `getArticleBySlug`,
 `getAllCategories`…) set `next: { revalidate: 3600, tags: [...] }` internally.
 New content goes to MDX ([ADR 0007](adr/0007-content-in-mdx.md)).
 
+**Estudos** ([ADR 0014](adr/0014-studies-mdx-setup-and-content-model.md)):
+`apps/web/content/studies/<slug>.mdx`, read at build time by `lib/studies.ts`
+(`getStudies()` — visible studies, newest first, no text; `getStudy(slug)` —
+one study with its compiled text). The loader checks the front matter and fails
+the build on a missing or wrong field; drafts are visible only where
+`canSeeUnderConstruction()` is true. MDX elements become `@my-world/ui` pieces
+through `components/studies/mdx-components.tsx`. Types: `StudyMeta` in
+`@my-world/types`; theme and format names in `lib/studies-content.ts`.
+
 ## SEO
 
 Every page has `metadata` or `generateMetadata` (canonical included).
@@ -142,8 +155,11 @@ Every page has `metadata` or `generateMetadata` (canonical included).
 - Portfolio: `buildPortfolioLayoutMetadata` / `buildPortfolioPageMetadata` in
   `lib/generate-metadata.ts` (canonical + hreflang `pt-BR` / `en` / `x-default`);
   the portfolio home emits `buildPersonJsonLd(locale)`.
-- Studies: `buildArticleMetadata` / `buildArticleJsonLd` (URLs under `/chapel/articles`).
-- `app/sitemap.ts` lists every open space. Closed spaces are omitted and served
+- Articles (Capela and Estudos): `buildArticleMetadata` / `buildArticleJsonLd` take an
+  `ArticleSeo` (path, title, summary, site name, dates, tags, section, image);
+  `chapelArticleSeo()` maps a Capela article, `app/studies/[slug]` builds its own.
+- `app/sitemap.ts` lists every open space (Estudos: the index and every
+  published study, never a draft). Closed spaces are omitted and served
   with `noindex`.
 - The root `<html>` stays `pt-BR`; `<SiteShell>` carries `lang`.
 - Locale helpers: `lib/portfolio-locale.ts` (`Locale`, `LOCALE_META`,
