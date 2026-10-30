@@ -6,7 +6,7 @@ export function OrnamentRule({ className }: { className?: string }) {
   return (
     <div aria-hidden className={cx('flex items-center justify-center gap-5', className)}>
       <span className="h-px w-16 bg-border-strong md:w-24" />
-      <CrossPattee size={13} />
+      <CrossPattee size="sm" />
       <span className="h-px w-16 bg-border-strong md:w-24" />
     </div>
   )

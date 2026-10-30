@@ -15,7 +15,7 @@ export function ResumeView({ locale }: { locale: Locale }) {
           href={localePath(locale, '/portfolio')}
           className="inline-flex items-center gap-2 font-sans text-sm text-foreground-muted no-underline transition-colors hover:text-foreground"
         >
-          <ArrowLeft size={15} strokeWidth={1.5} aria-hidden />
+          <ArrowLeft className="size-icon-md" aria-hidden />
           {resume.back}
         </Link>
         <div className="flex items-center gap-4">

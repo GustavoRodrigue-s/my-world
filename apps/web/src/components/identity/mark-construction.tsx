@@ -38,7 +38,7 @@ export function MarkConstruction({ labels }: { labels: { title: string; core: st
       <circle cx={g.cx} cy={g.cy} r={g.core} className="fill-foreground" />
       <path d={markSatellitePath('satellite')} className="fill-primary" />
 
-      <g className="fill-foreground font-mono text-[1.7px]">
+      <g fontSize={1.7} className="fill-foreground font-mono">
         <text x={gapStart.x + 0.8} y={gapStart.y}>−40°</text>
         <text x={sat.x + 0.8} y={sat.y + 0.6}>−20°</text>
         <text x={gapEnd.x + 0.8} y={gapEnd.y + 0.6}>0°</text>

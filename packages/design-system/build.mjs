@@ -73,6 +73,14 @@ StyleDictionary.registerTransform({
   transform: (t) => `${t.$value}em`,
 })
 
+// DTCG has no angle type: rotations are numbers in degrees.
+StyleDictionary.registerTransform({
+  name: 'world/angle',
+  type: 'value',
+  filter: (t) => t.path[0] === 'transform' && t.path[1] === 'rotate',
+  transform: (t) => `${t.$value}deg`,
+})
+
 StyleDictionary.registerTransform({
   name: 'world/duration',
   type: 'value',
@@ -89,7 +97,7 @@ StyleDictionary.registerTransform({
     typeof s === 'string' ? s : [s.offsetX, s.offsetY, s.blur, s.spread].map((d) => dimension(d)).join(' ') + ` ${s.color}`,
 })
 
-const TRANSFORMS = ['name/kebab', 'world/dimension', 'world/letter-spacing', 'world/duration', 'color/css', 'fontFamily/css', 'cubicBezier/css', 'world/shadow']
+const TRANSFORMS = ['name/kebab', 'world/dimension', 'world/letter-spacing', 'world/angle', 'world/duration', 'color/css', 'fontFamily/css', 'cubicBezier/css', 'world/shadow']
 
 // `{font.weight.semibold}` → var(--font-weight-semibold); a literal → its CSS value.
 const lookup = (dictionary, ref) => dictionary.allTokens.find((t) => `{${t.path.join('.')}}` === ref)
@@ -98,23 +106,42 @@ const cssValue = (dictionary, v) =>
   typeof v === 'string' && v.startsWith('{') ? `var(--${lookup(dictionary, v).name})` : dimension(v, ROOT_PX)
 
 /**
- * A typography role becomes one var per property. A fluid role is
- * clamp(min, viewport% of the screen width, fontSize). letterSpacing is px at
- * fontSize; on the web it becomes em so it scales with a fluid size.
+ * A typography role becomes one var per property. A responsive role starts at
+ * its `base` step and changes at each breakpoint it names, ending at fontSize
+ * from the next breakpoint on (or xl): whole steps of the scale, never a size
+ * computed from the screen. letterSpacing is px at fontSize; on the web it
+ * becomes em so it follows the step. The line height is rounded to a whole
+ * pixel, since a ratio alone gives 29.25px.
  */
 function typographyVars(dictionary, token) {
   const o = token.original.$value
-  const fluid = token.original.$extensions?.['world.fluid']
-  const size = fluid
-    ? `clamp(${cssValue(dictionary, fluid.min)}, ${fluid.viewport}vw, ${cssValue(dictionary, o.fontSize)})`
-    : cssValue(dictionary, o.fontSize)
+  const steps = token.original.$extensions?.['world.responsive']
+  const lineHeight = cssValue(dictionary, o.lineHeight)
   return [
     ['font-family', cssValue(dictionary, o.fontFamily)],
-    ['font-size', size],
+    ['font-size', cssValue(dictionary, steps?.base ?? o.fontSize)],
     ['font-weight', cssValue(dictionary, o.fontWeight)],
-    ['line-height', cssValue(dictionary, o.lineHeight)],
+    ['line-height', `round(calc(${lineHeight} * 1em), 1px)`],
     ['letter-spacing', `${round(o.letterSpacing.value / px(dictionary, o.fontSize), 3)}em`],
   ].map(([prop, value]) => `  --${token.name}-${prop}: ${value};`)
+}
+
+const BREAKPOINTS = ['sm', 'md', 'lg', 'xl']
+
+function responsiveBlocks(dictionary) {
+  const roles = dictionary.allTokens.filter((t) => t.original.$extensions?.['world.responsive'])
+  return BREAKPOINTS.flatMap((bp) => {
+    const vars = roles.flatMap((t) => {
+      const steps = t.original.$extensions['world.responsive']
+      const named = BREAKPOINTS.filter((k) => steps[k])
+      const final = named.length ? BREAKPOINTS[BREAKPOINTS.indexOf(named.at(-1)) + 1] : 'xl'
+      const size = steps[bp] ?? (bp === final ? t.original.$value.fontSize : null)
+      return size ? [`    --${t.name}-font-size: ${cssValue(dictionary, size)};`] : []
+    })
+    if (!vars.length) return []
+    const width = lookup(dictionary, `{breakpoint.${bp}}`).$value
+    return [`@media (min-width: ${width}) {`, '  :root {', ...vars, '  }', '}', '']
+  })
 }
 
 StyleDictionary.registerFormat({
@@ -129,6 +156,7 @@ StyleDictionary.registerFormat({
       ),
       '}',
       '',
+      ...responsiveBlocks(dictionary),
     ].join('\n'),
 })
 

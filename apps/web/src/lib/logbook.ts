@@ -1,7 +1,7 @@
 // Diário de bordo — what changed in the world, newest first. Add a line here
 // with every change worth telling (a space opening, a new edition, a new
-// drawing). The home shows the latest few.
-// REVIEW: dates before 2026-10-18 come from memory of the work, not from git.
+// drawing). The home shows the latest few, so the Capela's lines speak of the
+// field, never of the Capela (ADR 0020).
 
 import type { SpaceId } from './world'
 
@@ -14,14 +14,15 @@ export interface LogEntry {
 }
 
 export const LOGBOOK: LogEntry[] = [
-  // REVIEW
+  { date: '2026-10-30', text: 'O rodapé passa a ser o mesmo em todos os lugares.' },
+  { date: '2026-10-30', space: 'portfolio', text: 'O portfólio ganha um novo artefato: o app de onboarding digital.' },
+  { date: '2026-10-28', space: 'chapel', text: 'Um tesouro é escondido num campo deste mundo.' },
   { date: '2026-10-27', space: 'studies', text: 'Os Estudos entram em obra: artigos a tinta, anotações a lápis.' },
   { date: '2026-10-25', text: 'Todos os lugares ganham um caminho de volta ao mapa.' },
   { date: '2026-10-25', text: 'Nasce a carta do mundo: esta página, com o mapa de todos os lugares.' },
-  { date: '2026-10-25', space: 'chapel', text: '“Capela de Estudos” passa a se chamar só Capela.' },
-  { date: '2026-10-25', space: 'chapel', text: 'A Capela entra em obra. Fica fechada até a hora certa.' },
+  { date: '2026-10-25', space: 'chapel', text: 'O campo é cercado. Fica fechado até a hora certa.' },
   { date: '2026-10-25', space: 'projects', text: 'Projetos e Estudos entram na prancheta.' },
-  { date: '2026-10-19', space: 'chapel', text: 'A Capela ganha pedra, arcos e um ouro escondido.' },
+  { date: '2026-10-19', space: 'chapel', text: 'O campo ganha pedra, arcos e um ouro escondido.' },
   { date: '2026-10-18', space: 'portfolio', text: 'O portfólio ganha uma edição em inglês.' },
   { date: '2026-10-18', text: 'A identidade visual passa a vestir todo o mundo.' },
   { date: '2026-10-16', space: 'portfolio', text: 'Nasce o Mundo do Gustavo: a identidade, o portfólio e o currículo.' },

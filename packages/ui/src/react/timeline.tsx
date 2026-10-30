@@ -19,21 +19,21 @@ export interface TimelineEntry {
 }
 
 const SHAPE: Record<TimelineShape, string> = {
-  diamond: 'h-2.5 w-2.5 rotate-45 border border-foreground bg-surface',
-  circle: 'h-3 w-3 rounded-full border border-foreground bg-surface',
-  square: 'h-2.5 w-2.5 border border-foreground bg-foreground',
+  diamond: 'size-icon-xs rotate-(--transform-rotate-diamond) border border-foreground bg-surface',
+  circle: 'h-3 w-3 rounded-pill border border-foreground bg-surface',
+  square: 'h-3 w-3 border border-foreground bg-foreground',
 }
 
 function Node({ entry }: { entry: TimelineEntry }) {
   if (entry.state === 'current') {
     return (
       <span className="relative flex h-4 w-4 items-center justify-center">
-        <span className="absolute inset-0 rounded-full border border-primary" />
-        <span className="h-2 w-2 rounded-full bg-primary" />
+        <span className="absolute inset-0 rounded-pill border border-primary" />
+        <span className="h-2 w-2 rounded-pill bg-primary" />
       </span>
     )
   }
-  if (entry.state === 'next') return <span className="h-3 w-3 rounded-full border border-dashed border-foreground bg-surface" />
+  if (entry.state === 'next') return <span className="h-3 w-3 rounded-pill border border-dashed border-foreground bg-surface" />
   return <span className={cx(SHAPE[entry.shape ?? 'circle'], 'plot-inked')} />
 }
 
@@ -76,14 +76,14 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                 />
               )}
               {!last && past && !towardNext && (
-                <span aria-hidden className="plot-ink absolute top-5 bottom-0 left-1/2 w-0.5 -translate-x-1/2 bg-primary" />
+                <span aria-hidden className="plot-ink absolute top-5 bottom-0 left-1/2 w-(--border-width-strong) -translate-x-1/2 bg-primary" />
               )}
-              <span className="relative z-raised mt-1 flex h-4 items-center transition-transform duration-normal motion-safe:group-hover:scale-125">
+              <span className="relative z-raised mt-1 flex h-4 items-center transition-transform duration-normal motion-safe:group-hover:scale-(--transform-scale-lift)">
                 <Node entry={entry} />
                 {past && (
                   <span
                     aria-hidden
-                    className="plot-ripple absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary"
+                    className="plot-ripple absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-pill border border-primary"
                   />
                 )}
               </span>
@@ -102,7 +102,7 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                 {entry.title}
               </Heading>
               {entry.meta && (
-                <Text size="sm" color="foreground" className="mt-1.5">
+                <Text size="sm" color="foreground" className="mt-2">
                   {entry.meta}
                 </Text>
               )}

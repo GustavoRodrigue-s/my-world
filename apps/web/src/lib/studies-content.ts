@@ -13,8 +13,6 @@ export function studiesPath(slug?: string): Route {
 export const STUDIES = {
   name: 'Estudos',
   author: 'Gustavo Rodrigues Fabiano',
-  // REVIEW
-  purpose: 'Artigos e anotações sobre tecnologia, economia, vida espiritual e filosofia: o que eu aprendo, escrito para não esquecer.',
 
   meta: {
     title: 'Estudos',
@@ -35,12 +33,6 @@ export const STUDIES = {
       loading: 'Buscando…',
     },
     worldBar: { label: 'Você está em', home: 'Mundo do Gustavo' },
-    footer: {
-      themes: 'temas',
-      landscapes: 'outras paisagens',
-      world: 'Mundo do Gustavo',
-      portfolio: 'Portfólio',
-    },
   },
 
   index: {
@@ -54,6 +46,10 @@ export const STUDIES = {
       themeLabel: 'Filtrar por tema',
       allFormats: 'Tudo',
       allThemes: 'Todos os temas',
+      tagLabel: 'Filtrar por assunto',
+      // A study's subject chips link here (?tag=); pressed, it takes the filter off.
+      tag: (tag: string) => `assunto: ${tag}`,
+      clearTag: 'tirar o filtro',
       empty: 'Nenhum estudo com esse filtro.',
       clear: 'Limpar filtros',
     },
@@ -70,7 +66,21 @@ export const STUDIES = {
     grewFrom: 'Começou a lápis, na anotação',
     // REVIEW
     byline: 'escreve aqui o que estuda',
+    // The end of a study, in order (ADR 0019): byline, subjects, likes, comments, what to read next.
+    actions: {
+      like: 'Curtir',
+      likesClosed: 'as curtidas abrem junto com os comentários',
+      toComments: 'Comentar',
+    },
+    related: 'Leia também',
     back: 'Voltar aos Estudos',
+    backToTop: 'Voltar ao topo',
+  },
+
+  // Words the Markdown compiler writes into a study (footnotes).
+  mdx: {
+    footnoteLabel: 'Notas',
+    footnoteBackLabel: 'Voltar ao texto',
   },
 
   // The comments area under every study (ADR 0016).
@@ -118,6 +128,8 @@ export const STUDIES = {
   } satisfies Record<StudyFormat, { name: string; plural: string; gloss: string }>,
   /** The comments area (ADR 0016): shown on every study, closed until it has a backend. */
   comments: 'closed' as 'closed' | 'open',
+  /** Likes (ADR 0019): the button is shown, closed until it has a backend. */
+  likes: 'closed' as 'closed' | 'open',
 } as const
 
 export const STUDY_THEMES = Object.keys(STUDIES.themes) as StudyTheme[]

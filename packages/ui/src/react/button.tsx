@@ -17,9 +17,9 @@ const sizeMap: Record<Size, string> = {
 
 // Shared by the portfolio variants: near-square, grotesk, arrow-friendly.
 const identityBase =
-  'inline-flex items-center gap-2.5 font-sans font-medium no-underline whitespace-nowrap cursor-pointer ' +
+  'inline-flex items-center gap-3 font-sans font-medium no-underline whitespace-nowrap cursor-pointer ' +
   'transition-[background-color,color,border-color] duration-fast ' +
-  '[&_svg]:transition-transform [&_svg]:duration-normal hover:[&_svg]:translate-x-0.5 ' +
+  '[&_svg]:transition-transform [&_svg]:duration-normal hover:[&_svg]:translate-x-1 ' +
   // Disabled: still in pencil — a dashed outline in the support color, nothing lights up.
   'disabled:pointer-events-none disabled:border-dashed disabled:border-support disabled:bg-transparent disabled:text-support'
 

@@ -21,9 +21,9 @@ export function SectionHero({ locale }: { locale: Locale }) {
             <Text family="mono" size="xs" color="muted">
               {hero.caption}
             </Text>
-            <ol className="mt-3 grid list-none gap-x-6 gap-y-1.5 sm:grid-cols-2">
+            <ol className="mt-3 grid list-none gap-x-6 gap-y-2 sm:grid-cols-2">
               {hero.legend.map((item) => (
-                <li key={item.n} className="flex gap-2.5">
+                <li key={item.n} className="flex gap-3">
                   <Text as="span" family="mono" size="sm" color="primary">
                     {item.n}
                   </Text>
@@ -65,11 +65,11 @@ export function SectionHero({ locale }: { locale: Locale }) {
       <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
         <Link href={localePath(locale, '/portfolio/resume')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-12 px-5 text-base')}>
           {hero.ctaResume}
-          <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
+          <ArrowRight className="size-icon-md" aria-hidden />
         </Link>
         <Link href="#artifacts" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-base')}>
           {hero.ctaArtifacts}
-          <ArrowDown size={15} strokeWidth={1.6} aria-hidden />
+          <ArrowDown className="size-icon-md" aria-hidden />
         </Link>
       </div>
     </Plate>

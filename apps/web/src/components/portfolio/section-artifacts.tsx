@@ -51,7 +51,7 @@ export function SectionArtifacts({ locale }: { locale: Locale }) {
           </Text>
           <ul className="mt-6 list-none border-t border-border">
             {prototypes.map((p) => (
-              <li key={p.title} className="group plot-rise grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-1 border-b border-border py-3.5">
+              <li key={p.title} className="group plot-rise grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-1 border-b border-border py-4">
                 <Text as="span" family="mono" size="sm" color="foreground" className="transition-colors duration-normal group-hover:text-primary">
                   {p.title}
                 </Text>
@@ -62,10 +62,10 @@ export function SectionArtifacts({ locale }: { locale: Locale }) {
                       href={l.href}
                       target="_blank"
                       rel="noopener"
-                      className="group/link inline-flex items-center gap-0.5 font-mono text-xs text-foreground-muted no-underline transition-colors hover:text-primary"
+                      className="group/link inline-flex items-center gap-1 font-mono text-xs text-foreground-muted no-underline transition-colors hover:text-primary"
                     >
                       {l.label}
-                      <ArrowUpRight size={12} strokeWidth={1.5} aria-hidden className="transition-transform duration-normal motion-safe:group-hover/link:-translate-y-0.5 motion-safe:group-hover/link:translate-x-0.5" />
+                      <ArrowUpRight aria-hidden className="size-icon-xs transition-transform duration-normal motion-safe:group-hover/link:-translate-y-1 motion-safe:group-hover/link:translate-x-1" />
                       <span className="sr-only"> — {p.title} {copy.artifacts.labels.onGithub}</span>
                     </a>
                   ))}
@@ -98,7 +98,7 @@ export function SectionArtifacts({ locale }: { locale: Locale }) {
                   <Text size="base" weight="medium" color="foreground">
                     {d.title}
                   </Text>
-                  <Text size="sm" color="muted" className="mt-0.5">
+                  <Text size="sm" color="muted" className="mt-1">
                     {d.text}
                   </Text>
                 </div>

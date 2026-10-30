@@ -18,7 +18,7 @@ export default function AboutPage() {
     <>
       <PageIntro
         labelledBy="about-title"
-        ornament={<CrossPattee size={16} />}
+        ornament={<CrossPattee size="md" />}
         label={t.label}
         footer={
           <Byline
@@ -65,7 +65,7 @@ export default function AboutPage() {
         <div className="mt-12 flex justify-center">
           <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-base')}>
             {t.cta}
-            <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
+            <ArrowRight className="size-icon-md" aria-hidden />
           </Link>
         </div>
       </Section>

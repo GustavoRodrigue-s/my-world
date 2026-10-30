@@ -50,9 +50,9 @@ export function WorldBar({ label, home, crumbs, variant = 'line' }: WorldBarProp
           <Link
             href={home.href as Route}
             hrefLang={home.hrefLang}
-            className="ink-link group inline-flex items-center gap-1.5 text-foreground no-underline hover:text-primary"
+            className="ink-link group inline-flex items-center gap-2 text-foreground no-underline hover:text-primary"
           >
-            <Mark size={14} satelliteClassName="transition-transform duration-gesture ease-in-out group-hover:-rotate-[360deg]" />
+            <Mark size="sm" satelliteClassName="transition-transform duration-gesture ease-in-out group-hover:-rotate-360" />
             {home.label}
           </Link>
         </li>

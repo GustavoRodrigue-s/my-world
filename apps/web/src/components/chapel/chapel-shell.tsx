@@ -1,8 +1,8 @@
 import { SiteShell, WorldBar } from '@/components/ui'
 import { CHAPEL, chapelPath } from '@/lib/chapel-content'
+import { WorldFooter } from '@/components/world/world-footer'
 import { identityFonts } from '@/lib/fonts'
 import { isUnderConstruction } from '@/lib/world'
-import { ChapelFooter } from './chapel-footer'
 import { ChapelHeader } from './chapel-header'
 import { ConstructionNotice } from './construction-notice'
 
@@ -34,7 +34,7 @@ export function ChapelShell({ children }: { children: React.ReactNode }) {
           <ChapelHeader />
         </>
       }
-      footer={<ChapelFooter />}
+      footer={<WorldFooter locale="pt" insideChapel />}
     >
       {children}
     </SiteShell>

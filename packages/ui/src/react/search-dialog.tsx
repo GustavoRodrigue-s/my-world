@@ -88,7 +88,7 @@ export function SearchDialog({ labels, endpoint, variant = 'line' }: SearchDialo
   return (
     <>
       <button type="button" onClick={open} className={cx(buttonClasses({ variant, size: 'none' }), 'group h-9 px-3 text-sm')}>
-        <Search size={14} strokeWidth={1.6} aria-hidden />
+        <Search className="size-icon-sm" aria-hidden />
         <span className="hidden sm:inline">{labels.open}</span>
         <kbd className={cx('hidden font-mono text-xs text-foreground-muted lg:inline', variant === 'stone' && 'group-hover:text-surface')}>
           ⌘K
@@ -106,7 +106,7 @@ export function SearchDialog({ labels, endpoint, variant = 'line' }: SearchDialo
         )}
       >
         <div className="flex items-center gap-3 border-b border-border px-5 py-4">
-          <Search size={18} strokeWidth={1.5} aria-hidden className="shrink-0 text-foreground-muted" />
+          <Search aria-hidden className="size-icon-lg shrink-0 text-foreground-muted" />
           <input
             ref={inputRef}
             type="search"
@@ -143,7 +143,7 @@ export function SearchDialog({ labels, endpoint, variant = 'line' }: SearchDialo
                     <Heading
                       as="span"
                       level={variant === 'stone' ? 'title-sm-serif' : 'title-sm'}
-                      className="mt-1.5 block transition-colors duration-fast group-hover:text-primary"
+                      className="mt-2 block transition-colors duration-fast group-hover:text-primary"
                     >
                       {r.title}
                     </Heading>

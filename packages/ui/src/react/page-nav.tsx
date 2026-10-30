@@ -62,7 +62,7 @@ export function PageNav({ label, menuLabel = 'Menu', items, variant = 'line' }: 
             stone ? 'border-transparent bg-surface-muted' : 'border-border-strong'
           )}
         >
-          <Menu size={16} strokeWidth={1.6} aria-hidden />
+          <Menu className="size-icon-md" aria-hidden />
         </summary>
         <nav
           aria-label={label}
@@ -76,7 +76,7 @@ export function PageNav({ label, menuLabel = 'Menu', items, variant = 'line' }: 
               <li key={item.href}>
                 {link(
                   item,
-                  'block rounded-xs px-3 py-2.5 font-sans text-base text-foreground no-underline transition-colors hover:bg-surface-muted aria-[current]:text-primary'
+                  'block rounded-xs px-3 py-3 font-sans text-base text-foreground no-underline transition-colors hover:bg-surface-muted aria-[current]:text-primary'
                 )}
               </li>
             ))}

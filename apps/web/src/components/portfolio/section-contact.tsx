@@ -25,21 +25,21 @@ export function SectionContact({ locale }: { locale: Locale }) {
             className="group mt-12 inline-flex max-w-full items-center gap-3 border-b border-foreground pb-2 font-sans text-callout text-foreground no-underline transition-colors duration-fast hover:border-primary hover:text-primary"
           >
             <span className="truncate">{profile.email}</span>
-            <ArrowRight className="shrink-0 transition-transform duration-normal group-hover:translate-x-1" size={26} strokeWidth={1.4} aria-hidden />
+            <ArrowRight className="size-icon-xl shrink-0 transition-transform duration-normal group-hover:translate-x-1" aria-hidden />
           </a>
 
           <div className="mt-10 flex flex-wrap gap-3">
             <a href={profile.linkedin} target="_blank" rel="me noopener" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-sm')}>
               LinkedIn
-              <ArrowUpRight size={15} strokeWidth={1.5} aria-hidden />
+              <ArrowUpRight className="size-icon-md" aria-hidden />
             </a>
             <a href={profile.github} target="_blank" rel="me noopener" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-sm')}>
               GitHub
-              <ArrowUpRight size={15} strokeWidth={1.5} aria-hidden />
+              <ArrowUpRight className="size-icon-md" aria-hidden />
             </a>
             <Link href={localePath(locale, '/portfolio/resume')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-sm')}>
               {copy.contact.resume}
-              <ArrowRight size={15} strokeWidth={1.5} aria-hidden />
+              <ArrowRight className="size-icon-md" aria-hidden />
             </Link>
           </div>
         </div>

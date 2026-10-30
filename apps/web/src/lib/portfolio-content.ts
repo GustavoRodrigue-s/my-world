@@ -5,8 +5,6 @@
 // - Language-independent facts (name, links, coordinates…) live here, in IDENTITY.
 // - Everything visible lives in ./portfolio-content-pt.ts and ./portfolio-content-en.ts,
 //   both typed as PortfolioCopy so the two can't drift apart in shape.
-// - Lines marked REVIEW are drafts written in Gustavo's voice — confirm or rewrite
-//   them (in both files: the English one mirrors the Portuguese markers).
 
 import { en } from './portfolio-content-en'
 import { pt } from './portfolio-content-pt'
@@ -100,10 +98,7 @@ export interface PortfolioCopy {
   profile: {
     role: string
     city: string
-    region: string
     motto: string
-    purpose: string
-    duality: string
   }
   meta: {
     defaultTitle: string
@@ -123,20 +118,6 @@ export interface PortfolioCopy {
     dayNight: { toDay: string; toNight: string }
     /** The strip back to the world's home (<WorldBar>). */
     worldBar: { label: string; home: string }
-    footer: {
-      /** Link to the world's home (the map). */
-      home: string
-      world: string
-      landscapes: string
-      contact: string
-      portfolio: string
-      resume: string
-      identity: string
-      email: string
-      inCity: string
-      /** Tag on a link to a space that is still being built (lib/world.ts). */
-      building: string
-    }
   }
   copy: {
     about: Pick<Folio, 'label' | 'note'>

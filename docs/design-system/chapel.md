@@ -19,7 +19,7 @@ shows only up close.
 - Titles in Cormorant upright, text and UI in Bricolage, Plex Mono only for
   dates, reading times and counts. Labels are `Eyebrow`s.
 - **Not in the Capela:** ¶ numbered rubrics, `Plate` / `Folio`, `TitleBlock`,
-  `SpecSheet` / `Seal`, numbered `IndexList` / `TopicGrid`, registration marks,
+  `SpecSheet` / `Seal`, registration marks,
   hatching, the portrait's orbit ring, header blur, scroll plotting.
 
 ## Wiring
@@ -29,7 +29,7 @@ shows only up close.
 variant="stone"`, the `ConstructionNotice` while closed, a solid header with the
 red-star mark (gilds as it orbits on hover), `PageNav variant="stone"`, search
 (`<SearchDialog variant="stone">` on `/api/search?space=chapel`, ADR 0017: flat
-panel, serif titles) and day/night; footer with the themes and a link back to the world.
+panel, serif titles) and day/night; the world's footer ([ADR 0022](../architecture/adr/0022-one-world-footer-and-treasure-everywhere.md)).
 
 ## Pages
 

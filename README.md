@@ -2,7 +2,7 @@
 
 Gustavo Rodrigues Fabiano's personal world — "Mundo do Gustavo": one world with
 spaces, drawn as a map at `/`. The Portfólio (career, résumé, brand guide; PT +
-EN) is open; the Capela is being built; Projetos and Estudos are planned.
+EN) is open; Estudos and the Capela are being built; Projetos is planned.
 
 Next.js 15 · TypeScript · Tailwind v4 · Turborepo + pnpm · Vercel.
 
@@ -16,9 +16,8 @@ pnpm dev        # http://localhost:3000
 
 ```
 apps/web/            Next.js app — every space
-apps/cms/            Strapi 5 (legacy, not wired)
 packages/ui/         @my-world/ui — the identity's components and CSS
-packages/design-system/  themes (tokens) per environment
+packages/design-system/  design tokens and themes per environment
 packages/types/      shared types
 docs/                the project's documentation
 ```

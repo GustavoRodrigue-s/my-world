@@ -5,6 +5,7 @@ import '@my-world/design-system/css/chapel.css'
 import '@my-world/ui/css/identity.css'
 import { Emphasis, Heading, PageIntro, SiteShell, StatusTag, Text, buttonClasses, cx } from '@/components/ui'
 import { ChapelScaffold } from '@/components/chapel'
+import { WorldFooter } from '@/components/world/world-footer'
 import { CHAPEL } from '@/lib/chapel-content'
 import { identityFonts } from '@/lib/fonts'
 
@@ -26,7 +27,7 @@ export default function ChapelUnderConstruction() {
       className={identityFonts}
       skipLabel={CHAPEL.shell.skipLink}
       header={null}
-      footer={null}
+      footer={<WorldFooter locale="pt" />}
     >
       <div className="flex min-h-dvh flex-col justify-center">
         <PageIntro
@@ -37,11 +38,11 @@ export default function ChapelUnderConstruction() {
               <StatusTag tone="open">{construction.status}</StatusTag>
             </div>
           }
-          label={CHAPEL.name}
+          label={construction.name}
           actions={
             <Link href="/" className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-base')}>
               {construction.back}
-              <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
+              <ArrowRight className="size-icon-md" aria-hidden />
             </Link>
           }
           footer={

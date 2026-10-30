@@ -34,7 +34,8 @@ export function SiteShell({ env, lang, className, motion = 'plotted', skipLabel,
         {skipLabel}
       </a>
       {header}
-      <main id="content" className="flex-1">
+      {/* Focusable from script (skip link, back to top), without a ring of its own. */}
+      <main id="content" tabIndex={-1} className="flex-1 outline-none">
         {children}
       </main>
       {footer}

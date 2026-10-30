@@ -1,6 +1,7 @@
 'use client'
 
 import { Suspense } from 'react'
+import { X } from 'lucide-react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import type { Route } from 'next'
 import type { StudyFormat, StudyTheme } from '@my-world/types'
@@ -12,20 +13,24 @@ import type { StudyEntry } from './study-entry'
 interface Filters {
   theme: StudyTheme | null
   format: StudyFormat | null
+  /** A subject, from a study's page (its chips link to `?tag=`). */
+  tag: string | null
 }
+
+const NO_FILTER: Filters = { theme: null, format: null, tag: null }
 
 interface StudyIndexProps {
   entries: StudyEntry[]
 }
 
 /**
- * Every study, filtered by format and theme. The filters live in the URL
- * (`?theme=economia&format=note`, ADR 0014), so a filtered list can be linked
- * to. The page stays static: before the URL is read, every study is shown.
+ * Every study, filtered by format and theme, or by a subject coming from a
+ * study's page. The filters live in the URL (`?theme=economia&format=note`,
+ * `?tag=CSS`, ADR 0014), so a filtered list can be linked to. The page stays static: before the URL is read, every study is shown.
  */
 export function StudyIndex({ entries }: StudyIndexProps) {
   return (
-    <Suspense fallback={<StudyIndexView entries={entries} filters={{ theme: null, format: null }} />}>
+    <Suspense fallback={<StudyIndexView entries={entries} filters={NO_FILTER} />}>
       <FromUrl entries={entries} />
     </Suspense>
   )
@@ -42,12 +47,14 @@ function FromUrl({ entries }: StudyIndexProps) {
   const filters: Filters = {
     theme: pick(params.get('theme'), STUDY_THEMES),
     format: pick(params.get('format'), STUDY_FORMATS),
+    tag: pick(params.get('tag'), [...new Set(entries.flatMap((e) => e.tags))]),
   }
 
   const select = (next: Filters) => {
     const query = new URLSearchParams()
     if (next.theme) query.set('theme', next.theme)
     if (next.format) query.set('format', next.format)
+    if (next.tag) query.set('tag', next.tag)
     const qs = query.toString()
     router.replace((qs ? `${pathname}?${qs}` : pathname) as Route, { scroll: false })
   }
@@ -62,7 +69,10 @@ function StudyIndexView({
 }: StudyIndexProps & { filters: Filters; onSelect?: (next: Filters) => void }) {
   const t = STUDIES.index.filters
   const shown = entries.filter(
-    (e) => (!filters.theme || e.theme === filters.theme) && (!filters.format || e.format === filters.format)
+    (e) =>
+      (!filters.theme || e.theme === filters.theme) &&
+      (!filters.format || e.format === filters.format) &&
+      (!filters.tag || e.tags.includes(filters.tag))
   )
 
   return (
@@ -89,6 +99,15 @@ function StudyIndexView({
             </Chip>
           ))}
         </div>
+        {filters.tag && (
+          // A row of its own: it comes from a study's page, not from these chips.
+          <div role="group" aria-label={t.tagLabel} className="w-full">
+            <Chip pressed onClick={() => onSelect({ ...filters, tag: null })} title={t.clearTag} className="gap-2">
+              {t.tag(filters.tag)}
+              <X className="size-icon-xs" aria-hidden />
+            </Chip>
+          </div>
+        )}
       </div>
       {shown.length > 0 ? (
         // Estudos' gold is `hidden`: its `support` is graphite (ADR 0015).
@@ -98,7 +117,7 @@ function StudyIndexView({
           <Text size="lg" color="muted">
             {t.empty}
           </Text>
-          <button type="button" className={buttonClasses({ variant: 'quiet', size: 'none' })} onClick={() => onSelect({ theme: null, format: null })}>
+          <button type="button" className={buttonClasses({ variant: 'quiet', size: 'none' })} onClick={() => onSelect(NO_FILTER)}>
             {t.clear}
           </button>
         </div>

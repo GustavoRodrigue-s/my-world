@@ -5,6 +5,7 @@ import '@my-world/design-system/css/studies.css'
 import '@my-world/ui/css/identity.css'
 import { Emphasis, Heading, PageIntro, SiteShell, StatusTag, Text, buttonClasses, cx } from '@/components/ui'
 import { StudiesScaffold } from '@/components/studies'
+import { WorldFooter } from '@/components/world/world-footer'
 import { STUDIES } from '@/lib/studies-content'
 import { identityFonts } from '@/lib/fonts'
 
@@ -26,7 +27,7 @@ export default function StudiesUnderConstruction() {
       className={identityFonts}
       skipLabel={STUDIES.shell.skipLink}
       header={null}
-      footer={null}
+      footer={<WorldFooter locale="pt" />}
     >
       <div className="flex min-h-dvh flex-col justify-center">
         <PageIntro
@@ -41,7 +42,7 @@ export default function StudiesUnderConstruction() {
           actions={
             <Link href="/" className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-base')}>
               {construction.back}
-              <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
+              <ArrowRight className="size-icon-md" aria-hidden />
             </Link>
           }
         >

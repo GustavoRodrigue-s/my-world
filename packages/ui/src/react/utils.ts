@@ -3,6 +3,22 @@ export function cx(...classes: (string | undefined | false | null)[]): string {
   return classes.filter(Boolean).join(' ')
 }
 
+/** The icon scale (size.icon.*), as whole class names so Tailwind finds them. */
+export const ICON_SIZE = {
+  '2xs': 'size-icon-2xs',
+  xs: 'size-icon-xs',
+  sm: 'size-icon-sm',
+  md: 'size-icon-md',
+  lg: 'size-icon-lg',
+  xl: 'size-icon-xl',
+  '2xl': 'size-icon-2xl',
+  '3xl': 'size-icon-3xl',
+  '4xl': 'size-icon-4xl',
+  '5xl': 'size-icon-5xl',
+  '6xl': 'size-icon-6xl',
+} as const
+export type IconSize = keyof typeof ICON_SIZE
+
 // FNV-1a → mulberry32: tiny, deterministic, identical on server and client.
 function hash(seed: string): number {
   let h = 0x811c9dc5

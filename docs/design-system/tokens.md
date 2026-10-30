@@ -22,8 +22,8 @@ The base colors are not emitted as CSS: components use the themes' roles
   (no `article`, `nav`, `card`, `section`, `page`).
 - Written in **px / ms**, with the values the interface actually uses. Each
   platform's build converts: the web uses rem (1rem = 16px)
-  for type, space, sizes and breakpoints, `clamp(min, viewport·vw, max)` for
-  fluid roles, px for hairlines, corners and shadows.
+  for type, space, sizes and breakpoints, whole steps at each breakpoint for
+  responsive roles (`world.responsive`), line heights rounded to a whole pixel, px for hairlines, corners and shadows.
 - Everything in `generated/` (CSS, `tokens.json`, brand SVGs) is built at build
   time and not committed.
 - A token exists only if it is used or belongs to a scale. Adding one: put it in
@@ -36,23 +36,29 @@ The base colors are not emitted as CSS: components use the themes' roles
 |---|---|
 | `color.*` (semantic, per theme) | `bg-surface`, `bg-surface-muted`, `text-foreground-muted`, `border-border-strong`, `text-primary`, `fill-support`, `fill-hidden`… |
 | `font.family.*` | `font-sans` · `font-serif` · `font-mono` |
-| `font.size.*` (xs 12px → 8xl 96px; base 16px) | `text-xs` … `text-8xl` |
+| `font.size.*` (2xs 10px, only the header's subtitle; xs 12px → 7xl 72px; base 16px) | `text-2xs` … `text-7xl` |
 | `typography.*` (roles) | `text-display`, `text-headline`, `text-title`, `text-title-sm`, `text-*-serif`, `text-quote`, `text-quote-sm`, `text-lead`, `text-callout`, `text-monogram` (size + line height + tracking + weight; add the family with `font-*`) |
 | `font.scale.*` (relative to the surrounding text → em) | `text-emphasis` · `text-initial` (drop cap) · `mt-initial-offset` |
 | `font.weight.*` | `font-light` · `font-regular` · `font-medium` · `font-semibold` · `font-bold` |
 | `font.line-height.*` | `leading-flush` · `none` · `tight` · `snug` · `normal` · `relaxed` (body) · `loose` |
 | `font.letter-spacing.*` (fraction of the font size → em) | `tracking-tighter` · `tight` · `normal` · `wide` · `wider` · `widest` |
-| `space.N` | Tailwind's numeric spacing (`p-4` = `space.4` = 16px; steps of 4px) |
+| `space.N` | Tailwind's numeric spacing (`p-4` = `space.4` = 16px; steps of 4px, so no half steps: `gap-2.5` doesn't exist here) |
 | `space.gutter` / `gutter-wide`, `space.block` / `block-wide` | `px-gutter md:px-gutter-wide`, `py-block md:py-block-wide` |
 | `size.width.*` (4xs 120px → 7xl 1080px, steps of 8px) | `max-w-xs` … `max-w-7xl`, `min-w-*`; in grid templates `var(--size-width-xs)` |
+| `size.icon.*` (2xs 8px · xs 12 · sm 14 · md 16 · lg 18 · xl 24 · 2xl 32 · 3xl 48 · 4xl 56 · 5xl 64 · 6xl 88) | `size-icon-md`, `w-icon-5xl`; the `size` prop of `Mark`, `Seal`, `CrossPattee`, `RoseWindow` |
+| `stroke.icon` (unitless, on a 24-unit grid) | every `.lucide` icon, automatically |
+| `transform.scale.*` (zoom, lift, pop, enter, ripple-from/to, pulse, print) · `transform.rotate.tilt` (deg) | `scale-(--transform-scale-zoom)`, `rotate-(--transform-rotate-tilt)`, keyframes in identity.css, `print:zoom-print` |
+| `filter.grayscale.*` · `filter.sepia.*` (photo tone) · `filter.blur.glass` | `grayscale-(--filter-grayscale-subtle)`, `sepia-(--filter-sepia-medium)`, `backdrop-blur-(--filter-blur-glass)` |
 | `size.container` · `size.measure` · `size.bar` | `.section-inner` · `max-w-measure` / `.article-inner` · `h-bar`, `scroll-mt-bar` |
 | `breakpoint.*` | `sm:` `md:` `lg:` `xl:` |
 | `radius.*` | `rounded-xs` · `rounded-pill` · arches: `rounded-t-[50%_var(--radius-arch)]` |
-| `opacity.*` | `opacity-faint` · `opacity-dim` · `opacity-half` |
-| `duration.*` · `easing.*` | `duration-fast` · `normal` · `slow` · `slower` · `gesture` · `slowest` (`arrive`, `pulse`, `draw` and `ease` `draw` drive the map in identity.css) · `ease-standard` · `ease-out` · `ease-in-out` · `animate-quote-in` |
+| `opacity.*` | `opacity-wash` · `opacity-faint` · `opacity-dim` · `opacity-half` · `opacity-edge` · `opacity-strong`; a translucent color is a named color (`bg-surface-glass`, `border-support-edge`, `bg-support-wash`), never `bg-surface/85` |
+| `duration.*` · `easing.*` | `duration-fast` · `normal` · `slow` · `slower` · `gesture` · `slowest` (`arrive`, `pulse`, `draw` and `ease` `draw` drive the map in identity.css; `stagger` is one step of an arrival sequence) · `ease-standard` · `ease-out` · `ease-in-out` · `animate-quote-in` |
 | `border.width.*` | hairline (Tailwind's `border`) · `strong` (focus ring) |
 | `layer.*` | `z-raised` · `z-sticky` · `z-overlay` · `z-top` |
 | `shadow.floating` (per theme) | `shadow-floating` |
 
-Don't write `text-[14px]`, `max-w-[460px]`, `tracking-[…]` or `leading-[…]` in
-components — use the scale; a missing value becomes a token first.
+Don't write `text-[14px]`, `max-w-[460px]`, `tracking-[…]`, `leading-[…]`,
+`scale-[1.06]`, `size={15}` or `strokeWidth={1.6}` in components — use the
+scale; a missing value becomes a token first. What is not a token (a drawing's
+geometry, proportions, identities): [styling.md](styling.md) rule 4.

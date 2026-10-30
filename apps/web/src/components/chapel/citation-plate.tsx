@@ -61,7 +61,7 @@ export function CitationPlate({ quotes, labels }: CitationPlateProps) {
 
   const quote = quotes[index]
   const control =
-    'inline-flex cursor-pointer items-center gap-2 rounded-xs px-2.5 py-1.5 font-mono text-xs text-foreground-muted transition-colors duration-fast hover:text-primary'
+    'inline-flex cursor-pointer items-center gap-2 rounded-xs px-3 py-2 font-mono text-xs text-foreground-muted transition-colors duration-fast hover:text-primary'
 
   return (
     <figure
@@ -82,14 +82,14 @@ export function CitationPlate({ quotes, labels }: CitationPlateProps) {
       </div>
 
       <div className="mt-6 flex items-center gap-4">
-        <span aria-hidden className="flex gap-1.5">
+        <span aria-hidden className="flex gap-2">
           {quotes.map((q, i) => (
-            <span key={q.text} className={cx('h-1.5 w-1.5 rounded-full', i === index ? 'bg-primary' : 'bg-border-strong')} />
+            <span key={q.text} className={cx('size-icon-2xs rounded-pill', i === index ? 'bg-primary' : 'bg-border-strong')} />
           ))}
         </span>
         {!reduced && (
           <button type="button" onClick={() => setPaused((p) => !p)} aria-pressed={paused} className={control}>
-            <svg viewBox="0 0 10 10" width="9" height="9" aria-hidden className="fill-current">
+            <svg viewBox="0 0 10 10" aria-hidden className="size-icon-2xs fill-current">
               {paused ? <path d="M2 1l7 4-7 4z" /> : <path d="M1.5 1h2.4v8H1.5zM6.1 1h2.4v8H6.1z" />}
             </svg>
             {paused ? labels.play : labels.pause}

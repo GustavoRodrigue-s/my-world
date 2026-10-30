@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Heading, Mark, StatusTag, Text, buttonClasses, cx } from '@/components/ui'
 import { CHAPEL } from '@/lib/chapel-content'
 import { canEnter } from '@/lib/world'
+import { WORLD_FOOTER } from '@/lib/world-footer-content'
 import '@my-world/design-system/css/portfolio.css'
 import '@my-world/ui/css/identity.css'
 
@@ -10,7 +11,7 @@ export default function NotFound() {
   return (
     <div data-env="portfolio" className="flex min-h-dvh items-center bg-surface px-gutter md:px-gutter-wide text-foreground">
       <main className="section-inner w-full py-20">
-        <Mark size={48} className="text-foreground" />
+        <Mark size="3xl" className="text-foreground" />
         <Text family="mono" size="xs" color="primary" className="mt-8">
           ¶ 404 — fora de órbita
         </Text>
@@ -29,12 +30,12 @@ export default function NotFound() {
           </Link>
           {canEnter('chapel') ? (
             <Link href="/chapel" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-11 px-4 text-sm')}>
-              {CHAPEL.name}
+              {WORLD_FOOTER.pt.places.chapel}
             </Link>
           ) : (
             // Still being built (lib/world.ts): the door is drawn, dashed, and closed.
-            <span className="inline-flex h-11 items-center gap-2.5 rounded-xs border border-dashed border-border-strong px-4 font-sans text-sm text-foreground-muted">
-              {CHAPEL.name}
+            <span className="inline-flex h-11 items-center gap-3 rounded-xs border border-dashed border-border-strong px-4 font-sans text-sm text-foreground-muted">
+              {WORLD_FOOTER.pt.places.chapel}
               <StatusTag tone="open">{CHAPEL.construction.status}</StatusTag>
             </span>
           )}

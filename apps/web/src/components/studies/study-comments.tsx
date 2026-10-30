@@ -10,7 +10,7 @@ export function StudyComments({ className }: { className?: string }) {
   const t = STUDIES.commentsArea
   const closed = STUDIES.comments === 'closed'
   return (
-    <section aria-labelledby="comments-title" className={cx('border-t border-border-strong pt-10', className)}>
+    <section id="comments" aria-labelledby="comments-title" className={cx('scroll-mt-bar border-t border-border-strong pt-10', className)}>
       <Heading as="h2" id="comments-title" level="title">
         {t.title}
       </Heading>

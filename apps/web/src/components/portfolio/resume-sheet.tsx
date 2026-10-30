@@ -5,7 +5,7 @@ import { localePath } from '@/lib/portfolio-locale'
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <Text as="div" family="mono" size="xs" color="primary" className="mb-3 break-after-avoid border-b border-border-strong pb-2 print:mb-2.5">
+      <Text as="div" family="mono" size="xs" color="primary" className="mb-3 break-after-avoid border-b border-border-strong pb-2 print:mb-3">
         ¶ <span className="text-foreground-muted">{title}</span>
       </Text>
       {children}
@@ -19,21 +19,21 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
   const site = (process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(/^https?:\/\//, '')
 
   return (
-    <article className="registration mx-auto w-full max-w-6xl border border-border bg-surface-raised p-7 shadow-floating sm:p-10 md:p-14 print:max-w-none print:border-0 print:bg-transparent print:p-0 print:shadow-none print:[zoom:0.79]">
+    <article className="registration mx-auto w-full max-w-6xl border border-border bg-surface-raised p-7 shadow-floating sm:p-10 md:p-14 print:max-w-none print:border-0 print:bg-transparent print:p-0 print:shadow-none print:zoom-print">
       <header className="border-b border-foreground pb-7">
         <div className="flex items-start justify-between gap-6">
           <div>
             <Heading as="h1" level="headline">
               {profile.name}
             </Heading>
-            <Text size="lg" color="foreground" className="mt-2">
+            <Text size="base" color="foreground" className="mt-2">
               {profile.role}
             </Text>
           </div>
           {/* The mark as the letterhead seal */}
-          <Mark size={44} className="mt-1 text-foreground" />
+          <Mark size="3xl" className="mt-1 text-foreground" />
         </div>
-        <Text as="div" family="mono" size="xs" color="muted" className="mt-6 flex flex-wrap gap-x-5 gap-y-1.5 print:gap-x-3.5">
+        <Text as="div" family="mono" size="xs" color="muted" className="mt-6 flex flex-wrap gap-x-5 gap-y-2 print:gap-x-4">
           <span>
             {profile.city} · {profile.timezone}
           </span>
@@ -68,16 +68,16 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
                       {job.period}
                     </Text>
                   </div>
-                  <Text family="mono" size="xs" color="muted" className="mt-0.5">
+                  <Text family="mono" size="xs" color="muted" className="mt-1">
                     {job.place}
                   </Text>
-                  <Text size="sm" color="foreground" leading="relaxed" className="mt-2.5">
+                  <Text size="sm" color="foreground" leading="relaxed" className="mt-3">
                     {job.text}
                   </Text>
                   {job.highlights.length > 0 && (
-                    <ul className="mt-3 flex list-none flex-col gap-1.5">
+                    <ul className="mt-3 flex list-none flex-col gap-2">
                       {job.highlights.map((h) => (
-                        <li key={h} className="flex gap-2.5">
+                        <li key={h} className="flex gap-3">
                           <span aria-hidden className="mt-2 h-1 w-1 shrink-0 bg-primary" />
                           <Text as="span" size="sm" color="muted" leading="snug">
                             {h}
@@ -107,13 +107,13 @@ export function ResumeSheet({ locale }: { locale: Locale }) {
             ))}
           </Block>
           <Block title={resume.blocks.skills}>
-            <dl className="flex flex-col gap-3.5 print:gap-2.5">
+            <dl className="flex flex-col gap-4 print:gap-3">
               {resume.skills.map((s) => (
                 <div key={s.group}>
                   <Text as="dt" size="sm" weight="semibold" color="foreground">
                     {s.group}
                   </Text>
-                  <Text as="dd" size="sm" color="muted" leading="snug" className="mt-0.5">
+                  <Text as="dd" size="sm" color="muted" leading="snug" className="mt-1">
                     {s.items.join(', ')}
                   </Text>
                 </div>

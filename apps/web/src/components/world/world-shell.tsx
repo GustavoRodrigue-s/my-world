@@ -1,30 +1,15 @@
 import Link from 'next/link'
-import { DayNightToggle, SiteFooter, SiteHeader, SiteShell, buttonClasses, cx, type FooterLink } from '@/components/ui'
+import { DayNightToggle, SiteHeader, SiteShell, buttonClasses, cx } from '@/components/ui'
 import { identityFonts } from '@/lib/fonts'
-import { IDENTITY } from '@/lib/portfolio-content'
-import { SPACES, canEnter } from '@/lib/world'
-import { PLACE_ORDER, WORLD } from '@/lib/world-content'
-
-const MARK = { portfolio: 'satellite', projects: 'artifact', studies: 'seed', chapel: 'star' } as const
+import { WORLD } from '@/lib/world-content'
+import { WorldFooter } from './world-footer'
 
 /**
  * The world's own frame: the master brand, no location, no personal line.
  * The résumé stays one click away for recruiters who land here.
  */
 export function WorldShell({ children }: { children: React.ReactNode }) {
-  const { shell, footer, places, atlas } = WORLD
-
-  const placeLinks: FooterLink[] = PLACE_ORDER.map((id) => {
-    const copy = places[id]
-    const status = SPACES[id].status
-    return {
-      label: copy.name,
-      href: 'href' in copy && copy.href ? copy.href : '/',
-      mark: { variant: MARK[id] },
-      tag: status === 'open' ? undefined : { tone: status === 'building' ? 'open' : 'draft', label: atlas.states[status] },
-      disabled: !canEnter(id),
-    }
-  })
+  const { shell } = WORLD
 
   return (
     <SiteShell
@@ -39,7 +24,7 @@ export function WorldShell({ children }: { children: React.ReactNode }) {
           sub={shell.brandSub}
           actions={
             <>
-              <Link href="/portfolio/resume" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-9 px-3.5 text-sm')}>
+              <Link href="/portfolio/resume" className={cx(buttonClasses({ variant: 'line', size: 'none' }), 'h-9 px-4 text-sm')}>
                 {shell.resume}
               </Link>
               <DayNightToggle labels={shell.dayNight} />
@@ -47,25 +32,7 @@ export function WorldShell({ children }: { children: React.ReactNode }) {
           }
         />
       }
-      footer={
-        <SiteFooter
-          name={WORLD.name}
-          text={footer.text}
-          columns={[
-            { title: footer.places, links: placeLinks },
-            { title: footer.world, links: [{ label: footer.identity, href: '/identity' }] },
-            {
-              title: footer.contact,
-              links: [
-                { label: footer.email, href: `mailto:${IDENTITY.email}`, external: true },
-                { label: 'LinkedIn', href: IDENTITY.linkedin, external: true, rel: 'me noopener' },
-                { label: 'GitHub', href: IDENTITY.github, external: true, rel: 'me noopener' },
-              ],
-            },
-          ]}
-          notes={[`© ${new Date().getFullYear()} ${IDENTITY.name}`, footer.motto]}
-        />
-      }
+      footer={<WorldFooter locale="pt" />}
     >
       {children}
     </SiteShell>

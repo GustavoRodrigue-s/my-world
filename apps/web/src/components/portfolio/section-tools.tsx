@@ -21,10 +21,10 @@ export function SectionTools({ locale }: { locale: Locale }) {
             {copy.tools.aiText}
           </Text>
         </div>
-        <ul className="flex list-none flex-wrap content-start gap-x-5 gap-y-2.5 md:pt-6">
+        <ul className="flex list-none flex-wrap content-start gap-x-5 gap-y-3 md:pt-6">
           {aiTools.map((tool) => (
             <li key={tool} className="inline-flex items-center gap-2">
-              <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-primary" />
+              <span aria-hidden className="h-2 w-2 shrink-0 rounded-pill bg-primary" />
               <Text as="span" size="base" color="foreground">
                 {tool}
               </Text>

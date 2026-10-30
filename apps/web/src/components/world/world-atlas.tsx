@@ -21,13 +21,13 @@ export function WorldAtlas() {
           const enter = canEnter(id) && href
           return (
             <li key={id} className="flex flex-col bg-surface p-6">
-              <svg viewBox="-40 -80 80 86" width="64" height="69" aria-hidden className="mb-5">
+              <svg viewBox="-40 -80 80 86" aria-hidden className="mb-5 h-auto w-icon-5xl">
                 <PlaceGlyph space={id} status={status} strokeWidth={1.5} />
               </svg>
               <Text family="mono" size="xs" color={status === 'planned' ? 'support' : 'primary'}>
                 {copy.verb}
               </Text>
-              <Heading as="h3" level="title" className="mt-1.5">
+              <Heading as="h3" level="title" className="mt-2">
                 {copy.name}
               </Heading>
               <Text size="sm" color="muted" leading="relaxed" className="mt-3">
@@ -49,7 +49,7 @@ export function WorldAtlas() {
                 {enter && (
                   <Link href={href as Route} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-base')}>
                     {atlas.enter}
-                    <ArrowRight size={15} strokeWidth={1.6} aria-hidden />
+                    <ArrowRight className="size-icon-md" aria-hidden />
                     <span className="sr-only"> — {copy.name}</span>
                   </Link>
                 )}

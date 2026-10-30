@@ -9,7 +9,8 @@ import type { SpaceId, SpaceStatus } from '@/lib/world'
  *   portfolio → a Antena     (the signal the world sends out)
  *   projects  → a Oficina    (sawtooth workshop and chimney)
  *   studies   → a Biblioteca (columns and pediment)
- *   chapel    → a Capela     (red cross, rose window with a gold heart)
+ *   chapel    → o Campo      (a small house of prayer with no cross on it;
+ *                              only a rose window with a gold heart)
  *
  * The state is drawn, not written: open in ink, building with scaffolding
  * beside it, planned as a dashed blueprint in the support color.
@@ -56,7 +57,6 @@ const DRAWING: Record<SpaceId, { width: number; ink: string; extra?: (planned: b
       <>
         <circle cy="-30" r="4.2" fill="none" />
         {!planned && <circle cy="-30" r="1.5" className="fill-hidden stroke-none" />}
-        <path d="M0 -40V-55M-5 -49.5H5" className={planned ? undefined : 'stroke-primary'} strokeWidth="1.5" />
       </>
     ),
   },

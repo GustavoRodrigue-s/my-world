@@ -3,9 +3,9 @@
 The status of each space is code: `SPACES` in `apps/web/src/lib/world.ts`
 (`open` · `building` · `planned`). This page describes what each space is for.
 
-| Space | Verb | What it holds | Route | Status (2026-10-26) |
+| Space | Verb | What it holds | Route | Status (2026-10-30) |
 |---|---|---|---|---|
-| **Home** — carta do mundo | — | the map of every place, the atlas, the diário de bordo | `/` | open (on `feat/world-home`, not merged yet) |
+| **Home** — carta do mundo | — | the map of every place, the atlas, the diário de bordo | `/` | open (not in production yet) |
 | **Portfólio** | present | career, résumé, services, contact; only **highlights** of projects; PT + EN | `/portfolio`, `/identity` | open |
 | **Projetos** | make | tech, robotics and social projects in depth: video, images, links | `/projects` (planned) | planned |
 | **Estudos** | think | articles and notes on technology, economy, spiritual life and philosophy | `/studies` | building (closed to the public; on `feat/studies`) |
@@ -33,8 +33,8 @@ video and links (repository, demo, press). Confidential projects appear only as
 a spec sheet (`SpecSheet`). The portfolio shows highlights linking here.
 
 Candidate content: the "Road to Frontend Pleno" projects still in Notion (Loja
-Composable, Painel Kanban, Catálogo, Angular Kanban) — move them when this
-space is built.
+Composable, Painel Kanban, Catálogo, Angular Kanban) and Aprendizado Adaptativo
+(a multidisciplinary personal project, Notion) — move them when this space is built.
 
 ## Estudos (building — on `feat/studies`)
 
@@ -70,8 +70,10 @@ The world's front door: an old sea chart with every place on it. Details:
 
 - Opening line: "Coisas boas precisam ser vistas. Este é o mapa delas."
   Title: the three verbs ("O que eu acredito, aprendo e construo").
-- The owner's portrait as a medallion — "cartógrafo deste mundo" — but no bio,
+- The owner's portrait in the map's cartouche — "cartógrafo" — but no bio,
   no location, no coordinates on the home (those stay in the portfolio).
+- The Capela is spoken of only by parable — the treasure hidden in a field
+  ([ADR 0020](../architecture/adr/0020-home-speaks-of-the-capela-by-parable.md)).
 - "Identidade visual" belongs to the world (a footer link), not to a place.
 - Footer only, no closing section. Portuguese only for now; English later.
 

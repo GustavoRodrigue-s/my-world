@@ -68,7 +68,7 @@ export function Palette({ swatches, large }: PaletteProps) {
                 <Text size="base" weight="semibold" color="foreground">
                   {name}
                 </Text>
-                <Text size="sm" color="muted" className="mt-0.5">
+                <Text size="sm" color="muted" className="mt-1">
                   {role}
                 </Text>
               </div>
@@ -77,7 +77,7 @@ export function Palette({ swatches, large }: PaletteProps) {
                   {s.color.toUpperCase()}
                 </Text>
                 {ratio && (
-                  <Text family="mono" size="xs" color="muted" className="mt-0.5">
+                  <Text family="mono" size="xs" color="muted" className="mt-1">
                     {ratio.toFixed(1)}:1 {ratio >= 4.5 ? 'AA' : ratio >= 3 ? large : ''}
                   </Text>
                 )}

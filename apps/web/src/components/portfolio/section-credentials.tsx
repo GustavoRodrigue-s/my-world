@@ -41,7 +41,7 @@ export function SectionCredentials({ locale }: { locale: Locale }) {
               <Text size="base" weight="medium" color="foreground">
                 {l.name}
               </Text>
-              <Text size="sm" color="muted" className="mt-0.5">
+              <Text size="sm" color="muted" className="mt-1">
                 {l.level}
               </Text>
             </li>

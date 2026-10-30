@@ -18,12 +18,12 @@ export function StatusTag({ tone, children, className }: { tone: StatusTone; chi
   return (
     <span
       className={cx(
-        'inline-flex items-center gap-1.5 whitespace-nowrap rounded-xs border border-border-strong px-2 py-1 font-mono text-xs leading-none',
+        'inline-flex items-center gap-2 whitespace-nowrap rounded-xs border border-border-strong px-2 py-1 font-mono text-xs leading-none',
         tone === 'draft' ? 'text-support' : 'text-foreground',
         className
       )}
     >
-      <span aria-hidden className={cx('h-2 w-2 rounded-full', DOT[tone])} />
+      <span aria-hidden className={cx('h-2 w-2 rounded-pill', DOT[tone])} />
       {children}
     </span>
   )

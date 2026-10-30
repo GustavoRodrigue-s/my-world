@@ -1,9 +1,9 @@
 import { SiteShell, WorldBar } from '@/components/ui'
+import { WorldFooter } from '@/components/world/world-footer'
 import { identityFonts } from '@/lib/fonts'
 import { STUDIES, studiesPath } from '@/lib/studies-content'
 import { isUnderConstruction } from '@/lib/world'
 import { ConstructionNotice } from './construction-notice'
-import { StudiesFooter } from './studies-footer'
 import { StudiesHeader } from './studies-header'
 
 /**
@@ -30,7 +30,7 @@ export function StudiesShell({ children }: { children: React.ReactNode }) {
           <StudiesHeader />
         </>
       }
-      footer={<StudiesFooter />}
+      footer={<WorldFooter locale="pt" />}
     >
       {children}
     </SiteShell>

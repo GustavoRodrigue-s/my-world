@@ -31,7 +31,7 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd(chapelArticleSeo(study))) }} />
       <PageIntro
         labelledBy="study-title"
-        ornament={<CrossPattee size={16} />}
+        ornament={<CrossPattee size="md" />}
         label={
           study.category ? (
             <Link href={chapelPath('/categories', study.category.slug)} className="ink-link text-primary no-underline">
@@ -97,7 +97,7 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
         </div>
 
         <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-12 text-base')}>
-          <ArrowLeft size={15} strokeWidth={1.6} aria-hidden />
+          <ArrowLeft className="size-icon-md" aria-hidden />
           {t.back}
         </Link>
       </PageBody>

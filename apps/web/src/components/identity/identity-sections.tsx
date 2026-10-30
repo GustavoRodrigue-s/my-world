@@ -91,7 +91,7 @@ export function IdentityMark({ locale }: { locale: Locale }) {
       <ul className="plot-rise grid list-none gap-px border border-border-strong bg-border-strong md:grid-cols-3">
         {VARIANTS.map((variant) => (
           <li key={variant} className="flex flex-col items-center bg-surface-raised px-6 py-10 text-center">
-            <Mark variant={variant} size={88} className="text-foreground" />
+            <Mark variant={variant} size="6xl" className="text-foreground" />
             <Heading as="h3" level="title-sm" className="mt-6">
               {t.variants[variant][0]}
             </Heading>
@@ -132,7 +132,7 @@ export function IdentityMark({ locale }: { locale: Locale }) {
                   <span className="font-mono text-sm">{d.file}</span>
                   <span className="flex items-center gap-2 font-sans text-sm text-foreground-muted">
                     {t.files[d.key]}
-                    <Download size={14} strokeWidth={1.5} aria-hidden />
+                    <Download className="size-icon-sm" aria-hidden />
                   </span>
                 </a>
               </li>
@@ -225,9 +225,9 @@ export function IdentityElements({ locale }: { locale: Locale }) {
         </Element>
         <Element item={t.items.seal}>
           <span className="flex gap-3">
-            <Seal seed="onboarding-digital" size={48} lit />
-            <Seal seed="painel-do-cliente" size={48} lit />
-            <Seal seed="mundo-do-gustavo" size={48} />
+            <Seal seed="onboarding-digital" size="3xl" lit />
+            <Seal seed="painel-do-cliente" size="3xl" lit />
+            <Seal seed="mundo-do-gustavo" size="3xl" />
           </span>
         </Element>
         <Element item={t.items.status}>
@@ -259,7 +259,7 @@ function Element({ item: [name, text], children }: { item: [name: string, text: 
         <Heading as="h3" level="title-sm">
           {name}
         </Heading>
-        <Text size="sm" color="muted" leading="relaxed" className="mt-1.5">
+        <Text size="sm" color="muted" leading="relaxed" className="mt-2">
           {text}
         </Text>
       </div>
@@ -286,7 +286,7 @@ export function IdentityVoice({ locale }: { locale: Locale }) {
                   <Text size="base" weight="semibold" color="foreground">
                     {m.name}
                   </Text>
-                  <Text size="sm" color="muted" className="mt-0.5">
+                  <Text size="sm" color="muted" className="mt-1">
                     {m.text}
                   </Text>
                 </div>
@@ -300,7 +300,7 @@ export function IdentityVoice({ locale }: { locale: Locale }) {
           </Text>
           <dl className="border-t border-border-strong">
             {t.vocabulary.map(([word, meaning]) => (
-              <div key={word} className="flex items-baseline gap-3 border-b border-border py-3.5">
+              <div key={word} className="flex items-baseline gap-3 border-b border-border py-4">
                 <Text as="dt" size="base" weight="semibold" color="foreground" className="shrink-0">
                   {word}
                 </Text>

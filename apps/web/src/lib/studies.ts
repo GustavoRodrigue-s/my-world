@@ -6,9 +6,10 @@ import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { cache } from 'react'
 import { compileMDX } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import type { StudyMeta, StudyStatus } from '@my-world/types'
 import { mdxComponents } from '@/components/studies/mdx-components'
-import { STUDY_FORMATS, STUDY_THEMES } from '@/lib/studies-content'
+import { STUDIES, STUDY_FORMATS, STUDY_THEMES } from '@/lib/studies-content'
 import { canSeeUnderConstruction } from '@/lib/world'
 
 const DIR = path.join(process.cwd(), 'content/studies')
@@ -89,7 +90,11 @@ const load = cache(async (slug: string): Promise<Study> => {
   const { content, frontmatter } = await compileMDX<Record<string, unknown>>({
     source,
     components: mdxComponents,
-    options: { parseFrontmatter: true },
+    options: {
+      parseFrontmatter: true,
+      // GitHub Markdown: tables, footnotes, strikethrough, bare links.
+      mdxOptions: { remarkPlugins: [remarkGfm], remarkRehypeOptions: STUDIES.mdx },
+    },
   })
   const body = source.replace(/^---[\s\S]*?\n---/, '')
   return { ...readMeta(slug, frontmatter, body), content }
@@ -113,4 +118,16 @@ export async function getStudy(slug: string): Promise<Study | null> {
   if (!(await slugs()).includes(slug)) return null
   const study = await load(slug)
   return isVisible(study) ? study : null
+}
+
+/**
+ * What to read next under a study (ADR 0019): up to `n` other visible studies,
+ * the same theme first, then the most shared subjects, then the newest.
+ */
+export async function getRelatedStudies(study: StudyMeta, n = 3): Promise<StudyMeta[]> {
+  const score = (s: StudyMeta) => (s.theme === study.theme ? 2 : 0) + s.tags.filter((tag) => study.tags.includes(tag)).length
+  return (await getStudies())
+    .filter((s) => s.slug !== study.slug)
+    .sort((a, b) => score(b) - score(a) || b.publishedAt.localeCompare(a.publishedAt))
+    .slice(0, n)
 }

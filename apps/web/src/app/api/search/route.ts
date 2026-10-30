@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import type { SearchResult } from '@/components/ui'
+import { MOCK_ARTICLES } from '@/lib/mock-data'
 import { getStudies } from '@/lib/studies'
 import { STUDIES, studiesPath } from '@/lib/studies-content'
 import { canEnter } from '@/lib/world'
@@ -29,55 +30,12 @@ async function searchStudies(query: string): Promise<SearchResult[]> {
     }))
 }
 
-type ChapelArticle = { slug: string; title: string; category?: { name: string } | null }
-
-const chapelResult = (a: ChapelArticle): SearchResult => ({
-  href: `/chapel/articles/${a.slug}`,
-  title: a.title,
-  kicker: a.category?.name,
-})
-
-// Dev fallback: search mock data when Strapi is not configured or unreachable
-async function searchMockArticles(query: string): Promise<SearchResult[]> {
-  const { MOCK_ARTICLES } = await import('@/lib/mock-data')
+// The Capela: its mock studies, until it has real content.
+function searchChapel(query: string): SearchResult[] {
   const q = normalize(query)
-  return MOCK_ARTICLES.filter((a) =>
-    [a.title, a.summary, a.category?.name ?? ''].some((field) => normalize(field).includes(q))
-  )
+  return MOCK_ARTICLES.filter((a) => [a.title, a.summary, a.category?.name ?? ''].some((field) => normalize(field).includes(q)))
     .slice(0, LIMIT)
-    .map(chapelResult)
-}
-
-// The Capela: proxied to Strapi — keeps the API token server-side only.
-async function searchChapel(query: string): Promise<SearchResult[]> {
-  const strapiUrl = process.env.STRAPI_URL
-  const strapiToken = process.env.STRAPI_API_TOKEN
-  if (!strapiUrl || !strapiToken) return searchMockArticles(query)
-
-  try {
-    const url = new URL(`${strapiUrl}/api/articles`)
-    url.searchParams.set('filters[$or][0][title][$containsi]', query)
-    url.searchParams.set('filters[$or][1][summary][$containsi]', query)
-    url.searchParams.set('fields[0]', 'title')
-    url.searchParams.set('fields[1]', 'slug')
-    url.searchParams.set('fields[2]', 'summary')
-    url.searchParams.set('populate[category][fields][0]', 'name')
-    url.searchParams.set('pagination[limit]', String(LIMIT))
-    url.searchParams.set('filters[status][$eq]', 'published')
-
-    const res = await fetch(url.toString(), {
-      headers: { Authorization: `Bearer ${strapiToken}` },
-      next: { revalidate: 60 },
-    })
-
-    if (!res.ok) throw new Error(`Strapi error: ${res.status}`)
-
-    const json = await res.json()
-    return ((json.data ?? []) as ChapelArticle[]).map(chapelResult)
-  } catch (error) {
-    console.error('[search] Strapi unavailable, falling back to mock data:', error)
-    return searchMockArticles(query)
-  }
+    .map((a) => ({ href: `/chapel/articles/${a.slug}`, title: a.title, kicker: a.category?.name }))
 }
 
 export async function GET(request: NextRequest) {
@@ -89,6 +47,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ results: [] })
   }
 
-  const results = space === 'studies' ? await searchStudies(query) : await searchChapel(query)
+  const results = space === 'studies' ? await searchStudies(query) : searchChapel(query)
   return NextResponse.json({ results })
 }

@@ -24,7 +24,7 @@ export function TitleBlock({ items, className, ...props }: TitleBlockProps) {
       {...props}
     >
       {items.map((item) => (
-        <div key={item.label} className="border-r border-b border-border-strong px-3 py-2.5 min-w-0">
+        <div key={item.label} className="border-r border-b border-border-strong px-3 py-3 min-w-0">
           <dt className="font-mono text-xs uppercase tracking-widest text-foreground-muted">{item.label}</dt>
           <dd className="font-mono text-xs leading-snug text-foreground mt-1 truncate">{item.value}</dd>
         </div>

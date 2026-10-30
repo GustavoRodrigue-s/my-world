@@ -40,17 +40,17 @@ export default function ChapelHome() {
     <>
       <PageIntro
         labelledBy="chapel-title"
-        ornament={<CrossPattee size={18} />}
+        ornament={<CrossPattee size="lg" />}
         label={home.label}
         actions={
           <>
             <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-base')}>
               {home.ctaStudies}
-              <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
+              <ArrowRight className="size-icon-md" aria-hidden />
             </Link>
             <Link href="#themes" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-base')}>
               {home.ctaThemes}
-              <ArrowDown size={15} strokeWidth={1.6} aria-hidden />
+              <ArrowDown className="size-icon-md" aria-hidden />
             </Link>
           </>
         }
@@ -67,7 +67,7 @@ export default function ChapelHome() {
       {/* The altar at the end of the nave: the picture rests veiled and shows its gold under the reader's hand. */}
       <Section aria-label={home.supper.label} className="pt-0 md:pt-0">
         <Niche
-          ornament={<RoseWindow size={56} />}
+          ornament={<RoseWindow size="4xl" />}
           caption={
             <>
               <Text family="serif" size="lead" color="foreground" leading="snug" className="italic">
@@ -105,7 +105,7 @@ export default function ChapelHome() {
           action={
             <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-base')}>
               {home.latest.all}
-              <ArrowRight size={15} strokeWidth={1.6} aria-hidden />
+              <ArrowRight className="size-icon-md" aria-hidden />
             </Link>
           }
         />
@@ -127,7 +127,7 @@ export default function ChapelHome() {
               className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-11 px-4 text-sm')}
             >
               {home.latest.read}
-              <ArrowRight size={15} strokeWidth={1.5} aria-hidden />
+              <ArrowRight className="size-icon-md" aria-hidden />
             </Link>
           }
         />
@@ -167,11 +167,11 @@ export default function ChapelHome() {
           <div className="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
             <Link href={chapelPath('/about')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-11 px-4 text-sm')}>
               {home.author.more}
-              <ArrowRight size={15} strokeWidth={1.5} aria-hidden />
+              <ArrowRight className="size-icon-md" aria-hidden />
             </Link>
             <Link href="/portfolio" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-sm')}>
               {home.author.portfolio}
-              <ArrowRight size={14} strokeWidth={1.5} aria-hidden />
+              <ArrowRight className="size-icon-sm" aria-hidden />
             </Link>
           </div>
         </div>

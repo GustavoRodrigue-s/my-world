@@ -59,11 +59,9 @@ export function DayNightToggle({
       {/* A small planet: the hatched half is night. It turns half a revolution per switch. */}
       <svg
         viewBox="0 0 20 20"
-        width="18"
-        height="18"
         aria-hidden
         className={cx(
-          'transition-transform duration-slower ease-out',
+          'size-icon-lg transition-transform duration-slower ease-out',
           mode === 'dark' ? 'rotate-180' : 'rotate-0',
           mode === null && 'opacity-0'
         )}

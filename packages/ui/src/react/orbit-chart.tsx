@@ -51,7 +51,7 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
         ))}
       </svg>
       <div className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 text-foreground lg:block">
-        <Mark size={64} title={core} />
+        <Mark size="5xl" title={core} />
       </div>
 
       <div className="flex flex-col gap-10 lg:block">
@@ -66,17 +66,17 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
                 {orbit.caption}
               </Text>
             </h3>
-            <ul className="flex list-none flex-wrap gap-x-5 gap-y-2.5 lg:absolute lg:inset-0 lg:block">
+            <ul className="flex list-none flex-wrap gap-x-5 gap-y-3 lg:absolute lg:inset-0 lg:block">
               {orbit.items.map((item, i) => (
                 <li
                   key={item}
                   data-ring={ring}
-                  className="plot-orbit group inline-flex items-center gap-2 whitespace-nowrap lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-1.5 lg:py-0.5"
+                  className="plot-orbit group inline-flex items-center gap-2 whitespace-nowrap lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-2 lg:py-1"
                   style={position(ring, i, orbit.items.length)}
                 >
                   <span
                     aria-hidden
-                    className={cx('h-2 w-2 shrink-0 rounded-full transition-transform duration-normal motion-safe:group-hover:scale-[1.6]', DOT[ring])}
+                    className={cx('h-2 w-2 shrink-0 rounded-pill transition-transform duration-normal motion-safe:group-hover:scale-(--transform-scale-pop)', DOT[ring])}
                   />
                   <Text as="span" size="base" weight={ring === 0 ? 'semibold' : 'regular'} color={ring === 2 ? 'muted' : 'foreground'}>
                     {item}

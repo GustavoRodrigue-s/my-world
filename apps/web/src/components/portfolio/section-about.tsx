@@ -21,7 +21,7 @@ export function SectionAbout({ locale }: { locale: Locale }) {
         <div>
           <div className="flex max-w-3xl flex-col gap-5">
             {about.paragraphs.map((p, i) => (
-              <Text key={i} size="lg" color={i === 0 ? 'foreground' : 'muted'} leading="relaxed">
+              <Text key={i} size="base" color={i === 0 ? 'foreground' : 'muted'} leading="relaxed">
                 {p}
               </Text>
             ))}
@@ -41,7 +41,7 @@ export function SectionAbout({ locale }: { locale: Locale }) {
                     <Heading as="h3" level="title-sm">
                       {p.title}
                     </Heading>
-                    <Text size="sm" color="muted" leading="relaxed" className="mt-1.5">
+                    <Text size="sm" color="muted" leading="relaxed" className="mt-2">
                       {p.text}
                     </Text>
                   </div>

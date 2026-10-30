@@ -1,8 +1,7 @@
 # Local development
 
 Requirements: Node.js ≥ 20, pnpm (the version in `package.json` →
-`packageManager`). Docker only for the legacy Strapi ([strapi.md](strapi.md)) —
-the web app runs without it (pages read mock data).
+`packageManager`).
 
 ```bash
 pnpm install
@@ -19,24 +18,20 @@ pnpm dev                 # http://localhost:3000
 | `pnpm type-check` | `tsc --noEmit` in every package |
 | `pnpm lint` | lint |
 | `pnpm format` | prettier |
-| `pnpm tokens` | rebuild the design tokens (`packages/design-system/generated/`) after editing `tokens/*.json` |
 | `pnpm tokens` | rebuild the design system's output (CSS, `tokens.json`, brand SVGs) by hand; `dev` and `build` already do it |
 
 ## `.env.local`
 
 ```
-STRAPI_URL=http://localhost:1337
-STRAPI_API_TOKEN=<from strapi admin, only if Strapi runs>
-REVALIDATE_SECRET=any-random-string
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_SITE_NAME=My World
 # SHOW_UNDER_CONSTRUCTION=true|false   # override who can enter closed spaces
 ```
 
-In `next dev`, closed spaces (the Capela) are open to you, with a notice;
+In `next dev`, closed spaces (Estudos, the Capela) are open to you, with a notice;
 set `SHOW_UNDER_CONSTRUCTION=false` to see what the public sees.
 
 ## For AI sessions
 
 `.claude/launch.json` defines the dev server "web" for the preview tools. If
-port 3000 is taken by Gustavo's own server, don't kill it — use it or another port.
+port 3000 is taken by Gustavo's own server, don't kill it — use it. Never run
+`pnpm build` while a dev server is up: both write to `.next` and it breaks.

@@ -1,6 +1,6 @@
 // Capela — every visible word of the environment, in one place
 // (same rule as the portfolio's content files). Portuguese only for now.
-// Studies, categories and quotes come from lib/mock-data.ts until Strapi is wired.
+// Studies, categories and quotes come from lib/mock-data.ts until it has real content.
 
 import type { Route } from 'next'
 
@@ -16,8 +16,6 @@ export function chapelPath(path: ChapelPath, slug?: string): Route {
 export const CHAPEL = {
   name: 'Capela',
   author: 'Gustavo Rodrigues Fabiano',
-  purpose: 'Uma biblioteca digital pessoal de estudos sobre espiritualidade católica, teologia e filosofia.',
-  motto: 'Fides quaerens intellectum',
 
   meta: {
     title: 'Capela',
@@ -25,18 +23,20 @@ export const CHAPEL = {
   },
 
   // What visitors see while the Capela is closed (lib/world.ts → status 'building').
+  // Veiled like the rest of the world: it isn't ready, so it doesn't say what it is (ADR 0022).
   construction: {
+    name: 'Tesouro escondido',
     status: 'em construção',
     meta: {
-      title: 'Capela — em construção',
-      description: 'Um lugar para contemplar a beleza da Igreja e da vida espiritual. Em construção.',
+      title: 'Tesouro escondido — em construção',
+      description: 'Há um tesouro escondido neste campo. Ainda não é a hora de encontrá-lo.',
     },
-    statement: { before: 'A Capela ainda está sendo', emphasis: 'erguida', after: '.' },
+    statement: { before: 'O tesouro ainda está', emphasis: 'escondido', after: '.' },
     // REVIEW
-    lead: 'Aqui vai nascer um lugar para contemplar a beleza da Igreja e da vida espiritual. Ele está sendo construído com calma e abre quando chegar a hora.',
+    lead: 'Há um tesouro escondido neste campo. Ele está sendo preparado com calma e aparece quando chegar a hora.',
     verse: { text: '“Se o Senhor não edificar a casa, em vão trabalham os que a edificam.”', source: 'Sl 127,1' },
     back: 'Voltar ao Mundo do Gustavo',
-    drawing: 'Desenho de uma pequena capela com a torre ainda tracejada e andaimes ao lado: uma obra em andamento.',
+    drawing: 'Desenho de uma pequena construção com a torre ainda tracejada e andaimes ao lado: uma obra em andamento.',
     // Strip over the Capela when it is opened in development or on a preview deployment.
     preview: 'só você vê a Capela — no ar, o público vê o aviso de obra',
   },
@@ -63,14 +63,6 @@ export const CHAPEL = {
       empty: 'Nenhum estudo encontrado.',
       hint: 'Digite ao menos duas letras.',
       loading: 'Buscando…',
-    },
-    footer: {
-      chapel: 'nesta capela',
-      themes: 'temas',
-      landscapes: 'outras paisagens',
-      world: 'Mundo do Gustavo',
-      portfolio: 'Portfólio',
-      notes: ['feito com capricho'],
     },
   },
 

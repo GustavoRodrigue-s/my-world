@@ -4,7 +4,7 @@ import { cx } from './utils'
 // Near-square, a hairline that inks on hover. Disabled, a field is still in
 // pencil: a dashed outline in the support color, nothing to type into yet.
 const controlClasses =
-  'w-full rounded-xs border border-border-strong bg-transparent px-3 py-2.5 font-sans text-base text-foreground ' +
+  'w-full rounded-xs border border-border-strong bg-transparent px-3 py-3 font-sans text-base text-foreground ' +
   'placeholder:text-foreground-subtle transition-colors duration-fast hover:border-foreground ' +
   'disabled:pointer-events-none disabled:border-dashed disabled:border-support'
 

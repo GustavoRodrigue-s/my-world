@@ -2,9 +2,20 @@ import Link from 'next/link'
 import type { Route } from 'next'
 import { Eyebrow } from './eyebrow'
 import { Heading } from './heading'
-import type { IndexEntry } from './index-list'
 import { Text } from './text'
 import { cx } from './utils'
+
+export interface IndexEntry {
+  href: string
+  title: string
+  /** Mono label in the right column (category…). */
+  kicker?: string
+  summary?: string
+  /** Mono lines under the kicker (reading time, date…). */
+  meta?: string[]
+  /** A small glyph before the first meta line (Estudos' <StrokeMark>). EntryList only. */
+  mark?: React.ReactNode
+}
 
 // The gold the kicker turns under the reader's hand: the Capela's is its
 // `support`; elsewhere the gold is `hidden` (support has another role there).

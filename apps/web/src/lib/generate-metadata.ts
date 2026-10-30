@@ -1,17 +1,10 @@
 import type { Metadata } from 'next'
 import type { Article } from '@my-world/types'
+import { CHAPEL } from '@/lib/chapel-content'
 import { getContent } from '@/lib/portfolio-content'
 import { LOCALES, LOCALE_META, localePath, type Locale, type PortfolioPath } from '@/lib/portfolio-locale'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Capela'
-const STRAPI_URL = process.env.STRAPI_URL ?? 'http://localhost:1337'
-
-// Resolves Strapi relative image URLs to absolute
-function resolveImageUrl(url: string): string {
-  if (url.startsWith('http')) return url
-  return `${STRAPI_URL}${url}`
-}
 
 /** What an article page tells search engines and link previews, wherever it lives. */
 export interface ArticleSeo {
@@ -28,25 +21,17 @@ export interface ArticleSeo {
   image?: { url: string; width?: number; height?: number; alt?: string }
 }
 
-/** A Capela article (Strapi shape) as `ArticleSeo`. */
+/** A Capela article as `ArticleSeo`. */
 export function chapelArticleSeo(article: Article): ArticleSeo {
   return {
     path: `/chapel/articles/${article.slug}`,
     title: article.title,
     summary: article.summary,
-    siteName: SITE_NAME,
+    siteName: CHAPEL.name,
     publishedAt: article.publishedAt,
     updatedAt: article.updatedAt,
     tags: article.tags?.map((t) => t.name),
     section: article.category?.name,
-    image: article.coverImage
-      ? {
-          url: resolveImageUrl(article.coverImage.url),
-          width: article.coverImage.width,
-          height: article.coverImage.height,
-          alt: article.coverImage.alternativeText ?? article.title,
-        }
-      : undefined,
   }
 }
 

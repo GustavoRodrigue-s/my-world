@@ -4,7 +4,7 @@ import { STUDIES, studiesPath } from '@/lib/studies-content'
 import { formatDate, formatReadingTime } from '@/lib/utils'
 import { FormatMark } from './format-mark'
 
-export type StudyEntry = IndexEntry & { theme: StudyTheme; format: StudyFormat }
+export type StudyEntry = IndexEntry & { theme: StudyTheme; format: StudyFormat; tags: string[] }
 
 /** A study as an <EntryList> row. Built on the server (dates are formatted there, never in the browser). */
 export function studyEntry(s: StudyMeta): StudyEntry {
@@ -17,5 +17,6 @@ export function studyEntry(s: StudyMeta): StudyEntry {
     mark: <FormatMark format={s.format} />,
     theme: s.theme,
     format: s.format,
+    tags: s.tags,
   }
 }

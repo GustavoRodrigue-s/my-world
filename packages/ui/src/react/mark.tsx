@@ -1,5 +1,5 @@
 import { MARK_GEOMETRY, MARK_ORBIT_PATH, markPoint, markSatellitePath, type MarkVariant } from '@my-world/design-system'
-import { cx } from './utils'
+import { cx, ICON_SIZE, type IconSize } from './utils'
 
 // The geometry lives in the design system (brand data); re-exported for the library's users.
 export { MARK_GEOMETRY, MARK_ORBIT_PATH, markPoint, markSatellitePath, type MarkVariant }
@@ -8,7 +8,7 @@ const g = MARK_GEOMETRY
 
 interface MarkProps extends Omit<React.SVGProps<SVGSVGElement>, 'children'> {
   variant?: MarkVariant
-  size?: number
+  size?: IconSize
   /** Satellite in the accent color (default). Turn off for single-ink uses: stamps, embossing, favicons. */
   accent?: boolean
   /** Which color lights the satellite: the brand accent (default) or the environment's support color. */
@@ -21,7 +21,7 @@ interface MarkProps extends Omit<React.SVGProps<SVGSVGElement>, 'children'> {
 
 export function Mark({
   variant = 'satellite',
-  size = 32,
+  size = '2xl',
   accent = true,
   tone = 'accent',
   title,
@@ -32,11 +32,9 @@ export function Mark({
   return (
     <svg
       viewBox={`0 0 ${g.box} ${g.box}`}
-      width={size}
-      height={size}
       role={title ? 'img' : undefined}
       aria-hidden={title ? undefined : true}
-      className={cx('shrink-0', className)}
+      className={cx('shrink-0', ICON_SIZE[size], className)}
       {...props}
     >
       {title && <title>{title}</title>}

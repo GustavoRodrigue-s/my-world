@@ -1,4 +1,5 @@
 import { cx } from '@/components/ui'
+import { PORTRAIT_SRC } from '@/lib/portfolio-content'
 import { SPACES, canEnter, type SpaceId } from '@/lib/world'
 import { PLACE_ORDER, WORLD } from '@/lib/world-content'
 import { PlaceGlyph } from './place-glyph'
@@ -24,6 +25,10 @@ import { PlaceGlyph } from './place-glyph'
  * order): the atlas below is the real, accessible navigation.
  * Motion: drawn once on arrival (identity.css .chart-*), hover traces a trail.
  */
+
+// The arrival sequence: each part of the chart appears this many stagger
+// steps (duration.stagger) after the page opens.
+const arrive = (steps: number) => ({ animationDelay: `calc(${steps} * var(--duration-stagger))` })
 
 const r1 = (n: number) => Math.round(n * 10) / 10
 
@@ -314,15 +319,31 @@ function SouthernCross() {
 function Cartouche() {
   return (
     <g>
-      <rect x="36" y="36" width="224" height="82" className="fill-surface stroke-foreground" strokeWidth="1" />
-      <rect x="40" y="40" width="216" height="74" fill="none" className="stroke-foreground" strokeWidth="0.5" />
-      <text x="148" y="72" textAnchor="middle" className="fill-foreground font-serif text-2xl italic">
+      <rect x="36" y="36" width="304" height="82" className="fill-surface stroke-foreground" strokeWidth="1" />
+      <rect x="40" y="40" width="296" height="74" fill="none" className="stroke-foreground" strokeWidth="0.5" />
+      {/* Old atlases carried the cartographer's portrait in a medallion. */}
+      {PORTRAIT_SRC && (
+        <>
+          <image
+            href={PORTRAIT_SRC}
+            x="50"
+            y="49"
+            width="56"
+            height="56"
+            preserveAspectRatio="xMidYMid slice"
+            clipPath="url(#chart-portrait)"
+            className="grayscale-(--filter-grayscale-subtle)"
+          />
+          <circle cx="78" cy="77" r="28" fill="none" className="stroke-foreground" strokeWidth="1" />
+        </>
+      )}
+      <text x="222" y="72" textAnchor="middle" className="fill-foreground font-serif text-2xl italic">
         {WORLD.map.cartouche}
       </text>
-      <text x="148" y="90" textAnchor="middle" className="fill-foreground-muted font-mono text-xs">
+      <text x="222" y="90" textAnchor="middle" className="fill-foreground-muted font-mono text-xs">
         {WORLD.map.plate}
       </text>
-      <text x="148" y="104" textAnchor="middle" className="fill-foreground-muted font-mono text-xs">
+      <text x="222" y="104" textAnchor="middle" className="fill-foreground-muted font-mono text-xs">
         {WORLD.map.author}
       </text>
     </g>
@@ -344,7 +365,7 @@ function Legend() {
   return (
     <g>
       <rect x="36" y="472" width="168" height="134" className="fill-surface stroke-foreground" strokeWidth="0.8" />
-      <text x="50" y="492" className="fill-foreground-muted font-mono text-xs uppercase tracking-[0.12em]">
+      <text x="50" y="492" className="fill-foreground-muted font-mono text-xs uppercase tracking-widest">
         {legend.title}
       </text>
       {rows.map((row, i) => (
@@ -387,6 +408,9 @@ export function WorldMap() {
         <clipPath id="chart-inner">
           <rect x="22" y="22" width="956" height="596" />
         </clipPath>
+        <clipPath id="chart-portrait">
+          <circle cx="78" cy="77" r="28" />
+        </clipPath>
       </defs>
       <Neatline />
       <RhumbLines x={893} y={214} />
@@ -402,7 +426,7 @@ export function WorldMap() {
       </g>
 
       {/* The sea: wave marks and ripple lines along the coast */}
-      <g className="chart-appear stroke-foreground [animation-delay:0.4s]" strokeWidth="0.8" fill="none" opacity="0.45">
+      <g className="chart-appear stroke-foreground" style={arrive(4)} strokeWidth="0.8" fill="none" opacity="0.45">
         {WAVES.map(([x, y]) => (
           <path key={`${x}-${y}`} d={`M${x} ${y}q4 -4 8 0t8 0`} />
         ))}
@@ -417,14 +441,15 @@ export function WorldMap() {
           d={coastPath(scale)}
           pathLength={1}
           fill="none"
-          className={cx('chart-trace stroke-foreground', ['[animation-delay:0.5s]', '[animation-delay:0.7s]', '[animation-delay:0.9s]'][i])}
+          className="chart-trace stroke-foreground"
+          style={arrive(5 + i * 2)}
           strokeWidth="0.7"
           opacity={opacity}
         />
       ))}
 
       {/* Terra incognita: the edge of a land not drawn yet */}
-      <g className="chart-appear [animation-delay:1.4s]">
+      <g className="chart-appear" style={arrive(14)}>
         <path d="M978 132C950 124 930 100 902 100S850 78 838 50S826 28 822 22" fill="none" className="stroke-foreground" strokeWidth="0.9" strokeDasharray="4 4" />
         <text x="968" y="50" textAnchor="end" className="fill-foreground font-serif text-lg italic">
           {map.incognita}
@@ -436,13 +461,13 @@ export function WorldMap() {
 
       {/* The island and its islets */}
       <path d={COAST_D} className="fill-surface-raised" />
-      <g className="chart-appear [animation-delay:1s]">
+      <g className="chart-appear" style={arrive(10)}>
         {ISLETS.map(([x, y, r, seed]) => (
           <path key={`${x}-${y}`} d={islet(x, y, r, seed)} className="fill-surface-raised stroke-foreground" strokeWidth="0.9" />
         ))}
       </g>
 
-      <g className="chart-appear [animation-delay:1.2s]">
+      <g className="chart-appear" style={arrive(12)}>
         {/* Lake */}
         <ellipse cx="372" cy="258" rx="27" ry="13" className="fill-surface stroke-foreground" strokeWidth="0.9" />
         <path d="M356 256q4 -2.5 8 0t8 0M368 262q4 -2.5 8 0t8 0" fill="none" className="stroke-foreground" strokeWidth="0.6" opacity="0.6" />
@@ -461,11 +486,11 @@ export function WorldMap() {
       </g>
 
       {/* The world's two lines, crossing at the Capela */}
-      <g className="chart-appear stroke-foreground [animation-delay:1.6s]" strokeWidth="0.7" opacity="0.32">
+      <g className="chart-appear stroke-foreground" style={arrive(16)} strokeWidth="0.7" opacity="0.32">
         <path d={`M${MERIDIAN} 22V618`} />
         <path d={`M22 ${EQUATOR}H978`} />
       </g>
-      <g className="chart-appear fill-foreground-muted font-mono text-xs [animation-delay:1.6s]">
+      <g className="chart-appear fill-foreground-muted font-mono text-xs" style={arrive(16)}>
         <text x={MERIDIAN + 5} y="36">
           0°
         </text>
@@ -478,20 +503,20 @@ export function WorldMap() {
       <path d={COAST_D} pathLength={1} fill="none" className="chart-trace stroke-foreground" strokeWidth="1.5" strokeLinejoin="round" />
 
       {/* Trails from the harbor */}
-      <g className="chart-appear [animation-delay:1.9s]" fill="none">
+      <g className="chart-appear" style={arrive(19)} fill="none">
         {PLACE_ORDER.map((id) => (
           <path key={id} d={PLACE_AT[id].trail} className="stroke-foreground" strokeWidth="1" strokeDasharray="3 4" opacity="0.5" />
         ))}
       </g>
 
       {/* The bridge where the Antena's trail crosses the river */}
-      <g className="chart-appear [animation-delay:1.9s]" transform={`translate(${BRIDGE.x} ${BRIDGE.y}) rotate(${BRIDGE.a})`}>
+      <g className="chart-appear" style={arrive(19)} transform={`translate(${BRIDGE.x} ${BRIDGE.y}) rotate(${BRIDGE.a})`}>
         <rect x="-8" y="-4.5" width="16" height="9" className="fill-surface-raised" />
         <path d="M-8 -4.5H8M-8 4.5H8M-8 -4.5L-10.5 -7M8 -4.5L10.5 -7M-8 4.5L-10.5 7M8 4.5L10.5 7" className="stroke-foreground" strokeWidth="0.9" fill="none" />
       </g>
 
       {/* Arrival: the ship and its route into the harbor */}
-      <g className="chart-appear [animation-delay:1.7s]">
+      <g className="chart-appear" style={arrive(17)}>
         <path d="M790 616C730 606 664 602 614 592S516 566 482 540" fill="none" className="stroke-foreground" strokeWidth="0.8" strokeDasharray="2 5" opacity="0.6" />
         <Ship x={632} y={594} />
         {/* The pier — a single post and crossbar: whoever arrives lands at the foot of a cross. */}
@@ -527,26 +552,29 @@ export function WorldMap() {
               x={at.x}
               y={at.y + 27}
               textAnchor="middle"
+              paintOrder="stroke"
+              strokeWidth={5}
+              strokeLinejoin="round"
               className={cx(
-                'font-serif text-2xl italic transition-colors duration-normal [paint-order:stroke] stroke-surface-raised [stroke-width:5px] [stroke-linejoin:round]',
+                'font-serif text-2xl italic transition-colors duration-normal stroke-surface-raised',
                 status === 'planned' ? 'fill-support' : 'fill-foreground',
                 open && 'group-hover:fill-primary'
               )}
             >
               {copy.place}
             </text>
-            <text x={at.x} y={at.y + 42} textAnchor="middle" className={cx('font-mono text-xs [paint-order:stroke] stroke-surface-raised [stroke-width:4px] [stroke-linejoin:round]', status === 'planned' ? 'fill-support' : 'fill-foreground-muted')}>
+            <text x={at.x} y={at.y + 42} textAnchor="middle" paintOrder="stroke" strokeWidth={4} strokeLinejoin="round" className={cx('font-mono text-xs stroke-surface-raised', status === 'planned' ? 'fill-support' : 'fill-foreground-muted')}>
               {copy.name.toLowerCase()} · {statusLabel(id)}
             </text>
           </>
         )
-        const delay = ['[animation-delay:2s]', '[animation-delay:2.15s]', '[animation-delay:2.3s]', '[animation-delay:2.45s]'][i]
+        const delay = arrive(20 + i * 1.5)
         return open && href ? (
-          <a key={id} href={href} tabIndex={-1} className={cx('chart-appear group cursor-pointer', delay)}>
+          <a key={id} href={href} tabIndex={-1} className="chart-appear group cursor-pointer" style={delay}>
             {inner}
           </a>
         ) : (
-          <g key={id} className={cx('chart-appear group', delay)}>
+          <g key={id} className="chart-appear group" style={delay}>
             {inner}
           </g>
         )
@@ -564,7 +592,7 @@ export function WorldMap() {
       </g>
 
       {/* Instruments of the chart */}
-      <g className="chart-appear [animation-delay:0.6s]">
+      <g className="chart-appear" style={arrive(6)}>
         <Cartouche />
         <CompassRose x={893} y={214} />
         <SouthernCross />

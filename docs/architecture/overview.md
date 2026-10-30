@@ -10,7 +10,6 @@ How the system works today. Why it is this way: [adr/](adr/).
 | Styling | Tailwind CSS v4 (config-less) + CSS custom properties (design tokens) |
 | UI | `@my-world/ui` — the shared identity library (React; peer deps `next`, `react`, `lucide-react`) |
 | Content | content modules; Estudos in MDX (`apps/web/content/studies`, `next-mdx-remote`, [ADR 0014](adr/0014-studies-mdx-setup-and-content-model.md)); the closed Capela still reads `lib/mock-data.ts` |
-| CMS | Strapi 5 in `apps/cms` — legacy, **not wired** ([guides/strapi.md](../guides/strapi.md)) |
 | Monorepo | Turborepo + pnpm workspaces |
 | Hosting | Vercel (production + preview deployments) |
 
@@ -29,15 +28,14 @@ my-world/
 │       │   ├── (portfolio)/       ← layout = theme + identity CSS; (pt)/… bare routes, en/… under /en
 │       │   ├── chapel/            ← layout = chapel theme + identity CSS + <ChapelShell>
 │       │   ├── under-construction/← one "em construção" page per closed space (chapel/)
-│       │   ├── api/search · api/revalidate
+│       │   ├── api/search
 │       │   └── sitemap.ts · robots.ts
 │       ├── components/
 │       │   ├── ui/index.ts        ← re-exports @my-world/ui (import UI from '@/components/ui')
 │       │   ├── world/ · portfolio/ · identity/ · chapel/
 │       ├── middleware.ts          ← sends closed spaces to their construction page
-│       └── lib/                   ← world.ts, content modules, fonts, metadata, strapi-client, utils
+│       └── lib/                   ← world.ts, content modules, fonts, metadata, utils
 │   └── content/studies/           ← Estudos' MDX (one file per study)
-├── apps/cms/                      ← Strapi 5 (legacy)
 └── packages/
     ├── design-system/             ← tokens/*.json (DTCG) → Style Dictionary → generated/ (CSS + JSON)
     ├── ui/                        ← @my-world/ui: react/* components, css/* (base, identity, generated themes)
@@ -62,8 +60,7 @@ Routes are always English.
 | `/studies/[slug]` | studies | `app/studies/[slug]/page.tsx`: one article or note — the margin (format gloss, subjects), the MDX text, references, the "virou artigo" / "começou a lápis" links between a note and its article (`maturedInto`), byline, `<StudyComments>` (closed, ADR 0016). Static per visible study |
 | `/under-construction/chapel` | chapel | served by the middleware at every `/chapel` URL while it is closed |
 | `/under-construction/studies` | studies | served by the middleware at every `/studies` URL while it is closed |
-| `/api/search` | — | `?space=studies\|chapel&q=…` → `{ results: SearchResult[] }`; answers only for a space the viewer can enter. Estudos: the MDX index (title, summary, theme, tags); Capela: Strapi, falling back to mock data |
-| `/api/revalidate` | — | ISR webhook (revalidates `/chapel/...`) |
+| `/api/search` | — | `?space=studies\|chapel&q=…` → `{ results: SearchResult[] }`; answers only for a space the viewer can enter. Estudos: the MDX index (title, summary, theme, tags); Capela: the mock data |
 
 The Capela lived at the root until 2026-10-18; `/articles/*`, `/categories/*`,
 `/saints`, `/about` redirect (307) to their `/chapel` paths.
@@ -87,7 +84,7 @@ Decision: [ADR 0005](adr/0005-spaces-under-construction.md).
   (omitted). Inside the space, `ConstructionNotice` reminds the builder that the
   public can't see it.
 - The badge is `<StatusTag tone="open">` with "em construção" / "under
-  construction" (`CHAPEL.construction.status`, portfolio `shell.footer.building`).
+  construction" (`CHAPEL.construction.status`, `WORLD_FOOTER[locale].states`).
 
 ## Theming pipeline
 
@@ -101,9 +98,8 @@ Decision: [ADR 0011](adr/0011-dtcg-tokens-with-style-dictionary.md). Visual rule
   `generated/css/tailwind-breakpoints.css`, `generated/tokens.json` and
   `generated/brand/*.svg` (the mark, from `src/mark.ts`). Tokens are px/ms in
   the JSON; the web build turns type, space, sizes and breakpoints into rem
-  (1rem = the browser's 16px; `<html>` sets no font size)
-  and fluid roles into `clamp()` ([ADR 0012](adr/0012-agnostic-token-taxonomy.md),
-  [ADR 0013](adr/0013-tokens-match-production-built-at-build-time.md)). **Generated, never hand-edit**: `pnpm tokens`.
+  (1rem = the browser's 16px; `<html>` sets no font size);
+  a responsive role changes in whole steps at breakpoints ([ADR 0025](adr/0025-type-in-whole-steps.md)). **Generated, never hand-edit**: `pnpm tokens`.
   Built at build time, never committed: turbo runs it before the web app's
   `dev`, `build` and `type-check`; the web app copies the SVGs into
   `public/brand` (`apps/web/scripts/copy-brand.mjs`).
@@ -134,10 +130,7 @@ should become a Tailwind utility.
 
 **Never call `fetch()` directly in a page or component** (the search dialog's
 call to our own `/api/search` is the one client-side exception). Today the
-Capela reads `@/lib/mock-data`; the Strapi client (`@/lib/strapi-client`) exists
-but is not wired. Its functions (`getLatestArticles`, `getArticleBySlug`,
-`getAllCategories`…) set `next: { revalidate: 3600, tags: [...] }` internally.
-New content goes to MDX ([ADR 0007](adr/0007-content-in-mdx.md)).
+Capela reads `@/lib/mock-data`. New content goes to MDX ([ADR 0007](adr/0007-content-in-mdx.md)).
 
 **Estudos** ([ADR 0014](adr/0014-studies-mdx-setup-and-content-model.md)):
 `apps/web/content/studies/<slug>.mdx`, read at build time by `lib/studies.ts`
@@ -145,7 +138,8 @@ New content goes to MDX ([ADR 0007](adr/0007-content-in-mdx.md)).
 one study with its compiled text). The loader checks the front matter and fails
 the build on a missing or wrong field; drafts are visible only where
 `canSeeUnderConstruction()` is true. MDX elements become `@my-world/ui` pieces
-through `components/studies/mdx-components.tsx`. Types: `StudyMeta` in
+through `components/studies/mdx-components.tsx`, with `remark-gfm` (tables,
+footnotes); figures in `public/studies/<slug>/`. Types: `StudyMeta` in
 `@my-world/types`; theme and format names in `lib/studies-content.ts`.
 
 ## SEO

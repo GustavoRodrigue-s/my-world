@@ -1,9 +1,16 @@
 import Link from 'next/link'
 import type { Route } from 'next'
 import { Heading } from './heading'
-import type { Topic } from './topic-grid'
 import { Text } from './text'
 import { cx } from './utils'
+
+export interface Topic {
+  href: string
+  name: string
+  description?: string
+  /** Mono count line, e.g. "12 estudos". */
+  count?: string
+}
 
 interface TileGridProps {
   topics: Topic[]
@@ -32,7 +39,7 @@ export function TileGrid({ topics, on = 'surface', gilded }: TileGridProps) {
             {gilded && (
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-1.5 rounded-xs border border-support opacity-0 transition-opacity duration-normal group-hover:opacity-100 group-focus-visible:opacity-100"
+                className="pointer-events-none absolute inset-2 rounded-xs border border-support opacity-0 transition-opacity duration-normal group-hover:opacity-100 group-focus-visible:opacity-100"
               />
             )}
             <Heading

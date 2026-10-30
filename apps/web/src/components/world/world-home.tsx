@@ -1,7 +1,5 @@
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-import { Emphasis, Heading, Plate, Portrait, Text, buttonClasses, cx } from '@/components/ui'
-import { IDENTITY, PORTRAIT_SRC } from '@/lib/portfolio-content'
+import { Emphasis, Heading, Plate, Text } from '@/components/ui'
+import { IDENTITY } from '@/lib/portfolio-content'
 import { WORLD } from '@/lib/world-content'
 import { MapViewport } from './map-viewport'
 import { WorldAtlas } from './world-atlas'
@@ -17,39 +15,14 @@ export function WorldHome() {
         labelledBy="world-title"
         rubric={opening.rubric}
         corner={opening.corner}
-        figureSize="narrow"
-        figure={
-          // Whose world this is: the owner's portrait at the core of the mark, like the
-          // cartographer's medallion on an atlas frontispiece. Small: the H1 stays the largest paint.
-          <figure className="mx-auto flex w-full max-w-sm flex-col items-center text-center lg:mr-0">
-            <div className="w-full">
-              <Portrait
-                src={PORTRAIT_SRC}
-                alt={opening.owner.alt}
-                priority
-                sizes="(min-width: 1024px) 152px, 150px"
-              />
-            </div>
-            <figcaption className="-mt-2">
-              <Text size="lg" weight="semibold" color="foreground" leading="snug">
-                {IDENTITY.name}
-              </Text>
-              <Text family="mono" size="sm" color="muted" className="mt-1">
-                {opening.owner.role}
-              </Text>
-              <Link href="/portfolio" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-4 text-base')}>
-                {opening.owner.more}
-                <ArrowRight size={15} strokeWidth={1.6} aria-hidden />
-              </Link>
-            </figcaption>
-          </figure>
-        }
         footer={
           <figure>
             <MapViewport hint={map.hint}>
               <WorldMap />
             </MapViewport>
-            <figcaption className="sr-only">{map.label}</figcaption>
+            <figcaption className="sr-only">
+              {map.label}. {IDENTITY.name}, {opening.owner.role}.
+            </figcaption>
           </figure>
         }
       >

@@ -17,5 +17,4 @@ The master brand's own environment: `/portfolio`, `/portfolio/resume`,
 - **Statuses** map to `StatusTag` tones in
   `components/portfolio/artifact-status-tag.tsx`. Blueprint blue (`support`)
   only for work "na prancheta".
-- **Footer**: the world's links (home, portfolio, résumé, identity), the other
-  places (closed ones tagged "em construção" and not followable), contact.
+- **Footer**: `WorldFooter`, the same one as the home ([ADR 0022](../architecture/adr/0022-one-world-footer-and-treasure-everywhere.md)).

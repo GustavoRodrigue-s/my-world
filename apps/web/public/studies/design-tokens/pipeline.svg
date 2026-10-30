@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540" font-family="IBM Plex Mono, ui-monospace, Menlo, monospace">
+  <!-- A figure is a plate: it carries its own paper and doesn't follow day/night. -->
+  <rect width="1200" height="540" fill="#EFEDE7"/>
+  <g fill="none" stroke="#17171A" stroke-width="1.5">
+    <rect x="60" y="200" width="250" height="140" rx="3"/>
+    <rect x="420" y="200" width="250" height="140" rx="3"/>
+    <rect x="780" y="70" width="340" height="96" rx="3"/>
+    <rect x="780" y="222" width="340" height="96" rx="3"/>
+    <rect x="780" y="374" width="340" height="96" rx="3"/>
+  </g>
+  <g fill="none" stroke="#B5321C" stroke-width="2" stroke-linecap="round">
+    <path d="M310 270H410"/><path d="M400 262l10 8-10 8"/>
+    <path d="M670 270C720 270 720 118 770 118"/><path d="M760 111l10 7-10 7"/>
+    <path d="M670 270H770"/><path d="M760 262l10 8-10 8"/>
+    <path d="M670 270C720 270 720 422 770 422"/><path d="M760 415l10 7-10 7"/>
+  </g>
+  <g fill="#B5321C" font-size="15" letter-spacing="1">
+    <text x="60" y="186">¶ 1 — a decisão</text>
+    <text x="420" y="186">¶ 2 — o build</text>
+    <text x="780" y="56">¶ 3 — os lugares</text>
+  </g>
+  <g fill="#17171A" font-size="22">
+    <text x="84" y="252">tokens/*.json</text>
+    <text x="444" y="252">Style Dictionary</text>
+    <text x="804" y="114">variáveis CSS</text>
+    <text x="804" y="266">tokens.json</text>
+    <text x="804" y="418">SVGs da marca</text>
+  </g>
+  <g fill="#5C6168" font-size="15">
+    <text x="84" y="284">formato DTCG</text>
+    <text x="84" y="308">cor, tipo, espaço…</text>
+    <text x="444" y="284">resolve as referências</text>
+    <text x="444" y="308">e gera cada saída</text>
+    <text x="804" y="144">--color-primary → bg-primary</text>
+    <text x="804" y="296">os mesmos valores, em JS</text>
+    <text x="804" y="448">a tinta e a rubrica de cada tema</text>
+  </g>
+  <path d="M60 510H1120" stroke="#17171A" stroke-opacity=".12"/>
+  <text x="60" y="530" fill="#5C6168" font-size="13">uma decisão, escrita uma vez — e lida por todos os lugares</text>
+</svg>

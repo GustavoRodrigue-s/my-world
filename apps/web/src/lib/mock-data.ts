@@ -53,7 +53,6 @@ export const MOCK_ARTICLES: ArticleCard[] = [
     summary: 'Há uma tentação moderna de buscar a transformação de fora para dentro. Mas a tradição católica, de Agostinho a João da Cruz, ensina o caminho inverso.',
     readingTime: 12,
     publishedAt: '2025-06-01T10:00:00Z',
-    coverImage: null,
     category: MOCK_CATEGORIES[0],
   },
   {
@@ -63,7 +62,6 @@ export const MOCK_ARTICLES: ArticleCard[] = [
     summary: 'Quando a oração deixa de ser palavra e se torna escuta, algo muda profundamente na alma.',
     readingTime: 8,
     publishedAt: '2025-06-03T10:00:00Z',
-    coverImage: null,
     category: MOCK_CATEGORIES[0],
   },
   {
@@ -73,7 +71,6 @@ export const MOCK_ARTICLES: ArticleCard[] = [
     summary: 'Como o Doutor Angélico reconciliou fé e razão e por que isso ainda importa hoje.',
     readingTime: 14,
     publishedAt: '2025-05-18T10:00:00Z',
-    coverImage: null,
     category: { ...MOCK_CATEGORIES[4], name: 'Filosofia · Santos' },
   },
   {
@@ -83,7 +80,6 @@ export const MOCK_ARTICLES: ArticleCard[] = [
     summary: 'A liturgia não é apenas um rito. É a forma pela qual a Igreja habita o tempo de um modo diferente do mundo.',
     readingTime: 10,
     publishedAt: '2025-05-07T10:00:00Z',
-    coverImage: null,
     category: MOCK_CATEGORIES[2],
   },
   {
@@ -93,7 +89,6 @@ export const MOCK_ARTICLES: ArticleCard[] = [
     summary: 'As Confissões não são apenas uma autobiografia — são uma teologia da conversão que ressoa em cada geração.',
     readingTime: 9,
     publishedAt: '2025-04-20T10:00:00Z',
-    coverImage: null,
     category: MOCK_CATEGORIES[1],
   },
   {
@@ -103,7 +98,6 @@ export const MOCK_ARTICLES: ArticleCard[] = [
     summary: 'Virtude não é talento inato nem esforço isolado — é um modo de ser que se adquire pelo exercício constante.',
     readingTime: 8,
     publishedAt: '2025-03-10T10:00:00Z',
-    coverImage: null,
     category: MOCK_CATEGORIES[5],
   },
 ]

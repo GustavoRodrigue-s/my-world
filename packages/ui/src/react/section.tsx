@@ -21,22 +21,3 @@ export function Section({ bg, className, children, ...props }: SectionProps) {
     </section>
   )
 }
-
-interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  action?: React.ReactNode
-}
-
-export function SectionHeader({ action, className, children, ...props }: SectionHeaderProps) {
-  return (
-    <div
-      className={cx(
-        'flex items-baseline justify-between border-b border-border pb-4 mb-8',
-        className
-      )}
-      {...props}
-    >
-      {children}
-      {action && <div>{action}</div>}
-    </div>
-  )
-}

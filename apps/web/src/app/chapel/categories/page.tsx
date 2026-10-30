@@ -15,7 +15,7 @@ export default function CategoriesPage() {
   return (
     <>
       <PageIntro labelledBy="categories-title"
-        ornament={<CrossPattee size={16} />} label={`${t.label} · ${CHAPEL.themeCount(MOCK_CATEGORIES.length)}`}>
+        ornament={<CrossPattee size="md" />} label={`${t.label} · ${CHAPEL.themeCount(MOCK_CATEGORIES.length)}`}>
         <Heading as="h1" id="categories-title" level="display-serif" className="max-w-2xl">
           {t.title}
         </Heading>

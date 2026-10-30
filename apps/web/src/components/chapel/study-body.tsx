@@ -50,7 +50,7 @@ export function StudyBody({ content }: { content: string }) {
               'max-w-5xl',
               // The illuminated initial: a rubric capital on a square of gold leaf, kept flat.
               i === first &&
-                'first-letter:float-left first-letter:mt-initial-offset first-letter:mr-3.5 first-letter:rounded-xs first-letter:border first-letter:border-support/60 first-letter:bg-support/12 first-letter:px-2.5 first-letter:pt-2 first-letter:pb-0.5 first-letter:font-serif first-letter:text-initial first-letter:font-medium first-letter:text-primary'
+                'first-letter:float-left first-letter:mt-initial-offset first-letter:mr-4 first-letter:rounded-xs first-letter:border first-letter:border-support-edge first-letter:bg-support-wash first-letter:px-3 first-letter:pt-2 first-letter:pb-1 first-letter:font-serif first-letter:text-initial first-letter:font-medium first-letter:text-primary'
             )}
           >
             {inline(block)}

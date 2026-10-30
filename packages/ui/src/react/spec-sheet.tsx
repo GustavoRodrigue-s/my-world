@@ -7,7 +7,7 @@ import { cx } from './utils'
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <Text family="mono" size="xs" color="muted" className="mb-2.5">
+    <Text family="mono" size="xs" color="muted" className="mb-3">
       {children}
     </Text>
   )
@@ -55,11 +55,11 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
       <div className="flex items-start gap-4 md:flex-col">
         <Seal
           seed={seal ?? id}
-          size={56}
+          size="4xl"
           lit={lit}
-          className="transition-transform duration-slow ease-out motion-safe:group-hover:rotate-[24deg]"
+          className="transition-transform duration-slow ease-out motion-safe:group-hover:rotate-(--transform-rotate-tilt)"
         />
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-3">
           <Text family="mono" size="sm" color="primary">
             {code}
           </Text>
@@ -85,7 +85,7 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
             title
           )}
         </Heading>
-        <Text size="lg" color="foreground" leading="relaxed" className="mt-3 max-w-2xl">
+        <Text size="base" color="foreground" leading="relaxed" className="mt-3 max-w-2xl">
           {lead}
         </Text>
         {details?.map((d) => (
@@ -111,8 +111,8 @@ export function SpecSheet({ id, seal, lit, code, tag, meta, title, href, lead, d
               <Label>{features.label}</Label>
               <ul className="list-none border-t border-border">
                 {features.items.map((item) => (
-                  <li key={item} className="flex gap-3 border-b border-border py-2.5">
-                    <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 bg-foreground" />
+                  <li key={item} className="flex gap-3 border-b border-border py-3">
+                    <span aria-hidden className="mt-2 size-icon-2xs shrink-0 bg-foreground" />
                     <Text as="span" size="base" color="foreground" leading="snug">
                       {item}
                     </Text>

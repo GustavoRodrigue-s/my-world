@@ -15,7 +15,7 @@ export default function StudiesPage() {
   return (
     <>
       <PageIntro labelledBy="studies-title"
-        ornament={<CrossPattee size={16} />} label={`${t.label} · ${CHAPEL.studyCount(MOCK_ARTICLES.length)}`}>
+        ornament={<CrossPattee size="md" />} label={`${t.label} · ${CHAPEL.studyCount(MOCK_ARTICLES.length)}`}>
         <Heading as="h1" id="studies-title" level="display-serif" className="max-w-2xl">
           {t.title}
         </Heading>

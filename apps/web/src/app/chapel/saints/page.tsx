@@ -16,7 +16,7 @@ export default function SaintsPage() {
   return (
     <>
       <PageIntro labelledBy="saints-title"
-        ornament={<CrossPattee size={16} />} label={`${t.label} · ${CHAPEL.studyCount(studies.length)}`}>
+        ornament={<CrossPattee size="md" />} label={`${t.label} · ${CHAPEL.studyCount(studies.length)}`}>
         <Heading as="h1" id="saints-title" level="display-serif" className="max-w-2xl">
           {t.title}
         </Heading>

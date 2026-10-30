@@ -123,7 +123,7 @@
 }
 
 @keyframes gw-orbit {
-  from { opacity: 0; transform: scale(0.8); }
+  from { opacity: 0; transform: scale(var(--transform-scale-enter)); }
   to   { opacity: 1; transform: none; }
 }
 
@@ -147,9 +147,9 @@
 }
 
 @keyframes gw-ripple {
-  0%   { opacity: 0; transform: scale(0.4); }
+  0%   { opacity: 0; transform: scale(var(--transform-scale-ripple-from)); }
   25%  { opacity: 1; }
-  100% { opacity: 0; transform: scale(2.2); }
+  100% { opacity: 0; transform: scale(var(--transform-scale-ripple-to)); }
 }
 
 /* Only exist where they can move. */
@@ -243,8 +243,8 @@
 /*
  * Carta do mundo — the home's map is drawn once on arrival, like a cartographer
  * inking a plate: the coast is traced, the places appear, the "você está aqui"
- * beacon rings three times. Nothing loops. Longhand properties on purpose, so a
- * Tailwind `[animation-delay:…]` on the element staggers it. Reduced motion,
+ * beacon rings three times. Nothing loops. Longhand properties on purpose, so
+ * an inline `animationDelay` of N × duration.stagger staggers it. Reduced motion,
  * print and still environments get the map already drawn.
  *   .chart-trace   a solid path traced end to end (needs pathLength="1")
  *   .chart-appear  a place or detail fades in
@@ -261,8 +261,8 @@
 }
 
 @keyframes gw-beacon {
-  from { opacity: 0.85; transform: scale(1); }
-  to   { opacity: 0; transform: scale(3.2); }
+  from { opacity: var(--opacity-strong); transform: none; }
+  to   { opacity: 0; transform: scale(var(--transform-scale-pulse)); }
 }
 
 [data-env] .chart-beacon {

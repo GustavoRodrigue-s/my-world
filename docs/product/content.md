@@ -15,8 +15,8 @@ Every visible word lives in a content module, never hardcoded in a component:
 | `lib/mock-data.ts` | the closed Capela's studies, categories and quotes |
 
 `REVIEW` comments mark drafts Gustavo still has to confirm (today in
-`portfolio-content*.ts`, `chapel-content.ts`, `studies-content.ts`, `logbook.ts`,
-`content/studies/vida-interior.mdx`). Don't remove the
+`chapel-content.ts`, `studies-content.ts`,
+`content/studies/vida-interior.mdx`, `content/studies/design-tokens.mdx`). Don't remove the
 marker without his confirmation.
 
 ## Language
@@ -40,24 +40,40 @@ life. Decided in [ADR 0018](../architecture/adr/0018-personal-exposure-rules.md)
 | Allowed | Never |
 |---|---|
 | Facts about his work: role, employers, education, stack, career dates | Family, friends, relationships, health, home, daily life outside work |
-| Stating his faith ("sou católico") — today only in the portfolio's Sobre | Narrating it: childhood, conversion, struggles, feelings, how he prays, his parish or church habits |
+| Stating his faith ("sou católico", "cristão") in a word or a line, where it fits | Narrating it: childhood, conversion, struggles, feelings, how he prays, his parish or church habits — the site is not the place for those details |
 | Professional habits ("estudo inglês técnico todo dia") | Personal routines, hobbies, schedules, where he is at a given time |
 | The city (portfolio only), region and country | Coordinates finer than whole degrees, neighbourhood, addresses, places he goes to |
 | Faith as the **subject** of a space (Capela, Estudos) | Faith as **his story** in that space: there, the author is a name and "um estudante, não um mestre" |
 
 Per space:
 
-- **Home:** no bio, no location, no coordinates. Faith only hinted at, in the drawing.
-- **Portfólio:** city, employer, education, the declared faith in Sobre.
+- **Faith in the world's footer:** "Ad maiorem Dei gloriam" closes every page.
+  References to faith, Catholicism and the spiritual life are welcome across the
+  world; what stays out is his own story, and the name "Capela" outside the Capela.
+- **Home:** no bio, no location, no coordinates. Faith only hinted at: in the
+  drawing, and in words only by parable — the Capela is never named there (ADR 0020).
+- **Portfólio and `/identity`:** city, employer, education; faith stated briefly
+  (the Sobre paragraph), never developed. The Capela is not named: it is the
+  hidden treasure, as on the home ([ADR 0022](../architecture/adr/0022-one-world-footer-and-treasure-everywhere.md)).
   Coordinates rounded to whole degrees (`IDENTITY.coordinates`, `23°S 51°W`);
   the JSON-LD address carries region and country only.
+- **Capela, once open:** no veil. Its own pages say its name and speak of the
+  faith, the Church and the spiritual life openly (ADR 0022).
+- **Capela's construction page:** veiled, the "Tesouro escondido". While it isn't
+  ready it doesn't say what it is: no "Capela", no cross in the drawing (ADR 0022).
 - **Capela and Estudos:** about faith, not about Gustavo — no biography, no city.
   The Capela's future letter is an **invitation** to the reader, not a testimony.
 - **Data from visitors** (comments, the Capela's candles): anonymous by default,
   nothing required, an LGPD notice before sending, deleted when no longer needed.
   Faith and health are sensitive data (LGPD art. 5º, II).
 
+The footer's labels live in `lib/world-footer-content.ts`, one set per language.
+
 Contact e-mail: `IDENTITY.email` in `lib/portfolio-content.ts`.
+
+**How he is named.** "Engenheiro de Software e IA" is the title (header, hero,
+metadata). The seniority, Fullstack Pleno, appears only in the résumé, the
+portfolio's career and Sobre.
 
 ### Before publishing — checklist
 
@@ -90,4 +106,6 @@ the face after cropping, strip metadata before publishing. The portrait is
 ## Images
 
 Artworks must be public domain (e.g. Duccio's Last Supper,
-`public/chapel/last-supper.jpg`).
+`public/chapel/last-supper.jpg`). Studies' figures live in
+`public/studies/<slug>/`: own diagrams and screenshots of this site, or
+public-domain images, metadata stripped.

@@ -1,3 +1,5 @@
+import { cx } from '@/components/ui'
+
 /**
  * The Biblioteca under construction: the colonnade already stands in ink, the
  * pediment is still in pencil (graphite, dashed) and the scaffolding beside it
@@ -5,7 +7,7 @@
  */
 export function StudiesScaffold({ title, className }: { title: string; className?: string }) {
   return (
-    <svg viewBox="0 0 180 130" width="180" height="130" role="img" aria-label={title} className={className}>
+    <svg viewBox="0 0 180 130" role="img" aria-label={title} className={cx('h-auto w-2xs', className)}>
       <g fill="none" className="stroke-foreground" strokeWidth="1.2" strokeLinejoin="round">
         <path d="M10 120H170" />
         {/* Steps, colonnade and entablature, in ink */}

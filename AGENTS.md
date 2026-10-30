@@ -2,7 +2,7 @@
 
 Gustavo Rodrigues Fabiano's personal platform, "Mundo do Gustavo": one world with
 spaces — the home map (`/`), Portfólio (`/portfolio`, `/identity`, PT + EN),
-Capela (`/chapel`, closed in production), Projetos and Estudos (planned).
+Estudos and the Capela (`/studies`, `/chapel`, closed in production), Projetos (planned).
 Next.js 15 + TypeScript strict + Tailwind v4, Turborepo + pnpm monorepo, Vercel.
 
 This file is the entry point. The project's memory is **`docs/`** — read the
@@ -35,8 +35,8 @@ diário de bordo `apps/web/src/lib/logbook.ts`; living brand guide `/identity`.
   `portfolio/`, `identity/`, `chapel/`, `studies/`
 - `apps/web/src/lib/` — `world.ts`, content modules, `studies.ts` (MDX loader), `mock-data.ts`, metadata
 - `apps/web/content/studies/` — Estudos' MDX, one file per study
-- `packages/ui` (components + CSS), `packages/design-system` (themes),
-  `packages/types`; `apps/cms` is legacy Strapi (not wired)
+- `packages/ui` (components + CSS), `packages/design-system` (tokens, themes),
+  `packages/types`
 
 ## Commands
 
@@ -58,7 +58,8 @@ takes its values from the design system's tokens (`packages/design-system/tokens
 colors, type, spacing, sizes, radius, borders, shadows, opacity, motion,
 layers, breakpoints — through the Tailwind utilities that `@my-world/ui`
 registers from them. No hex, no `text-[14px]`, `mt-[9px]`, `max-w-[460px]`,
-`z-[1]`. A value that has no token gets a token first (in the JSON), then is
+`z-[1]`, `scale-[1.06]`, no icon `size={15}` (icons: `size-icon-*`). Only a
+drawing's own geometry inside its viewBox is not a token (ADR 0021). A value that has no token gets a token first (in the JSON), then is
 used. Map: `docs/design-system/tokens.md`.
 
 **UI.** Build from `@my-world/ui` (import from `@/components/ui`); extend the
@@ -81,12 +82,12 @@ computed values, `hover:` variants, responsive prefixes, no `<style>` tags,
 links into it ask `canEnter()` / `isUnderConstruction()`.
 
 **Data.** Never call `fetch()` in a page or component (except the search
-dialog → `/api/search`). New content goes to MDX (ADR 0007), not Strapi.
+dialog → `/api/search`). New content goes to MDX (ADR 0007).
 
 **SEO.** Every page has `metadata` / `generateMetadata` with a canonical.
 
-**Privacy.** Identity yes, biography no: the site may state facts (work, faith
-in the portfolio's Sobre) but never tells Gustavo's life (family, feelings,
+**Privacy.** Identity yes, biography no: the site may state facts (work; that
+he is Catholic, briefly) but never tells Gustavo's life (family, feelings,
 routines, his faith story). No location on the home, nothing finer than the city
 anywhere, no biography or city in the Capela and Estudos. Run the publishing
 checklist in `docs/product/content.md` for every text, image, metadata and

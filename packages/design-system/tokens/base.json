@@ -78,6 +78,10 @@
     "size": {
       "$type": "dimension",
       "$description": "The type scale. base (16px) is body text.",
+      "2xs": {
+        "$description": "Only the header's subtitle, under the name. Nothing to read at length.",
+        "$value": { "value": 10, "unit": "px" }
+      },
       "xs": {
         "$value": { "value": 12, "unit": "px" }
       },
@@ -110,9 +114,6 @@
       },
       "7xl": {
         "$value": { "value": 72, "unit": "px" }
-      },
-      "8xl": {
-        "$value": { "value": 96, "unit": "px" }
       }
     },
     "line-height": {
@@ -186,20 +187,21 @@
   },
   "typography": {
     "$type": "typography",
-    "$description": "Text roles. fontSize is the largest size; letterSpacing is in px at that size (platforms scale it with the size). A role with a `world.fluid` extension grows from `min` at `viewport`% of the screen width up to fontSize, on platforms that can (elsewhere use fontSize).",
+    "$description": "Text roles. fontSize is the largest size; letterSpacing is in px at that size (platforms scale it with the size). A role with a `world.responsive` extension starts at `base` and changes at each breakpoint it names, reaching fontSize at the next one (or xl), on platforms that can (elsewhere use fontSize).",
     "display": {
       "$description": "A page's statement (its H1).",
       "$value": {
         "fontFamily": "{font.family.sans}",
-        "fontSize": "{font.size.8xl}",
+        "fontSize": "{font.size.7xl}",
         "fontWeight": "{font.weight.semibold}",
         "lineHeight": "{font.line-height.none}",
-        "letterSpacing": { "value": -4.8, "unit": "px" }
+        "letterSpacing": { "value": -3.6, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.5xl}",
-          "viewport": 7.5
+        "world.responsive": {
+          "base": "{font.size.4xl}",
+          "md": "{font.size.5xl}",
+          "lg": "{font.size.7xl}"
         }
       }
     },
@@ -207,30 +209,30 @@
       "$description": "A section's title.",
       "$value": {
         "fontFamily": "{font.family.sans}",
-        "fontSize": "{font.size.6xl}",
+        "fontSize": "{font.size.5xl}",
         "fontWeight": "{font.weight.semibold}",
         "lineHeight": "{font.line-height.none}",
-        "letterSpacing": { "value": -1.5, "unit": "px" }
+        "letterSpacing": { "value": -1.2, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.4xl}",
-          "viewport": 5
+        "world.responsive": {
+          "base": "{font.size.3xl}",
+          "lg": "{font.size.5xl}"
         }
       }
     },
     "title": {
       "$value": {
         "fontFamily": "{font.family.sans}",
-        "fontSize": "{font.size.3xl}",
+        "fontSize": "{font.size.2xl}",
         "fontWeight": "{font.weight.semibold}",
         "lineHeight": "{font.line-height.tight}",
-        "letterSpacing": { "value": -0.75, "unit": "px" }
+        "letterSpacing": { "value": -0.6, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.2xl}",
-          "viewport": 2.5
+        "world.responsive": {
+          "base": "{font.size.xl}",
+          "lg": "{font.size.2xl}"
         }
       }
     },
@@ -238,10 +240,10 @@
       "$description": "An item's title in a list or a card.",
       "$value": {
         "fontFamily": "{font.family.sans}",
-        "fontSize": "{font.size.xl}",
+        "fontSize": "{font.size.lg}",
         "fontWeight": "{font.weight.semibold}",
         "lineHeight": "{font.line-height.tight}",
-        "letterSpacing": { "value": -0.5, "unit": "px" }
+        "letterSpacing": { "value": -0.45, "unit": "px" }
       }
     },
     "display-serif": {
@@ -254,9 +256,10 @@
         "letterSpacing": { "value": 0, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.5xl}",
-          "viewport": 6
+        "world.responsive": {
+          "base": "{font.size.4xl}",
+          "md": "{font.size.5xl}",
+          "lg": "{font.size.7xl}"
         }
       }
     },
@@ -269,9 +272,9 @@
         "letterSpacing": { "value": 0, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.4xl}",
-          "viewport": 4
+        "world.responsive": {
+          "base": "{font.size.3xl}",
+          "lg": "{font.size.5xl}"
         }
       }
     },
@@ -284,16 +287,15 @@
         "letterSpacing": { "value": 0, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.2xl}",
-          "viewport": 2.5
+        "world.responsive": {
+          "base": "{font.size.2xl}"
         }
       }
     },
     "title-sm-serif": {
       "$value": {
         "fontFamily": "{font.family.serif}",
-        "fontSize": "{font.size.2xl}",
+        "fontSize": "{font.size.xl}",
         "fontWeight": "{font.weight.semibold}",
         "lineHeight": "{font.line-height.tight}",
         "letterSpacing": { "value": 0, "unit": "px" }
@@ -309,9 +311,9 @@
         "letterSpacing": { "value": 0, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.3xl}",
-          "viewport": 4
+        "world.responsive": {
+          "base": "{font.size.3xl}",
+          "lg": "{font.size.4xl}"
         }
       }
     },
@@ -325,9 +327,8 @@
         "letterSpacing": { "value": 0, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.2xl}",
-          "viewport": 2.5
+        "world.responsive": {
+          "base": "{font.size.2xl}"
         }
       }
     },
@@ -341,9 +342,8 @@
         "letterSpacing": { "value": 0, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.lg}",
-          "viewport": 1.6
+        "world.responsive": {
+          "base": "{font.size.lg}"
         }
       }
     },
@@ -351,15 +351,16 @@
       "$description": "A large inline link or call to action.",
       "$value": {
         "fontFamily": "{font.family.sans}",
-        "fontSize": "{font.size.4xl}",
+        "fontSize": "{font.size.3xl}",
         "fontWeight": "{font.weight.medium}",
         "lineHeight": "{font.line-height.relaxed}",
-        "letterSpacing": { "value": -0.9, "unit": "px" }
+        "letterSpacing": { "value": -0.75, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.lg}",
-          "viewport": 3
+        "world.responsive": {
+          "base": "{font.size.lg}",
+          "md": "{font.size.xl}",
+          "lg": "{font.size.3xl}"
         }
       }
     },
@@ -373,9 +374,9 @@
         "letterSpacing": { "value": 0, "unit": "px" }
       },
       "$extensions": {
-        "world.fluid": {
-          "min": "{font.size.5xl}",
-          "viewport": 7
+        "world.responsive": {
+          "base": "{font.size.5xl}",
+          "lg": "{font.size.6xl}"
         }
       }
     }
@@ -404,11 +405,20 @@
     "6": {
       "$value": { "value": 24, "unit": "px" }
     },
+    "7": {
+      "$value": { "value": 28, "unit": "px" }
+    },
     "8": {
       "$value": { "value": 32, "unit": "px" }
     },
+    "9": {
+      "$value": { "value": 36, "unit": "px" }
+    },
     "10": {
       "$value": { "value": 40, "unit": "px" }
+    },
+    "11": {
+      "$value": { "value": 44, "unit": "px" }
     },
     "12": {
       "$value": { "value": 48, "unit": "px" }
@@ -425,11 +435,26 @@
     "24": {
       "$value": { "value": 96, "unit": "px" }
     },
+    "28": {
+      "$value": { "value": 112, "unit": "px" }
+    },
     "30": {
       "$value": { "value": 120, "unit": "px" }
     },
     "32": {
       "$value": { "value": 128, "unit": "px" }
+    },
+    "36": {
+      "$value": { "value": 144, "unit": "px" }
+    },
+    "52": {
+      "$value": { "value": 208, "unit": "px" }
+    },
+    "60": {
+      "$value": { "value": 240, "unit": "px" }
+    },
+    "96": {
+      "$value": { "value": 384, "unit": "px" }
     },
     "gutter": {
       "$description": "Side margin of the content on small screens.",
@@ -495,6 +520,42 @@
         "$value": { "value": 1080, "unit": "px" }
       }
     },
+    "icon": {
+      "$description": "Icons, marks and small drawings set in the interface: square, so one value sizes both sides.",
+      "2xs": {
+        "$value": { "value": 8, "unit": "px" }
+      },
+      "xs": {
+        "$value": { "value": 12, "unit": "px" }
+      },
+      "sm": {
+        "$value": { "value": 14, "unit": "px" }
+      },
+      "md": {
+        "$value": { "value": 16, "unit": "px" }
+      },
+      "lg": {
+        "$value": { "value": 18, "unit": "px" }
+      },
+      "xl": {
+        "$value": { "value": 24, "unit": "px" }
+      },
+      "2xl": {
+        "$value": { "value": 32, "unit": "px" }
+      },
+      "3xl": {
+        "$value": { "value": 48, "unit": "px" }
+      },
+      "4xl": {
+        "$value": { "value": 56, "unit": "px" }
+      },
+      "5xl": {
+        "$value": { "value": 64, "unit": "px" }
+      },
+      "6xl": {
+        "$value": { "value": 88, "unit": "px" }
+      }
+    },
     "container": {
       "$description": "Widest content.",
       "$value": { "value": 1180, "unit": "px" }
@@ -556,9 +617,97 @@
       }
     }
   },
+  "stroke": {
+    "$type": "number",
+    "$description": "Line weight of icons drawn on a 24-unit grid (unitless: it scales with the icon).",
+    "icon": {
+      "$value": 1.5
+    }
+  },
+  "transform": {
+    "$description": "How far things move under the reader's hand or when they arrive. scale is a factor of the element's size; rotate is in degrees.",
+    "scale": {
+      "$type": "number",
+      "ripple-from": {
+        "$description": "A ring starts small…",
+        "$value": 0.4
+      },
+      "enter": {
+        "$description": "Something arriving grows from this size.",
+        "$value": 0.8
+      },
+      "zoom": {
+        "$description": "A picture leaning closer.",
+        "$value": 1.06
+      },
+      "lift": {
+        "$description": "A small mark rising.",
+        "$value": 1.25
+      },
+      "pop": {
+        "$description": "A dot lighting up.",
+        "$value": 1.6
+      },
+      "ripple-to": {
+        "$description": "…and spreads out to this size.",
+        "$value": 2.2
+      },
+      "pulse": {
+        "$description": "A signal ring at its widest.",
+        "$value": 3.2
+      },
+      "print": {
+        "$description": "A one-page sheet fitted to A4.",
+        "$value": 0.79
+      }
+    },
+    "rotate": {
+      "$type": "number",
+      "tilt": {
+        "$description": "A small mark tilting under the hand.",
+        "$value": 24
+      },
+      "diamond": {
+        "$description": "A square standing on its corner.",
+        "$value": 45
+      }
+    }
+  },
+  "filter": {
+    "$type": "number",
+    "$description": "Tone for photographs (fraction of the full effect).",
+    "grayscale": {
+      "subtle": {
+        "$value": 0.15
+      },
+      "strong": {
+        "$value": 0.9
+      }
+    },
+    "blur": {
+      "glass": {
+        "$type": "dimension",
+        "$description": "Behind a surface that floats over the page (the sticky header).",
+        "$value": { "value": 12, "unit": "px" }
+      }
+    },
+    "sepia": {
+      "medium": {
+        "$value": 0.45
+      }
+    }
+  },
   "opacity": {
     "$type": "number",
     "$description": "Details at rest that the reader's hand lights up (fillets).",
+    "wash": {
+      "$description": "A faint tint of a color behind a detail.",
+      "$value": 0.12
+    },
+    "edge": {
+      "$description": "A softened outline in a color.",
+      "$value": 0.6
+    },
     "faint": {
       "$value": 0.3
     },
@@ -567,6 +716,10 @@
     },
     "half": {
       "$value": 0.5
+    },
+    "strong": {
+      "$description": "A signal at the start of its fade.",
+      "$value": 0.85
     }
   },
   "duration": {
@@ -601,6 +754,14 @@
     "draw": {
       "$description": "A line being drawn, the longest move (the map's trails).",
       "$value": { "value": 2400, "unit": "ms" }
+    },
+    "instant": {
+      "$description": "For readers who ask for reduced motion: done at once, yet still firing its end event.",
+      "$value": { "value": 0.01, "unit": "ms" }
+    },
+    "stagger": {
+      "$description": "One step between things that arrive in sequence (delay = steps × stagger).",
+      "$value": { "value": 100, "unit": "ms" }
     }
   },
   "easing": {

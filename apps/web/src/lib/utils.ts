@@ -14,13 +14,6 @@ export function formatReadingTime(minutes: number): string {
   return `${minutes} min de leitura`
 }
 
-// Resolve Strapi image URL to absolute
-export function resolveMediaUrl(url: string): string {
-  if (!url) return ''
-  if (url.startsWith('http')) return url
-  return `${process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337'}${url}`
-}
-
 // Clamp a string to n characters with ellipsis
 export function truncate(str: string, maxLength: number): string {
   if (str.length <= maxLength) return str
