@@ -249,6 +249,18 @@
  *   .chart-trace   a solid path traced end to end (needs pathLength="1")
  *   .chart-appear  a place or detail fades in
  *   .chart-beacon  the ring around "você está aqui"
+ *
+ * Then the chart's story, the home's protagonist, on one loop of duration.story
+ * (ADR 0030): each part starts at its own fraction of the loop, from an inline
+ * `animationDelay`. Pause: [data-chart-paused] on an ancestor. Without motion the
+ * ship stands still on its route, the rest stays hidden.
+ *   .chart-sail     the ship along its route (inline offset-path)
+ *   .chart-rock     the ship rocking on the water
+ *   .chart-walk     a point walking a trail (inline offset-path)
+ *   .chart-ping     a ring where someone arrives
+ *   .chart-glint    a brief glint of gold
+ *   .chart-orbit    a satellite's one orbit (inline transform-origin)
+ *   .chart-shimmer  waves and stars breathing, each on its own delay
  */
 @keyframes gw-trace {
   from { stroke-dashoffset: 1; }
@@ -265,8 +277,61 @@
   to   { opacity: 0; transform: scale(var(--transform-scale-pulse)); }
 }
 
-[data-env] .chart-beacon {
+@keyframes gw-sail {
+  0%   { opacity: 0; offset-distance: 0%; }
+  4%   { opacity: 1; }
+  30%  { opacity: 1; offset-distance: 100%; }
+  33%, 100% { opacity: 0; offset-distance: 100%; }
+}
+
+@keyframes gw-rock {
+  from { transform: rotate(calc(-1 * var(--transform-rotate-sway))); }
+  to   { transform: rotate(var(--transform-rotate-sway)); }
+}
+
+@keyframes gw-walk {
+  0%   { opacity: 0; offset-distance: 0%; }
+  1%   { opacity: 1; }
+  12%  { opacity: 1; offset-distance: 100%; }
+  13%, 100% { opacity: 0; offset-distance: 100%; }
+}
+
+@keyframes gw-ping {
+  0%   { opacity: var(--opacity-strong); transform: none; }
+  6%, 100% { opacity: 0; transform: scale(var(--transform-scale-pulse)); }
+}
+
+@keyframes gw-glint {
+  0%, 100% { opacity: 0; }
+  2%   { opacity: 1; }
+  8%   { opacity: 0; }
+}
+
+@keyframes gw-orbit {
+  0%   { transform: none; }
+  8%, 100% { transform: rotate(-1turn); }
+}
+
+@keyframes gw-shimmer {
+  0%, 100% { opacity: 1; }
+  50%  { opacity: var(--opacity-faint); }
+}
+
+[data-env] .chart-beacon,
+[data-env] .chart-walk,
+[data-env] .chart-ping,
+[data-env] .chart-glint {
   opacity: 0;
+}
+
+/* Without motion the ship stands partway along its route. */
+[data-env] .chart-sail {
+  offset-distance: 40%;
+  offset-rotate: 0deg;
+}
+
+[data-env] .chart-walk {
+  offset-rotate: 0deg;
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
@@ -294,6 +359,42 @@
     /* Once the trails are drawn. */
     animation-delay: calc(var(--duration-draw) + var(--duration-normal));
     animation-iteration-count: 3;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-sail {
+    animation: gw-sail var(--duration-story) linear infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-rock {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: gw-rock var(--duration-pulse) var(--easing-in-out) infinite alternate;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-walk {
+    animation: gw-walk var(--duration-story) var(--easing-draw) infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-ping {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: gw-ping var(--duration-story) var(--easing-out) infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-glint {
+    animation: gw-glint var(--duration-story) linear infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-orbit {
+    animation: gw-orbit var(--duration-story) var(--easing-in-out) infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-shimmer {
+    animation: gw-shimmer var(--duration-drift) var(--easing-in-out) infinite;
+  }
+
+  [data-env] [data-chart-paused] :is(.chart-sail, .chart-rock, .chart-walk, .chart-ping, .chart-glint, .chart-orbit, .chart-shimmer) {
+    animation-play-state: paused;
   }
 }
 

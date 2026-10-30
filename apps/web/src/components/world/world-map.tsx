@@ -24,11 +24,22 @@ import { PlaceGlyph } from './place-glyph'
  * Purely decorative for assistive tech (aria-hidden, links out of the tab
  * order): the atlas below is the real, accessible navigation.
  * Motion: drawn once on arrival (identity.css .chart-*), hover traces a trail.
+ * Then the story, on a loop (ADR 0030): a ship sails in, someone lands and walks
+ * the trails, place by place, and the last one, the field, gives one glint of gold.
  */
 
 // The arrival sequence: each part of the chart appears this many stagger
 // steps (duration.stagger) after the page opens.
 const arrive = (steps: number) => ({ animationDelay: `calc(${steps} * var(--duration-stagger))` })
+
+// The story: each part starts at this fraction of the loop (duration.story),
+// once the chart is drawn. The keyframes in identity.css set how long it lasts.
+const story = (fraction: number) => ({ animationDelay: `calc(var(--duration-draw) + ${fraction} * var(--duration-story))` })
+const LANDING = 0.3
+const walkAt = (i: number) => 0.33 + i * 0.16
+// A walk takes 12% of the loop.
+const reachAt = (i: number) => walkAt(i) + 0.12
+const along = (d: string) => ({ offsetPath: `path('${d}')` })
 
 const r1 = (n: number) => Math.round(n * 10) / 10
 
@@ -122,6 +133,8 @@ const PLACE_AT: Record<SpaceId, { x: number; y: number; trail: string }> = {
   studies: { x: 455, y: 222, trail: 'M467 505C420 448 390 342 452 270' },
   chapel: { x: MERIDIAN, y: EQUATOR, trail: 'M472 504C482 466 512 426 500 388' },
 }
+
+const SHIP_ROUTE = 'M790 616C730 606 664 602 614 592S516 566 482 540'
 
 const RIVER = 'M594 190C622 242 640 300 700 326S760 344 792 350'
 
@@ -306,8 +319,8 @@ function SouthernCross() {
       {/* The long arm, prolonged: the way to the south */}
       <path d={`M${acrux[0] + 0.4} ${acrux[1] + 10}L${acrux[0] + 2.4} 584`} className="stroke-foreground" strokeWidth="0.7" strokeDasharray="1 4" opacity="0.6" />
       <circle cx={acrux[0] + 2.6} cy="589" r="3" fill="none" className="stroke-foreground" strokeWidth="0.8" />
-      {Object.entries(CRUX).map(([name, [x, y, o]]) => (
-        <path key={name} d={star(x, y, o)} className="fill-foreground" />
+      {Object.entries(CRUX).map(([name, [x, y, o]], i) => (
+        <path key={name} d={star(x, y, o)} className="chart-shimmer fill-foreground" style={arrive(i * 13)} />
       ))}
       <text x="886" y="609" textAnchor="middle" className="fill-foreground-muted font-serif text-xs italic" opacity="0.7">
         {WORLD.map.inscription}
@@ -335,6 +348,14 @@ function Cartouche() {
             className="grayscale-(--filter-grayscale-subtle)"
           />
           <circle cx="78" cy="77" r="28" fill="none" className="stroke-foreground" strokeWidth="1" />
+          {/* The mark's satellite, as around the portfolio's portrait: one orbit when the ship sets out. */}
+          <circle
+            cx="98"
+            cy="57"
+            r="3"
+            className="chart-orbit fill-primary [transform-box:view-box]"
+            style={{ transformOrigin: '78px 77px', ...story(0) }}
+          />
         </>
       )}
       <text x="222" y="72" textAnchor="middle" className="fill-foreground font-serif text-2xl italic">
@@ -380,9 +401,9 @@ function Legend() {
   )
 }
 
-function Ship({ x, y }: { x: number; y: number }) {
+function Ship() {
   return (
-    <g transform={`translate(${x} ${y})`} className="stroke-foreground" strokeWidth="1" strokeLinejoin="round">
+    <g className="chart-rock stroke-foreground" strokeWidth="1" strokeLinejoin="round">
       <path d="M-16 -1H16L11 6H-11Z" className="fill-surface-raised" />
       <path d="M0 -1V-28" />
       <path d="M1.5 -26L13 -9H1.5Z" className="fill-surface-raised" />
@@ -427,8 +448,8 @@ export function WorldMap() {
 
       {/* The sea: wave marks and ripple lines along the coast */}
       <g className="chart-appear stroke-foreground" style={arrive(4)} strokeWidth="0.8" fill="none" opacity="0.45">
-        {WAVES.map(([x, y]) => (
-          <path key={`${x}-${y}`} d={`M${x} ${y}q4 -4 8 0t8 0`} />
+        {WAVES.map(([x, y], i) => (
+          <path key={`${x}-${y}`} d={`M${x} ${y}q4 -4 8 0t8 0`} className="chart-shimmer" style={arrive(i * 7)} />
         ))}
       </g>
       {[
@@ -517,8 +538,10 @@ export function WorldMap() {
 
       {/* Arrival: the ship and its route into the harbor */}
       <g className="chart-appear" style={arrive(17)}>
-        <path d="M790 616C730 606 664 602 614 592S516 566 482 540" fill="none" className="stroke-foreground" strokeWidth="0.8" strokeDasharray="2 5" opacity="0.6" />
-        <Ship x={632} y={594} />
+        <path d={SHIP_ROUTE} fill="none" className="stroke-foreground" strokeWidth="0.8" strokeDasharray="2 5" opacity="0.6" />
+        <g className="chart-sail" style={{ ...along(SHIP_ROUTE), ...story(0) }}>
+          <Ship />
+        </g>
         {/* The pier — a single post and crossbar: whoever arrives lands at the foot of a cross. */}
         <path d={`M${HARBOR.x} ${HARBOR.y + 6}V${HARBOR.y + 26}M${HARBOR.x - 5} ${HARBOR.y + 12}H${HARBOR.x + 5}`} className="stroke-foreground" strokeWidth="1.1" strokeLinecap="round" />
       </g>
@@ -579,6 +602,22 @@ export function WorldMap() {
           </g>
         )
       })}
+
+      {/* The story: whoever lands walks the trails, place by place */}
+      <g className="pointer-events-none">
+        <circle cx={HARBOR.x} cy={HARBOR.y} r="10" fill="none" className="chart-ping stroke-primary" strokeWidth="1.2" style={story(LANDING)} />
+        {PLACE_ORDER.map((id, i) => (
+          <g key={id}>
+            <circle r="3.5" className="chart-walk fill-primary" style={{ ...along(PLACE_AT[id].trail), ...story(walkAt(i)) }} />
+            <circle cx={PLACE_AT[id].x} cy={PLACE_AT[id].y} r="14" fill="none" className="chart-ping stroke-primary" strokeWidth="1" style={story(reachAt(i))} />
+          </g>
+        ))}
+        {/* The last trail ends at the field: one glint, no more */}
+        <g className="chart-glint" style={story(reachAt(PLACE_ORDER.length - 1))}>
+          <circle cx={MERIDIAN} cy={EQUATOR} r="11" className="fill-hidden" opacity="0.18" />
+          <path d={star(MERIDIAN, EQUATOR, 6)} className="fill-hidden" />
+        </g>
+      </g>
 
       {/* Você está aqui */}
       <g>

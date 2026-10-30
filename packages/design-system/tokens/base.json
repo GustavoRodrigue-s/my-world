@@ -667,6 +667,10 @@
         "$description": "A small mark tilting under the hand.",
         "$value": 24
       },
+      "sway": {
+        "$description": "A boat rocking on the water.",
+        "$value": 2
+      },
       "diamond": {
         "$description": "A square standing on its corner.",
         "$value": 45
@@ -762,6 +766,14 @@
     "stagger": {
       "$description": "One step between things that arrive in sequence (delay = steps × stagger).",
       "$value": { "value": 100, "unit": "ms" }
+    },
+    "drift": {
+      "$description": "One slow breath of something at rest (waves, stars).",
+      "$value": { "value": 6000, "unit": "ms" }
+    },
+    "story": {
+      "$description": "One full turn of a page's protagonist animation, when it tells a story on a loop.",
+      "$value": { "value": 28000, "unit": "ms" }
     }
   },
   "easing": {

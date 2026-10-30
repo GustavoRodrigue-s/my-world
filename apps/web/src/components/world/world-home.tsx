@@ -17,7 +17,7 @@ export function WorldHome() {
         corner={opening.corner}
         footer={
           <figure>
-            <MapViewport hint={map.hint}>
+            <MapViewport hint={map.hint} motion={map.motion}>
               <WorldMap />
             </MapViewport>
             <figcaption className="sr-only">

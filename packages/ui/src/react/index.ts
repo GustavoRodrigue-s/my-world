@@ -29,6 +29,7 @@ export { LanguageSwitch } from './language-switch'
 export type { Language } from './language-switch'
 export { DayNightToggle } from './day-night-toggle'
 export { PrintButton } from './print-button'
+export { MotionToggle } from './motion-toggle'
 export { BackToTop } from './back-to-top'
 // Page parts
 export { Plate } from './plate'

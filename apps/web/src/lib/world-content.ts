@@ -58,6 +58,7 @@ export const WORLD = {
     // Under the Southern Cross, small and faint: "a luz brilha nas trevas" (Jo 1,5).
     inscription: 'lux in tenebris lucet',
     hint: 'arraste para explorar o mapa',
+    motion: { pause: 'pausar a carta', play: 'retomar a carta' },
     legend: {
       title: 'legenda',
       open: 'aberto',

@@ -24,6 +24,7 @@ to the library rather than styling raw HTML. Source: `packages/ui/src/react/`.
 | `SearchDialog` | The world's one search (ADR 0017): header button + native `<dialog>`, ⌘K, debounced call to `endpoint` (`/api/search?space=…`, answers `SearchResult[]`: href, title, kicker). `variant="line"` (Estudos: sans titles, floating shadow) or `"stone"` (Capela: flat, serif titles) |
 | `CommentList` · `CommentForm` | Readers' comments (`CommentEntry`: author, date, body), with an `empty` line · name / e-mail (`emailHint`) / comment form; `disabled` + `reasonId` closes it in a `<fieldset disabled>` that names why (Estudos, ADR 0016) |
 | `StatusTag` · `Chip` / `chipClasses()` | State tag (`lit` / `open` / `plain` / `draft`) · filter toggle (`variant="line" \| "stone"`); `chipClasses()` styles a link as a chip (a study's subjects) |
+| `MotionToggle` | The pause of a page's protagonist animation: small mono button with its state drawn (Fig. 1, the home's chart) |
 | `Mark` (`variant`, `tone`, `size` from the icon scale) · `Rubric` · `Seal` (`size`) · `TitleBlock` · `Emphasis` (`fit`) · `Eyebrow` | Identity devices (`Eyebrow`: small red tracked label, the flat dialect's rubric) |
 | `Heading` (`level` = typography role) · `Text` (`size` = type-scale step or `lead`) · `Button` / `buttonClasses()` (`ink` / `line` / `quiet`; flat: `rubric` solid red, `stone` solid stone; disabled = dashed outline in `support`, "still in pencil") · `Section` (`bg="surface" \| "muted" \| "raised"`) · `cx()` | Primitives |
 | `PrintButton` | Print / save as PDF |

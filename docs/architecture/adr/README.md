@@ -37,3 +37,4 @@ ADRs 0001–0009 were recorded retroactively on 2026-10-26 from earlier sessions
 | [0025](0025-type-in-whole-steps.md) | Type changes in whole steps at breakpoints, one step below production | accepted |
 | [0028](0028-strict-token-audit.md) | Half steps, loose opacities and stray radii are gone from the interface | accepted |
 | [0029](0029-strapi-removed.md) | Strapi is removed from the repository | accepted |
+| [0030](0030-the-chart-tells-a-story.md) | The chart tells a story on a loop, in CSS, from tokens | accepted |

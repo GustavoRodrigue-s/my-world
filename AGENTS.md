@@ -73,7 +73,7 @@ computed values, `hover:` variants, responsive prefixes, no `<style>` tags,
    (portfolio: blueprint blue for "na prancheta"; Capela: hidden gold).
 2. One `<Emphasis>` word per statement; titles literal, metaphor in the margins.
 3. One protagonist animation per page, pausable; everything else moves only by
-   the reader's hand (scroll plotting, 150–200 ms hovers); snappy, nothing loops;
+   the reader's hand (scroll plotting, 150–200 ms hovers); snappy, only the protagonist may loop;
    reduced motion and print get a still, fully drawn page. The Capela is still.
 4. Near-square corners, hairlines, no shadows except a floating panel (none in
    the Capela).

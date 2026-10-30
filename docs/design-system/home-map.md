@@ -33,9 +33,15 @@ Copy: `lib/world-content.ts`; logbook: `lib/logbook.ts`.
   cartographer's medallion on an old chart, beside his name. It is out of the
   opening, so the title and the map hold the first view. Screen readers get his
   name from the figure's caption. No bio, no location or coordinates.
-- **Motion:** drawn once on arrival (`identity.css` `.chart-trace` /
-  `.chart-appear` / `.chart-beacon`), nothing loops; reduced motion and print get
-  it already drawn. On phones the chart keeps its width and is dragged sideways
+- **Motion** ([ADR 0030](../architecture/adr/0030-the-chart-tells-a-story.md)):
+  drawn once on arrival (`identity.css` `.chart-trace` / `.chart-appear` /
+  `.chart-beacon`), then the home's protagonist, a story on one loop of
+  `duration.story`: the ship sails its route and the satellite orbits the
+  medallion; at the harbor a ring; someone walks each trail in turn, a ring at
+  each place; the last trail, the field, ends in one glint of gold. Waves and the
+  Southern Cross breathe (`duration.drift`). `MotionToggle` under the chart pauses
+  it all. Reduced motion, print and still environments get the chart drawn, the
+  ship standing on its route. On phones the chart keeps its width and is dragged sideways
   (`MapViewport`, opens centered).
 - **Shell:** `components/world/world-shell.tsx` — no `WorldBar` (this is home);
   the footer holds "Identidade visual".

@@ -14,6 +14,8 @@ export interface LogEntry {
 }
 
 export const LOGBOOK: LogEntry[] = [
+  // REVIEW
+  { date: '2026-10-30', text: 'Um navio chega à carta, e alguém desce para percorrer as trilhas.' },
   { date: '2026-10-30', text: 'O rodapé passa a ser o mesmo em todos os lugares.' },
   { date: '2026-10-30', space: 'portfolio', text: 'O portfólio ganha um novo artefato: o app de onboarding digital.' },
   { date: '2026-10-28', space: 'chapel', text: 'Um tesouro é escondido num campo deste mundo.' },

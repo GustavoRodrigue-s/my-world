@@ -63,8 +63,8 @@ values below are a copy for reading; if they differ, the JSON wins.
    the metaphor (órbita, oficina, artefato, prancheta, lição) lives in margins,
    captions, labels.
 3. **One protagonist animation per page**, always pausable; reduced motion =
-   still frame (portfolio: Fig. 1; Capela home: the quote plate; home: the map's
-   arrival drawing; a study: the reading progress line). Everything else moves only by the reader's hand:
+   still frame (portfolio: Fig. 1; Capela home: the quote plate; home: the chart's
+   arrival drawing, then its story, a loop like Fig. 1; a study: the reading progress line). Everything else moves only by the reader's hand:
    - scroll "plotting" — CSS scroll timelines in `identity.css` (`.plot-rise`,
      `.plot-draw-x`, `.plot-orbit`, the timeline's `.plot-station` / `.plot-ink` /
      `.plot-inked` / `.plot-ripple` / `.plot-ink-text` / `.plot-arrive`,

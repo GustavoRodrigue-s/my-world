@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { cx } from '@/components/ui'
+import { MotionToggle, cx } from '@/components/ui'
 
 /*
  * Fig. 1 — O mundo do Gustavo, em vista orbital.
@@ -374,17 +374,12 @@ export function WorldFigure({ labels, className }: { labels: WorldFigureLabels; 
         <Callout n="4" x={540} y={240} />
       </svg>
 
-      <button
-        type="button"
-        onClick={() => setChoice(running ? 'pause' : 'run')}
-        aria-pressed={!running}
-        className="absolute bottom-1 left-1 inline-flex cursor-pointer items-center gap-2 rounded-xs border border-border-strong bg-surface-glass px-3 py-2 font-mono text-xs text-foreground transition-colors duration-fast hover:border-foreground"
-      >
-        <svg viewBox="0 0 10 10" aria-hidden className="size-icon-2xs fill-current">
-          {running ? <path d="M1.5 1h2.4v8H1.5zM6.1 1h2.4v8H6.1z" /> : <path d="M2 1l7 4-7 4z" />}
-        </svg>
-        {running ? labels.pause : labels.play}
-      </button>
+      <MotionToggle
+        running={running}
+        onToggle={() => setChoice(running ? 'pause' : 'run')}
+        labels={labels}
+        className="absolute bottom-1 left-1"
+      />
     </div>
   )
 }
