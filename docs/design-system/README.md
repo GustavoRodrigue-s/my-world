@@ -18,3 +18,6 @@ The living guide is the `/identity` page: check it before inventing anything vis
 Token **values** are not repeated here beyond the overview table in
 identity.md: the source is `packages/design-system/tokens/*.json` (DTCG,
 built by Style Dictionary — [ADR 0011](../architecture/adr/0011-dtcg-tokens-with-style-dictionary.md)).
+
+Pieces outside the site live in `packages/design-system/assets/`: today the
+LinkedIn banner (`linkedin-banner/`, source `banner.html`, PNGs from `render.sh`).
