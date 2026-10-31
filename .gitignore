@@ -26,8 +26,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# strapi
-apps/cms/.tmp
-apps/cms/.cache
-apps/cms/build
-apps/cms/public/uploads
+# built at build time (pnpm tokens / turbo build)
+packages/design-system/generated/
+apps/web/public/brand/

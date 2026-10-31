@@ -9,13 +9,13 @@ export function SectionCredentials({ locale }: { locale: Locale }) {
         <Register title={copy.credentials.education}>
           {education.map((e) => (
             <li key={e.title} className="border-b border-border py-4">
-              <Heading as="h3" level="item">
+              <Heading as="h3" level="title-sm">
                 {e.title}
               </Heading>
-              <Text size="md" color="muted" className="mt-1">
+              <Text size="sm" color="muted" className="mt-1">
                 {e.org}
               </Text>
-              <Text family="mono" size="sm" color="muted" className="mt-2">
+              <Text family="mono" size="xs" color="muted" className="mt-2">
                 {e.period}
               </Text>
             </li>
@@ -25,7 +25,7 @@ export function SectionCredentials({ locale }: { locale: Locale }) {
         <Register title={copy.credentials.certifications}>
           {certifications.map((c, i) => (
             <li key={c} className="flex gap-4 border-b border-border py-3">
-              <Text as="span" family="mono" size="sm" color="accent" className="pt-[3px]">
+              <Text as="span" family="mono" size="xs" color="primary" className="pt-1">
                 {String(i + 1).padStart(2, '0')}
               </Text>
               <Text as="span" size="base" color="foreground" leading="snug">
@@ -41,7 +41,7 @@ export function SectionCredentials({ locale }: { locale: Locale }) {
               <Text size="base" weight="medium" color="foreground">
                 {l.name}
               </Text>
-              <Text size="md" color="muted" className="mt-0.5">
+              <Text size="sm" color="muted" className="mt-1">
                 {l.level}
               </Text>
             </li>

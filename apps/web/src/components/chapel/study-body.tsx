@@ -31,7 +31,7 @@ export function StudyBody({ content }: { content: string }) {
       {blocks.map((block, i) => {
         if (block.startsWith('## ')) {
           return (
-            <Heading key={i} as="h2" level="serif-subtitle" className="mt-8">
+            <Heading key={i} as="h2" level="title-serif" className="mt-8">
               {block.slice(3)}
             </Heading>
           )
@@ -47,10 +47,10 @@ export function StudyBody({ content }: { content: string }) {
             color="foreground"
             leading="relaxed"
             className={cx(
-              'max-w-[68ch]',
+              'max-w-5xl',
               // The illuminated initial: a rubric capital on a square of gold leaf, kept flat.
               i === first &&
-                'first-letter:float-left first-letter:mt-[0.12em] first-letter:mr-3.5 first-letter:rounded-xs first-letter:border first-letter:border-support-1/60 first-letter:bg-support-1/12 first-letter:px-2.5 first-letter:pt-2 first-letter:pb-0.5 first-letter:font-serif first-letter:text-[4.2em] first-letter:leading-[0.8] first-letter:font-medium first-letter:text-accent'
+                'first-letter:float-left first-letter:mt-initial-offset first-letter:mr-4 first-letter:rounded-xs first-letter:border first-letter:border-support-edge first-letter:bg-support-wash first-letter:px-3 first-letter:pt-2 first-letter:pb-1 first-letter:font-serif first-letter:text-initial first-letter:font-medium first-letter:text-primary'
             )}
           >
             {inline(block)}

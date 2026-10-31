@@ -1,6 +1,8 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cx } from './utils'
 
+// size is a step of the type scale (or the `lead` role); leading and weight
+// are the tokens' names.
 const textVariants = cva('', {
   variants: {
     family: {
@@ -9,41 +11,31 @@ const textVariants = cva('', {
       serif: 'font-serif',
     },
     size: {
-      xs:   'text-[10px]',
-      sm:   'text-[11px]',
-      md:   'text-[13px]',
-      base: 'text-[15px]',
-      lg:   'text-[17px]',
-      xl:   'text-[clamp(18px,1.6vw,21px)]',
+      xs:   'text-xs',
+      sm:   'text-sm',
+      base: 'text-base',
+      lg:   'text-lg',
+      xl:   'text-xl',
+      '2xl': 'text-2xl',
+      lead: 'text-lead',
     },
     weight: {
       light:    'font-light',
-      normal:   'font-normal',
+      regular:  'font-regular',
       medium:   'font-medium',
       semibold: 'font-semibold',
       bold:     'font-bold',
     },
     color: {
-      base:              'text-foreground',
-      foreground:        'text-foreground',
-      muted:             'text-muted',
-      subtle:            'text-subtle',
-      'on-dark':         'text-on-primary',
-      'on-dark-muted':   'text-on-primary-muted',
-      accent:            'text-accent',
-      'accent-hover':    'text-accent-hover',
-      support:           'text-support-1',
-      // Legacy aliases
-      gold:              'text-accent',
-      'gold-hover':      'text-accent-hover',
-      stone:             'text-muted',
-      'stone-light':     'text-subtle',
-      'text-base':       'text-foreground',
-      'text-muted':      'text-muted',
-      'text-on-dark':    'text-on-primary',
-      'text-on-dark-muted': 'text-on-primary-muted',
+      foreground:      'text-foreground',
+      muted:           'text-foreground-muted',
+      subtle:          'text-foreground-subtle',
+      primary:         'text-primary',
+      'primary-hover': 'text-primary-hover',
+      support:         'text-support',
     },
     leading: {
+      none:    'leading-none',
       tight:   'leading-tight',
       snug:    'leading-snug',
       normal:  'leading-normal',
@@ -54,7 +46,6 @@ const textVariants = cva('', {
   defaultVariants: {
     family: 'sans',
     size: 'base',
-    weight: 'normal',
     color: 'muted',
     leading: 'relaxed',
   },

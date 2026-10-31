@@ -26,27 +26,27 @@ export function SiteHeader({ homeHref, name, sub, mark, nav, actions, surface = 
   return (
     <header
       className={cx(
-        'sticky top-0 z-[var(--z-nav)] h-[var(--spacing-nav-h)] border-b border-border print:hidden',
-        surface === 'glass' ? 'bg-surface/85 backdrop-blur-md' : 'bg-surface'
+        'sticky top-0 z-sticky h-bar border-b border-border print:hidden',
+        surface === 'glass' ? 'bg-surface-glass backdrop-blur-(--filter-blur-glass)' : 'bg-surface'
       )}
     >
-      <span aria-hidden className="plot-progress absolute inset-x-0 -bottom-px h-[2px] bg-accent" />
-      <div className="section-inner flex h-full items-center justify-between gap-6 px-[var(--spacing-section-x)]">
+      <span aria-hidden className="plot-progress absolute inset-x-0 -bottom-px h-(--border-width-strong) bg-primary" />
+      <div className="section-inner flex h-full items-center justify-between gap-6 px-gutter md:px-gutter-wide">
         <Link href={homeHref as Route} className="group flex items-center gap-3 text-foreground no-underline">
           {/* Hover: the satellite makes one full orbit. */}
           <Mark
-            size={30}
+            size="2xl"
             variant={mark?.variant}
             tone={mark?.tone}
             satelliteClassName={cx(
-              'transition-[transform,fill] duration-[650ms] ease-in-out group-hover:-rotate-[360deg]',
-              mark?.reveal && 'group-hover:fill-support-1'
+              'transition-[transform,fill] duration-gesture ease-in-out group-hover:-rotate-360',
+              mark?.reveal && 'group-hover:fill-support'
             )}
           />
           {/* Phones keep just the mark: the actions need the room. */}
-          <span className="sr-only flex-col leading-none sm:not-sr-only sm:flex">
-            <span className="font-sans text-[16px] font-semibold tracking-[-0.02em]">{name}</span>
-            <span className="mt-1 font-mono text-[10px] text-muted">{sub}</span>
+          <span className="sr-only flex-col sm:not-sr-only sm:flex">
+            <span className="font-sans text-base font-semibold leading-none tracking-tight">{name}</span>
+            <span className="mt-1 font-mono text-2xs leading-none text-foreground-muted">{sub}</span>
           </span>
         </Link>
 

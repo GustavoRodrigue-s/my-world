@@ -16,7 +16,7 @@ function position(ring: number, i: number, count: number) {
   return { left: `${50 + r * Math.cos(angle)}%`, top: `${50 + r * Math.sin(angle)}%` }
 }
 
-const DOT = ['bg-accent', 'bg-foreground', 'border border-foreground']
+const DOT = ['bg-primary', 'bg-foreground', 'border border-foreground']
 
 interface OrbitChartProps {
   /** Up to three rings, innermost first. */
@@ -33,7 +33,7 @@ interface OrbitChartProps {
  */
 export function OrbitChart({ rings, core }: OrbitChartProps) {
   return (
-    <div className="relative mx-auto w-full max-w-[640px] [view-timeline-name:--orbit] lg:aspect-square">
+    <div className="relative mx-auto w-full max-w-4xl [view-timeline-name:--orbit] lg:aspect-square">
       <svg viewBox="0 0 100 100" aria-hidden className="absolute inset-0 hidden h-full w-full lg:block">
         {RADII.slice(0, rings.length).map((r, i) => (
           <circle
@@ -43,7 +43,7 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
             r={r}
             fill="none"
             data-ring={i}
-            className="plot-orbit origin-[50px_50px] stroke-foreground [transform-box:view-box]"
+            className="plot-orbit origin-center stroke-foreground [transform-box:view-box]"
             strokeWidth="0.18"
             strokeDasharray={i === 2 ? '0.6 1.2' : undefined}
             opacity={i === 2 ? 0.6 : 0.4}
@@ -51,7 +51,7 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
         ))}
       </svg>
       <div className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 text-foreground lg:block">
-        <Mark size={64} title={core} />
+        <Mark size="5xl" title={core} />
       </div>
 
       <div className="flex flex-col gap-10 lg:block">
@@ -62,23 +62,23 @@ export function OrbitChart({ rings, core }: OrbitChartProps) {
               className="plot-orbit mb-4 lg:absolute lg:left-1/2 lg:mb-0 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-2"
               style={{ top: `${50 - RADII[ring]}%` }}
             >
-              <Text as="span" family="mono" size="sm" color={ring === 0 ? 'accent' : 'muted'}>
+              <Text as="span" family="mono" size="xs" color={ring === 0 ? 'primary' : 'muted'}>
                 {orbit.caption}
               </Text>
             </h3>
-            <ul className="flex list-none flex-wrap gap-x-5 gap-y-2.5 lg:absolute lg:inset-0 lg:block">
+            <ul className="flex list-none flex-wrap gap-x-5 gap-y-3 lg:absolute lg:inset-0 lg:block">
               {orbit.items.map((item, i) => (
                 <li
                   key={item}
                   data-ring={ring}
-                  className="plot-orbit group inline-flex items-center gap-2 whitespace-nowrap lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-1.5 lg:py-0.5"
+                  className="plot-orbit group inline-flex items-center gap-2 whitespace-nowrap lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-surface lg:px-2 lg:py-1"
                   style={position(ring, i, orbit.items.length)}
                 >
                   <span
                     aria-hidden
-                    className={cx('h-[7px] w-[7px] shrink-0 rounded-full transition-transform duration-200 motion-safe:group-hover:scale-[1.6]', DOT[ring])}
+                    className={cx('h-2 w-2 shrink-0 rounded-pill transition-transform duration-normal motion-safe:group-hover:scale-(--transform-scale-pop)', DOT[ring])}
                   />
-                  <Text as="span" size="base" weight={ring === 0 ? 'semibold' : 'normal'} color={ring === 2 ? 'muted' : 'foreground'}>
+                  <Text as="span" size="base" weight={ring === 0 ? 'semibold' : 'regular'} color={ring === 2 ? 'muted' : 'foreground'}>
                     {item}
                   </Text>
                 </li>

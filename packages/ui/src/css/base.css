@@ -1,75 +1,236 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 /* Inclui os componentes React do pacote no scanning do Tailwind v4 */
 @source "../react/**/*.{ts,tsx}";
 
-/* ─── Base tokens (invariantes entre temas) ──────────────────── */
-@layer base {
-  :root {
-    /* Radius scale — inspired by Framer's marketing site (via `npx getdesign add framer`) */
-    --radius-xs:   4px;
-    --radius-sm:   6px;
-    --radius-md:   10px;
-    --radius-lg:   15px;
-    --radius-xl:   20px;
-    --radius-2xl:  30px;
-    --radius-pill: 9999px;
-    --radius-card: 20px;  /* alias of xl — the default card radius used across the app */
+/* Token values come from @my-world/design-system (generated/css/tokens.css + one
+   theme per environment); this file only registers them as Tailwind utilities.
+   Namespaces reset to `initial` allow only the brand's scale (no stray text-7xl
+   from Tailwind's defaults). */
 
-    --spacing-section-y:   72px;
-    --spacing-section-x:   2rem;
-    --spacing-content-max: 1100px;
-    --spacing-article-max: 720px;
-    --spacing-nav-h:       64px;
+@theme inline {
+  --color-*: initial;
+  --color-surface:           var(--color-surface);
+  --color-surface-muted:     var(--color-surface-muted);
+  --color-surface-raised:    var(--color-surface-raised);
+  --color-surface-glass:     color-mix(in srgb, var(--color-surface) calc(var(--opacity-strong) * 100%), transparent);
+  --color-foreground:        var(--color-foreground);
+  --color-foreground-muted:  var(--color-foreground-muted);
+  --color-foreground-subtle: var(--color-foreground-subtle);
+  --color-border:            var(--color-border);
+  --color-border-strong:     var(--color-border-strong);
+  --color-primary:           var(--color-primary);
+  --color-primary-hover:     var(--color-primary-hover);
+  --color-on-primary:        var(--color-on-primary);
+  --color-support:           var(--color-support);
+  --color-support-edge:      color-mix(in srgb, var(--color-support) calc(var(--opacity-edge) * 100%), transparent);
+  --color-support-wash:      color-mix(in srgb, var(--color-support) calc(var(--opacity-wash) * 100%), transparent);
+  --color-hidden:            var(--color-hidden);
+  --color-overlay:           var(--color-overlay);
+  --color-transparent:       transparent;
+  --color-current:           currentColor;
 
-    --transition-fast:   150ms ease;
-    --transition-normal: 200ms ease;
-    --transition-slow:   300ms ease;
+  --font-*: initial;
+  --font-sans:  var(--font-family-sans);
+  --font-serif: var(--font-family-serif);
+  --font-mono:  var(--font-family-mono);
 
-    --z-nav:   100;
-    --z-modal: 200;
-    --z-toast: 300;
-  }
+  --font-weight-*: initial;
+  --font-weight-light:    var(--font-weight-light);
+  --font-weight-regular:  var(--font-weight-regular);
+  --font-weight-medium:   var(--font-weight-medium);
+  --font-weight-semibold: var(--font-weight-semibold);
+  --font-weight-bold:     var(--font-weight-bold);
+
+  /* text-<size>: the scale, with body line height in whole pixels. text-<role>: a typography role (size, line height,
+     tracking and weight together; the family is set with font-*). */
+  --text-*: initial;
+  --text-2xs: var(--font-size-2xs);
+  --text-2xs--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-xs: var(--font-size-xs);
+  --text-xs--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-sm: var(--font-size-sm);
+  --text-sm--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-base: var(--font-size-base);
+  --text-base--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-lg: var(--font-size-lg);
+  --text-lg--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-xl: var(--font-size-xl);
+  --text-xl--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-2xl: var(--font-size-2xl);
+  --text-2xl--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-3xl: var(--font-size-3xl);
+  --text-3xl--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-4xl: var(--font-size-4xl);
+  --text-4xl--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-5xl: var(--font-size-5xl);
+  --text-5xl--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-6xl: var(--font-size-6xl);
+  --text-6xl--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-7xl: var(--font-size-7xl);
+  --text-7xl--line-height: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --text-display: var(--typography-display-font-size);
+  --text-display--line-height: var(--typography-display-line-height);
+  --text-display--letter-spacing: var(--typography-display-letter-spacing);
+  --text-display--font-weight: var(--typography-display-font-weight);
+  --text-headline: var(--typography-headline-font-size);
+  --text-headline--line-height: var(--typography-headline-line-height);
+  --text-headline--letter-spacing: var(--typography-headline-letter-spacing);
+  --text-headline--font-weight: var(--typography-headline-font-weight);
+  --text-title: var(--typography-title-font-size);
+  --text-title--line-height: var(--typography-title-line-height);
+  --text-title--letter-spacing: var(--typography-title-letter-spacing);
+  --text-title--font-weight: var(--typography-title-font-weight);
+  --text-title-sm: var(--typography-title-sm-font-size);
+  --text-title-sm--line-height: var(--typography-title-sm-line-height);
+  --text-title-sm--letter-spacing: var(--typography-title-sm-letter-spacing);
+  --text-title-sm--font-weight: var(--typography-title-sm-font-weight);
+  --text-display-serif: var(--typography-display-serif-font-size);
+  --text-display-serif--line-height: var(--typography-display-serif-line-height);
+  --text-display-serif--letter-spacing: var(--typography-display-serif-letter-spacing);
+  --text-display-serif--font-weight: var(--typography-display-serif-font-weight);
+  --text-headline-serif: var(--typography-headline-serif-font-size);
+  --text-headline-serif--line-height: var(--typography-headline-serif-line-height);
+  --text-headline-serif--letter-spacing: var(--typography-headline-serif-letter-spacing);
+  --text-headline-serif--font-weight: var(--typography-headline-serif-font-weight);
+  --text-title-serif: var(--typography-title-serif-font-size);
+  --text-title-serif--line-height: var(--typography-title-serif-line-height);
+  --text-title-serif--letter-spacing: var(--typography-title-serif-letter-spacing);
+  --text-title-serif--font-weight: var(--typography-title-serif-font-weight);
+  --text-title-sm-serif: var(--typography-title-sm-serif-font-size);
+  --text-title-sm-serif--line-height: var(--typography-title-sm-serif-line-height);
+  --text-title-sm-serif--letter-spacing: var(--typography-title-sm-serif-letter-spacing);
+  --text-title-sm-serif--font-weight: var(--typography-title-sm-serif-font-weight);
+  --text-quote: var(--typography-quote-font-size);
+  --text-quote--line-height: var(--typography-quote-line-height);
+  --text-quote--letter-spacing: var(--typography-quote-letter-spacing);
+  --text-quote--font-weight: var(--typography-quote-font-weight);
+  --text-quote-sm: var(--typography-quote-sm-font-size);
+  --text-quote-sm--line-height: var(--typography-quote-sm-line-height);
+  --text-quote-sm--letter-spacing: var(--typography-quote-sm-letter-spacing);
+  --text-quote-sm--font-weight: var(--typography-quote-sm-font-weight);
+  --text-lead: var(--typography-lead-font-size);
+  --text-lead--line-height: var(--typography-lead-line-height);
+  --text-lead--letter-spacing: var(--typography-lead-letter-spacing);
+  --text-lead--font-weight: var(--typography-lead-font-weight);
+  --text-callout: var(--typography-callout-font-size);
+  --text-callout--line-height: var(--typography-callout-line-height);
+  --text-callout--letter-spacing: var(--typography-callout-letter-spacing);
+  --text-callout--font-weight: var(--typography-callout-font-weight);
+  --text-monogram: var(--typography-monogram-font-size);
+  --text-monogram--line-height: var(--typography-monogram-line-height);
+  --text-monogram--letter-spacing: var(--typography-monogram-letter-spacing);
+  --text-monogram--font-weight: var(--typography-monogram-font-weight);
+
+  --leading-*: initial;
+  --leading-flush: round(calc(var(--font-line-height-flush) * 1em), 1px);
+  --leading-none: round(calc(var(--font-line-height-none) * 1em), 1px);
+  --leading-tight: round(calc(var(--font-line-height-tight) * 1em), 1px);
+  --leading-snug: round(calc(var(--font-line-height-snug) * 1em), 1px);
+  --leading-normal: round(calc(var(--font-line-height-normal) * 1em), 1px);
+  --leading-relaxed: round(calc(var(--font-line-height-relaxed) * 1em), 1px);
+  --leading-loose: round(calc(var(--font-line-height-loose) * 1em), 1px);
+
+  /* Relative to the surrounding text: the emphasized word (whole pixels), the drop capital. */
+  --text-emphasis: round(var(--font-scale-emphasis), 1px);
+  --text-initial: var(--font-scale-initial);
+  --text-initial--line-height: var(--font-line-height-flush);
+
+  --tracking-*: initial;
+  --tracking-tighter: var(--font-letter-spacing-tighter);
+  --tracking-tight: var(--font-letter-spacing-tight);
+  --tracking-normal: var(--font-letter-spacing-normal);
+  --tracking-wide: var(--font-letter-spacing-wide);
+  --tracking-wider: var(--font-letter-spacing-wider);
+  --tracking-widest: var(--font-letter-spacing-widest);
+
+  /* p-4, gap-2…: N × space.1 (4px). */
+  --spacing: var(--space-1);
+  --spacing-gutter:      var(--space-gutter);
+  --spacing-gutter-wide: var(--space-gutter-wide);
+  --spacing-block:       var(--space-block);
+  --spacing-block-wide:  var(--space-block-wide);
+  --spacing-bar:         var(--size-bar);
+  --spacing-initial-offset: var(--font-scale-initial-offset);
+  /* size-icon-<step>, w-icon-<step>: the icon scale (size.icon.*). */
+  --spacing-icon-2xs: var(--size-icon-2xs);
+  --spacing-icon-xs:  var(--size-icon-xs);
+  --spacing-icon-sm:  var(--size-icon-sm);
+  --spacing-icon-md:  var(--size-icon-md);
+  --spacing-icon-lg:  var(--size-icon-lg);
+  --spacing-icon-xl:  var(--size-icon-xl);
+  --spacing-icon-2xl: var(--size-icon-2xl);
+  --spacing-icon-3xl: var(--size-icon-3xl);
+  --spacing-icon-4xl: var(--size-icon-4xl);
+  --spacing-icon-5xl: var(--size-icon-5xl);
+  --spacing-icon-6xl: var(--size-icon-6xl);
+
+  /* max-w-<step>: the width scale (size.width.*). */
+  --container-*: initial;
+  --container-4xs: var(--size-width-4xs);
+  --container-3xs: var(--size-width-3xs);
+  --container-2xs: var(--size-width-2xs);
+  --container-xs: var(--size-width-xs);
+  --container-sm: var(--size-width-sm);
+  --container-md: var(--size-width-md);
+  --container-lg: var(--size-width-lg);
+  --container-xl: var(--size-width-xl);
+  --container-2xl: var(--size-width-2xl);
+  --container-3xl: var(--size-width-3xl);
+  --container-4xl: var(--size-width-4xl);
+  --container-5xl: var(--size-width-5xl);
+  --container-6xl: var(--size-width-6xl);
+  --container-7xl: var(--size-width-7xl);
+  --container-measure:   var(--size-measure);
+  --container-page:      var(--size-container);
+
+  /* Breakpoints: generated/css/tailwind-breakpoints.css (media queries need literals). */
+
+  --radius-*: initial;
+  --radius-xs:   var(--radius-xs);
+  --radius-pill: var(--radius-pill);
+  --radius-arch: var(--radius-arch);
+  --radius-arch-inner: var(--radius-arch-inner);
+
+  --shadow-*: initial;
+  --shadow-floating: var(--shadow-floating);
+
+  --opacity-wash:  var(--opacity-wash);
+  --opacity-faint: var(--opacity-faint);
+  --opacity-dim:   var(--opacity-dim);
+  --opacity-half:  var(--opacity-half);
+  --opacity-edge:  var(--opacity-edge);
+  --opacity-strong: var(--opacity-strong);
+
+  --ease-*: initial;
+  --ease-standard: var(--easing-standard);
+  --ease-out:      var(--easing-out);
+  --ease-in-out:   var(--easing-in-out);
+  --default-transition-duration:        var(--duration-fast);
+  --default-transition-timing-function: var(--easing-in-out);
+
+  /* A quotation arriving (keyframes in identity.css). */
+  --animate-quote-in: gw-quote var(--duration-slower) var(--easing-out) both;
+
+  --z-index-raised:  var(--layer-raised);
+  --z-index-sticky:  var(--layer-sticky);
+  --z-index-overlay: var(--layer-overlay);
+  --z-index-top:     var(--layer-top);
 }
 
-/* ─── @theme inline: registra utilities sem valores hardcoded ─── */
-@theme inline {
-  --radius-xs:   var(--radius-xs);
-  --radius-sm:   var(--radius-sm);
-  --radius-md:   var(--radius-md);
-  --radius-lg:   var(--radius-lg);
-  --radius-xl:   var(--radius-xl);
-  --radius-2xl:  var(--radius-2xl);
-  --radius-pill: var(--radius-pill);
-  --radius-card: var(--radius-card);
+/* duration-fast, duration-gesture…: Tailwind's duration-* only takes numbers,
+   so the brand's durations are utilities of their own. */
+@utility duration-fast    { transition-duration: var(--duration-fast); }
+@utility duration-normal  { transition-duration: var(--duration-normal); }
+@utility duration-slow    { transition-duration: var(--duration-slow); }
+@utility duration-slower  { transition-duration: var(--duration-slower); }
+@utility duration-gesture { transition-duration: var(--duration-gesture); }
+@utility duration-slowest { transition-duration: var(--duration-slowest); }
 
-  --spacing-nav-h: var(--spacing-nav-h);
+/* A sheet fitted to one printed page (use with print:). */
+@utility zoom-print { zoom: var(--transform-scale-print); }
 
-  --color-primary:          var(--color-primary);
-  --color-primary-light:    var(--color-primary-light);
-  --color-primary-dark:     var(--color-primary-dark);
-  --color-accent:           var(--color-accent);
-  --color-accent-hover:     var(--color-accent-hover);
-  --color-accent-pale:      var(--color-accent-pale);
-  --color-accent-border:    var(--color-accent-border);
-  --color-on-primary:       var(--color-on-primary);
-  --color-on-primary-muted: var(--color-on-primary-muted);
-  --color-on-accent:        var(--color-on-accent);
-  --color-surface:          var(--color-surface);
-  --color-surface-alt-1:    var(--color-surface-alt-1);
-  --color-surface-alt-2:    var(--color-surface-alt-2);
-  --color-foreground:       var(--color-foreground);
-  --color-muted:            var(--color-muted);
-  --color-subtle:           var(--color-subtle);
-  --color-border:           var(--color-border);
-  --color-border-strong:    var(--color-border-strong);
-  --color-shadow:           var(--color-shadow);
-  --color-support-1:        var(--color-support-1);
-
-  --font-sans:  var(--font-sans);
-  --font-serif: var(--font-serif);
-
-  --shadow-card: 0 4px 20px var(--color-shadow);
-  --shadow-nav:  0 1px 0 var(--color-border);
+/* Every icon (lucide sets the class) draws with the brand's line weight. */
+@layer base {
+  .lucide { stroke-width: var(--stroke-icon); }
 }

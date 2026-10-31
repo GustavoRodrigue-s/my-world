@@ -4,11 +4,14 @@
 // it keeps its badge and visitors get its construction page instead.
 // Edge-safe: imported by the middleware, so no Node APIs here.
 
-export type SpaceStatus = 'open' | 'building'
+/** open: anyone enters · building: exists, closed to the public · planned: on the drawing board, nothing to enter yet. */
+export type SpaceStatus = 'open' | 'building' | 'planned'
 
 export const SPACES = {
   portfolio: { paths: ['/portfolio', '/identity', '/en'], status: 'open' },
   chapel: { paths: ['/chapel'], status: 'building' },
+  projects: { paths: [], status: 'planned' },
+  studies: { paths: ['/studies'], status: 'building' },
 } as const satisfies Record<string, { paths: readonly string[]; status: SpaceStatus }>
 
 export type SpaceId = keyof typeof SPACES
@@ -33,9 +36,11 @@ export function isUnderConstruction(id: SpaceId): boolean {
   return SPACES[id].status === 'building'
 }
 
-/** Whether the current viewer may enter the space. */
+/** Whether the current viewer may enter the space (a planned one has nothing to enter yet). */
 export function canEnter(id: SpaceId): boolean {
-  return !isUnderConstruction(id) || canSeeUnderConstruction()
+  const { status } = SPACES[id]
+  if (status === 'planned') return false
+  return status === 'open' || canSeeUnderConstruction()
 }
 
 /** The space a path belongs to, if it is closed to the current viewer. */

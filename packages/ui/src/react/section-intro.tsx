@@ -30,11 +30,11 @@ export function SectionIntro({ id, title, note, action, align = 'start', classNa
       )}
     >
       <div>
-        <Heading as="h2" id={`${id}-title`} level="serif-title" className="max-w-[20ch]">
+        <Heading as="h2" id={`${id}-title`} level="headline-serif" className="max-w-lg">
           {title}
         </Heading>
         {note && (
-          <Text family="serif" size="xl" color="muted" leading="snug" className="mt-2 italic">
+          <Text family="serif" size="lead" color="muted" leading="snug" className="mt-2 italic">
             {note}
           </Text>
         )}

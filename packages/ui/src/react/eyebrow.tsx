@@ -8,7 +8,7 @@ export function Eyebrow({ as: Tag = 'p', className, ...props }: EyebrowProps) {
   return (
     <Tag
       className={cx(
-        'font-sans text-[11px] font-bold uppercase tracking-[0.16em] text-accent',
+        'font-sans text-xs font-bold uppercase tracking-widest text-primary',
         className
       )}
       {...props}

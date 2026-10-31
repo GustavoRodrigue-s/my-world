@@ -11,20 +11,20 @@ export function SectionTools({ locale }: { locale: Locale }) {
       {/* AI sits outside the chart: half of it is practice, not a tool you can place on an orbit. */}
       <div className="plot-rise mt-16 grid gap-x-12 gap-y-6 border-t border-border-strong pt-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
         <div>
-          <Text family="mono" size="sm" color="accent">
+          <Text family="mono" size="xs" color="primary">
             {copy.tools.aiLabel}
           </Text>
-          <Heading as="h3" level="item" className="mt-2">
+          <Heading as="h3" level="title-sm" className="mt-2">
             {copy.tools.aiTitle}
           </Heading>
-          <Text size="md" color="muted" leading="relaxed" className="mt-2 max-w-[40ch]">
+          <Text size="sm" color="muted" leading="relaxed" className="mt-2 max-w-md">
             {copy.tools.aiText}
           </Text>
         </div>
-        <ul className="flex list-none flex-wrap content-start gap-x-5 gap-y-2.5 md:pt-6">
+        <ul className="flex list-none flex-wrap content-start gap-x-5 gap-y-3 md:pt-6">
           {aiTools.map((tool) => (
             <li key={tool} className="inline-flex items-center gap-2">
-              <span aria-hidden className="h-[7px] w-[7px] shrink-0 rounded-full bg-accent" />
+              <span aria-hidden className="h-2 w-2 shrink-0 rounded-pill bg-primary" />
               <Text as="span" size="base" color="foreground">
                 {tool}
               </Text>

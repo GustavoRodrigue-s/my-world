@@ -1,4 +1,3 @@
-import type { StrapiImage } from './strapi'
 import type { Category } from './category'
 import type { Tag } from './tag'
 
@@ -11,7 +10,6 @@ export interface Article {
   slug: string
   summary: string
   content: string
-  coverImage: StrapiImage | null
   readingTime: number
   publishedAt: string | null
   status: ArticleStatus
@@ -23,4 +21,4 @@ export interface Article {
 }
 
 export interface ArticleCard
-  extends Pick<Article, 'id' | 'documentId' | 'title' | 'slug' | 'summary' | 'readingTime' | 'publishedAt' | 'coverImage' | 'category'> {}
+  extends Pick<Article, 'id' | 'documentId' | 'title' | 'slug' | 'summary' | 'readingTime' | 'publishedAt' | 'category'> {}

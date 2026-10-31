@@ -1,6 +1,6 @@
 // Capela — every visible word of the environment, in one place
 // (same rule as the portfolio's content files). Portuguese only for now.
-// Studies, categories and quotes come from lib/mock-data.ts until Strapi is wired.
+// Studies, categories and quotes come from lib/mock-data.ts until it has real content.
 
 import type { Route } from 'next'
 
@@ -16,8 +16,6 @@ export function chapelPath(path: ChapelPath, slug?: string): Route {
 export const CHAPEL = {
   name: 'Capela',
   author: 'Gustavo Rodrigues Fabiano',
-  purpose: 'Uma biblioteca digital pessoal de estudos sobre espiritualidade católica, teologia e filosofia.',
-  motto: 'Fides quaerens intellectum',
 
   meta: {
     title: 'Capela',
@@ -25,18 +23,20 @@ export const CHAPEL = {
   },
 
   // What visitors see while the Capela is closed (lib/world.ts → status 'building').
+  // Veiled like the rest of the world: it isn't ready, so it doesn't say what it is (ADR 0022).
   construction: {
+    name: 'Tesouro escondido',
     status: 'em construção',
     meta: {
-      title: 'Capela — em construção',
-      description: 'Um lugar para contemplar a beleza da Igreja e da vida espiritual. Em construção.',
+      title: 'Tesouro escondido — em construção',
+      description: 'Há um tesouro escondido neste campo. Ainda não é a hora de encontrá-lo.',
     },
-    statement: { before: 'A Capela ainda está sendo', emphasis: 'erguida', after: '.' },
+    statement: { before: 'O tesouro ainda está', emphasis: 'escondido', after: '.' },
     // REVIEW
-    lead: 'Aqui vai nascer um lugar para contemplar a beleza da Igreja e da vida espiritual. Ele está sendo construído com calma e abre quando chegar a hora.',
+    lead: 'Há um tesouro escondido neste campo. Ele está sendo preparado com calma e aparece quando chegar a hora.',
     verse: { text: '“Se o Senhor não edificar a casa, em vão trabalham os que a edificam.”', source: 'Sl 127,1' },
     back: 'Voltar ao Mundo do Gustavo',
-    drawing: 'Desenho de uma pequena capela com a torre ainda tracejada e andaimes ao lado: uma obra em andamento.',
+    drawing: 'Desenho de uma pequena construção com a torre ainda tracejada e andaimes ao lado: uma obra em andamento.',
     // Strip over the Capela when it is opened in development or on a preview deployment.
     preview: 'só você vê a Capela — no ar, o público vê o aviso de obra',
   },
@@ -54,6 +54,7 @@ export const CHAPEL = {
       { label: 'Sobre', path: '/about' as ChapelPath },
     ],
     dayNight: { toDay: 'Mudar para o modo dia', toNight: 'Mudar para o modo noite' },
+    worldBar: { label: 'Você está em', home: 'Mundo do Gustavo' },
     search: {
       open: 'Buscar',
       dialogLabel: 'Buscar estudos',
@@ -62,13 +63,6 @@ export const CHAPEL = {
       empty: 'Nenhum estudo encontrado.',
       hint: 'Digite ao menos duas letras.',
       loading: 'Buscando…',
-    },
-    footer: {
-      chapel: 'nesta capela',
-      themes: 'temas',
-      landscapes: 'outras paisagens',
-      world: 'Mundo do Gustavo',
-      notes: ['feito com capricho em Londrina'],
     },
   },
 
@@ -106,8 +100,9 @@ export const CHAPEL = {
     author: {
       title: 'Quem escreve',
       note: 'um estudante, não um mestre',
-      text: 'Sou Gustavo Rodrigues Fabiano — desenvolvedor de software e católico praticante. Não sou teólogo. Não sou filósofo. Sou um estudante. Tudo aqui é uma tentativa honesta de compreender — não um pronunciamento de autoridade.',
-      role: 'desenvolvedor e estudante · Londrina, PR',
+      // REVIEW: rewritten without biography (docs/product/content.md → Privacy).
+      text: 'Estes estudos são de Gustavo Rodrigues Fabiano. Não sou teólogo. Não sou filósofo. Sou um estudante. Tudo aqui é uma tentativa honesta de compreender — não um pronunciamento de autoridade.',
+      role: 'estudante, não mestre',
       more: 'Sobre a Capela',
       portfolio: 'Conhecer o portfólio',
     },
@@ -151,9 +146,10 @@ export const CHAPEL = {
     statement: { before: 'Uma busca por', emphasis: 'profundidade', after: ', não por superfície.' },
     sections: [
       {
+        // REVIEW: rewritten without biography (docs/product/content.md → Privacy).
         paragraphs: [
-          'Sou Gustavo Rodrigues Fabiano — desenvolvedor de software e católico praticante. Há alguns anos comecei a sentir que a fé que recebi na infância precisava ser aprofundada. Não era insatisfação. Era fome.',
-          'Comecei a ler: Santo Agostinho, São Tomás de Aquino, Santa Teresa de Ávila, São João da Cruz. Descobri que quanto mais estudava, mais a fé se tornava viva, inteligente, enraizada — e mais eu queria partilhá-la.',
+          'A Capela é uma biblioteca de estudos sobre a fé católica, escritos por Gustavo Rodrigues Fabiano.',
+          'Os mestres da tradição — Santo Agostinho, São Tomás de Aquino, Santa Teresa de Ávila, São João da Cruz — mostram que, quanto mais se estuda, mais a fé se torna viva, inteligente, enraizada. É dessa convicção que nascem estes estudos.',
         ],
       },
       {

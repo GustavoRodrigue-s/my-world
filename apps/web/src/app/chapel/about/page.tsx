@@ -18,7 +18,7 @@ export default function AboutPage() {
     <>
       <PageIntro
         labelledBy="about-title"
-        ornament={<CrossPattee size={16} />}
+        ornament={<CrossPattee size="md" />}
         label={t.label}
         footer={
           <Byline
@@ -31,7 +31,7 @@ export default function AboutPage() {
           />
         }
       >
-        <Heading as="h1" id="about-title" level="serif-statement" className="max-w-[14ch]">
+        <Heading as="h1" id="about-title" level="display-serif" className="max-w-xl">
           {t.statement.before} <Emphasis fit="serif">{t.statement.emphasis}</Emphasis>
           {t.statement.after}
         </Heading>
@@ -42,30 +42,30 @@ export default function AboutPage() {
           {t.sections.map((section, i) => (
             <div key={i} className="flex flex-col gap-6">
               {section.title && (
-                <Heading as="h2" level="serif-subtitle" className="mt-8">
+                <Heading as="h2" level="title-serif" className="mt-8">
                   {section.title}
                 </Heading>
               )}
               {section.paragraphs.map((p) => (
-                <Text key={p} size="lg" color="foreground" leading="relaxed" className="max-w-[68ch]">
+                <Text key={p} size="lg" color="foreground" leading="relaxed" className="max-w-5xl">
                   {p}
                 </Text>
               ))}
             </div>
           ))}
           <OrnamentRule className="my-8" />
-          <Text size="lg" color="foreground" leading="relaxed" className="max-w-[68ch]">
-            {t.thread.before} <em className="font-serif text-[1.15em] text-accent italic">{t.thread.motto}</em> {t.thread.after}
+          <Text size="lg" color="foreground" leading="relaxed" className="max-w-5xl">
+            {t.thread.before} <Emphasis>{t.thread.motto}</Emphasis> {t.thread.after}
           </Text>
         </div>
       </PageBody>
 
-      <Section bg="alt-1" aria-label={t.quote.source}>
+      <Section bg="muted" aria-label={t.quote.source}>
         <Quote size="display" text={`“${t.quote.text}”`} source={t.quote.source} />
         <div className="mt-12 flex justify-center">
-          <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-[15px]')}>
+          <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'rubric', size: 'none' }), 'h-12 px-5 text-base')}>
             {t.cta}
-            <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
+            <ArrowRight className="size-icon-md" aria-hidden />
           </Link>
         </div>
       </Section>

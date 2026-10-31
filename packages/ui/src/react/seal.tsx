@@ -1,11 +1,11 @@
-import { cx, prng } from './utils'
+import { cx, prng, ICON_SIZE, type IconSize } from './utils'
 
 const r2 = (n: number) => Math.round(n * 100) / 100
 
 interface SealProps extends Omit<React.SVGProps<SVGSVGElement>, 'children'> {
   /** Anything stable — usually the artifact slug. Same seed, same seal, forever. */
   seed: string
-  size?: number
+  size?: IconSize
   /** Light the satellite in the accent color (e.g. artifacts in production). */
   lit?: boolean
 }
@@ -14,7 +14,7 @@ interface SealProps extends Omit<React.SVGProps<SVGSVGElement>, 'children'> {
  * Selo do artefato — every artifact gets its own small orbital signature,
  * generated from its name: tick pattern, orbit tilt and satellite position.
  */
-export function Seal({ seed, size = 44, lit = false, className, ...props }: SealProps) {
+export function Seal({ seed, size = '3xl', lit = false, className, ...props }: SealProps) {
   const rand = prng(seed)
   const c = 22
   const ticks: string[] = []
@@ -40,10 +40,8 @@ export function Seal({ seed, size = 44, lit = false, className, ...props }: Seal
   return (
     <svg
       viewBox="0 0 44 44"
-      width={size}
-      height={size}
       aria-hidden
-      className={cx('shrink-0 text-foreground', className)}
+      className={cx('shrink-0 text-foreground', ICON_SIZE[size], className)}
       {...props}
     >
       <circle cx={c} cy={c} r={20.5} fill="none" stroke="currentColor" strokeWidth={0.75} opacity={0.55} />
@@ -59,7 +57,7 @@ export function Seal({ seed, size = 44, lit = false, className, ...props }: Seal
         transform={`rotate(${tilt} ${c} ${c})`}
       />
       <circle cx={c} cy={c} r={3.2} fill="currentColor" />
-      <circle cx={sx} cy={sy} r={2.3} fill="currentColor" className={lit ? 'fill-accent' : undefined} />
+      <circle cx={sx} cy={sy} r={2.3} fill="currentColor" className={lit ? 'fill-primary' : undefined} />
     </svg>
   )
 }

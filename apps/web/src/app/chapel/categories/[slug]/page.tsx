@@ -32,12 +32,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   return (
     <>
       <PageIntro labelledBy="category-title"
-        ornament={<CrossPattee size={16} />} label={`${t.labelOne} · ${CHAPEL.studyCount(studies.length)}`}>
-        <Heading as="h1" id="category-title" level="serif-statement" className="max-w-[16ch]">
+        ornament={<CrossPattee size="md" />} label={`${t.labelOne} · ${CHAPEL.studyCount(studies.length)}`}>
+        <Heading as="h1" id="category-title" level="display-serif" className="max-w-2xl">
           {category.name}
         </Heading>
         {category.description && (
-          <Text size="xl" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+          <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-3xl">
             {category.description}
           </Text>
         )}
@@ -50,8 +50,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             {t.empty}
           </Text>
         )}
-        <Link href={chapelPath('/categories')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-12 text-[15px]')}>
-          <ArrowLeft size={15} strokeWidth={1.6} aria-hidden />
+        <Link href={chapelPath('/categories')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-12 text-base')}>
+          <ArrowLeft className="size-icon-md" aria-hidden />
           {t.back}
         </Link>
       </PageBody>

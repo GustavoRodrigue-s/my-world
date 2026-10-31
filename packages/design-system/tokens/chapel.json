@@ -1,0 +1,153 @@
+{
+  "chapel": {
+    "$description": "Capela — \"cal e pedra\": limewash, stone, ink, the rubric red and a hidden gold.",
+    "light": {
+      "$description": "Day. The only mode that prints.",
+      "color": {
+        "$type": "color",
+        "surface": {
+          "$description": "cal — limewash",
+          "$value": { "colorSpace": "srgb", "components": [0.9569, 0.9451, 0.9176], "hex": "#F4F1EA" }
+        },
+        "surface-muted": {
+          "$description": "pedra — stone, the flat blocks",
+          "$value": { "colorSpace": "srgb", "components": [0.9059, 0.8863, 0.8471], "hex": "#E7E2D8" }
+        },
+        "surface-raised": {
+          "$description": "panels: search, menu",
+          "$value": { "colorSpace": "srgb", "components": [0.9804, 0.9725, 0.9569], "hex": "#FAF8F4" }
+        },
+        "foreground": {
+          "$description": "Text and ink.",
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "hex": "#1C1A17" }
+        },
+        "foreground-muted": {
+          "$description": "Secondary text.",
+          "$value": { "colorSpace": "srgb", "components": [0.3686, 0.349, 0.3137], "hex": "#5E5950" }
+        },
+        "foreground-subtle": {
+          "$description": "decoration only — below AA for small text",
+          "$value": { "colorSpace": "srgb", "components": [0.5569, 0.5333, 0.4902], "hex": "#8E887D" }
+        },
+        "border": {
+          "$description": "Hairlines.",
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "alpha": 0.12 }
+        },
+        "border-strong": {
+          "$description": "Rules that must be seen.",
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "alpha": 0.28 }
+        },
+        "primary": {
+          "$description": "rubrica — rubric red (the brand)",
+          "$value": "{color.rubric}"
+        },
+        "primary-hover": {
+          "$value": "{color.rubric-deep}"
+        },
+        "on-primary": {
+          "$description": "Text on primary.",
+          "$value": { "colorSpace": "srgb", "components": [0.9843, 0.9765, 0.9608], "hex": "#FBF9F5" }
+        },
+        "support": {
+          "$description": "the hidden gold: small fixed details and fillets lit by the reader's hand; never a fill",
+          "$value": "{color.gold}"
+        },
+        "shadow": {
+          "$description": "Color of the one shadow (floating panels).",
+          "$value": { "colorSpace": "srgb", "components": [0.1098, 0.102, 0.0902], "alpha": 0.1 }
+        },
+        "overlay": {
+          "$description": "Dims the page behind a dialog.",
+          "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.45 }
+        }
+      },
+      "shadow": {
+        "$type": "shadow",
+        "floating": {
+          "$description": "The one shadow: a floating panel.",
+          "$value": {
+            "color": "{chapel.light.color.shadow}",
+            "offsetX": { "value": 0, "unit": "px" },
+            "offsetY": { "value": 4, "unit": "px" },
+            "blur": { "value": 20, "unit": "px" },
+            "spread": { "value": 0, "unit": "px" }
+          }
+        }
+      }
+    },
+    "dark": {
+      "$description": "Night.",
+      "color": {
+        "$type": "color",
+        "surface": {
+          "$description": "completas — night prayer",
+          "$value": { "colorSpace": "srgb", "components": [0.0784, 0.0745, 0.0667], "hex": "#141311" }
+        },
+        "surface-muted": {
+          "$description": "Solid blocks and bands set apart from the page.",
+          "$value": { "colorSpace": "srgb", "components": [0.1216, 0.1137, 0.098], "hex": "#1F1D19" }
+        },
+        "surface-raised": {
+          "$description": "Floating panels: menus, dialogs, search.",
+          "$value": { "colorSpace": "srgb", "components": [0.0549, 0.051, 0.0431], "hex": "#0E0D0B" }
+        },
+        "foreground": {
+          "$description": "Text and ink.",
+          "$value": { "colorSpace": "srgb", "components": [0.9255, 0.9059, 0.8706], "hex": "#ECE7DE" }
+        },
+        "foreground-muted": {
+          "$description": "Secondary text.",
+          "$value": { "colorSpace": "srgb", "components": [0.6392, 0.6157, 0.5725], "hex": "#A39D92" }
+        },
+        "foreground-subtle": {
+          "$description": "Decoration only — below AA for small text.",
+          "$value": { "colorSpace": "srgb", "components": [0.4314, 0.4118, 0.3725], "hex": "#6E695F" }
+        },
+        "border": {
+          "$description": "Hairlines.",
+          "$value": { "colorSpace": "srgb", "components": [0.9255, 0.9059, 0.8706], "alpha": 0.11 }
+        },
+        "border-strong": {
+          "$description": "Rules that must be seen.",
+          "$value": { "colorSpace": "srgb", "components": [0.9255, 0.9059, 0.8706], "alpha": 0.26 }
+        },
+        "primary": {
+          "$description": "brasa — the rubric lit up for night",
+          "$value": "{color.ember}"
+        },
+        "primary-hover": {
+          "$value": "{color.ember-bright}"
+        },
+        "on-primary": {
+          "$description": "Text on primary.",
+          "$value": "{chapel.dark.color.surface}"
+        },
+        "support": {
+          "$description": "the hidden gold: small fixed details and fillets lit by the reader's hand; never a fill",
+          "$value": "{color.gold-candle}"
+        },
+        "shadow": {
+          "$description": "Color of the one shadow (floating panels).",
+          "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.5 }
+        },
+        "overlay": {
+          "$description": "Dims the page behind a dialog.",
+          "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.45 }
+        }
+      },
+      "shadow": {
+        "$type": "shadow",
+        "floating": {
+          "$description": "The one shadow: a floating panel.",
+          "$value": {
+            "color": "{chapel.dark.color.shadow}",
+            "offsetX": { "value": 0, "unit": "px" },
+            "offsetY": { "value": 4, "unit": "px" },
+            "blur": { "value": 20, "unit": "px" },
+            "spread": { "value": 0, "unit": "px" }
+          }
+        }
+      }
+    }
+  }
+}

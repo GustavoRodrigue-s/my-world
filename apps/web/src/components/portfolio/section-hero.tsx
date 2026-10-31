@@ -15,19 +15,19 @@ export function SectionHero({ locale }: { locale: Locale }) {
       rubric={hero.rubric}
       corner={profile.coordinates}
       figure={
-        <figure className="mx-auto w-full max-w-[560px]">
+        <figure className="mx-auto w-full max-w-2xl">
           <WorldFigure labels={hero.figure} />
           <figcaption className="mt-5 border-t border-border pt-4">
-            <Text family="mono" size="sm" color="muted">
+            <Text family="mono" size="xs" color="muted">
               {hero.caption}
             </Text>
-            <ol className="mt-3 grid list-none gap-x-6 gap-y-1.5 sm:grid-cols-2">
+            <ol className="mt-3 grid list-none gap-x-6 gap-y-2 sm:grid-cols-2">
               {hero.legend.map((item) => (
-                <li key={item.n} className="flex gap-2.5">
-                  <Text as="span" family="mono" size="md" color="accent">
+                <li key={item.n} className="flex gap-3">
+                  <Text as="span" family="mono" size="sm" color="primary">
                     {item.n}
                   </Text>
-                  <Text as="span" size="md" color="muted" leading="snug">
+                  <Text as="span" size="sm" color="muted" leading="snug">
                     <span className="text-foreground">{item.name}</span> — {item.text}
                   </Text>
                 </li>
@@ -55,21 +55,21 @@ export function SectionHero({ locale }: { locale: Locale }) {
         role={hero.kicker}
         portrait={PORTRAIT_SRC ? { src: PORTRAIT_SRC, alt: about.portraitAlt, priority: true } : undefined}
       />
-      <Heading as="h1" id="hero-title" level="statement" className="mt-7 max-w-[13ch]">
+      <Heading as="h1" id="hero-title" level="display" className="mt-7 max-w-5xl">
         {statement.before} <Emphasis>{statement.emphasis}</Emphasis>
         {statement.after}
       </Heading>
-      <Text size="xl" color="muted" leading="relaxed" className="mt-6 max-w-[46ch]">
+      <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-3xl">
         {hero.lead}
       </Text>
       <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-        <Link href={localePath(locale, '/portfolio/resume')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-12 px-5 text-[15px]')}>
+        <Link href={localePath(locale, '/portfolio/resume')} className={cx(buttonClasses({ variant: 'ink', size: 'none' }), 'h-12 px-5 text-base')}>
           {hero.ctaResume}
-          <ArrowRight size={16} strokeWidth={1.6} aria-hidden />
+          <ArrowRight className="size-icon-md" aria-hidden />
         </Link>
-        <Link href="#artifacts" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-[15px]')}>
+        <Link href="#artifacts" className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'text-base')}>
           {hero.ctaArtifacts}
-          <ArrowDown size={15} strokeWidth={1.6} aria-hidden />
+          <ArrowDown className="size-icon-md" aria-hidden />
         </Link>
       </div>
     </Plate>

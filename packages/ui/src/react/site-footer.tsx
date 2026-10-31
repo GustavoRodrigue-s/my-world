@@ -1,10 +1,7 @@
-import Link from 'next/link'
-import type { Route } from 'next'
+import { FooterAnchor } from './footer-anchor'
 import { Mark, type MarkVariant } from './mark'
 import { StatusTag, type StatusTone } from './status-tag'
 import { Text } from './text'
-
-const linkClass = 'ink-link font-sans text-[14px] text-foreground no-underline hover:text-accent'
 
 export interface FooterLink {
   label: string
@@ -33,64 +30,29 @@ interface SiteFooterProps {
   verse?: string
 }
 
-function FooterAnchor({ link }: { link: FooterLink }) {
-  const content = (
-    <>
-      {link.mark && <Mark variant={link.mark.variant} tone={link.mark.tone} size={18} />}
-      {link.label}
-    </>
-  )
-  const className = link.mark ? `${linkClass} inline-flex items-center gap-2` : linkClass
-  if (link.disabled) {
-    return (
-      <span className="inline-flex items-center gap-2 font-sans text-[14px] text-muted">
-        {content}
-      </span>
-    )
-  }
-  if (link.href.startsWith('mailto:')) {
-    return (
-      <a href={link.href} className={className}>
-        {content}
-      </a>
-    )
-  }
-  if (link.external) {
-    return (
-      <a href={link.href} className={className} rel={link.rel ?? 'noopener'} target="_blank">
-        {content}
-      </a>
-    )
-  }
-  return (
-    <Link href={link.href as Route} hrefLang={link.hrefLang} lang={link.hrefLang} className={className}>
-      {content}
-    </Link>
-  )
-}
 
 export function SiteFooter({ name, mark, text, columns, notes, verse }: SiteFooterProps) {
   return (
     <footer className="border-t border-border bg-surface print:hidden">
-      <div className="section-inner grid gap-12 px-[var(--spacing-section-x)] py-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-        <div className="max-w-[340px]">
+      <div className="section-inner grid gap-12 px-gutter md:px-gutter-wide py-16 sm:grid-cols-[minmax(0,1fr)_auto] lg:grid-cols-[minmax(0,1.5fr)_auto_minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="max-w-md">
           <div className="flex items-center gap-3 text-foreground">
-            <Mark size={34} variant={mark?.variant} tone={mark?.tone} />
-            <span className="font-sans text-[17px] font-semibold tracking-[-0.02em]">{name}</span>
+            <Mark size="2xl" variant={mark?.variant} tone={mark?.tone} />
+            <span className="font-sans text-lg font-semibold tracking-tight">{name}</span>
           </div>
-          <Text size="md" color="muted" leading="relaxed" className="mt-5">
+          <Text size="sm" color="muted" leading="relaxed" className="mt-5">
             {text}
           </Text>
         </div>
 
         {columns.map((column) => (
           <div key={column.title}>
-            <Text family="mono" size="sm" color="muted" className="mb-4">
+            <Text family="mono" size="xs" color="muted" className="mb-4">
               {column.title}
             </Text>
-            <ul className="flex list-none flex-col gap-2.5">
+            <ul className="flex list-none flex-col gap-3">
               {column.links.map((link) => (
-                <li key={link.href + link.label} className={link.tag ? 'flex flex-wrap items-center gap-x-2.5 gap-y-1.5' : undefined}>
+                <li key={link.href + link.label} className={link.tag ? 'flex flex-wrap items-center gap-x-3 gap-y-2' : undefined}>
                   <FooterAnchor link={link} />
                   {link.tag && <StatusTag tone={link.tag.tone}>{link.tag.label}</StatusTag>}
                 </li>
@@ -101,9 +63,9 @@ export function SiteFooter({ name, mark, text, columns, notes, verse }: SiteFoot
       </div>
 
       <div className="border-t border-border">
-        <div className="section-inner flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 px-[var(--spacing-section-x)] py-5">
+        <div className="section-inner flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 px-gutter md:px-gutter-wide py-5">
           {notes.map((note) => (
-            <Text key={note} family="mono" size="sm" color="muted">
+            <Text key={note} family="mono" size="xs" color="muted">
               {note}
             </Text>
           ))}

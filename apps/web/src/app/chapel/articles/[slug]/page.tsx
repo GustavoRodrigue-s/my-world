@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react'
 import { Byline, CrossPattee, Eyebrow, Heading, OrnamentRule, PageIntro, Register, Text, buttonClasses, cx } from '@/components/ui'
 import { PageBody, StudyBody } from '@/components/chapel'
 import { CHAPEL, chapelPath } from '@/lib/chapel-content'
-import { buildArticleJsonLd, buildArticleMetadata } from '@/lib/generate-metadata'
+import { buildArticleJsonLd, buildArticleMetadata, chapelArticleSeo } from '@/lib/generate-metadata'
 import { MOCK_ARTICLES, getMockArticle } from '@/lib/mock-data'
 import { PORTRAIT_SRC } from '@/lib/portfolio-content'
 import { formatDate, formatReadingTime } from '@/lib/utils'
@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const study = getMockArticle(slug)
-  return study ? buildArticleMetadata(study) : { title: CHAPEL.study.notFound }
+  return study ? buildArticleMetadata(chapelArticleSeo(study)) : { title: CHAPEL.study.notFound }
 }
 
 export default async function StudyPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -28,13 +28,13 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
 
   return (
     <article>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd(study)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildArticleJsonLd(chapelArticleSeo(study))) }} />
       <PageIntro
         labelledBy="study-title"
-        ornament={<CrossPattee size={16} />}
+        ornament={<CrossPattee size="md" />}
         label={
           study.category ? (
-            <Link href={chapelPath('/categories', study.category.slug)} className="ink-link text-accent no-underline">
+            <Link href={chapelPath('/categories', study.category.slug)} className="ink-link text-primary no-underline">
               {study.category.name}
             </Link>
           ) : (
@@ -42,15 +42,15 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
           )
         }
         footer={
-          <Text family="mono" size="sm" color="muted">
+          <Text family="mono" size="xs" color="muted">
             {[study.publishedAt ? formatDate(study.publishedAt) : null, formatReadingTime(study.readingTime)].filter(Boolean).join(' · ')}
           </Text>
         }
       >
-        <Heading as="h1" id="study-title" level="serif-title" className="max-w-[22ch]">
+        <Heading as="h1" id="study-title" level="headline-serif" className="max-w-xl">
           {study.title}
         </Heading>
-        <Text size="xl" color="muted" leading="relaxed" className="mt-6 max-w-[54ch]">
+        <Text size="lead" color="muted" leading="relaxed" className="mt-6 max-w-5xl">
           {study.summary}
         </Text>
       </PageIntro>
@@ -63,7 +63,7 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
         {study.tags.length > 0 && (
           <div className="mt-14 flex flex-wrap items-baseline gap-x-3 gap-y-2">
             <Eyebrow as="span">{t.tags}</Eyebrow>
-            <Text as="span" family="mono" size="sm" color="muted">
+            <Text as="span" family="mono" size="xs" color="muted">
               {study.tags.map((tag) => tag.name).join(' · ')}
             </Text>
           </div>
@@ -74,7 +74,7 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
             <Register title={t.references}>
               {study.references.map((ref, i) => (
                 <li key={ref} className="flex gap-4 border-b border-border py-3">
-                  <Text as="span" family="mono" size="sm" color="accent" className="pt-[3px]">
+                  <Text as="span" family="mono" size="xs" color="primary" className="pt-1">
                     {String(i + 1).padStart(2, '0')}
                   </Text>
                   <Text as="span" size="base" color="foreground" leading="snug">
@@ -86,7 +86,7 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
           </div>
         )}
 
-        <div className="mt-14 rounded-xs bg-surface-alt-1 p-6 md:p-8">
+        <div className="mt-14 rounded-xs bg-surface-muted p-6 md:p-8">
           <Byline
             plain
             frame="arch"
@@ -96,8 +96,8 @@ export default async function StudyPage({ params }: { params: Promise<{ slug: st
           />
         </div>
 
-        <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-12 text-[15px]')}>
-          <ArrowLeft size={15} strokeWidth={1.6} aria-hidden />
+        <Link href={chapelPath('/articles')} className={cx(buttonClasses({ variant: 'quiet', size: 'none' }), 'mt-12 text-base')}>
+          <ArrowLeft className="size-icon-md" aria-hidden />
           {t.back}
         </Link>
       </PageBody>

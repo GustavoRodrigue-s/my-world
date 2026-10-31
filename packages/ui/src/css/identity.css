@@ -1,48 +1,32 @@
 /*
  * Identity — "Mundo do Gustavo", the design system every environment wears
  * (portfolio, Capela, whatever comes next). Hand-written (not
- * generated): base-token overrides and the graphic devices Tailwind utilities
- * can't express cleanly. Scoped to [data-env] — any environment wrapper — so it
- * never leaks outside one. Colors always come from the environment's theme vars
- * (themes/*.css); nothing here names a color.
+ * generated): the graphic devices Tailwind utilities can't express cleanly.
+ * Scoped to [data-env] — any environment wrapper — so it never leaks outside
+ * one. Every value comes from the design tokens (@my-world/design-system);
+ * nothing here names a color.
  */
 
 [data-env] {
-  /* Wider page, generous rhythm, near-square corners (technical drawing, not app chrome). */
-  --spacing-content-max: 1180px;
-  --spacing-section-x: 1.25rem;
-  --spacing-section-y: 80px;
-  --spacing-nav-h: 64px;
-  --radius-card: 2px;
-  --radius-xs: 2px;
-  --radius-sm: 3px;
-
   text-rendering: optimizeLegibility;
 }
 
-@media (min-width: 768px) {
-  [data-env] {
-    --spacing-section-x: 2.5rem;
-    --spacing-section-y: 120px;
-  }
-}
-
 [data-env] ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-on-accent);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 [data-env] :focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
+  outline: var(--border-width-strong) solid var(--color-primary);
+  outline-offset: var(--space-1);
 }
 
 /* Hachura — engraving-style hatching, used for shadows and "paper cut" fills. */
 [data-env] .hatch {
   background-image: repeating-linear-gradient(
     -45deg,
-    currentColor 0 1px,
-    transparent 1px 6px
+    currentColor 0 var(--border-width-hairline),
+    transparent var(--border-width-hairline) var(--space-2)
   );
 }
 
@@ -55,46 +39,46 @@
 [data-env] .registration::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: var(--space-2);
+  height: var(--space-2);
   pointer-events: none;
   border-color: var(--color-foreground);
   border-style: solid;
-  opacity: 0.55;
+  opacity: var(--opacity-half);
 }
 
 [data-env] .registration::before {
-  top: -5px;
-  left: -5px;
-  border-width: 1px 0 0 1px;
+  top: calc(-1 * var(--space-1));
+  left: calc(-1 * var(--space-1));
+  border-width: var(--border-width-hairline) 0 0 var(--border-width-hairline);
 }
 
 [data-env] .registration::after {
-  right: -5px;
-  bottom: -5px;
-  border-width: 0 1px 1px 0;
+  right: calc(-1 * var(--space-1));
+  bottom: calc(-1 * var(--space-1));
+  border-width: 0 var(--border-width-hairline) var(--border-width-hairline) 0;
 }
 
 /* Linha pontilhada de órbita — dotted leader between a label and its value. */
 [data-env] .leader {
   flex: 1;
-  min-width: 1.5rem;
-  border-bottom: 1px dotted var(--color-border-strong);
-  transform: translateY(-0.3em);
+  min-width: var(--space-6);
+  border-bottom: var(--border-width-hairline) dotted var(--color-border-strong);
+  transform: translateY(calc(-1 * var(--font-scale-baseline-shift)));
 }
 
 /* Sublinhado a traço — a link's underline is drawn left to right in rubric red. */
 [data-env] .ink-link {
-  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-image: linear-gradient(var(--color-primary), var(--color-primary));
   background-position: 0 100%;
   background-repeat: no-repeat;
-  background-size: 0% 1px;
-  transition: background-size 200ms ease-out, color var(--transition-fast);
+  background-size: 0% var(--border-width-hairline);
+  transition: background-size var(--duration-normal) var(--easing-out), color var(--duration-fast) var(--easing-standard);
 }
 
 [data-env] .ink-link:hover,
 [data-env] .ink-link[aria-current] {
-  background-size: 100% 1px;
+  background-size: 100% var(--border-width-hairline);
 }
 
 /*
@@ -124,7 +108,7 @@
  *   .plot-arrive    the entry slides in from the side to meet the line
  */
 @keyframes gw-rise {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(var(--space-4)); }
   to   { opacity: 1; transform: none; }
 }
 
@@ -139,17 +123,17 @@
 }
 
 @keyframes gw-orbit {
-  from { opacity: 0; transform: scale(0.8); }
+  from { opacity: 0; transform: scale(var(--transform-scale-enter)); }
   to   { opacity: 1; transform: none; }
 }
 
 @keyframes gw-arrive {
-  from { opacity: 0; transform: translateX(24px); }
+  from { opacity: 0; transform: translateX(var(--space-6)); }
   to   { opacity: 1; transform: none; }
 }
 
 @keyframes gw-inked {
-  to { border-color: var(--color-accent); }
+  to { border-color: var(--color-primary); }
 }
 
 @keyframes gw-ink-text {
@@ -158,14 +142,14 @@
 
 /* A rotating quote settles in (Capela). Plain time-based: it follows a click or the timer, not the scroll. */
 @keyframes gw-quote {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(var(--space-2)); }
   to   { opacity: 1; transform: none; }
 }
 
 @keyframes gw-ripple {
-  0%   { opacity: 0; transform: scale(0.4); }
+  0%   { opacity: 0; transform: scale(var(--transform-scale-ripple-from)); }
   25%  { opacity: 1; }
-  100% { opacity: 0; transform: scale(2.2); }
+  100% { opacity: 0; transform: scale(var(--transform-scale-ripple-to)); }
 }
 
 /* Only exist where they can move. */
@@ -253,6 +237,164 @@
       animation: gw-draw-x linear both;
       animation-timeline: scroll(root block);
     }
+  }
+}
+
+/*
+ * Carta do mundo — the home's map is drawn once on arrival, like a cartographer
+ * inking a plate: the coast is traced, the places appear, the "você está aqui"
+ * beacon rings three times. Nothing loops. Longhand properties on purpose, so
+ * an inline `animationDelay` of N × duration.stagger staggers it. Reduced motion,
+ * print and still environments get the map already drawn.
+ *   .chart-trace   a solid path traced end to end (needs pathLength="1")
+ *   .chart-appear  a place or detail fades in
+ *   .chart-beacon  the ring around "você está aqui"
+ *
+ * Then the chart's story, the home's protagonist, on one loop of duration.story
+ * (ADR 0030): each part starts at its own fraction of the loop, from an inline
+ * `animationDelay`. Pause: [data-chart-paused] on an ancestor. Without motion the
+ * ship stands still on its route, the rest stays hidden.
+ *   .chart-sail     the ship along its route (inline offset-path)
+ *   .chart-rock     the ship rocking on the water
+ *   .chart-walk     a point walking a trail (inline offset-path)
+ *   .chart-ping     a ring where someone arrives
+ *   .chart-glint    a brief glint of gold
+ *   .chart-orbit    a satellite's one orbit (inline transform-origin)
+ *   .chart-shimmer  waves and stars breathing, each on its own delay
+ */
+@keyframes gw-trace {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes gw-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gw-beacon {
+  from { opacity: var(--opacity-strong); transform: none; }
+  to   { opacity: 0; transform: scale(var(--transform-scale-pulse)); }
+}
+
+@keyframes gw-sail {
+  0%   { opacity: 0; offset-distance: 0%; }
+  4%   { opacity: 1; }
+  30%  { opacity: 1; offset-distance: 100%; }
+  33%, 100% { opacity: 0; offset-distance: 100%; }
+}
+
+@keyframes gw-rock {
+  from { transform: rotate(calc(-1 * var(--transform-rotate-sway))); }
+  to   { transform: rotate(var(--transform-rotate-sway)); }
+}
+
+@keyframes gw-walk {
+  0%   { opacity: 0; offset-distance: 0%; }
+  1%   { opacity: 1; }
+  12%  { opacity: 1; offset-distance: 100%; }
+  13%, 100% { opacity: 0; offset-distance: 100%; }
+}
+
+@keyframes gw-ping {
+  0%   { opacity: var(--opacity-strong); transform: none; }
+  6%, 100% { opacity: 0; transform: scale(var(--transform-scale-pulse)); }
+}
+
+@keyframes gw-glint {
+  0%, 100% { opacity: 0; }
+  2%   { opacity: 1; }
+  8%   { opacity: 0; }
+}
+
+@keyframes gw-orbit {
+  0%   { transform: none; }
+  8%, 100% { transform: rotate(-1turn); }
+}
+
+@keyframes gw-shimmer {
+  0%, 100% { opacity: 1; }
+  50%  { opacity: var(--opacity-faint); }
+}
+
+[data-env] .chart-beacon,
+[data-env] .chart-walk,
+[data-env] .chart-ping,
+[data-env] .chart-glint {
+  opacity: 0;
+}
+
+/* Without motion the ship stands partway along its route. */
+[data-env] .chart-sail {
+  offset-distance: 40%;
+  offset-rotate: 0deg;
+}
+
+[data-env] .chart-walk {
+  offset-rotate: 0deg;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-env]:not([data-motion='still']) .chart-trace {
+    stroke-dasharray: 1;
+    animation-name: gw-trace;
+    animation-duration: var(--duration-draw);
+    animation-timing-function: var(--easing-draw);
+    animation-fill-mode: both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-appear {
+    animation-name: gw-appear;
+    animation-duration: var(--duration-arrive);
+    animation-timing-function: var(--easing-out);
+    animation-fill-mode: both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-beacon {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation-name: gw-beacon;
+    animation-duration: var(--duration-pulse);
+    animation-timing-function: var(--easing-out);
+    /* Once the trails are drawn. */
+    animation-delay: calc(var(--duration-draw) + var(--duration-normal));
+    animation-iteration-count: 3;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-sail {
+    animation: gw-sail var(--duration-story) linear infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-rock {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: gw-rock var(--duration-pulse) var(--easing-in-out) infinite alternate;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-walk {
+    animation: gw-walk var(--duration-story) var(--easing-draw) infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-ping {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: gw-ping var(--duration-story) var(--easing-out) infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-glint {
+    animation: gw-glint var(--duration-story) linear infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-orbit {
+    animation: gw-orbit var(--duration-story) var(--easing-in-out) infinite both;
+  }
+
+  [data-env]:not([data-motion='still']) .chart-shimmer {
+    animation: gw-shimmer var(--duration-drift) var(--easing-in-out) infinite;
+  }
+
+  [data-env] [data-chart-paused] :is(.chart-sail, .chart-rock, .chart-walk, .chart-ping, .chart-glint, .chart-orbit, .chart-shimmer) {
+    animation-play-state: paused;
   }
 }
 

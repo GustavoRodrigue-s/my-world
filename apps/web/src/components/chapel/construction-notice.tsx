@@ -5,10 +5,10 @@ import { CHAPEL } from '@/lib/chapel-content'
 export function ConstructionNotice() {
   const { construction } = CHAPEL
   return (
-    <div role="note" className="border-b border-border bg-surface-alt-1 px-[var(--spacing-section-x)] py-2.5 print:hidden">
-      <div className="section-inner flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-center">
+    <div role="note" className="border-b border-border bg-surface-muted px-gutter md:px-gutter-wide py-3 print:hidden">
+      <div className="section-inner flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center">
         <StatusTag tone="open">{construction.status}</StatusTag>
-        <Text as="span" family="mono" size="sm" color="muted">
+        <Text as="span" family="mono" size="xs" color="muted">
           {construction.preview}
         </Text>
       </div>

@@ -1,9 +1,12 @@
-import { chapelTheme, portfolioTheme } from '@my-world/design-system'
+import { tokens } from '@my-world/design-system'
 import { Text } from '@/components/ui'
 import type { PortfolioContent } from '@/lib/portfolio-content'
 
-const day = { ...portfolioTheme.brand, ...portfolioTheme.light }
-const night = { ...portfolioTheme.brand, ...portfolioTheme.dark }
+const day = tokens.portfolio.light.color
+const night = tokens.portfolio.dark.color
+const chapel = tokens.chapel.light.color
+const studies = tokens.studies.light.color
+const studiesNight = tokens.studies.dark.color
 
 // WCAG relative luminance / contrast, so every swatch states its own legibility.
 function luminance(hex: string) {
@@ -31,13 +34,16 @@ interface Swatch {
 const SWATCHES: Swatch[] = [
   { key: 'paper', color: day.surface },
   { key: 'ink', color: day.foreground, on: day.surface },
-  { key: 'rubric', color: day.accent, on: day.surface },
-  { key: 'graphite', color: day.muted, on: day.surface },
+  { key: 'rubric', color: day.primary, on: day.surface },
+  { key: 'graphite', color: day['foreground-muted'], on: day.surface },
   { key: 'night', color: night.surface },
   { key: 'parchment', color: night.foreground, on: night.surface },
-  { key: 'ember', color: night.accent, on: night.surface },
-  { key: 'cyanotype', color: day.support1, on: day.surface },
-  { key: 'gold', color: chapelTheme.brand.support1, on: chapelTheme.light.surface },
+  { key: 'ember', color: night.primary, on: night.surface },
+  { key: 'cyanotype', color: day.support, on: day.surface },
+  { key: 'gold', color: chapel.support, on: chapel.surface },
+  { key: 'leaf', color: studies.surface },
+  { key: 'lamp', color: studiesNight.surface },
+  { key: 'pencil', color: studies.support, on: studies.surface },
 ]
 
 interface PaletteProps {
@@ -55,23 +61,23 @@ export function Palette({ swatches, large }: PaletteProps) {
         const [name, role] = swatches[s.key]
         return (
           <li key={s.key} className="bg-surface">
-            {/* Swatch color is read from the theme source, not retyped. */}
+            {/* Swatch color is read from the design tokens, not retyped. */}
             <div className="h-24 border-b border-border-strong" style={{ backgroundColor: s.color }} />
             <div className="flex items-start justify-between gap-3 p-4">
               <div>
                 <Text size="base" weight="semibold" color="foreground">
                   {name}
                 </Text>
-                <Text size="md" color="muted" className="mt-0.5">
+                <Text size="sm" color="muted" className="mt-1">
                   {role}
                 </Text>
               </div>
               <div className="text-right">
-                <Text family="mono" size="sm" color="foreground">
+                <Text family="mono" size="xs" color="foreground">
                   {s.color.toUpperCase()}
                 </Text>
                 {ratio && (
-                  <Text family="mono" size="sm" color="muted" className="mt-0.5">
+                  <Text family="mono" size="xs" color="muted" className="mt-1">
                     {ratio.toFixed(1)}:1 {ratio >= 4.5 ? 'AA' : ratio >= 3 ? large : ''}
                   </Text>
                 )}

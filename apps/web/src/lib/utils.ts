@@ -1,6 +1,8 @@
 // Format a date string to Portuguese locale
 export function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('pt-BR', {
+  // A bare YYYY-MM-DD is read at noon, so no time zone moves it to the day before.
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(dateString) ? new Date(`${dateString}T12:00:00`) : new Date(dateString)
+  return date.toLocaleDateString('pt-BR', {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
@@ -10,13 +12,6 @@ export function formatDate(dateString: string): string {
 // Build a reading time label
 export function formatReadingTime(minutes: number): string {
   return `${minutes} min de leitura`
-}
-
-// Resolve Strapi image URL to absolute
-export function resolveMediaUrl(url: string): string {
-  if (!url) return ''
-  if (url.startsWith('http')) return url
-  return `${process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337'}${url}`
 }
 
 // Clamp a string to n characters with ellipsis

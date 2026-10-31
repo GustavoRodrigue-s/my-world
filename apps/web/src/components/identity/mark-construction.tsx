@@ -27,7 +27,7 @@ export function MarkConstruction({ labels }: { labels: { title: string; core: st
       <circle cx={g.cx} cy={g.cy} r={g.r} fill="none" className="stroke-foreground" strokeWidth="0.12" strokeDasharray="0.6 0.8" />
       <path d={`M${g.cx - 3} ${g.cy}H${g.cx + 3}M${g.cx} ${g.cy - 3}V${g.cy + 3}`} className="stroke-foreground" strokeWidth="0.12" />
 
-      <g className="stroke-accent" strokeWidth="0.14" strokeDasharray="0.5 0.6">
+      <g className="stroke-primary" strokeWidth="0.14" strokeDasharray="0.5 0.6">
         <path d={`M${g.cx} ${g.cy}L${gapStart.x} ${gapStart.y}`} />
         <path d={`M${g.cx} ${g.cy}L${gapEnd.x} ${gapEnd.y}`} />
         <path d={`M${g.cx} ${g.cy}L${sat.x} ${sat.y}`} />
@@ -36,15 +36,15 @@ export function MarkConstruction({ labels }: { labels: { title: string; core: st
 
       <path d={MARK_ORBIT_PATH} fill="none" className="stroke-foreground" strokeWidth={g.stroke} opacity="0.92" />
       <circle cx={g.cx} cy={g.cy} r={g.core} className="fill-foreground" />
-      <path d={markSatellitePath('satellite')} className="fill-accent" />
+      <path d={markSatellitePath('satellite')} className="fill-primary" />
 
-      <g className="fill-foreground font-mono text-[1.7px]">
+      <g fontSize={1.7} className="fill-foreground font-mono">
         <text x={gapStart.x + 0.8} y={gapStart.y}>−40°</text>
         <text x={sat.x + 0.8} y={sat.y + 0.6}>−20°</text>
         <text x={gapEnd.x + 0.8} y={gapEnd.y + 0.6}>0°</text>
         <text x={radiusLabel.x} y={radiusLabel.y + 1.6} textAnchor="end">r 17</text>
         <text x={g.cx + 1} y={g.cy + 7.8}>{labels.core}</text>
-        <text x="-7" y="-5.4" className="fill-muted">{labels.grid}</text>
+        <text x="-7" y="-5.4" className="fill-foreground-muted">{labels.grid}</text>
       </g>
     </svg>
   )

@@ -1,4 +1,4 @@
-import '@my-world/ui/css/themes/portfolio.css'
+import '@my-world/design-system/css/portfolio.css'
 import '@my-world/ui/css/identity.css'
 
 /**

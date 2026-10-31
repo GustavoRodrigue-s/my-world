@@ -5,8 +5,6 @@
 // - Language-independent facts (name, links, coordinates…) live here, in IDENTITY.
 // - Everything visible lives in ./portfolio-content-pt.ts and ./portfolio-content-en.ts,
 //   both typed as PortfolioCopy so the two can't drift apart in shape.
-// - Lines marked REVIEW are drafts written in Gustavo's voice — confirm or rewrite
-//   them (in both files: the English one mirrors the Portuguese markers).
 
 import { en } from './portfolio-content-en'
 import { pt } from './portfolio-content-pt'
@@ -20,10 +18,9 @@ export const IDENTITY = {
   name: 'Gustavo Rodrigues Fabiano',
   shortName: 'Gustavo Rodrigues',
   company: 'Big4Tech',
-  coordinates: '23°18′S 51°09′W',
+  coordinates: '23°S 51°W',
   timezone: 'UTC−3',
-  // REVIEW: personal e-mail from the LinkedIn export — swap for the address you want public.
-  email: 'gustavo.fabiano.2010@hotmail.com',
+  email: 'gustavo.fabiano.2010@gmail.com',
   linkedin: 'https://www.linkedin.com/in/gustavo-rodrigues-fabiano-768589208',
   github: 'https://github.com/GustavoRodrigue-s',
   revision: '2026.10',
@@ -101,10 +98,7 @@ export interface PortfolioCopy {
   profile: {
     role: string
     city: string
-    region: string
     motto: string
-    purpose: string
-    duality: string
   }
   meta: {
     defaultTitle: string
@@ -122,18 +116,8 @@ export interface PortfolioCopy {
     resume: string
     language: { label: string }
     dayNight: { toDay: string; toNight: string }
-    footer: {
-      world: string
-      landscapes: string
-      contact: string
-      portfolio: string
-      resume: string
-      identity: string
-      email: string
-      inCity: string
-      /** Tag on a link to a space that is still being built (lib/world.ts). */
-      building: string
-    }
+    /** The strip back to the world's home (<WorldBar>). */
+    worldBar: { label: string; home: string }
   }
   copy: {
     about: Pick<Folio, 'label' | 'note'>
@@ -201,16 +185,16 @@ export interface PortfolioCopy {
     construction: { title: string; core: string; grid: string }
     concept: Folio & { story: Array<{ title: string; text: string }> }
     mark: Folio & {
-      variants: { satellite: [string, string]; star: [string, string]; artifact: [string, string] }
+      variants: { satellite: [string, string]; star: [string, string]; artifact: [string, string]; seed: [string, string] }
       rulesLabel: string
       rules: string[]
       filesLabel: string
-      files: Record<'mark' | 'paper' | 'mono' | 'star' | 'favicon', string>
+      files: Record<'mark' | 'paper' | 'mono' | 'star' | 'seed' | 'favicon', string>
     }
     color: Folio & {
       large: string
       swatches: Record<
-        'paper' | 'ink' | 'rubric' | 'graphite' | 'night' | 'parchment' | 'ember' | 'cyanotype' | 'gold',
+        'paper' | 'ink' | 'rubric' | 'graphite' | 'night' | 'parchment' | 'ember' | 'cyanotype' | 'gold' | 'leaf' | 'lamp' | 'pencil',
         [name: string, role: string]
       >
     }

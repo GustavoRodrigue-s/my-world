@@ -27,12 +27,12 @@ const PATHS: Record<string, { ink: string; red: string }> = {
 export function ProcessIcon({ stage }: { stage: keyof typeof PATHS }) {
   const p = PATHS[stage]
   return (
-    <svg viewBox="0 0 32 32" width="36" height="36" aria-hidden className="text-foreground">
+    <svg viewBox="0 0 32 32" aria-hidden className="size-icon-2xl text-foreground">
       <path d={p.ink} fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
       {/* The red detail answers a hover on the stage (the parent is a `group`). */}
       <path
         d={p.red}
-        className="origin-center fill-accent stroke-accent transition-transform duration-200 ease-out [transform-box:fill-box] motion-safe:group-hover:scale-125 motion-safe:group-hover:rotate-12"
+        className="origin-center fill-primary stroke-primary transition-transform duration-normal ease-out [transform-box:fill-box] motion-safe:group-hover:scale-(--transform-scale-lift) motion-safe:group-hover:rotate-(--transform-rotate-tilt)"
         strokeWidth="1.2"
         strokeLinejoin="round"
       />

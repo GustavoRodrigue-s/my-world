@@ -12,11 +12,11 @@ interface RubricProps extends React.HTMLAttributes<HTMLElement> {
  */
 export function Rubric({ index, as: Tag = 'p', className, children, ...props }: RubricProps) {
   return (
-    <Tag className={cx('font-mono text-[12px] leading-none tracking-[0.02em] text-muted', className)} {...props}>
-      <span className="text-accent">¶ {index}</span>
+    <Tag className={cx('font-mono text-xs leading-none tracking-wide text-foreground-muted', className)} {...props}>
+      <span className="text-primary">¶ {index}</span>
       {children && (
         <>
-          <span aria-hidden className="mx-2 text-subtle">—</span>
+          <span aria-hidden className="mx-2 text-foreground-subtle">—</span>
           {children}
         </>
       )}

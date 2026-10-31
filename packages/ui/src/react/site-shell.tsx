@@ -29,12 +29,13 @@ export function SiteShell({ env, lang, className, motion = 'plotted', skipLabel,
     <div data-env={env} data-motion={motion} lang={lang} className={cx('flex min-h-dvh flex-col bg-surface font-sans text-foreground', className)}>
       <a
         href="#content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[var(--z-toast)] focus:bg-foreground focus:px-4 focus:py-2 focus:text-surface"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-top focus:bg-foreground focus:px-4 focus:py-2 focus:text-surface"
       >
         {skipLabel}
       </a>
       {header}
-      <main id="content" className="flex-1">
+      {/* Focusable from script (skip link, back to top), without a ring of its own. */}
+      <main id="content" tabIndex={-1} className="flex-1 outline-none">
         {children}
       </main>
       {footer}

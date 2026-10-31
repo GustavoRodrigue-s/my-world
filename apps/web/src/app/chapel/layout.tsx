@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import '@my-world/ui/css/themes/chapel.css'
+import '@my-world/design-system/css/chapel.css'
 import '@my-world/ui/css/identity.css'
 import { ChapelShell } from '@/components/chapel'
 import { CHAPEL } from '@/lib/chapel-content'

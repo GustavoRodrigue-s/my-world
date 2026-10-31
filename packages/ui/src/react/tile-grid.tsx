@@ -1,9 +1,16 @@
 import Link from 'next/link'
 import type { Route } from 'next'
 import { Heading } from './heading'
-import type { Topic } from './topic-grid'
 import { Text } from './text'
 import { cx } from './utils'
+
+export interface Topic {
+  href: string
+  name: string
+  description?: string
+  /** Mono count line, e.g. "12 estudos". */
+  count?: string
+}
 
 interface TileGridProps {
   topics: Topic[]
@@ -26,19 +33,19 @@ export function TileGrid({ topics, on = 'surface', gilded }: TileGridProps) {
             href={t.href as Route}
             className={cx(
               'group relative flex h-full flex-col gap-3 rounded-xs p-7 text-foreground no-underline md:p-8',
-              on === 'stone' ? 'bg-surface' : 'bg-surface-alt-1'
+              on === 'stone' ? 'bg-surface' : 'bg-surface-muted'
             )}
           >
             {gilded && (
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-1.5 rounded-xs border border-support-1 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100"
+                className="pointer-events-none absolute inset-2 rounded-xs border border-support opacity-0 transition-opacity duration-normal group-hover:opacity-100 group-focus-visible:opacity-100"
               />
             )}
             <Heading
               as="span"
-              level="serif-subtitle"
-              className="transition-colors duration-[var(--transition-fast)] group-hover:text-accent"
+              level="title-serif"
+              className="transition-colors duration-fast group-hover:text-primary"
             >
               {t.name}
             </Heading>
@@ -48,7 +55,7 @@ export function TileGrid({ topics, on = 'surface', gilded }: TileGridProps) {
               </Text>
             )}
             {t.count && (
-              <Text as="span" family="mono" size="sm" color="muted" className="mt-auto pt-4">
+              <Text as="span" family="mono" size="xs" color="muted" className="mt-auto pt-4">
                 {t.count}
               </Text>
             )}

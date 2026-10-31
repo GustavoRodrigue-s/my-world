@@ -19,21 +19,21 @@ export interface TimelineEntry {
 }
 
 const SHAPE: Record<TimelineShape, string> = {
-  diamond: 'h-2.5 w-2.5 rotate-45 border border-foreground bg-surface',
-  circle: 'h-3 w-3 rounded-full border border-foreground bg-surface',
-  square: 'h-2.5 w-2.5 border border-foreground bg-foreground',
+  diamond: 'size-icon-xs rotate-(--transform-rotate-diamond) border border-foreground bg-surface',
+  circle: 'h-3 w-3 rounded-pill border border-foreground bg-surface',
+  square: 'h-3 w-3 border border-foreground bg-foreground',
 }
 
 function Node({ entry }: { entry: TimelineEntry }) {
   if (entry.state === 'current') {
     return (
       <span className="relative flex h-4 w-4 items-center justify-center">
-        <span className="absolute inset-0 rounded-full border border-accent" />
-        <span className="h-2 w-2 rounded-full bg-accent" />
+        <span className="absolute inset-0 rounded-pill border border-primary" />
+        <span className="h-2 w-2 rounded-pill bg-primary" />
       </span>
     )
   }
-  if (entry.state === 'next') return <span className="h-3 w-3 rounded-full border border-dashed border-foreground bg-surface" />
+  if (entry.state === 'next') return <span className="h-3 w-3 rounded-pill border border-dashed border-foreground bg-surface" />
   return <span className={cx(SHAPE[entry.shape ?? 'circle'], 'plot-inked')} />
 }
 
@@ -54,13 +54,13 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
         return (
           <li
             key={entry.key}
-            className="plot-station group grid grid-cols-[24px_minmax(0,1fr)] gap-x-5 md:grid-cols-[150px_24px_minmax(0,1fr)] md:gap-x-6"
+            className="plot-station group grid grid-cols-[var(--space-6)_minmax(0,1fr)] gap-x-5 md:grid-cols-[var(--size-width-3xs)_var(--space-6)_minmax(0,1fr)] md:gap-x-6"
           >
             <Text
               family="mono"
-              size="md"
-              color={current ? 'accent' : 'muted'}
-              className={cx('hidden pt-[3px] md:block', past && 'plot-ink-text')}
+              size="sm"
+              color={current ? 'primary' : 'muted'}
+              className={cx('hidden pt-1 md:block', past && 'plot-ink-text')}
             >
               {entry.period}
             </Text>
@@ -76,14 +76,14 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
                 />
               )}
               {!last && past && !towardNext && (
-                <span aria-hidden className="plot-ink absolute top-5 bottom-0 left-1/2 w-[2px] -translate-x-1/2 bg-accent" />
+                <span aria-hidden className="plot-ink absolute top-5 bottom-0 left-1/2 w-(--border-width-strong) -translate-x-1/2 bg-primary" />
               )}
-              <span className="relative z-[1] mt-[5px] flex h-4 items-center transition-transform duration-200 motion-safe:group-hover:scale-125">
+              <span className="relative z-raised mt-1 flex h-4 items-center transition-transform duration-normal motion-safe:group-hover:scale-(--transform-scale-lift)">
                 <Node entry={entry} />
                 {past && (
                   <span
                     aria-hidden
-                    className="plot-ripple absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent"
+                    className="plot-ripple absolute top-1/2 left-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-pill border border-primary"
                   />
                 )}
               </span>
@@ -92,21 +92,21 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
             <div className={cx('plot-arrive pb-12', last && 'pb-0')}>
               <Text
                 family="mono"
-                size="sm"
-                color={current ? 'accent' : 'muted'}
+                size="xs"
+                color={current ? 'primary' : 'muted'}
                 className={cx('mb-2 md:hidden', past && 'plot-ink-text')}
               >
                 {entry.period}
               </Text>
-              <Heading as="h3" level="subtitle">
+              <Heading as="h3" level="title">
                 {entry.title}
               </Heading>
               {entry.meta && (
-                <Text size="md" color="foreground" className="mt-1.5">
+                <Text size="sm" color="foreground" className="mt-2">
                   {entry.meta}
                 </Text>
               )}
-              <Text size="base" color="muted" leading="relaxed" className="mt-3 max-w-[60ch]">
+              <Text size="base" color="muted" leading="relaxed" className="mt-3 max-w-2xl">
                 {entry.text}
               </Text>
             </div>

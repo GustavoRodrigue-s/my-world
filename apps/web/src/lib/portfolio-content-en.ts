@@ -1,34 +1,30 @@
 import type { PortfolioCopy } from './portfolio-content'
 
 // English edition — a translation of portfolio-content-pt.ts, for international
-// readers and recruiters. Same facts, same REVIEW markers; nothing added.
+// readers and recruiters. Same facts; nothing added.
 // "capricho" becomes "care" (the one emphasized word of the motto).
 // Titles are literal; the metaphor stays in rubrics, glosses and captions.
 
 export const en: PortfolioCopy = {
   profile: {
-    role: 'Mid-level Full-stack Developer',
+    role: 'Software and AI Engineer · Mid-level Full-stack',
     city: 'Londrina, Brazil',
-    region: 'Paraná, Brazil',
     motto: 'made with care',
-    purpose:
-      'This space gathers what I believe, what I learn and what I build — as a developer, as a Christian and as a human being.',
-    duality: 'reason and faith, craft and purpose',
   },
 
   meta: {
-    defaultTitle: 'Gustavo Rodrigues — Full-stack Developer',
+    defaultTitle: 'Gustavo Rodrigues — Software and AI Engineer',
     description:
-      'Portfolio of Gustavo Rodrigues Fabiano, a full-stack developer: React, Next.js, TypeScript, NestJS, Design Systems and AI-assisted development. Londrina, Brazil.',
+      'Portfolio of Gustavo Rodrigues Fabiano, a software and AI engineer: React, Next.js, TypeScript, NestJS, Design Systems and AI-assisted development. Londrina, Brazil.',
     portfolio: {
-      title: 'Gustavo Rodrigues — Full-stack Developer',
+      title: 'Gustavo Rodrigues — Software and AI Engineer',
       description:
-        'Software made with care, from the interface to the server. Portfolio, career and work of Gustavo Rodrigues Fabiano, a full-stack developer in Londrina, Brazil.',
+        'Software made with care, from the interface to the server. Portfolio, career and work of Gustavo Rodrigues Fabiano, a software and AI engineer in Londrina, Brazil.',
     },
     resume: {
       title: 'Résumé',
       description:
-        'Résumé of Gustavo Rodrigues Fabiano — Mid-level Full-stack Developer. React, Next.js, TypeScript, NestJS, Design Systems and AI-assisted development.',
+        'Résumé of Gustavo Rodrigues Fabiano — Software and AI Engineer, Mid-level Full-stack. React, Next.js, TypeScript, NestJS, Design Systems and AI-assisted development.',
     },
     identity: {
       title: 'Visual identity',
@@ -46,7 +42,7 @@ export const en: PortfolioCopy = {
 
   shell: {
     skipLink: 'Skip to content',
-    brandSub: 'full-stack · londrina',
+    brandSub: 'Software and AI Engineer',
     navLabel: 'Portfolio sections',
     nav: [
       { label: 'About', id: 'about' },
@@ -58,17 +54,7 @@ export const en: PortfolioCopy = {
     resume: 'Résumé',
     language: { label: 'Language' },
     dayNight: { toDay: 'Switch to day mode', toNight: 'Switch to night mode' },
-    footer: {
-      world: 'in this world',
-      landscapes: 'other landscapes',
-      contact: 'contact',
-      portfolio: 'Portfolio',
-      resume: 'Résumé',
-      identity: 'Visual identity',
-      email: 'Email',
-      inCity: 'in Londrina',
-      building: 'under construction',
-    },
+    worldBar: { label: 'You are in', home: 'Mundo do Gustavo' },
   },
 
   copy: {
@@ -78,7 +64,7 @@ export const en: PortfolioCopy = {
       note: '2021 → today, in chronological order',
       title: 'From the first spark to the production line',
       intro:
-        'Each company was a new orbit: more responsibility, bigger systems and more people using what I build.', // REVIEW
+        'Each company was a new orbit: more responsibility, bigger systems and more people using what I build.',
     },
     artifacts: {
       label: 'artifacts',
@@ -125,7 +111,7 @@ export const en: PortfolioCopy = {
       note: 'how I work and where I can help',
       title: 'How I can help',
       intro:
-        'Every idea goes through the same workshop line before it goes into orbit. That’s how I work, on a team and on my own projects.', // REVIEW
+        'Every idea goes through the same workshop line before it goes into orbit. That’s how I work, on a team and on my own projects.',
       line: 'from idea to orbit',
       companies: 'companies I’ve worked with',
     },
@@ -134,20 +120,20 @@ export const en: PortfolioCopy = {
 
   hero: {
     rubric: 'plate i · gustavo’s world',
-    kicker: 'Software and AI engineer',
+    kicker: 'Software and AI Engineer',
     statement: {
       before: 'Software made with',
       emphasis: 'care',
       after: ', from the interface to the server.',
     },
-    lead: 'Specialized in user experience and in building systems that are friendly to the end user — from frontend to backend.',
+    lead: 'Specialized in user experience: systems that are easy to use, from frontend to backend.',
     ctaResume: 'View résumé',
     ctaArtifacts: 'See the work',
     caption: 'fig. 1 — gustavo’s world, orbital view',
     legend: [
-      { n: '1', name: 'Southern Cross', text: 'the sky over home. Ideas come from above.' },
+      { n: '1', name: 'Southern Cross', text: 'where ideas come from.' },
       { n: '2', name: 'Workshop', text: 'where ideas become code.' },
-      { n: '3', name: 'Chapel', text: 'where it all makes sense.' },
+      { n: '3', name: 'Hidden treasure', text: 'where it all makes sense.' },
       { n: '4', name: 'Orbits', text: 'what is already in production.' },
     ],
     titleBlock: {
@@ -160,7 +146,7 @@ export const en: PortfolioCopy = {
     },
     figure: {
       title: 'Fig. 1 — Gustavo’s world, orbital view',
-      desc: 'A small planet drawn in fine line, with a workshop, a chapel and a cypress on its surface. A spark falls from the Southern Cross into the workshop chimney, which lights up and launches a new artifact into orbit, alongside other satellites.',
+      desc: 'A small planet drawn in fine line, with a workshop, a small house and a cypress on its surface. A spark falls from the Southern Cross into the workshop chimney, which lights up and launches a new artifact into orbit, alongside other satellites.',
       scale: 'orbital view · scale 1 : ∞',
       pause: 'pause the world',
       play: 'spin the world',
@@ -173,8 +159,7 @@ export const en: PortfolioCopy = {
       'I started programming in 2021, teaching myself, and since 2022 it has been my profession. I’ve worked at companies in the financial sector — EWZ Capital, MundoInvest and Cash2Pay — and today I’m a mid-level full-stack developer at Big4Tech, here in Londrina.',
       'I have more experience on the frontend, but I work full-stack and want to keep growing on both sides. What I enjoy most is building things well — an interface, an API or the architecture that holds them both.',
       'I use AI every day and set projects up so they adapt to AI code generation, keeping the structure in step as the project grows: we gain speed and keep the quality. Claude, Codex, Copilot and MCPs are everyday tools, together with AI engineering and the planning and writing of requirements.',
-      // REVIEW
-      'I’m also Catholic, and that runs through the way I work: doing things well is a form of respect for whoever will use them. That’s where the care comes from — and that’s why this world also has a chapel.',
+      'I’m also Catholic, and that runs through the way I work: doing things well is a form of respect for whoever will use them. That’s where the care comes from.',
     ],
     facts: [
       { label: 'based in', value: 'Londrina, Brazil · UTC−3' },
@@ -185,7 +170,6 @@ export const en: PortfolioCopy = {
       { label: 'since', value: 'self-taught since 2021 · working since 2022' },
     ],
     principlesLabel: 'workshop principles',
-    // REVIEW: the four principles are a draft manifesto.
     principles: [
       {
         title: 'Care is respect.',
@@ -212,7 +196,7 @@ export const en: PortfolioCopy = {
       text: 'I started my journey teaching myself programming and built my first prototypes: a note-taking app with its own documentation, authentication with a separate frontend and backend, and an online store.',
     },
     {
-      period: 'Sep 2022 — Dec 2024',
+      period: 'Sep 2022 — Dec 2023',
       title: 'EWZ Capital',
       role: 'Junior Frontend Developer',
       place: 'São Paulo',
@@ -242,7 +226,7 @@ export const en: PortfolioCopy = {
       place: 'Londrina',
       kind: 'work',
       current: true,
-      text: 'Still responsible for several frontend platforms, now also with full-stack autonomy to deliver requirements end to end: customer onboarding with KYC and facial biometrics, an efficient monorepo for the frontend systems, an automated billing pipeline and screens for the mobile app and the web CRM.',
+      text: 'Still responsible for several frontend platforms, now also with full-stack autonomy to deliver requirements end to end: customer onboarding with KYC and facial biometrics, the onboarding app in React Native, an efficient monorepo for the frontend systems, an automated billing pipeline and the web CRM.',
     },
     {
       period: 'ongoing',
@@ -269,30 +253,49 @@ export const en: PortfolioCopy = {
         'Electronic signature',
       ],
       role: 'Development of the product and of the KYC, facial biometrics, KBA and e-signature integrations.',
-      stack: ['React', 'Next.js', 'TypeScript', 'Design System'], // REVIEW
+      stack: ['React', 'Next.js', 'TypeScript', 'Design System'],
+      confidential: true,
+    },
+    {
+      slug: 'app-onboarding-digital',
+      code: 'A-02',
+      title: 'Digital Onboarding App',
+      org: 'Big4Tech',
+      period: '2025 — present',
+      kind: 'Mobile app',
+      status: 'production',
+      what: 'Digital onboarding on the phone: a React Native app, from project setup to publishing in the stores.',
+      does: [
+        'App setup and architecture',
+        'The complete development flow, from local environment to delivery',
+        'Deployment to the app stores',
+      ],
+      role: 'Building the app, setting up the project, deploying to the stores and the whole development flow.',
+      stack: ['React Native', 'Expo', 'TypeScript'],
       confidential: true,
     },
     {
       slug: 'painel-do-cliente',
-      code: 'A-02',
-      title: 'Customer Dashboard',
+      code: 'A-03',
+      title: 'Customer Dashboard and CRM',
       org: 'Big4Tech',
       period: '2025 — present',
       kind: 'Web platform',
       status: 'production',
-      what: 'A dashboard platform for end customers to track and operate the services they signed up for.', // REVIEW
+      what: 'A dashboard and CRM platform, for end customers to track and operate the services they signed up for.',
       does: [
+        'A dashboard for customers and a web CRM',
         'An experience designed for daily use',
         'Performance as a requirement',
         'Scales to many customers',
       ],
       role: 'Building the platform, with a focus on experience, performance and scalability.',
-      stack: ['React', 'Next.js', 'TypeScript'], // REVIEW
+      stack: ['React', 'Next.js', 'TypeScript'],
       confidential: true,
     },
     {
       slug: 'monorepo-design-system',
-      code: 'A-03',
+      code: 'A-04',
       title: 'Monorepo and Design System',
       org: 'Big4Tech',
       period: '2025 — present',
@@ -306,12 +309,12 @@ export const en: PortfolioCopy = {
         'An environment ready for AI engineering',
       ],
       role: 'Structuring the monorepo and standardizing the Design System and the team’s tooling.',
-      stack: ['Monorepo', 'React', 'React Native', 'Expo', 'TypeScript'], // REVIEW
+      stack: ['Monorepo', 'React', 'React Native', 'Expo', 'TypeScript'],
       confidential: true,
     },
     {
       slug: 'mundo-do-gustavo',
-      code: 'A-04',
+      code: 'A-05',
       title: 'Mundo do Gustavo',
       org: 'Personal project',
       period: '2026',
@@ -319,7 +322,7 @@ export const en: PortfolioCopy = {
       status: 'building',
       what: 'This site: portfolio, résumé and visual identity in a single system — and the showcase of my frontend work, end to end.',
       does: [
-        'Its own identity, from TypeScript tokens to the generated CSS',
+        'Its own identity, from JSON tokens to the generated CSS',
         'Animated SVG illustration, lightweight and pausable',
         'Résumé generated from the same data, ready to print',
       ],
@@ -365,13 +368,12 @@ export const en: PortfolioCopy = {
   drawingBoard: [
     { title: 'Kanban Board with a Pipeline', text: 'Global state with Redux, tests and CI/CD.' },
     {
-      title: 'Composable Store',
-      text: 'Next.js, GraphQL, Design System, performance and accessibility.',
+      title: 'Adaptive Learning',
+      text: 'A personal, multidisciplinary project: a study platform where AI explains what it recommends and the decision stays with the learner, with research, wearables and robotics.',
     },
     { title: 'Catalog with its own API', text: 'Backend, database and algorithms.' },
   ],
 
-  // REVIEW: which orbit each tool sits in is a judgment call.
   toolOrbits: [
     {
       name: 'every day',
@@ -398,7 +400,7 @@ export const en: PortfolioCopy = {
       caption: 'orbit iii',
       tools: [
         'Angular',
-        'Spring Boot',
+        'Vue',
         'Redux',
         'Jest',
         'Testing Library',
@@ -418,7 +420,6 @@ export const en: PortfolioCopy = {
     'Requirements planning and writing',
   ],
 
-  // REVIEW: process wording.
   process: [
     {
       name: 'Intake',
@@ -471,7 +472,7 @@ export const en: PortfolioCopy = {
 
   contact: {
     title: { before: 'Have an idea? Let’s get it off the', emphasis: 'ground', after: '.' },
-    text: 'For opportunities, projects or a good conversation about frontend, write to me.',
+    text: 'For opportunities, projects or a good conversation about software, write to me.',
   },
 
   // International format: reverse-chronological, no photo or personal data, concise.
@@ -487,7 +488,7 @@ export const en: PortfolioCopy = {
       certifications: 'certifications',
     },
     summary:
-      'Full-stack developer with more experience on the frontend and an interest in growing on both sides. I deliver requirements end to end — React, Next.js and TypeScript on the frontend; Node.js, NestJS and RabbitMQ on the backend; React Native on mobile — and maintain an in-house Design System. I use AI every day and set projects up for AI code generation, gaining speed without losing structure or quality. What I enjoy most is building things well.',
+      'Software and AI engineer, full-stack, with more experience on the frontend and an interest in growing on both sides. I deliver requirements end to end — React, Next.js and TypeScript on the frontend; Node.js, NestJS and RabbitMQ on the backend; React Native on mobile — and maintain an in-house Design System. I use AI every day and set projects up for AI code generation, gaining speed without losing structure or quality. What I enjoy most is building things well.',
     experience: [
       {
         company: 'Big4Tech',
@@ -499,7 +500,8 @@ export const en: PortfolioCopy = {
           'Built a customer onboarding product with KYC, facial biometrics (liveness), KBA and e-signature.',
           'Set up and built an efficient monorepo environment for the frontend systems, with a centralized Design System.',
           'Collaborated on building an automated billing pipeline product.',
-          'Collaborated on building screens for the mobile app and the web CRM.',
+          'Built the digital onboarding app in React Native: project setup, development flow and deployment to the stores.',
+          'Collaborated on building the web CRM.',
           'Created an environment ready for AI engineering, with tools and flows for AI-assisted development.',
         ],
       },
@@ -526,7 +528,7 @@ export const en: PortfolioCopy = {
       {
         company: 'EWZ Capital',
         role: 'Junior Frontend Developer',
-        period: 'Sep 2022 — Dec 2024',
+        period: 'Sep 2022 — Dec 2023',
         place: 'São Paulo, Brazil',
         text: 'First role in the tech industry, focused on frontend, with many people helping and teaching me along the way. Learned a developer’s routine and had my first contact with agile methodologies.',
         highlights: [],
@@ -557,7 +559,7 @@ export const en: PortfolioCopy = {
   identity: {
     rubric: 'visual identity · living guide',
     title: { before: 'One world, many', emphasis: 'landscapes', after: '.' },
-    lead: 'The identity of Gustavo Rodrigues: a small world drawn as a technical plate — paper, ink and a single color, the red of the rubric. It applies to the portfolio, to Capela and to whatever comes next.',
+    lead: 'The identity of Gustavo Rodrigues: a small world drawn as a technical plate — paper, ink and a single color, the red of the rubric. It applies to every place in this world.',
     caption: 'fig. 2 — the mark over its own construction',
     construction: {
       title:
@@ -573,7 +575,7 @@ export const en: PortfolioCopy = {
       story: [
         {
           title: 'The sky',
-          text: 'The Southern Cross is the sky over Londrina, the cross of those who are Christian and the star of those who navigate. In Fig. 1, ideas fall from it: faith comes before the work.',
+          text: 'The Southern Cross is the sky on this side of the world, the cross of those who are Christian and the star of those who navigate. In Fig. 1, ideas fall from it: faith comes before the work.',
         },
         {
           title: 'The workshop',
@@ -596,9 +598,10 @@ export const en: PortfolioCopy = {
       intro:
         'The open orbit draws the G. The bar points to the core — the world, the person. The satellite sits in the mouth of the G: the work heading out. Each landscape swaps only the satellite.',
       variants: {
-        satellite: ['Satellite', 'workshop — portfolio, résumé, project signature'],
-        star: ['Star', 'chapel — writing on faith'],
-        artifact: ['Artifact', 'lab — studies and experiments, once it exists'],
+        satellite: ['Satellite', 'antenna — portfolio, résumé, project signature'],
+        star: ['Star', 'hidden treasure — kept, not displayed'],
+        artifact: ['Artifact', 'workshop — tech, robotics and social projects'],
+        seed: ['Seed', 'library — studies, articles and notes'],
       },
       rulesLabel: 'rules',
       rules: [
@@ -612,7 +615,8 @@ export const en: PortfolioCopy = {
         mark: 'ink + rubric',
         paper: 'paper + ember',
         mono: 'one color',
-        star: 'chapel',
+        star: 'star',
+        seed: 'studies',
         favicon: 'adaptive favicon',
       },
     },
@@ -621,7 +625,7 @@ export const en: PortfolioCopy = {
       note: 'paper, ink and one color',
       title: 'Colors',
       intro:
-        'Everything is paper and ink. The only color is red — rubric by day, ember by night, tuned to keep contrast in both. The blue cyanotype appears only on what is still on the drawing board; the Capela wears the same red on limewash and stone, with a hidden gold that only shows up close.',
+        'Everything is paper and ink. The only color is red — rubric by day, ember by night, tuned to keep contrast in both. The blue cyanotype appears only on what is still on the drawing board; there is a hidden gold, which only shows up close; Estudos writes on the page of a book, in ink what is finished and in pencil what is still in progress.',
       large: 'AA large',
       swatches: {
         paper: ['Paper', 'day surface'],
@@ -632,7 +636,10 @@ export const en: PortfolioCopy = {
         parchment: ['Parchment', 'night text'],
         ember: ['Ember', 'the accent, by night'],
         cyanotype: ['Cyanotype', 'only what is on the drawing board'],
-        gold: ['Gold', 'the hidden gold of Capela'],
+        gold: ['Gold', 'the hidden gold'],
+        leaf: ['Leaf', 'the page of Estudos, by day'],
+        lamp: ['Lamplight', 'the page of Estudos, by night'],
+        pencil: ['Pencil', 'in Estudos, what is still in progress'],
       },
     },
     type: {
@@ -643,10 +650,10 @@ export const en: PortfolioCopy = {
         'Bricolage Grotesque',
         'headings and text. “Bricolage” is workbench tinkering — the voice of the workshop.',
       ],
-      sansSample: 'Software, carefully made',
+      sansSample: 'Software made with care',
       serif: [
         'Cormorant Garamond italic',
-        'the word that matters. One per sentence, in the accent color. The same serif as the Capela.',
+        'the word that matters. One per sentence, in the accent color.',
       ],
       serifSample: 'care',
       mono: ['IBM Plex Mono', 'annotations: rubrics, captions, spec sheets, coordinates.'],
@@ -709,13 +716,13 @@ export const en: PortfolioCopy = {
       vocabularyLabel: 'vocabulary',
       vocabulary: [
         ['artifact', 'a delivered project'],
-        ['workshop', 'where things are built — the portfolio'],
-        ['chapel', 'where one studies and prays — Capela'],
+        ['workshop', 'where things are built'],
+        ['hidden treasure', 'what is found, not what is shown'],
+        ['ink and pencil', 'finished and in progress — Estudos'],
         ['orbit', 'in production, in use'],
         ['drawing board', 'planned, not started yet'],
         ['care', 'the quality bar — “capricho” in Portuguese'],
       ],
-      // REVIEW: mirrors the updated Portuguese note.
       languageNote:
         'Portuguese first in everything that is read — the portfolio, the résumé and this guide also have this English edition, where “capricho” becomes care. English in everything that is coded. One italic word per sentence — the one that matters.',
     },
