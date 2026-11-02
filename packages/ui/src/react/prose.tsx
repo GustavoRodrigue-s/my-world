@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { cx } from './utils'
 
-// Running text written in Markdown/MDX (Estudos): the elements a writer
+// Running text written in Markdown/MDX (Blog): the elements a writer
 // reaches for that the primitives (Heading, Text, Quote) don't already cover.
 
 /** A link inside running text: rubric ink, the hairline drawn on hover. External links open apart. */
@@ -96,7 +96,7 @@ interface ProseFigureProps {
   /** A file in /public (or an allowed remote). Its own background: a figure is a plate, it doesn't follow day/night. */
   src: string
   alt: string
-  /** Intrinsic size in pixels. Text is accepted: MDX (next-mdx-remote v6) drops `{…}` expressions, so studies write `width="1200"`. */
+  /** Intrinsic size in pixels. Text is accepted: MDX (next-mdx-remote v6) drops `{…}` expressions, so posts write `width="1200"`. */
   width: number | string
   height: number | string
   caption?: React.ReactNode

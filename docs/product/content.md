@@ -10,13 +10,13 @@ Every visible word lives in a content module, never hardcoded in a component:
 | `lib/logbook.ts` (`LOGBOOK`) | the diário de bordo — add a dated line with every change worth telling; the home shows the latest six |
 | `lib/portfolio-content-pt.ts` · `-en.ts` (both `PortfolioCopy`), composed by `lib/portfolio-content.ts` (`getContent(locale)`, invariant facts in `IDENTITY`) | portfolio, résumé, `/identity` — a fact added in one locale must be added in the other |
 | `lib/chapel-content.ts` (`CHAPEL`, `chapelPath()`) | the Capela |
-| `lib/studies-content.ts` (`STUDIES`) | Estudos: shell, index and construction copy, theme and format names, the comments switch |
-| `content/studies/*.mdx` | the studies themselves (front matter: [ADR 0014](../architecture/adr/0014-studies-mdx-setup-and-content-model.md)) |
+| `lib/blog-content.ts` (`BLOG`) | Blog: shell, index and construction copy, theme and format names, the comments switch |
+| `content/blog/*.mdx` | the posts themselves (front matter: [ADR 0014](../architecture/adr/0014-studies-mdx-setup-and-content-model.md)) |
 | `lib/mock-data.ts` | the closed Capela's studies, categories and quotes |
 
 `REVIEW` comments mark drafts Gustavo still has to confirm (today in
-`chapel-content.ts`, `studies-content.ts`,
-`content/studies/vida-interior.mdx`, `content/studies/design-tokens.mdx`). Don't remove the
+`chapel-content.ts`, `blog-content.ts`,
+`content/blog/vida-interior.mdx`, `content/blog/design-tokens.mdx`). Don't remove the
 marker without his confirmation.
 
 ## Language
@@ -27,7 +27,15 @@ metaphor (órbita, oficina, artefato, prancheta, lição) lives in margins,
 captions and labels. One emphasized word per statement.
 
 Names: the chapel space is just **"Capela"** — never "Capela de Estudos"
-(renamed 2026-10-25). Estudos is never a "blog".
+(renamed 2026-10-25). The writing space is **"Blog"** ([ADR 0031](../architecture/adr/0031-estudos-becomes-blog.md)).
+
+## The Blog's texts
+
+Every article and note is written by Gustavo, without the use of AI: original and
+authentic. Readers are told so at `/blog/policy`, linked from the index and from
+the end of every post ([ADR 0033](../architecture/adr/0033-blog-texts-are-written-without-ai.md)).
+Agents don't write, rewrite or polish a post's text. A draft with text from any
+other source can't be published until he has written it himself.
 
 ## Privacy — what may go on the site (and in these docs)
 
@@ -43,7 +51,7 @@ life. Decided in [ADR 0018](../architecture/adr/0018-personal-exposure-rules.md)
 | Stating his faith ("sou católico", "cristão") in a word or a line, where it fits | Narrating it: childhood, conversion, struggles, feelings, how he prays, his parish or church habits — the site is not the place for those details |
 | Professional habits ("estudo inglês técnico todo dia") | Personal routines, hobbies, schedules, where he is at a given time |
 | The city (portfolio only), region and country | Coordinates finer than whole degrees, neighbourhood, addresses, places he goes to |
-| Faith as the **subject** of a space (Capela, Estudos) | Faith as **his story** in that space: there, the author is a name and "um estudante, não um mestre" |
+| Faith as the **subject** of a space (Capela, the Blog) | Faith as **his story** in that space: there, the author is a name and "um estudante, não um mestre" |
 
 Per space:
 
@@ -61,7 +69,7 @@ Per space:
   faith, the Church and the spiritual life openly (ADR 0022).
 - **Capela's construction page:** veiled, the "Tesouro escondido". While it isn't
   ready it doesn't say what it is: no "Capela", no cross in the drawing (ADR 0022).
-- **Capela and Estudos:** about faith, not about Gustavo — no biography, no city.
+- **Capela and the Blog:** about faith, not about Gustavo — no biography, no city.
   The Capela's future letter is an **invitation** to the reader, not a testimony.
 - **Data from visitors** (comments, the Capela's candles): anonymous by default,
   nothing required, an LGPD notice before sending, deleted when no longer needed.
@@ -106,6 +114,6 @@ the face after cropping, strip metadata before publishing. The portrait is
 ## Images
 
 Artworks must be public domain (e.g. Duccio's Last Supper,
-`public/chapel/last-supper.jpg`). Studies' figures live in
-`public/studies/<slug>/`: own diagrams and screenshots of this site, or
+`public/chapel/last-supper.jpg`). Posts' covers and figures live in
+`public/blog/<slug>/`: own diagrams and screenshots of this site, or
 public-domain images, metadata stripped.

@@ -2,7 +2,7 @@
 
 Gustavo Rodrigues Fabiano's personal world — "Mundo do Gustavo": one world with
 spaces, drawn as a map at `/`. The Portfólio (career, résumé, brand guide; PT +
-EN) is open; Estudos and the Capela are being built; Projetos is planned.
+EN) is open; the Blog and the Capela are being built; Projetos is planned.
 
 Next.js 15 · TypeScript · Tailwind v4 · Turborepo + pnpm · Vercel.
 

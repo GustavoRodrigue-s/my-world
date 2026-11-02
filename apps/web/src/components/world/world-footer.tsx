@@ -6,7 +6,7 @@ import { SPACES, canEnter, type SpaceId } from '@/lib/world'
 import { PLACE_ORDER } from '@/lib/world-content'
 import { WORLD_FOOTER } from '@/lib/world-footer-content'
 
-const MARK = { portfolio: 'satellite', projects: 'artifact', studies: 'seed', chapel: 'star' } as const
+const MARK = { portfolio: 'satellite', projects: 'artifact', blog: 'seed', chapel: 'star' } as const
 
 /** The one footer of every space (ADR 0022). Inside the open Capela the veil is lifted: it goes by its name (ADR 0022). */
 export function WorldFooter({ locale, insideChapel = false }: { locale: Locale; insideChapel?: boolean }) {
@@ -17,7 +17,7 @@ export function WorldFooter({ locale, insideChapel = false }: { locale: Locale; 
   const href: Record<SpaceId, string> = {
     portfolio: localePath(locale, '/portfolio'),
     projects: '/',
-    studies: '/studies',
+    blog: '/blog',
     chapel: '/chapel',
   }
 

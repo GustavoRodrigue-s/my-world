@@ -8,7 +8,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
 
 /** What an article page tells search engines and link previews, wherever it lives. */
 export interface ArticleSeo {
-  /** The page's path, e.g. `/studies/vida-interior`. */
+  /** The page's path, e.g. `/blog/vida-interior`. */
   path: string
   title: string
   summary: string

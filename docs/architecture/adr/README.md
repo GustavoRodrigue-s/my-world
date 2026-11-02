@@ -20,7 +20,7 @@ ADRs 0001–0009 were recorded retroactively on 2026-10-26 from earlier sessions
 | [0006](0006-home-is-a-map-of-spaces.md) | One world with spaces; the home is a map | accepted |
 | [0007](0007-content-in-mdx.md) | Content in MDX in the repo instead of Strapi | accepted (Estudos implements it; the Capela still reads mock data) |
 | [0008](0008-chapel-becomes-contemplation.md) | The Capela becomes a place of contemplation | accepted (not implemented) |
-| [0009](0009-projects-and-studies.md) | Projetos owns projects; Estudos keeps articles and notes together | accepted (Estudos built; Projetos not started) |
+| [0009](0009-projects-and-studies.md) | Projetos owns projects; Estudos keeps articles and notes together | accepted (Estudos built, now the Blog: 0031; Projetos not started) |
 | [0010](0010-docs-in-the-repo.md) | Documentation lives in the repo | accepted |
 | [0011](0011-dtcg-tokens-with-style-dictionary.md) | Design tokens in DTCG JSON, built with Style Dictionary | accepted (output no longer committed: 0013) |
 | [0012](0012-agnostic-token-taxonomy.md) | Agnostic token taxonomy; the web converts to responsive units | accepted (values and rem base superseded by 0013) |
@@ -38,3 +38,6 @@ ADRs 0001–0009 were recorded retroactively on 2026-10-26 from earlier sessions
 | [0028](0028-strict-token-audit.md) | Half steps, loose opacities and stray radii are gone from the interface | accepted |
 | [0029](0029-strapi-removed.md) | Strapi is removed from the repository | accepted |
 | [0030](0030-the-chart-tells-a-story.md) | The chart tells a story on a loop, in CSS, from tokens | accepted |
+| [0031](0031-estudos-becomes-blog.md) | Estudos becomes the Blog | accepted (supersedes the name in 0009) |
+| [0032](0032-the-blog-is-led-by-pictures.md) | The Blog is led by pictures: covers, a carousel that turns, cards | accepted (supersedes the opening in 0019) |
+| [0033](0033-blog-texts-are-written-without-ai.md) | The Blog's texts are written without AI | accepted |

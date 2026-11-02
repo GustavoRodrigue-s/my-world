@@ -24,7 +24,7 @@ export interface SpecSheetProps {
   /** Mono lines under the code: org, period, kind… */
   meta: string[]
   title: string
-  /** Makes the title a link (e.g. to the study it files). */
+  /** Makes the title a link (e.g. to the post it files). */
   href?: string
   lead: string
   /** Labeled paragraphs; `marked` ones get the rubric rule (a decision, a note). */

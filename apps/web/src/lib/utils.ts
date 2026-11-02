@@ -1,4 +1,14 @@
 // Format a date string to Portuguese locale
+/** A heading's anchor: lower case, no accents, words joined by hyphens. */
+export function headingId(text: string): string {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
 export function formatDate(dateString: string): string {
   // A bare YYYY-MM-DD is read at noon, so no time zone moves it to the day before.
   const date = /^\d{4}-\d{2}-\d{2}$/.test(dateString) ? new Date(`${dateString}T12:00:00`) : new Date(dateString)

@@ -8,14 +8,14 @@ The status of each space is code: `SPACES` in `apps/web/src/lib/world.ts`
 | **Home** — carta do mundo | — | the map of every place, the atlas, the diário de bordo | `/` | open (not in production yet) |
 | **Portfólio** | present | career, résumé, services, contact; only **highlights** of projects; PT + EN | `/portfolio`, `/identity` | open |
 | **Projetos** | make | tech, robotics and social projects in depth: video, images, links | `/projects` (planned) | planned |
-| **Estudos** | think | articles and notes on technology, economy, spiritual life and philosophy | `/studies` | building (closed to the public; on `feat/studies`) |
+| **Blog** | think | articles and notes on technology, economy, spiritual life and philosophy | `/blog` | building (closed to the public; on `feat/studies`) |
 | **Capela** | contemplate, pray | a place of contemplation: candles of intention, letters | `/chapel` | building (closed to the public) |
 
 ## Decisions that shape the spaces
 
 - One world with spaces, the home is a map — [ADR 0006](../architecture/adr/0006-home-is-a-map-of-spaces.md).
 - Unfinished spaces keep their place, badged "em construção" — [ADR 0005](../architecture/adr/0005-spaces-under-construction.md).
-- Projetos is the source of truth for projects; Estudos keeps articles and notes
+- Projetos is the source of truth for projects; the Blog keeps articles and notes
   together — [ADR 0009](../architecture/adr/0009-projects-and-studies.md).
 - Content in MDX in the repo — [ADR 0007](../architecture/adr/0007-content-in-mdx.md).
 - The Capela becomes a place of contemplation — [ADR 0008](../architecture/adr/0008-chapel-becomes-contemplation.md).
@@ -36,21 +36,25 @@ Candidate content: the "Road to Frontend Pleno" projects still in Notion (Loja
 Composable, Painel Kanban, Catálogo, Angular Kanban) and Aprendizado Adaptativo
 (a multidisciplinary personal project, Notion) — move them when this space is built.
 
-## Estudos (building — on `feat/studies`)
+## Blog (building)
 
-Never called "blog". Articles and notes live **together**: what separates them is
+Articles and notes live **together**: what separates them is
 finish, not subject; a note can mature into an article. The index filters by
 theme and by format (Tudo · Artigos · Anotações). Portuguese only for now.
 
-- Routes: `/studies` (filters in the URL: `?theme=economia&format=note`) and
-  `/studies/[slug]` for both formats.
+- Routes: `/blog` (filters in the URL: `?theme=economia&format=note`) and
+  `/blog/[slug]` for both formats.
 - Themes, few and broad: Tecnologia · Economia · Vida espiritual · Filosofia;
-  narrower subjects are tags. Content is MDX in `apps/web/content/studies`
+  narrower subjects are tags. Content is MDX in `apps/web/content/blog`
   ([ADR 0014](../architecture/adr/0014-studies-mdx-setup-and-content-model.md)).
 - Its own palette, **ink and pencil**: articles are ink, notes are pencil
   (graphite) ([ADR 0015](../architecture/adr/0015-studies-ink-and-pencil.md)).
-- Every study ends with a comments area, shown and closed until it has a
+- Every post ends with a comments area, shown and closed until it has a
   backend ([ADR 0016](../architecture/adr/0016-studies-comments-shown-closed.md)).
+- Led by pictures: a carousel, highlights, a cover per post, gray until the
+  picture exists ([ADR 0032](../architecture/adr/0032-the-blog-is-led-by-pictures.md)).
+- Every text is written by Gustavo, without AI, and the page `/blog/policy` says so
+  ([ADR 0033](../architecture/adr/0033-blog-texts-are-written-without-ai.md)).
 - Search: the world's one `SearchDialog`, scoped to the space
   ([ADR 0017](../architecture/adr/0017-one-search-dialog.md)).
 - The Capela's written-out mock study is copied as a `draft` to build the
@@ -81,4 +85,4 @@ The world's front door: an old sea chart with every place on it. Details:
 
 - Whether the home closes with a short verse; a values/manifesto section later.
 - The Capela script (scenes, music, the letter) and when it resumes.
-- When Projetos starts, and its route name; when Estudos opens to the public.
+- When Projetos starts, and its route name; when the Blog opens to the public.

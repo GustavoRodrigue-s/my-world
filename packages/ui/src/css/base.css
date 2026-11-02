@@ -186,6 +186,9 @@
 
   /* Breakpoints: generated/css/tailwind-breakpoints.css (media queries need literals). */
 
+  --aspect-wide:  var(--ratio-wide);
+  --aspect-cover: var(--ratio-cover);
+
   --radius-*: initial;
   --radius-xs:   var(--radius-xs);
   --radius-pill: var(--radius-pill);

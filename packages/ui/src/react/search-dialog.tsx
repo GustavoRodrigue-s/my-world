@@ -20,7 +20,7 @@ export interface SearchResult {
 
 interface SearchDialogProps {
   labels: { open: string; dialogLabel: string; placeholder: string; close: string; empty: string; hint: string; loading: string }
-  /** Where to ask, its scope included (`/api/search?space=studies`); `q` is added. Answers `{ results: SearchResult[] }`. */
+  /** Where to ask, its scope included (`/api/search?space=blog`); `q` is added. Answers `{ results: SearchResult[] }`. */
   endpoint: string
   /** `line` (default): hairline buttons, sans titles. `stone`: the Capela's flat stone, serif titles. */
   variant?: 'line' | 'stone'

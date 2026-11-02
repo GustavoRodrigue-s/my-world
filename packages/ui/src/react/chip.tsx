@@ -9,7 +9,7 @@ interface ChipProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ChipVariant
 }
 
-/** Chip styling for elements that must be links (a study's subjects), so they match `<Chip>`. */
+/** Chip styling for elements that must be links (a post's subjects), so they match `<Chip>`. */
 export function chipClasses({ pressed = false, variant = 'line' }: { pressed?: boolean; variant?: ChipVariant } = {}) {
   return cx(
     'inline-flex h-8 cursor-pointer items-center whitespace-nowrap rounded-xs border px-3 font-mono text-xs no-underline transition-colors duration-fast',

@@ -21,7 +21,7 @@ personal life ([content.md](content.md)).
 ## Out of scope
 
 Auth, payments, favorites, courses, memberships, a "blog". Comments only in
-Estudos, later ([ADR 0016](../architecture/adr/0016-studies-comments-shown-closed.md)). Video only
+Blog, later ([ADR 0016](../architecture/adr/0016-studies-comments-shown-closed.md)). Video only
 inside Projetos (embedded), when it exists.
 
 ## Original vision (2025), for the record
@@ -29,7 +29,7 @@ inside Projetos (embedded), when it exists.
 The first sketch had a biography home, `/portfolio`, and two "life projects":
 `/dev` (technology: studies, articles, tutorials) and `/catholic` (faith:
 Church, saints, theology) — "reason and faith, technique and purpose". `/dev` and
-`/catholic` gave way to Projetos, Estudos and Capela; the biography home gave
+`/catholic` gave way to Projetos, Blog and Capela; the biography home gave
 way to the map (ADR [0006](../architecture/adr/0006-home-is-a-map-of-spaces.md)).
 
 Ideas from then still on the shelf (not decided):
@@ -39,7 +39,7 @@ Ideas from then still on the shelf (not decided):
 - inspirations (books, quotes, people);
 - a "tech stack and tools" page; real cases;
 - faith and technology reflections; a personal liturgical calendar; reviews of
-  spiritual books (now candidates for Estudos);
+  spiritual books (now candidates for Blog);
 - a unified feed, RSS and a newsletter (the diário de bordo is the seed);
 - the purpose line: "Este espaço reúne o que acredito, o que aprendo e o que
   construo — como desenvolvedor, como cristão e como ser humano."

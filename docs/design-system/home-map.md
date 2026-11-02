@@ -8,7 +8,7 @@ accessible navigation (the SVG is `aria-hidden`, its links out of the tab order)
 Copy: `lib/world-content.ts`; logbook: `lib/logbook.ts`.
 
 - **Places** (`components/world/place-glyph.tsx`, shared by map and atlas): a
-  Antena → Portfólio, a Oficina → Projetos, a Biblioteca → Estudos, o Campo →
+  Antena → Portfólio, a Oficina → Projetos, a Biblioteca → Blog, o Campo →
   Capela (never named here, see below). Their state is drawn: ink (open), scaffolding (building), dashed
   blueprint in `support` (planned). Status comes from `lib/world.ts`.
 - **Trails** lead from "você está aqui" (the harbor) to each place; hovering a

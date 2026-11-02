@@ -2,7 +2,7 @@
 
 Gustavo Rodrigues Fabiano's personal platform, "Mundo do Gustavo": one world with
 spaces — the home map (`/`), Portfólio (`/portfolio`, `/identity`, PT + EN),
-Estudos and the Capela (`/studies`, `/chapel`, closed in production), Projetos (planned).
+the Blog and the Capela (`/blog`, `/chapel`, closed in production), Projetos (planned).
 Next.js 15 + TypeScript strict + Tailwind v4, Turborepo + pnpm monorepo, Vercel.
 
 This file is the entry point. The project's memory is **`docs/`** — read the
@@ -20,7 +20,7 @@ transcripts or AI memory when a doc exists.
 | Why things are the way they are | `docs/architecture/adr/` |
 | Visual identity and its rules | `docs/design-system/identity.md` |
 | Which UI component to use | `docs/design-system/components.md` |
-| Portfolio · Capela · Estudos · home map specifics | `docs/design-system/{portfolio,chapel,studies,home-map}.md` |
+| Portfolio · Capela · Blog · home map specifics | `docs/design-system/{portfolio,chapel,blog,home-map}.md` |
 | Run, deploy | `docs/guides/` |
 
 Sources that are code: design tokens `packages/design-system/tokens/*.json` (DTCG); space
@@ -32,9 +32,9 @@ diário de bordo `apps/web/src/lib/logbook.ts`; living brand guide `/identity`.
 - `apps/web/src/app/` — `(world)/` home · `(portfolio)/(pt)` + `en/` · `chapel/` ·
   `under-construction/` · `api/`
 - `apps/web/src/components/` — `ui/` (re-exports `@my-world/ui`), `world/`,
-  `portfolio/`, `identity/`, `chapel/`, `studies/`
-- `apps/web/src/lib/` — `world.ts`, content modules, `studies.ts` (MDX loader), `mock-data.ts`, metadata
-- `apps/web/content/studies/` — Estudos' MDX, one file per study
+  `portfolio/`, `identity/`, `chapel/`, `blog/`
+- `apps/web/src/lib/` — `world.ts`, content modules, `blog.ts` (MDX loader), `mock-data.ts`, metadata
+- `apps/web/content/blog/` — the Blog's MDX, one file per post
 - `packages/ui` (components + CSS), `packages/design-system` (tokens, themes),
   `packages/types`
 
@@ -84,12 +84,15 @@ links into it ask `canEnter()` / `isUnderConstruction()`.
 **Data.** Never call `fetch()` in a page or component (except the search
 dialog → `/api/search`). New content goes to MDX (ADR 0007).
 
+**Blog texts.** Every article and note is written by Gustavo, without AI (ADR
+0033). Build the space, but never write, rewrite or polish a post's text.
+
 **SEO.** Every page has `metadata` / `generateMetadata` with a canonical.
 
 **Privacy.** Identity yes, biography no: the site may state facts (work; that
 he is Catholic, briefly) but never tells Gustavo's life (family, feelings,
 routines, his faith story). No location on the home, nothing finer than the city
-anywhere, no biography or city in the Capela and Estudos. Run the publishing
+anywhere, no biography or city in the Capela and the Blog. Run the publishing
 checklist in `docs/product/content.md` for every text, image, metadata and
 JSON-LD change — closed spaces too (previews open them). Photos of him: crop,
 scale, tone only — never reshape the face. Don't remove `REVIEW` markers without

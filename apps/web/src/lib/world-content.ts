@@ -26,7 +26,7 @@ export const WORLD = {
   meta: {
     title: 'Mundo do Gustavo',
     description:
-      'Coisas boas precisam ser vistas. Este é o mapa delas: o portfólio, os projetos, os estudos de Gustavo Rodrigues Fabiano — e um campo com um tesouro escondido.',
+      'Coisas boas precisam ser vistas. Este é o mapa delas: o portfólio, os projetos, o blog de Gustavo Rodrigues Fabiano — e um campo com um tesouro escondido.',
   },
 
   shell: {
@@ -84,15 +84,15 @@ export const WORLD = {
       verb: 'o que eu construo',
       text: 'Projetos de tecnologia, robótica e sociais, explicados de ponta a ponta, com imagens, vídeos e links.',
     },
-    studies: {
+    blog: {
       place: 'a Biblioteca',
-      name: 'Estudos',
+      name: 'Blog',
       verb: 'o que eu aprendo',
       text: 'Artigos e anotações sobre tecnologia, economia, vida espiritual e filosofia.',
-      href: '/studies',
+      href: '/blog',
       moons: [
-        { label: 'Artigos', href: '/studies?format=article' },
-        { label: 'Anotações', href: '/studies?format=note' },
+        { label: 'Artigos', href: '/blog?format=article#textos' },
+        { label: 'Anotações', href: '/blog?format=note#textos' },
       ],
     },
     chapel: {
@@ -124,4 +124,4 @@ export const WORLD = {
 }
 
 /** Order of the places, on the map and in the atlas. */
-export const PLACE_ORDER: SpaceId[] = ['portfolio', 'projects', 'studies', 'chapel']
+export const PLACE_ORDER: SpaceId[] = ['portfolio', 'projects', 'blog', 'chapel']

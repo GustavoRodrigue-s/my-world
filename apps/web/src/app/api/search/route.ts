@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import type { SearchResult } from '@/components/ui'
 import { MOCK_ARTICLES } from '@/lib/mock-data'
-import { getStudies } from '@/lib/studies'
-import { STUDIES, studiesPath } from '@/lib/studies-content'
+import { getPosts } from '@/lib/blog'
+import { BLOG, blogPath } from '@/lib/blog-content'
 import { canEnter } from '@/lib/world'
 
-// The world's search, one space at a time (ADR 0017): `?space=studies|chapel&q=…`.
+// The world's search, one space at a time (ADR 0017): `?space=blog|chapel&q=…`.
 // It answers only for a space the viewer may enter, so nothing leaks from a closed one.
-const SPACES = ['studies', 'chapel'] as const
+const SPACES = ['blog', 'chapel'] as const
 type SearchSpace = (typeof SPACES)[number]
 
 const LIMIT = 8
@@ -17,16 +17,16 @@ function normalize(text: string) {
   return text.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
 }
 
-// Estudos: the MDX loader's index (title, summary, theme, tags) — only visible studies.
-async function searchStudies(query: string): Promise<SearchResult[]> {
+// Blog: the MDX loader's index (title, summary, theme, tags) — only visible posts.
+async function searchBlog(query: string): Promise<SearchResult[]> {
   const q = normalize(query)
-  return (await getStudies())
-    .filter((s) => [s.title, s.summary, STUDIES.themes[s.theme].name, ...s.tags].some((field) => normalize(field).includes(q)))
+  return (await getPosts())
+    .filter((s) => [s.title, s.summary, BLOG.themes[s.theme].name, ...s.tags].some((field) => normalize(field).includes(q)))
     .slice(0, LIMIT)
     .map((s) => ({
-      href: studiesPath(s.slug),
+      href: blogPath(s.slug),
       title: s.title,
-      kicker: `${STUDIES.themes[s.theme].name} · ${STUDIES.formats[s.format].name}`,
+      kicker: `${BLOG.themes[s.theme].name} · ${BLOG.formats[s.format].name}`,
     }))
 }
 
@@ -47,6 +47,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ results: [] })
   }
 
-  const results = space === 'studies' ? await searchStudies(query) : searchChapel(query)
+  const results = space === 'blog' ? await searchBlog(query) : searchChapel(query)
   return NextResponse.json({ results })
 }

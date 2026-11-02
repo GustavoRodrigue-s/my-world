@@ -585,6 +585,12 @@
       "$value": { "value": 1280, "unit": "px" }
     }
   },
+  "ratio": {
+    "$type": "number",
+    "$description": "Proportions of a picture's frame, width / height.",
+    "wide": { "$value": "2 / 1" },
+    "cover": { "$value": "16 / 9" }
+  },
   "radius": {
     "$type": "dimension",
     "$description": "Near-square corners: a technical drawing, not app chrome.",
@@ -770,6 +776,10 @@
     "drift": {
       "$description": "One slow breath of something at rest (waves, stars).",
       "$value": { "value": 6000, "unit": "ms" }
+    },
+    "turn": {
+      "$description": "How long a carousel's slide stays before the next one comes.",
+      "$value": { "value": 7000, "unit": "ms" }
     },
     "story": {
       "$description": "One full turn of a page's protagonist animation, when it tells a story on a loop.",

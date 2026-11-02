@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s — Gustavo Rodrigues',
     default: 'Gustavo Rodrigues',
   },
-  description: 'Gustavo Rodrigues Fabiano — engenheiro de software e IA. Portfólio, projetos e estudos.',
+  description: 'Gustavo Rodrigues Fabiano — engenheiro de software e IA. Portfólio, projetos e blog.',
   openGraph: {
     siteName: 'Gustavo Rodrigues',
     locale: 'pt_BR',

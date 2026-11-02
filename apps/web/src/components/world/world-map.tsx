@@ -130,7 +130,7 @@ const EQUATOR = 338
 const PLACE_AT: Record<SpaceId, { x: number; y: number; trail: string }> = {
   portfolio: { x: 668, y: 250, trail: 'M478 509C610 492 702 400 672 302' },
   projects: { x: 300, y: 372, trail: 'M464 510C390 512 302 470 300 422' },
-  studies: { x: 455, y: 222, trail: 'M467 505C420 448 390 342 452 270' },
+  blog: { x: 455, y: 222, trail: 'M467 505C420 448 390 342 452 270' },
   chapel: { x: MERIDIAN, y: EQUATOR, trail: 'M472 504C482 466 512 426 500 388' },
 }
 

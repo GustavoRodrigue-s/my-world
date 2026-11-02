@@ -8,7 +8,7 @@ import type { SpaceId, SpaceStatus } from '@/lib/world'
  *
  *   portfolio → a Antena     (the signal the world sends out)
  *   projects  → a Oficina    (sawtooth workshop and chimney)
- *   studies   → a Biblioteca (columns and pediment)
+ *   blog      → a Biblioteca (columns and pediment)
  *   chapel    → o Campo      (a small house of prayer with no cross on it;
  *                              only a rose window with a gold heart)
  *
@@ -43,7 +43,7 @@ const DRAWING: Record<SpaceId, { width: number; ink: string; extra?: (planned: b
       'M-24 0V-22H24V0M-24 -22V-34L-12 -22V-34L0 -22V-34L12 -22V-34L24 -22M16 -26V-48H22V-30' +
       'M-5 0V-11H5V0M-19 -8H-13V-14H-19ZM13 -8H19V-14H13ZM-29 0H29',
   },
-  studies: {
+  blog: {
     width: 27,
     ink:
       'M-28 0H28M-25 -3H25M-18 -3V-24M-9 -3V-24M0 -3V-24M9 -3V-24M18 -3V-24' +

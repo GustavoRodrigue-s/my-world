@@ -1,6 +1,6 @@
 # 0009 — Projetos owns projects; Estudos keeps articles and notes together
 
-- **Status:** accepted (not implemented)
+- **Status:** accepted (not implemented; the name superseded by [0031](0031-estudos-becomes-blog.md))
 - **Date:** 2026-10-25
 - **Supersedes:** the 2025 `/dev` area; "no blog / notes environment for now" (2026-10-16)
 

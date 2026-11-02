@@ -396,6 +396,22 @@
   [data-env] [data-chart-paused] :is(.chart-sail, .chart-rock, .chart-walk, .chart-ping, .chart-glint, .chart-orbit, .chart-shimmer) {
     animation-play-state: paused;
   }
+
+  /* A carousel's turning: when this line is drawn, the next slide comes (Carousel).
+     It waits for the pause, the keyboard's focus and the pointer. */
+  [data-env]:not([data-motion='still']) .carousel-turn {
+    animation: gw-draw-x var(--duration-turn) linear both;
+  }
+
+  [data-env] [data-carousel]:is([data-carousel-paused], :has(:focus-visible)) .carousel-turn {
+    animation-play-state: paused;
+  }
+
+  @media (hover: hover) {
+    [data-env] [data-carousel]:hover .carousel-turn {
+      animation-play-state: paused;
+    }
+  }
 }
 
 @media print {

@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
       { source: '/categories/:path*', destination: '/chapel/categories/:path*', permanent: false },
       { source: '/saints', destination: '/chapel/saints', permanent: false },
       { source: '/about', destination: '/chapel/about', permanent: false },
+      // Estudos became the Blog (2026-11-02, ADR 0031).
+      { source: '/studies/:path*', destination: '/blog/:path*', permanent: false },
     ]
   },
 }

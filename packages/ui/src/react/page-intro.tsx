@@ -13,6 +13,9 @@ const pageIntroVariants = cva('section-inner flex flex-col', {
   defaultVariants: { align: 'center' },
 })
 
+// The air around an opening; `compact` when a picture already opens the page.
+const SPACING = { full: 'pt-16 pb-16 md:pt-24 md:pb-24', compact: 'pt-10 pb-12 md:pt-12 md:pb-16' } as const
+
 interface PageIntroProps extends VariantProps<typeof pageIntroVariants> {
   /** Id of the heading inside `children` that names the page. */
   labelledBy: string
@@ -26,6 +29,7 @@ interface PageIntroProps extends VariantProps<typeof pageIntroVariants> {
   actions?: React.ReactNode
   /** Under the actions: a <Byline>, a meta line… */
   footer?: React.ReactNode
+  spacing?: keyof typeof SPACING
   className?: string
 }
 
@@ -34,10 +38,10 @@ interface PageIntroProps extends VariantProps<typeof pageIntroVariants> {
  * No rules, no figure, no title block — whitespace does the framing.
  * First-frame content: the h1 stays the page's largest paint.
  */
-export function PageIntro({ labelledBy, ornament, label, children, actions, footer, align, className }: PageIntroProps) {
+export function PageIntro({ labelledBy, ornament, label, children, actions, footer, align, spacing = 'full', className }: PageIntroProps) {
   const centered = align !== 'start'
   return (
-    <section aria-labelledby={labelledBy} className={cx('px-gutter md:px-gutter-wide pt-16 pb-16 md:pt-24 md:pb-24', className)}>
+    <section aria-labelledby={labelledBy} className={cx('px-gutter md:px-gutter-wide', SPACING[spacing], className)}>
       <div className={pageIntroVariants({ align })}>
         {ornament && <div className="mb-5">{ornament}</div>}
         {label && (

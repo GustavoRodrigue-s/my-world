@@ -600,7 +600,7 @@ export const pt: PortfolioCopy = {
         satellite: ['Satélite', 'antena — portfólio, currículo, assinatura de projetos'],
         star: ['Estrela', 'tesouro escondido — guardado, não exibido'],
         artifact: ['Artefato', 'oficina — projetos de tecnologia, robótica e sociais'],
-        seed: ['Semente', 'biblioteca — estudos, artigos e anotações'],
+        seed: ['Semente', 'biblioteca — blog, artigos e anotações'],
       },
       rulesLabel: 'regras',
       rules: [
@@ -615,7 +615,7 @@ export const pt: PortfolioCopy = {
         paper: 'papel + brasa',
         mono: 'uma cor',
         star: 'estrela',
-        seed: 'estudos',
+        seed: 'blog',
         favicon: 'favicon adaptativo',
       },
     },
@@ -624,7 +624,7 @@ export const pt: PortfolioCopy = {
       note: 'papel, tinta e uma cor',
       title: 'Cores',
       intro:
-        'Tudo é papel e tinta. A única cor é o vermelho — rubrica de dia, brasa à noite, ajustado para manter contraste nos dois. A cianotipia azul só aparece no que ainda está na prancheta; há um ouro escondido, que só aparece de perto; os Estudos escrevem numa folha de livro, a tinta o que está acabado e a lápis o que ainda está em andamento.',
+        'Tudo é papel e tinta. A única cor é o vermelho — rubrica de dia, brasa à noite, ajustado para manter contraste nos dois. A cianotipia azul só aparece no que ainda está na prancheta; há um ouro escondido, que só aparece de perto; o Blog escreve numa folha de livro, a tinta o que está acabado e a lápis o que ainda está em andamento.',
       large: 'AA grande',
       swatches: {
         paper: ['Papel', 'superfície do dia'],
@@ -636,9 +636,9 @@ export const pt: PortfolioCopy = {
         ember: ['Brasa', 'o acento, à noite'],
         cyanotype: ['Cianotipia', 'só o que está na prancheta'],
         gold: ['Ouro', 'o ouro escondido'],
-        leaf: ['Folha', 'a página dos Estudos, de dia'],
-        lamp: ['Lamparina', 'a página dos Estudos, à noite'],
-        pencil: ['Lápis', 'nos Estudos, o que ainda está em andamento'],
+        leaf: ['Folha', 'a página do Blog, de dia'],
+        lamp: ['Lamparina', 'a página do Blog, à noite'],
+        pencil: ['Lápis', 'no Blog, o que ainda está em andamento'],
       },
     },
     type: {
@@ -720,7 +720,7 @@ export const pt: PortfolioCopy = {
         ['artefato', 'um projeto entregue'],
         ['oficina', 'onde se constrói'],
         ['tesouro escondido', 'o que se encontra, não o que se mostra'],
-        ['tinta e lápis', 'acabado e em andamento — os Estudos'],
+        ['tinta e lápis', 'acabado e em andamento — o Blog'],
         ['órbita', 'em produção, em uso'],
         ['prancheta', 'planejado, ainda não começou'],
         ['capricho', 'o padrão de qualidade'],

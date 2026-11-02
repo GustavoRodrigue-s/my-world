@@ -42,21 +42,24 @@ export { SpecSheet } from './spec-sheet'
 export type { SpecSheetProps } from './spec-sheet'
 export { OrbitChart } from './orbit-chart'
 export { Register } from './register'
-// Running text written in Markdown/MDX (Estudos)
+// Running text written in Markdown/MDX (Blog)
 export { ProseLink, ProseList, ProseQuote, ProseCode, ProseRule, ProsePre, ProseTable, ProseFigure } from './prose'
-// Forms and readers' comments (Estudos, ADR 0016)
+// Forms and readers' comments (Blog, ADR 0016)
 export { TextField, TextArea } from './field'
 export { CommentList } from './comment-list'
 export type { CommentEntry } from './comment-list'
 export { CommentForm } from './comment-form'
 export { StrokeMark } from './stroke-mark'
+// Pictures of the Blog (ADR 0032)
+export { Cover } from './cover'
+export { Carousel } from './carousel'
 // The world's one search (ADR 0017)
 export { SearchDialog } from './search-dialog'
 export type { SearchResult } from './search-dialog'
 // Flat dialect (Capela): fills instead of rules, serif titles, still pages.
 export { PageIntro } from './page-intro'
 export { SectionIntro } from './section-intro'
-export { EntryList } from './entry-list'
+export { EntryList, EntryCards } from './entry-list'
 export type { IndexEntry } from './entry-list'
 export { FeaturedEntry } from './featured-entry'
 export { TileGrid } from './tile-grid'

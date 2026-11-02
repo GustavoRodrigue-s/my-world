@@ -3,7 +3,7 @@
 Hosted on **Vercel**, from GitHub: the default branch `master` deploys to
 production; every other pushed branch gets a **preview** deployment.
 
-- Previews are behind Vercel Authentication and show closed spaces (Estudos, the Capela)
+- Previews are behind Vercel Authentication and show closed spaces (the Blog, the Capela)
   with the construction notice — the way to review work in progress.
 - Production never shows closed spaces; they are served by their
   `/under-construction/<space>` page with `noindex`.

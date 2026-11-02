@@ -51,9 +51,10 @@ The base colors are not emitted as CSS: components use the themes' roles
 | `filter.grayscale.*` · `filter.sepia.*` (photo tone) · `filter.blur.glass` | `grayscale-(--filter-grayscale-subtle)`, `sepia-(--filter-sepia-medium)`, `backdrop-blur-(--filter-blur-glass)` |
 | `size.container` · `size.measure` · `size.bar` | `.section-inner` · `max-w-measure` / `.article-inner` · `h-bar`, `scroll-mt-bar` |
 | `breakpoint.*` | `sm:` `md:` `lg:` `xl:` |
+| `ratio.wide` · `ratio.cover` (a picture's frame) | `aspect-wide` · `aspect-cover` |
 | `radius.*` | `rounded-xs` · `rounded-pill` · arches: `rounded-t-[50%_var(--radius-arch)]` |
 | `opacity.*` | `opacity-wash` · `opacity-faint` · `opacity-dim` · `opacity-half` · `opacity-edge` · `opacity-strong`; a translucent color is a named color (`bg-surface-glass`, `border-support-edge`, `bg-support-wash`), never `bg-surface/85` |
-| `duration.*` · `easing.*` | `duration-fast` · `normal` · `slow` · `slower` · `gesture` · `slowest` (`arrive`, `pulse`, `draw` and `ease` `draw` drive the map in identity.css; `story` and `drift` drive the chart's loop; `stagger` is one step of an arrival sequence) · `ease-standard` · `ease-out` · `ease-in-out` · `animate-quote-in` |
+| `duration.*` · `easing.*` | `duration-fast` · `normal` · `slow` · `slower` · `gesture` · `slowest` (`arrive`, `pulse`, `draw` and `ease` `draw` drive the map in identity.css; `story` and `drift` drive the chart's loop; `turn` is a carousel's wait; `stagger` is one step of an arrival sequence) · `ease-standard` · `ease-out` · `ease-in-out` · `animate-quote-in` |
 | `border.width.*` | hairline (Tailwind's `border`) · `strong` (focus ring) |
 | `layer.*` | `z-raised` · `z-sticky` · `z-overlay` · `z-top` |
 | `shadow.floating` (per theme) | `shadow-floating` |

@@ -1,14 +1,14 @@
 import { cx } from './utils'
 
 interface StrokeMarkProps {
-  /** `ink`: solid, in ink — finished. `pencil`: dashed, in the support color (graphite in Estudos) — still in progress. */
+  /** `ink`: solid, in ink — finished. `pencil`: dashed, in the support color (graphite in the Blog) — still in progress. */
   finish: 'ink' | 'pencil'
   className?: string
 }
 
 /**
  * The finish of a piece of writing, drawn as one short stroke of the hand
- * (Estudos' format mark, ADR 0015). Decorative: the format's name always sits
+ * (the Blog's format mark, ADR 0015). Decorative: the format's name always sits
  * beside it.
  */
 export function StrokeMark({ finish, className }: StrokeMarkProps) {

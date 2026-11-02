@@ -27,7 +27,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 # SHOW_UNDER_CONSTRUCTION=true|false   # override who can enter closed spaces
 ```
 
-In `next dev`, closed spaces (Estudos, the Capela) are open to you, with a notice;
+In `next dev`, closed spaces (the Blog, the Capela) are open to you, with a notice;
 set `SHOW_UNDER_CONSTRUCTION=false` to see what the public sees.
 
 ## For AI sessions

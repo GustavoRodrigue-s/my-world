@@ -601,7 +601,7 @@ export const en: PortfolioCopy = {
         satellite: ['Satellite', 'antenna — portfolio, résumé, project signature'],
         star: ['Star', 'hidden treasure — kept, not displayed'],
         artifact: ['Artifact', 'workshop — tech, robotics and social projects'],
-        seed: ['Seed', 'library — studies, articles and notes'],
+        seed: ['Seed', 'library — blog, articles and notes'],
       },
       rulesLabel: 'rules',
       rules: [
@@ -616,7 +616,7 @@ export const en: PortfolioCopy = {
         paper: 'paper + ember',
         mono: 'one color',
         star: 'star',
-        seed: 'studies',
+        seed: 'blog',
         favicon: 'adaptive favicon',
       },
     },
@@ -625,7 +625,7 @@ export const en: PortfolioCopy = {
       note: 'paper, ink and one color',
       title: 'Colors',
       intro:
-        'Everything is paper and ink. The only color is red — rubric by day, ember by night, tuned to keep contrast in both. The blue cyanotype appears only on what is still on the drawing board; there is a hidden gold, which only shows up close; Estudos writes on the page of a book, in ink what is finished and in pencil what is still in progress.',
+        'Everything is paper and ink. The only color is red — rubric by day, ember by night, tuned to keep contrast in both. The blue cyanotype appears only on what is still on the drawing board; there is a hidden gold, which only shows up close; the Blog writes on the page of a book, in ink what is finished and in pencil what is still in progress.',
       large: 'AA large',
       swatches: {
         paper: ['Paper', 'day surface'],
@@ -637,9 +637,9 @@ export const en: PortfolioCopy = {
         ember: ['Ember', 'the accent, by night'],
         cyanotype: ['Cyanotype', 'only what is on the drawing board'],
         gold: ['Gold', 'the hidden gold'],
-        leaf: ['Leaf', 'the page of Estudos, by day'],
-        lamp: ['Lamplight', 'the page of Estudos, by night'],
-        pencil: ['Pencil', 'in Estudos, what is still in progress'],
+        leaf: ['Leaf', 'the page of the Blog, by day'],
+        lamp: ['Lamplight', 'the page of the Blog, by night'],
+        pencil: ['Pencil', 'in the Blog, what is still in progress'],
       },
     },
     type: {
@@ -718,7 +718,7 @@ export const en: PortfolioCopy = {
         ['artifact', 'a delivered project'],
         ['workshop', 'where things are built'],
         ['hidden treasure', 'what is found, not what is shown'],
-        ['ink and pencil', 'finished and in progress — Estudos'],
+        ['ink and pencil', 'finished and in progress — the Blog'],
         ['orbit', 'in production, in use'],
         ['drawing board', 'planned, not started yet'],
         ['care', 'the quality bar — “capricho” in Portuguese'],

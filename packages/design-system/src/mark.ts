@@ -7,7 +7,7 @@
  * The G-orbit monogram. An open orbit draws the G; the crossbar points to the
  * core (the world, the self); a satellite rides in the G's mouth — the work
  * leaving the world. Each landscape swaps only the satellite:
- *   satellite → the portfolio, star → the chapel, artifact → the projects, seed → the studies.
+ *   satellite → the portfolio, star → the chapel, artifact → the projects, seed → the blog.
  *
  * Geometry is exported so construction drawings (identity page, favicons,
  * OG images) are built from the same numbers instead of being re-traced.

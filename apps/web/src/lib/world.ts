@@ -11,7 +11,7 @@ export const SPACES = {
   portfolio: { paths: ['/portfolio', '/identity', '/en'], status: 'open' },
   chapel: { paths: ['/chapel'], status: 'building' },
   projects: { paths: [], status: 'planned' },
-  studies: { paths: ['/studies'], status: 'building' },
+  blog: { paths: ['/blog'], status: 'building' },
 } as const satisfies Record<string, { paths: readonly string[]; status: SpaceStatus }>
 
 export type SpaceId = keyof typeof SPACES

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { MOCK_ARTICLES } from '@/lib/mock-data'
-import { getStudies } from '@/lib/studies'
-import { studiesPath } from '@/lib/studies-content'
+import { getPosts } from '@/lib/blog'
+import { blogPath, policyPath } from '@/lib/blog-content'
 import { LOCALES, LOCALE_META, localePath, type PortfolioPath } from '@/lib/portfolio-locale'
 import { canEnter } from '@/lib/world'
 
@@ -31,14 +31,15 @@ function chapelEntries(): MetadataRoute.Sitemap {
   ]
 }
 
-// Estudos (Portuguese only) — listed only while it is open; drafts never are.
-async function studiesEntries(): Promise<MetadataRoute.Sitemap> {
-  if (!canEnter('studies')) return []
-  const studies = (await getStudies()).filter((s) => s.status === 'published')
+// Blog (Portuguese only) — listed only while it is open; drafts never are.
+async function blogEntries(): Promise<MetadataRoute.Sitemap> {
+  if (!canEnter('blog')) return []
+  const posts = (await getPosts()).filter((s) => s.status === 'published')
   return [
-    { url: `${BASE_URL}${studiesPath()}`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    ...studies.map((s) => ({
-      url: `${BASE_URL}${studiesPath(s.slug)}`,
+    { url: `${BASE_URL}${blogPath()}`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE_URL}${policyPath()}`, changeFrequency: 'yearly', priority: 0.3 },
+    ...posts.map((s) => ({
+      url: `${BASE_URL}${blogPath(s.slug)}`,
       lastModified: new Date(s.updatedAt ?? s.publishedAt),
       changeFrequency: 'monthly' as const,
       priority: s.format === 'article' ? 0.7 : 0.5,
@@ -50,7 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     // The world's home: the map of every place.
     { url: BASE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    ...(await studiesEntries()),
+    ...(await blogEntries()),
     ...chapelEntries(),
     // Portfolio — one entry per edition, each naming its counterpart.
     ...PORTFOLIO.flatMap(({ path, changeFrequency, priority }) =>
